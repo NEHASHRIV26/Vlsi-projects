@@ -1,0 +1,13 @@
+halsynth: Loading design snapshot....
+halsynth: Traversing design hierarchy....
+halsynth: *M,_SCOPE: mux2to1_tb
+halsynth: *W,INIUSP (./mux_tb.v,13|0): Module mux2to1_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+~:CLKOUT
+~:CLKSRD
+~:COMBLP
+~:INPOUT
+~:MUDREG
+~:MULWIR
+~:UNDRIV
+halsynth: Total errors   = 0.
+halsynth: Total warnings = 1.

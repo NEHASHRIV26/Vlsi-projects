@@ -1,0 +1,3 @@
+s1(15Jun2026:11:58:14):  xrun memory_tb.sv -access +rwc -gui -coverage all 
+s2(16Jun2026:08:51:01):  xrun memory_tb.sv -access +rwc -gui -coverage all 
+s3(16Jun2026:09:11:19):  xrun memory_tb.sv -access +rwc -gui -coverage all 

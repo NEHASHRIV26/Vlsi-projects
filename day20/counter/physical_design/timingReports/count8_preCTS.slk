@@ -1,0 +1,25 @@
+# Format: clock  timeReq  slackR/slackF  setupR/setupF  instName/pinName   # cycle(s)
+clk(R)->clk(R)	0.870    -0.012/*        0.120/*         counter_u_d_reg[7]/D    1
+clk(R)->clk(R)	0.861    -0.008/*        0.129/*         counter_u_d_reg[5]/D    1
+clk(R)->clk(R)	0.884    */-0.001        */0.106         counter_u_d_reg[2]/D    1
+clk(R)->clk(R)	0.866    0.002/*         0.124/*         counter_u_d_reg[3]/D    1
+clk(R)->clk(R)	0.868    0.004/*         0.122/*         counter_u_d_reg[6]/D    1
+clk(R)->clk(R)	0.860    0.004/*         0.130/*         counter_u_d_reg[4]/D    1
+clk(R)->clk(R)	0.600    0.006/*         0.400/*         counter[2]    1
+clk(R)->clk(R)	0.867    0.007/*         0.123/*         counter_u_d_reg[1]/D    1
+clk(R)->clk(R)	0.600    */0.030         */0.400         counter[0]    1
+clk(R)->clk(R)	0.600    */0.050         */0.400         counter[4]    1
+clk(R)->clk(R)	0.600    0.158/*         0.400/*         counter[5]    1
+clk(R)->clk(R)	0.600    */0.169         */0.400         counter[6]    1
+clk(R)->clk(R)	0.600    */0.172         */0.400         counter[3]    1
+clk(R)->clk(R)	0.600    */0.173         */0.400         counter[1]    1
+clk(R)->clk(R)	0.913    0.187/*         0.077/*         counter_u_d_reg[5]/RN    1
+clk(R)->clk(R)	0.913    0.188/*         0.077/*         counter_u_d_reg[7]/RN    1
+clk(R)->clk(R)	0.600    */0.207         */0.400         counter[7]    1
+clk(R)->clk(R)	0.864    0.223/*         0.126/*         counter_u_d_reg[0]/D    1
+clk(R)->clk(R)	0.959    0.233/*         0.031/*         counter_u_d_reg[3]/RN    1
+clk(R)->clk(R)	0.959    0.233/*         0.031/*         counter_u_d_reg[1]/RN    1
+clk(R)->clk(R)	0.959    0.233/*         0.031/*         counter_u_d_reg[0]/RN    1
+clk(R)->clk(R)	0.959    0.233/*         0.031/*         counter_u_d_reg[4]/RN    1
+clk(R)->clk(R)	0.994    0.268/*         -0.004/*        counter_u_d_reg[2]/RN    1
+clk(R)->clk(R)	0.994    0.268/*         -0.004/*        counter_u_d_reg[6]/RN    1

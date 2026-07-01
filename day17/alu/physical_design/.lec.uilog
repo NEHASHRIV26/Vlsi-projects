@@ -1,0 +1,3551 @@
+#Version: 22.20-s200 (27-Feb-2023) (64 bit executable)
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+#Gui Step(0)===>(Text).a.pane.f3.command.text.text <Button-1> 1.1
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 0:  (Text) <Button-1>\
+ 1.1} .a.pane.f3.command.text.text } 
+set x [guiGetTextX .a.pane.f3.command.text.text 1 1];set y [guiGetTextY .a.pane.f3.command.text.text 1 1] 
+   tkTextButton1 .a.pane.f3.command.text.text $x $y
+  .a.pane.f3.command.text.text tag remove sel 0.0 end
+#Gui Step(1)===>(Text).a.pane.f3.command.text.text <Button-1> 1.1
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 1:  (Text) <Button-1>\
+ 1.1} .a.pane.f3.command.text.text } 
+set x [guiGetTextX .a.pane.f3.command.text.text 1 1];set y [guiGetTextY .a.pane.f3.command.text.text 1 1] 
+     tk::TextButton1 .a.pane.f3.command.text.text $x $y
+    .a.pane.f3.command.text.text tag remove sel 0.0 end
+ guiMainWinButtonRelease-1 .a.pane.f3.command.text.text
+     tk::CancelRepeat
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text f
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text y
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text t
+ guiTextKeyPress .a.pane.f3.command.text.text y
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text /
+ guiTextKeyPress .a.pane.f3.command.text.text h
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text i
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text {}
+ guiTextKeyPress .a.pane.f3.command.text.text {}
+tk::TabToWindow [tk_focusPrev .a.pane.f3.command.text.text]
+ 
+#Gui Step(4)===>(Text).a.pane.f3.command.text.text <Button-1> 1.37
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 4:  (Text) <Button-1>\
+ 1.37} .a.pane.f3.command.text.text } 
+set x [guiGetTextX .a.pane.f3.command.text.text 1 37];set y [guiGetTextY .a.pane.f3.command.text.text 1 37] 
+   tkTextButton1 .a.pane.f3.command.text.text $x $y
+  .a.pane.f3.command.text.text tag remove sel 0.0 end
+#Gui Step(5)===>(Text).a.pane.f3.command.text.text <Button-1> 1.37
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 5:  (Text) <Button-1>\
+ 1.37} .a.pane.f3.command.text.text } 
+set x [guiGetTextX .a.pane.f3.command.text.text 1 37];set y [guiGetTextY .a.pane.f3.command.text.text 1 37] 
+     tk::TextButton1 .a.pane.f3.command.text.text $x $y
+    .a.pane.f3.command.text.text tag remove sel 0.0 end
+ guiMainWinButtonRelease-1 .a.pane.f3.command.text.text
+     tk::CancelRepeat
+ guiTextKeyPress .a.pane.f3.command.text.text {}
+ guiTextKeyPress .a.pane.f3.command.text.text F
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text d
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text /
+ guiTextKeyPress .a.pane.f3.command.text.text 9
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text d
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiTextKeyPress .a.pane.f3.command.text.text /
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text o
+ guiTextKeyPress .a.pane.f3.command.text.text w
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiMainWinKeyReturn .a.pane.f3.command.text.text 
+ guiWinConfig .b.frame.lab 168 21 1 1 
+ guiWinConfig .b.frame.lab 216 21 1 1 
+ guiWinConfig .a.pane.f3.command.text.text.promt2 60 19 1 20 
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text g
+ guiTextKeyPress .a.pane.f3.command.text.text n
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text v
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text o
+ guiTextKeyPress .a.pane.f3.command.text.text g
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiTextKeyPress .a.pane.f3.command.text.text /
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text y
+ guiTextKeyPress .a.pane.f3.command.text.text n
+ guiTextKeyPress .a.pane.f3.command.text.text t
+ guiTextKeyPress .a.pane.f3.command.text.text h
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text u
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiTextKeyPress .a.pane.f3.command.text.text v
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text g
+ guiTextKeyPress .a.pane.f3.command.text.text o
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text n
+ guiMainWinKeyReturn .a.pane.f3.command.text.text 
+ guiWinConfig .b.frame.lab 168 21 1 1 
+ guiWinConfig .b.frame.lab 229 21 1 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.hsb 1 13 0 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.hsb 1 13 0 1 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .a.pane.f3.command.text.text.promt3 60 19 1 39 
+ guiWinConfig . 1600 829 8 57 
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+   global cmd_status
+   if {[.a.pane.f3.command.text.text tag nextrange sel 1.0 end] != ""} {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  }
+   callback Gui_cmd_history 0
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiTextKeyPress .a.pane.f3.command.text.text {}
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+ guiTextKeyPress .a.pane.f3.command.text.text {}
+   tk_textPaste .a.pane.f3.command.text.text
+ guiWinConfig . 1600 829 8 57 
+ 
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text v
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiMainWinKeyReturn .a.pane.f3.command.text.text 
+ guiWinConfig .b.frame.lab 172 21 1 1 
+ guiWinConfig .b.frame.lab 229 21 1 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.hsb 1 13 0 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.hsb 1 13 0 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.hsb 1 13 0 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.hsb 1 13 0 1 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .a.pane.f3.command.text.text.promt4 60 19 1 58 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+     tk::MbEnter .v_menu.opt
+     tk::MbMotion .v_menu.opt up 308 72
+     tk::MbLeave .v_menu.opt
+         if { [ .icon.find cget -state ] == "normal" } {
+            .icon.find configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.find
+ .icon.find configure -relief flat 
+     tk::ButtonLeave .icon.find
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .v_menu.logo cget -state ] == "normal" } {
+            .v_menu.logo configure -relief groove
+        }
+    
+     tk::ButtonEnter .v_menu.logo
+ .v_menu.logo configure -relief flat 
+     tk::ButtonLeave .v_menu.logo
+     tk::ButtonEnter .icon.mode.frame.arrow
+_tixRecordFlags <1> % 26323 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72397125 ?? 12 19 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .icon.mode.frame.arrow 1598 119; 
+	tixComboBox:ArrowDown [tixGetMegaWidget .icon.mode.frame.arrow TixComboBox]
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusIn> % 26339 ?? ?? ?? NotifyNonlinearVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyNonlinearVirtual" eq "NotifyNonlinear" || "NotifyNonlinearVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+     tk::ButtonDown .icon.mode.frame.arrow
+_tixRecordFlags <ButtonRelease-1> % 26577 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72397203 ?? 12 19 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .icon.mode.frame.arrow 1598 119; 
+	tixComboBox:ArrowUp   [tixGetMegaWidget .icon.mode.frame.arrow TixComboBox]
+    ; _tixDeleteFlags;
+     tk::ButtonUp .icon.mode.frame.arrow
+     tk::ButtonLeave .icon.mode.frame.arrow
+     set tk::Priv(window) .icon.mode.shell
+    if {[.icon.mode.shell cget -type] eq "tearoff"} {
+	if {"NotifyNormal" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .icon.mode.shell
+	    }
+	}
+    }
+    tk::MenuMotion .icon.mode.shell 55 0 0
+_tixRecordFlags <1> % 26655 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72397828 ?? 41 25 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .icon.mode.shell.slistbox.listbox 1536 153; 
+	if {[set [tixGetMegaWidget .icon.mode.shell.slistbox.listbox](-state)] eq "disabled"} {
+	    break
+	}
+    ; _tixDeleteFlags;
+set x [guiGetListBoxEntryX .icon.mode.shell.slistbox.listbox 1];set y [guiGetListBoxEntryY .icon.mode.shell.slistbox.listbox 1] 
+     if {[winfo exists .icon.mode.shell.slistbox.listbox]} {
+	tk::ListboxBeginSelect .icon.mode.shell.slistbox.listbox [.icon.mode.shell.slistbox.listbox index  @$x,$y] 1
+    }
+#Gui Step(14)===>(Listbox).icon.mode.shell.slistbox.listbox <Button-1> LEC
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 14:  (Listbox) <Button-1>\
+ LEC} .icon.mode.shell.slistbox.listbox } 
+_tixRecordFlags <1> % 26655 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72397828 ?? 41 25 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .icon.mode.shell.slistbox.listbox 1536 153; 
+	if {[string is true -strict [.icon.mode.shell.slistbox.listbox cget -takefocus]]} {
+	    focus .icon.mode.shell.slistbox.listbox
+	}
+	tixScrolledListBox:Browse [tixGetMegaWidget .icon.mode.shell.slistbox.listbox]
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusOut> % 26655 ?? ?? ?? NotifyNonlinearVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyNonlinearVirtual NotifyNonlinear] ||
+	    [string equal NotifyNonlinearVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+focus .icon.mode.shell.slistbox.listbox
+#Gui Step(15)===>(Listbox).icon.mode.shell.slistbox.listbox <ButtonRelease-1> LEC
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 15:  (Listbox) <ButtonRelease-1>\
+ LEC} .icon.mode.shell.slistbox.listbox } 
+_tixRecordFlags <ButtonRelease-1> % 28244 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72397937 ?? 41 25 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .icon.mode.shell.slistbox.listbox 1536 153; 
+	if {[set [tixGetMegaWidget .icon.mode.shell.slistbox.listbox](-state)] eq "disabled"} {
+	    break
+	}
+    ; _tixDeleteFlags;
+#Gui Step(16)===>(Listbox).icon.mode.shell.slistbox.listbox <ButtonRelease-1> LEC
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 16:  (Listbox) <ButtonRelease-1>\
+ LEC} .icon.mode.shell.slistbox.listbox } 
+     tk::CancelRepeat
+    .icon.mode.shell.slistbox.listbox activate @41,25
+#Gui Step(17)===>(Listbox).icon.mode.shell.slistbox.listbox <ButtonRelease-1> LEC
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 17:  (Listbox) <ButtonRelease-1>\
+ LEC} .icon.mode.shell.slistbox.listbox } 
+_tixRecordFlags <ButtonRelease-1> % 28244 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72397937 ?? 41 25 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .icon.mode.shell.slistbox.listbox 1536 153; 
+	tixScrolledListBox:Browse [tixGetMegaWidget .icon.mode.shell.slistbox.listbox]
+    ; _tixDeleteFlags;
+ guiWinConfig .b.frame.lab 140 21 1 1 
+ guiWinConfig .b.met 203 23 1393 4 
+ guiWinConfig .b.frame 1381 23 4 4 
+ guiWinConfig .b.met.canvas 201 21 1 1 
+ guiWinConfig .b.frame.lab 130 21 1 1 
+ guiWinConfig .b.frame.lab 147 21 1 1 
+ guiWinConfig .b.frame.lab 146 21 1 1 
+ guiWinConfig .b.frame.lab 136 21 1 1 
+ guiWinConfig .b.frame.lab 147 21 1 1 
+ guiWinConfig .b.frame.lab 148 21 1 1 
+ guiWinConfig .b.frame.lab 219 21 1 1 
+ guiWinConfig .a.pane.f3.command.text.text.promt5 44 19 1 77 
+ guiWinConfig .a.pane.f3.command.text.text.promt6 44 19 45 77 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+     tk::MbEnter .v_menu.compare
+     tk::MbMotion .v_menu.compare up 131 69
+     tk::MbLeave .v_menu.compare
+     tk::MbEnter .v_menu.compare
+     tk::MbMotion .v_menu.compare up 90 61
+     tk::MbMotion .v_menu.compare up 90 65
+     tk::MbMotion .v_menu.compare up 92 75
+     tk::MbMotion .v_menu.compare up 97 84
+     tk::MbLeave .v_menu.compare
+         if { [ .icon.hierCmp cget -state ] == "normal" } {
+            .icon.hierCmp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.hierCmp
+ .icon.hierCmp configure -relief flat 
+     tk::ButtonLeave .icon.hierCmp
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+#Gui Step(18)===>(Text).a.pane.f2.mesg.text.text <Button-1> 62.14
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 18:  (Text) <Button-1>\
+ 62.14} .a.pane.f2.mesg.text.text } 
+set x [guiGetTextX .a.pane.f2.mesg.text.text 62 14];set y [guiGetTextY .a.pane.f2.mesg.text.text 62 14] 
+   .a.pane.f2.mesg.text.text configure -state normal
+  tkTextButton1 .a.pane.f2.mesg.text.text $x $y
+#Gui Step(19)===>(Text).a.pane.f2.mesg.text.text <Button-1> 62.14
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 19:  (Text) <Button-1>\
+ 62.14} .a.pane.f2.mesg.text.text } 
+set x [guiGetTextX .a.pane.f2.mesg.text.text 62 14];set y [guiGetTextY .a.pane.f2.mesg.text.text 62 14] 
+     tk::TextButton1 .a.pane.f2.mesg.text.text $x $y
+    .a.pane.f2.mesg.text.text tag remove sel 0.0 end
+     set tk::Priv(x) 122
+    set tk::Priv(y) 93
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 122 93
+     set tk::Priv(x) 135
+    set tk::Priv(y) 93
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 135 93
+     set tk::Priv(x) 140
+    set tk::Priv(y) 93
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 140 93
+     set tk::Priv(x) 147
+    set tk::Priv(y) 94
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 147 94
+     set tk::Priv(x) 166
+    set tk::Priv(y) 100
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 166 100
+     set tk::Priv(x) 180
+    set tk::Priv(y) 103
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 180 103
+     set tk::Priv(x) 191
+    set tk::Priv(y) 107
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 191 107
+     set tk::Priv(x) 211
+    set tk::Priv(y) 112
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 211 112
+     set tk::Priv(x) 221
+    set tk::Priv(y) 115
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 221 115
+     set tk::Priv(x) 229
+    set tk::Priv(y) 117
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 229 117
+     set tk::Priv(x) 238
+    set tk::Priv(y) 120
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 238 120
+     set tk::Priv(x) 241
+    set tk::Priv(y) 121
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 241 121
+     set tk::Priv(x) 243
+    set tk::Priv(y) 122
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 243 122
+     set tk::Priv(x) 244
+    set tk::Priv(y) 122
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 244 122
+     set tk::Priv(x) 246
+    set tk::Priv(y) 123
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 246 123
+     set tk::Priv(x) 247
+    set tk::Priv(y) 123
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 247 123
+     set tk::Priv(x) 249
+    set tk::Priv(y) 123
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 249 123
+   tkCancelRepeat
+  set pos [.a.pane.f2.mesg.text.text index insert]
+  #set pos {end - 1 chars}
+  .a.pane.f2.mesg.text.text mark set insert $pos
+  .a.pane.f2.mesg.text.text see insert
+  .a.pane.f2.mesg.text.text configure -state disabled
+     tk::CancelRepeat
+#Gui Step(22)===>(Text).a.pane.f2.mesg.text.text <Button-1> 63.34
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 22:  (Text) <Button-1>\
+ 63.34} .a.pane.f2.mesg.text.text } 
+set x [guiGetTextX .a.pane.f2.mesg.text.text 63 34];set y [guiGetTextY .a.pane.f2.mesg.text.text 63 34] 
+   .a.pane.f2.mesg.text.text configure -state normal
+  tkTextButton1 .a.pane.f2.mesg.text.text $x $y
+#Gui Step(23)===>(Text).a.pane.f2.mesg.text.text <Button-1> 63.34
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 23:  (Text) <Button-1>\
+ 63.34} .a.pane.f2.mesg.text.text } 
+set x [guiGetTextX .a.pane.f2.mesg.text.text 63 34];set y [guiGetTextY .a.pane.f2.mesg.text.text 63 34] 
+     tk::TextButton1 .a.pane.f2.mesg.text.text $x $y
+    .a.pane.f2.mesg.text.text tag remove sel 0.0 end
+   tkCancelRepeat
+  set pos [.a.pane.f2.mesg.text.text index insert]
+  #set pos {end - 1 chars}
+  .a.pane.f2.mesg.text.text mark set insert $pos
+  .a.pane.f2.mesg.text.text see insert
+  .a.pane.f2.mesg.text.text configure -state disabled
+     tk::CancelRepeat
+ 	if {!$tk_strictMotif} {
+	    .a.pane.f2.mesg.text.text yview scroll -50 pixels
+	}
+    
+ 	if {!$tk_strictMotif} {
+	    .a.pane.f2.mesg.text.text yview scroll -50 pixels
+	}
+    
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+     tk::MbEnter .v_menu.compare
+     tk::MbMotion .v_menu.compare up 73 75
+     tk::MbLeave .v_menu.compare
+     tk::MbEnter .v_menu.compare
+     tk::MbMotion .v_menu.compare up 55 62
+     tk::MbMotion .v_menu.compare up 64 65
+     tk::MbMotion .v_menu.compare up 77 70
+     tk::MbMotion .v_menu.compare up 81 71
+     tk::MbMotion .v_menu.compare up 82 71
+     tk::MbMotion .v_menu.compare up 84 71
+     tk::MbMotion .v_menu.compare up 85 71
+     tk::MbMotion .v_menu.compare up 87 70
+     tk::MbMotion .v_menu.compare up 88 70
+     if {$tk::Priv(inMenubutton) ne ""} {
+	tk::MbPost $tk::Priv(inMenubutton) 88 70
+    }
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+     tk::MbMotion .v_menu.compare down 88 70
+     tk::MbButtonUp .v_menu.compare
+     tk::MbMotion .v_menu.compare up 88 70
+     tk::MbMotion .v_menu.compare up 88 71
+     tk::MbMotion .v_menu.compare up 88 79
+     tk::MbLeave .v_menu.compare
+     set tk::Priv(window) .v_menu.compare.menu
+    if {[.v_menu.compare.menu cget -type] eq "tearoff"} {
+	if {"NotifyNormal" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .v_menu.compare.menu
+	    }
+	}
+    }
+    tk::MenuMotion .v_menu.compare.menu 33 2 0
+#Gui Step(28)===>(Menu).v_menu.compare.menu <Button> {(menu-item) "Compare"}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 28:  (Menu) <Button>\
+ (menu-item) "Compare"} .v_menu.compare.menu } 
+set x [guiGetMenuX .v_menu.compare.menu 0];set y [guiGetMenuY .v_menu.compare.menu 0 ] 
+     tk::MenuMotion .v_menu.compare.menu $x $y 0
+     tk::MenuButtonDown .v_menu.compare.menu
+    tk::MenuInvoke .v_menu.compare.menu 1
+         if { [ .icon.hierCmp cget -state ] == "normal" } {
+            .icon.hierCmp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.hierCmp
+ .icon.hierCmp configure -relief flat 
+     tk::ButtonLeave .icon.hierCmp
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .compare 546 441 527 172 
+ guiWinConfig . 1600 829 8 57 
+ guiTextKeyPress .a.pane.f2.mesg.text.text {}
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+ .compare.bt.ok instate !disabled {.compare.bt.ok state active} 
+ .compare.bt.ok state !active 
+ 	tk::CheckEnter .compare.bkd.add.g2g.chk
+    
+ 	tk::CheckLeave .compare.bkd.add.g2g.chk
+    
+ 	tk::CheckEnter .compare.bkd.add.timestamp.chk
+    
+ 	tk::CheckLeave .compare.bkd.add.timestamp.chk
+    
+ .compare.bt.ok instate !disabled {.compare.bt.ok state active} 
+ .compare.bt.ok instate !disabled { ttk::clickToFocus .compare.bt.ok; .compare.bt.ok state pressed } 
+ .compare.bt.ok instate pressed { .compare.bt.ok state !pressed; .compare.bt.ok instate !disabled { .compare.bt.ok invoke } } 
+ guiWinConfig .a.pane.f3.command.text.text.promt1 60 19 1 -7 
+ guiWinConfig .a.pane.f3.command.text.text.promt2 60 19 1 12 
+ guiWinConfig .a.pane.f3.command.text.text.promt3 60 19 1 31 
+ guiWinConfig .a.pane.f3.command.text.text.promt4 60 19 1 50 
+ guiWinConfig .a.pane.f3.command.text.text.promt5 44 19 1 69 
+ guiWinConfig .a.pane.f3.command.text.text.promt6 44 19 45 69 
+ guiWinConfig .a.pane.f3.command.text.text.promt2 60 19 1 -7 
+ guiWinConfig .a.pane.f3.command.text.text.promt3 60 19 1 12 
+ guiWinConfig .a.pane.f3.command.text.text.promt4 60 19 1 31 
+ guiWinConfig .a.pane.f3.command.text.text.promt5 44 19 1 50 
+ guiWinConfig .a.pane.f3.command.text.text.promt6 44 19 45 50 
+ guiWinConfig .a.pane.f3.command.text.text.promt7 44 19 1 69 
+ guiWinConfig .b.frame.lab 91 21 1 1 
+ guiWinConfig .b.frame.lab 317 21 1 1 
+ guiWinConfig .b.frame.lab 325 21 1 1 
+ guiWinConfig .b.frame.lab 104 21 1 1 
+tixBalloon:ClientDestroy .icon.b .compare.bkd.add.parallel.btn
+ guiWinConfig .a.pane.f3.command.text.text.promt2 60 19 1 -11 
+ guiWinConfig .a.pane.f3.command.text.text.promt5 44 19 1 46 
+ guiWinConfig .a.pane.f3.command.text.text.promt6 44 19 45 46 
+ guiWinConfig .a.pane.f3.command.text.text.promt8 44 19 1 84 
+ guiTextKeyPress .a.pane.f2.mesg.text.text {}
+ guiWinConfig .a.pane.f3.command.text.text.promt3 60 19 1 8 
+ guiWinConfig .a.pane.f3.command.text.text.promt7 44 19 1 65 
+ guiWinConfig .a.pane.f3.command.text.text.promt4 60 19 1 27 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+#Gui Step(31)===>(Text).a.pane.f2.mesg.text.text <Button-1> 76.31
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 31:  (Text) <Button-1>\
+ 76.31} .a.pane.f2.mesg.text.text } 
+set x [guiGetTextX .a.pane.f2.mesg.text.text 76 31];set y [guiGetTextY .a.pane.f2.mesg.text.text 76 31] 
+   .a.pane.f2.mesg.text.text configure -state normal
+  tkTextButton1 .a.pane.f2.mesg.text.text $x $y
+#Gui Step(32)===>(Text).a.pane.f2.mesg.text.text <Button-1> 76.31
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 32:  (Text) <Button-1>\
+ 76.31} .a.pane.f2.mesg.text.text } 
+set x [guiGetTextX .a.pane.f2.mesg.text.text 76 31];set y [guiGetTextY .a.pane.f2.mesg.text.text 76 31] 
+     tk::TextButton1 .a.pane.f2.mesg.text.text $x $y
+    .a.pane.f2.mesg.text.text tag remove sel 0.0 end
+     set tk::Priv(x) 256
+    set tk::Priv(y) 112
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 256 112
+     set tk::Priv(x) 255
+    set tk::Priv(y) 112
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 255 112
+     set tk::Priv(x) 250
+    set tk::Priv(y) 112
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 250 112
+     set tk::Priv(x) 247
+    set tk::Priv(y) 112
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 247 112
+     set tk::Priv(x) 244
+    set tk::Priv(y) 111
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 244 111
+     set tk::Priv(x) 239
+    set tk::Priv(y) 110
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 239 110
+     set tk::Priv(x) 237
+    set tk::Priv(y) 110
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 237 110
+     set tk::Priv(x) 235
+    set tk::Priv(y) 110
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 235 110
+     set tk::Priv(x) 232
+    set tk::Priv(y) 110
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 232 110
+     set tk::Priv(x) 228
+    set tk::Priv(y) 109
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 228 109
+     set tk::Priv(x) 227
+    set tk::Priv(y) 108
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 227 108
+     set tk::Priv(x) 225
+    set tk::Priv(y) 108
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 225 108
+     set tk::Priv(x) 223
+    set tk::Priv(y) 108
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 223 108
+     set tk::Priv(x) 222
+    set tk::Priv(y) 108
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 222 108
+     set tk::Priv(x) 221
+    set tk::Priv(y) 108
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 221 108
+     set tk::Priv(x) 219
+    set tk::Priv(y) 107
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 219 107
+     set tk::Priv(x) 218
+    set tk::Priv(y) 107
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 218 107
+     set tk::Priv(x) 215
+    set tk::Priv(y) 106
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 215 106
+     set tk::Priv(x) 213
+    set tk::Priv(y) 106
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 213 106
+     set tk::Priv(x) 210
+    set tk::Priv(y) 107
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 210 107
+     set tk::Priv(x) 209
+    set tk::Priv(y) 108
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 209 108
+     set tk::Priv(x) 209
+    set tk::Priv(y) 110
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 209 110
+     set tk::Priv(x) 209
+    set tk::Priv(y) 113
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 209 113
+     set tk::Priv(x) 209
+    set tk::Priv(y) 116
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 209 116
+     set tk::Priv(x) 209
+    set tk::Priv(y) 118
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 209 118
+     set tk::Priv(x) 209
+    set tk::Priv(y) 119
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 209 119
+     set tk::Priv(x) 209
+    set tk::Priv(y) 120
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 209 120
+     set tk::Priv(x) 210
+    set tk::Priv(y) 120
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 210 120
+     set tk::Priv(x) 212
+    set tk::Priv(y) 120
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 212 120
+     set tk::Priv(x) 213
+    set tk::Priv(y) 120
+    tk::TextSelectTo .a.pane.f2.mesg.text.text 213 120
+   tkCancelRepeat
+  set pos [.a.pane.f2.mesg.text.text index insert]
+  #set pos {end - 1 chars}
+  .a.pane.f2.mesg.text.text mark set insert $pos
+  .a.pane.f2.mesg.text.text see insert
+  .a.pane.f2.mesg.text.text configure -state disabled
+     tk::CancelRepeat
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .icon.rrcmgr cget -state ] == "normal" } {
+            .icon.rrcmgr configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.rrcmgr
+ .icon.rrcmgr configure -relief flat 
+     tk::ButtonLeave .icon.rrcmgr
+     tk::MbEnter .v_menu.compare
+     tk::MbMotion .v_menu.compare up 131 86
+     tk::MbMotion .v_menu.compare up 132 85
+     tk::MbMotion .v_menu.compare up 133 83
+     tk::MbMotion .v_menu.compare up 135 82
+     tk::MbMotion .v_menu.compare up 136 82
+     tk::MbMotion .v_menu.compare up 139 80
+     tk::MbMotion .v_menu.compare up 141 79
+     tk::MbLeave .v_menu.compare
+     tk::MbEnter .v_menu.tool
+     tk::MbMotion .v_menu.tool up 143 78
+     tk::MbMotion .v_menu.tool up 143 77
+     if {$tk::Priv(inMenubutton) ne ""} {
+	tk::MbPost $tk::Priv(inMenubutton) 143 77
+    }
+     tk::MbMotion .v_menu.tool down 143 77
+     tk::MbButtonUp .v_menu.tool
+     tk::MbMotion .v_menu.tool up 143 77
+     tk::MbLeave .v_menu.tool
+     tk::MbMotion .v_menu.tool up 140 85
+     tk::MbMotion .v_menu.tool up 140 88
+     tk::MbMotion .v_menu.tool up 140 91
+     tk::MbMotion .v_menu.tool up 141 93
+     tk::MbMotion .v_menu.tool up 142 94
+     tk::MbMotion .v_menu.tool up 142 95
+     tk::MbMotion .v_menu.tool up 142 96
+     set tk::Priv(window) .v_menu.tool.menu
+    if {[.v_menu.tool.menu cget -type] eq "tearoff"} {
+	if {"NotifyNormal" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .v_menu.tool.menu
+	    }
+	}
+    }
+    tk::MenuMotion .v_menu.tool.menu 0 10 0
+#Gui Step(37)===>(Menu).v_menu.tool.menu <Button> {(menu-item) "Mapping Manager"}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 37:  (Menu) <Button>\
+ (menu-item) "Mapping Manager"} .v_menu.tool.menu } 
+set x [guiGetMenuX .v_menu.tool.menu 2];set y [guiGetMenuY .v_menu.tool.menu 2 ] 
+     tk::MenuMotion .v_menu.tool.menu $x $y 0
+     tk::MenuButtonDown .v_menu.tool.menu
+    tk::MenuInvoke .v_menu.tool.menu 1
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .keymgr 1704 829 -114 31 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig .keymgr 835 655 0 0 
+ guiWinConfig .keymgr 1704 829 -114 31 
+ guiWinConfig .keymgr 1704 829 -114 31 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiTextKeyPress .a.pane.f2.mesg.text.text {}
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+ guiWinConfig .keymgr.bt 1602 36 1 1 
+ guiWinConfig .keymgr.cdnBranding 1602 2 1 37 
+ guiWinConfig .keymgr.pane 1602 789 1 39 
+ guiWinConfig .keymgr.pane.sep2 1602 2 0 409 
+ guiWinConfig .keymgr.pane.sep1 1602 2 0 204 
+ guiWinConfig .keymgr.pane.ump 1602 205 0 0 
+ guiWinConfig .keymgr.pane.map 1602 205 0 205 
+ guiWinConfig .keymgr.pane.com 1602 379 0 410 
+ guiWinConfig .keymgr.pane.ump.title 1602 40 0 0 
+ guiWinConfig .keymgr.pane.ump.golden 801 165 0 40 
+ guiWinConfig .keymgr.pane.ump.revised 801 165 801 40 
+ guiWinConfig .keymgr.pane.map.title 1602 40 0 0 
+ guiWinConfig .keymgr.pane.map.vbar 13 165 1589 40 
+ guiWinConfig .keymgr.pane.map.golden 794 165 0 40 
+ guiWinConfig .keymgr.pane.map.revised 795 165 794 40 
+ guiWinConfig .keymgr.pane.com.title 1602 40 0 0 
+ guiWinConfig .keymgr.pane.com.vbar 13 339 1589 40 
+ guiWinConfig .keymgr.pane.com.golden 794 339 0 40 
+ guiWinConfig .keymgr.pane.com.revised 795 339 794 40 
+ guiWinConfig .keymgr.pane.btn2 9 9 1589 406 
+ guiWinConfig .keymgr.pane.btn1 9 9 1589 201 
+ guiWinConfig .keymgr.pane.ump.title.runmapcls 28 28 1572 6 
+ guiWinConfig .keymgr.pane.ump.title.runmapgateclass 28 28 1540 6 
+ guiWinConfig .keymgr.pane.ump.title.rfind 32 32 1504 4 
+ guiWinConfig .keymgr.pane.ump.title.rfilter 32 32 1468 4 
+ guiWinConfig .keymgr.pane.ump.title.repo 32 32 1432 4 
+ guiWinConfig .keymgr.pane.ump.golden.vbar 13 165 788 0 
+ guiWinConfig .keymgr.pane.ump.golden.list 788 165 0 0 
+ guiWinConfig .keymgr.pane.ump.revised.vbar 13 165 788 0 
+ guiWinConfig .keymgr.pane.ump.revised.list 788 165 0 0 
+ guiWinConfig .keymgr.pane.map.title.aall 32 32 1569 4 
+ guiWinConfig .keymgr.pane.map.title.remp 32 32 1535 4 
+ guiWinConfig .keymgr.pane.map.title.dall 32 32 1501 4 
+ guiWinConfig .keymgr.pane.map.title.cls 28 28 1471 6 
+ guiWinConfig .keymgr.pane.map.title.gateclass 28 28 1441 6 
+ guiWinConfig .keymgr.pane.map.title.find 32 32 1407 4 
+ guiWinConfig .keymgr.pane.map.title.filter 32 32 1373 4 
+ guiWinConfig .keymgr.pane.map.title.repo 32 32 1339 4 
+ guiWinConfig .keymgr.pane.map.golden.list 794 165 0 0 
+ guiWinConfig .keymgr.pane.map.revised.list 795 165 0 0 
+ guiWinConfig .keymgr.pane.com.title.comp 32 32 1569 4 
+ guiWinConfig .keymgr.pane.com.title.dall 32 32 1535 4 
+ guiWinConfig .keymgr.pane.com.title.cls 28 28 1505 6 
+ guiWinConfig .keymgr.pane.com.title.gateclass 28 28 1475 6 
+ guiWinConfig .keymgr.pane.com.title.find 32 32 1441 4 
+ guiWinConfig .keymgr.pane.com.title.filter 32 32 1407 4 
+ guiWinConfig .keymgr.pane.com.title.sort 28 28 1377 6 
+ guiWinConfig .keymgr.pane.com.title.repo 32 32 1343 4 
+ guiWinConfig .keymgr.pane.com.golden.list 794 339 0 0 
+ guiWinConfig .keymgr.pane.com.revised.list 795 339 0 0 
+ guiWinConfig .keymgr.pane.ump.golden.list.f1 788 152 0 0 
+ guiWinConfig .keymgr.pane.ump.golden.list.hsb 788 13 0 152 
+ guiWinConfig .keymgr.pane.ump.revised.list.f1 788 152 0 0 
+ guiWinConfig .keymgr.pane.ump.revised.list.hsb 788 13 0 152 
+ guiWinConfig .keymgr.pane.map.golden.list.f1 794 152 0 0 
+ guiWinConfig .keymgr.pane.map.golden.list.hsb 794 13 0 152 
+ guiWinConfig .keymgr.pane.map.revised.list.f1 795 152 0 0 
+ guiWinConfig .keymgr.pane.map.revised.list.hsb 795 13 0 152 
+ guiWinConfig .keymgr.pane.com.golden.list.f1 794 326 0 0 
+ guiWinConfig .keymgr.pane.com.golden.list.hsb 794 13 0 326 
+ guiWinConfig .keymgr.pane.com.revised.list.f1 795 326 0 0 
+ guiWinConfig .keymgr.pane.com.revised.list.hsb 795 13 0 326 
+ guiWinConfig .keymgr.pane.ump.golden.list.f1.hlist 786 150 1 1 
+ guiWinConfig .keymgr.pane.ump.revised.list.f1.hlist 786 150 1 1 
+ guiWinConfig .keymgr.pane.map.golden.list.f1.hlist 792 150 1 1 
+ guiWinConfig .keymgr.pane.map.revised.list.f1.hlist 793 150 1 1 
+ guiWinConfig .keymgr.pane.com.golden.list.f1.hlist 792 324 1 1 
+ guiWinConfig .keymgr.pane.com.revised.list.f1.hlist 793 324 1 1 
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 419 10]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 257 1]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.com.vbar cget -activebackground]
+	.keymgr.pane.com.vbar configure -activebackground [.keymgr.pane.com.vbar cget -background]
+    }
+    .keymgr.pane.com.vbar activate [.keymgr.pane.com.vbar identify 1 279]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.com.vbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.com.vbar activate {}
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll -1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll -1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll -1 pages
+#Gui Step(38)===>(TixHList).keymgr.pane.ump.golden.list.f1.hlist <Button-1> {{{      DFF  31      y_reg[15] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 38:  (TixHList) <Button-1>\
+ {{      DFF  31      y_reg[15] }}} .keymgr.pane.ump.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.ump.golden.list.f1.hlist {0}];set y [guiGetHListEntryY .keymgr.pane.ump.golden.list.f1.hlist {0}] 
+_tixRecordFlags <ButtonPress-1> % 62921 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72441421 ?? 96 13 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.ump.golden.list.f1.hlist 106 156; 
+	 tixHList:Button-1 .keymgr.pane.ump.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+scrollSelect keyMgrUmpGList select 13
+show_ump_point_class .keymgr.pane.ump.golden.list.f1.hlist
+#Gui Step(40)===>(TixHList).keymgr.pane.ump.golden.list.f1.hlist <ButtonRelease-1> {{{      DFF  31      y_reg[15] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 40:  (TixHList) <ButtonRelease-1>\
+ {{      DFF  31      y_reg[15] }}} .keymgr.pane.ump.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.ump.golden.list.f1.hlist {0}];set y [guiGetHListEntryY .keymgr.pane.ump.golden.list.f1.hlist {0}] 
+_tixRecordFlags <ButtonRelease-1> % 62982 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72441531 ?? 96 13 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.ump.golden.list.f1.hlist 106 156; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.ump.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+gui_mapmgr_unmap_double_1 golden .keymgr.pane.ump.golden.list.f1.hlist .keymgr.pane.map.golden.list.f1.hlist 13
+#Gui Step(42)===>(TixHList).keymgr.pane.ump.golden.list.f1.hlist <Double-Button-1> {{{      DFF  31      y_reg[15] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 42:  (TixHList) <Double-Button-1>\
+ {{      DFF  31      y_reg[15] }}} .keymgr.pane.ump.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.ump.golden.list.f1.hlist {0}];set y [guiGetHListEntryY .keymgr.pane.ump.golden.list.f1.hlist {0}] 
+_tixRecordFlags <Double-ButtonPress-1> % 63053 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72441656 ?? 96 13 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.ump.golden.list.f1.hlist 106 156; 
+	 tixHList:Double-1 .keymgr.pane.ump.golden.list.f1.hlist   $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrUmpGList select 13
+show_ump_point_class .keymgr.pane.ump.golden.list.f1.hlist
+#Gui Step(44)===>(TixHList).keymgr.pane.ump.golden.list.f1.hlist <ButtonRelease-1> {{{      DFF  31      y_reg[15] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 44:  (TixHList) <ButtonRelease-1>\
+ {{      DFF  31      y_reg[15] }}} .keymgr.pane.ump.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.ump.golden.list.f1.hlist {0}];set y [guiGetHListEntryY .keymgr.pane.ump.golden.list.f1.hlist {0}] 
+_tixRecordFlags <ButtonRelease-1> % 63061 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72441796 ?? 96 13 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.ump.golden.list.f1.hlist 106 156; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.ump.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+pop_umap_menu .keymgr golden .keymgr.pane.ump.golden.list.f1.hlist 106 156
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     set tk::Priv(window) .keymgr.pane.ump.golden.list.f1.hlist.com.menu
+    if {[.keymgr.pane.ump.golden.list.f1.hlist.com.menu cget -type] eq "tearoff"} {
+	if {"NotifyUngrab" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .keymgr.pane.ump.golden.list.f1.hlist.com.menu
+	    }
+	}
+    }
+    tk::MenuMotion .keymgr.pane.ump.golden.list.f1.hlist.com.menu 0 0 1024
+    tk::MenuInvoke .keymgr.pane.ump.golden.list.f1.hlist.com.menu 1
+     set tk::Priv(window) .keymgr.pane.ump.golden.list.f1.hlist.com.menu
+    if {[.keymgr.pane.ump.golden.list.f1.hlist.com.menu cget -type] eq "tearoff"} {
+	if {"NotifyNormal" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .keymgr.pane.ump.golden.list.f1.hlist.com.menu
+	    }
+	}
+    }
+    tk::MenuMotion .keymgr.pane.ump.golden.list.f1.hlist.com.menu 0 73 0
+#Gui Step(46)===>(Menu).keymgr.pane.ump.golden.list.f1.hlist.com.menu <Button> {(menu-item) "Source Code"}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 46:  (Menu) <Button>\
+ (menu-item) "Source Code"} .keymgr.pane.ump.golden.list.f1.hlist.com.menu } 
+set x [guiGetMenuX .keymgr.pane.ump.golden.list.f1.hlist.com.menu 11];set y [guiGetMenuY .keymgr.pane.ump.golden.list.f1.hlist.com.menu 11 ] 
+     tk::MenuMotion .keymgr.pane.ump.golden.list.f1.hlist.com.menu $x $y 0
+     tk::MenuButtonDown .keymgr.pane.ump.golden.list.f1.hlist.com.menu
+    tk::MenuInvoke .keymgr.pane.ump.golden.list.f1.hlist.com.menu 1
+_tixRecordFlags <Configure> % 65006 00000000 ?? ?? ?? ?? 23 ?? ?? 0 ?? ?? ?? 256 436 4 ?? 0 0 ?? ?? ?? ?? 22 .guisrc_1.pane.f1.w_0.r1.file ?? ??; 
+	tixWidgetDoWhenIdle tixComboBox:align .guisrc_1.pane.f1.w_0.r1.file
+    ; _tixDeleteFlags;
+srcWinKeywordText guisrc_1 0
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .guisrc_1 826 596 86 109 
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+ guiWinConfig .guisrc_1 826 596 0 0 
+ guiWinConfig .guisrc_1 826 596 86 109 
+if {![srcWinKey .guisrc_1.pane.f1.w_0.r2.src .guisrc_1.pane.f1.w_0.r2.line guisrc_1 0 ??]} {break}
+         if { [ .guisrc_1.pane.f1.w_0.r1.down cget -state ] == "normal" } {
+            .guisrc_1.pane.f1.w_0.r1.down configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_1.pane.f1.w_0.r1.down
+ .guisrc_1.pane.f1.w_0.r1.down configure -relief flat 
+     tk::ButtonLeave .guisrc_1.pane.f1.w_0.r1.down
+#Gui Step(47)===>(Text).guisrc_1.pane.f1.w_0.r2.src <Button-1> 3.6
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 47:  (Text) <Button-1>\
+ 3.6} .guisrc_1.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_1.pane.f1.w_0.r2.src 3 6];set y [guiGetTextY .guisrc_1.pane.f1.w_0.r2.src 3 6] 
+srcWinBtn1 .guisrc_1.pane.f1.w_0.r2.src 51 44 .guisrc_1.pane.f1.w_0.r1.cursor 0 guisrc_1; srcWinParamInfobox 0 1 guisrc_1 .guisrc_1.pane.f1.w_0.r2.src
+break
+break
+#Gui Step(48)===>(Text).guisrc_1.pane.f1.w_0.r2.src <Button-1> 3.6
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 48:  (Text) <Button-1>\
+ 3.6} .guisrc_1.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_1.pane.f1.w_0.r2.src 3 6];set y [guiGetTextY .guisrc_1.pane.f1.w_0.r2.src 3 6] 
+     tk::TextButton1 .guisrc_1.pane.f1.w_0.r2.src $x $y
+    .guisrc_1.pane.f1.w_0.r2.src tag remove sel 0.0 end
+     set tk::Priv(x) 48
+    set tk::Priv(y) 44
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 48 44
+break
+break
+     set tk::Priv(x) 41
+    set tk::Priv(y) 44
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 41 44
+break
+break
+     set tk::Priv(x) 34
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 34 43
+break
+break
+     set tk::Priv(x) 26
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 26 43
+break
+break
+     set tk::Priv(x) 19
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 19 43
+break
+break
+     set tk::Priv(x) 15
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 15 43
+break
+break
+     set tk::Priv(x) 13
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 13 43
+break
+break
+     set tk::Priv(x) 11
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 11 43
+break
+break
+     set tk::Priv(x) 9
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 9 43
+break
+break
+     set tk::Priv(x) 8
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 8 43
+break
+break
+     set tk::Priv(x) 7
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 7 43
+break
+break
+     set tk::Priv(x) 6
+    set tk::Priv(y) 43
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 6 43
+break
+break
+     tk::CancelRepeat
+#Gui Step(50)===>(Text).guisrc_1.pane.f1.w_0.r2.src <Button-1> 16.19
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 50:  (Text) <Button-1>\
+ 16.19} .guisrc_1.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_1.pane.f1.w_0.r2.src 16 19];set y [guiGetTextY .guisrc_1.pane.f1.w_0.r2.src 16 19] 
+srcWinBtn1 .guisrc_1.pane.f1.w_0.r2.src 263 260 .guisrc_1.pane.f1.w_0.r1.cursor 0 guisrc_1; srcWinParamInfobox 0 1 guisrc_1 .guisrc_1.pane.f1.w_0.r2.src
+break
+break
+#Gui Step(51)===>(Text).guisrc_1.pane.f1.w_0.r2.src <Button-1> 16.19
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 51:  (Text) <Button-1>\
+ 16.19} .guisrc_1.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_1.pane.f1.w_0.r2.src 16 19];set y [guiGetTextY .guisrc_1.pane.f1.w_0.r2.src 16 19] 
+     tk::TextButton1 .guisrc_1.pane.f1.w_0.r2.src $x $y
+    .guisrc_1.pane.f1.w_0.r2.src tag remove sel 0.0 end
+     tk::CancelRepeat
+#Gui Step(53)===>(Text).guisrc_1.pane.f1.w_0.r2.src <Button-1> 3.0
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 53:  (Text) <Button-1>\
+ 3.0} .guisrc_1.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_1.pane.f1.w_0.r2.src 3 0];set y [guiGetTextY .guisrc_1.pane.f1.w_0.r2.src 3 0] 
+srcWinBtn1 .guisrc_1.pane.f1.w_0.r2.src 8 40 .guisrc_1.pane.f1.w_0.r1.cursor 0 guisrc_1; srcWinParamInfobox 0 1 guisrc_1 .guisrc_1.pane.f1.w_0.r2.src
+break
+break
+#Gui Step(54)===>(Text).guisrc_1.pane.f1.w_0.r2.src <Button-1> 3.0
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 54:  (Text) <Button-1>\
+ 3.0} .guisrc_1.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_1.pane.f1.w_0.r2.src 3 0];set y [guiGetTextY .guisrc_1.pane.f1.w_0.r2.src 3 0] 
+     tk::TextButton1 .guisrc_1.pane.f1.w_0.r2.src $x $y
+    .guisrc_1.pane.f1.w_0.r2.src tag remove sel 0.0 end
+     set tk::Priv(x) 12
+    set tk::Priv(y) 39
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 12 39
+     set tk::Priv(x) 16
+    set tk::Priv(y) 38
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 16 38
+     set tk::Priv(x) 29
+    set tk::Priv(y) 38
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 29 38
+     set tk::Priv(x) 37
+    set tk::Priv(y) 41
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 37 41
+     set tk::Priv(x) 48
+    set tk::Priv(y) 45
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 48 45
+     set tk::Priv(x) 57
+    set tk::Priv(y) 48
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 57 48
+     set tk::Priv(x) 66
+    set tk::Priv(y) 51
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 66 51
+     set tk::Priv(x) 73
+    set tk::Priv(y) 55
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 73 55
+     set tk::Priv(x) 79
+    set tk::Priv(y) 58
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 79 58
+     set tk::Priv(x) 87
+    set tk::Priv(y) 63
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 87 63
+     set tk::Priv(x) 91
+    set tk::Priv(y) 66
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 91 66
+     set tk::Priv(x) 93
+    set tk::Priv(y) 67
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 93 67
+     set tk::Priv(x) 94
+    set tk::Priv(y) 68
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 94 68
+     set tk::Priv(x) 94
+    set tk::Priv(y) 70
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 94 70
+     set tk::Priv(x) 95
+    set tk::Priv(y) 71
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 95 71
+     set tk::Priv(x) 97
+    set tk::Priv(y) 74
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 97 74
+     set tk::Priv(x) 99
+    set tk::Priv(y) 78
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 99 78
+     set tk::Priv(x) 102
+    set tk::Priv(y) 85
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 102 85
+     set tk::Priv(x) 103
+    set tk::Priv(y) 90
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 103 90
+     set tk::Priv(x) 105
+    set tk::Priv(y) 97
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 105 97
+     set tk::Priv(x) 107
+    set tk::Priv(y) 102
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 107 102
+     set tk::Priv(x) 109
+    set tk::Priv(y) 109
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 109 109
+     set tk::Priv(x) 111
+    set tk::Priv(y) 116
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 111 116
+     set tk::Priv(x) 113
+    set tk::Priv(y) 125
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 113 125
+     set tk::Priv(x) 116
+    set tk::Priv(y) 133
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 116 133
+     set tk::Priv(x) 118
+    set tk::Priv(y) 140
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 118 140
+     set tk::Priv(x) 120
+    set tk::Priv(y) 150
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 120 150
+     set tk::Priv(x) 122
+    set tk::Priv(y) 159
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 122 159
+     set tk::Priv(x) 124
+    set tk::Priv(y) 169
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 124 169
+     set tk::Priv(x) 125
+    set tk::Priv(y) 178
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 125 178
+     set tk::Priv(x) 126
+    set tk::Priv(y) 188
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 126 188
+     set tk::Priv(x) 128
+    set tk::Priv(y) 200
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 128 200
+     set tk::Priv(x) 129
+    set tk::Priv(y) 214
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 129 214
+     set tk::Priv(x) 132
+    set tk::Priv(y) 226
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 132 226
+     set tk::Priv(x) 133
+    set tk::Priv(y) 236
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 133 236
+     set tk::Priv(x) 133
+    set tk::Priv(y) 244
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 133 244
+     set tk::Priv(x) 134
+    set tk::Priv(y) 253
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 134 253
+     set tk::Priv(x) 135
+    set tk::Priv(y) 263
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 135 263
+     set tk::Priv(x) 135
+    set tk::Priv(y) 273
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 135 273
+     set tk::Priv(x) 136
+    set tk::Priv(y) 284
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 136 284
+     set tk::Priv(x) 137
+    set tk::Priv(y) 295
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 137 295
+     set tk::Priv(x) 137
+    set tk::Priv(y) 300
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 137 300
+     set tk::Priv(x) 137
+    set tk::Priv(y) 310
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 137 310
+     set tk::Priv(x) 137
+    set tk::Priv(y) 318
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 137 318
+     set tk::Priv(x) 138
+    set tk::Priv(y) 325
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 138 325
+     set tk::Priv(x) 138
+    set tk::Priv(y) 331
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 138 331
+     set tk::Priv(x) 139
+    set tk::Priv(y) 344
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 139 344
+     set tk::Priv(x) 139
+    set tk::Priv(y) 350
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 139 350
+     set tk::Priv(x) 140
+    set tk::Priv(y) 358
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 140 358
+     set tk::Priv(x) 140
+    set tk::Priv(y) 364
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 140 364
+     set tk::Priv(x) 140
+    set tk::Priv(y) 368
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 140 368
+     set tk::Priv(x) 141
+    set tk::Priv(y) 377
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 377
+     set tk::Priv(x) 141
+    set tk::Priv(y) 381
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 381
+     set tk::Priv(x) 141
+    set tk::Priv(y) 383
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 383
+     set tk::Priv(x) 141
+    set tk::Priv(y) 385
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 385
+     set tk::Priv(x) 141
+    set tk::Priv(y) 387
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 387
+     set tk::Priv(x) 141
+    set tk::Priv(y) 389
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 389
+     set tk::Priv(x) 141
+    set tk::Priv(y) 391
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 391
+     set tk::Priv(x) 141
+    set tk::Priv(y) 392
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 392
+     set tk::Priv(x) 141
+    set tk::Priv(y) 394
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 394
+     set tk::Priv(x) 141
+    set tk::Priv(y) 395
+    tk::TextSelectTo .guisrc_1.pane.f1.w_0.r2.src 141 395
+     tk::CancelRepeat
+#Gui Step(56)===>(Text).guisrc_1.pane.f1.w_0.r2.src <Button-1> 23.9
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 56:  (Text) <Button-1>\
+ 23.9} .guisrc_1.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_1.pane.f1.w_0.r2.src 23 9];set y [guiGetTextY .guisrc_1.pane.f1.w_0.r2.src 23 9] 
+srcWinBtn1 .guisrc_1.pane.f1.w_0.r2.src 141 387 .guisrc_1.pane.f1.w_0.r1.cursor 0 guisrc_1; srcWinParamInfobox 0 1 guisrc_1 .guisrc_1.pane.f1.w_0.r2.src
+break
+break
+#Gui Step(57)===>(Text).guisrc_1.pane.f1.w_0.r2.src <Button-1> 23.9
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 57:  (Text) <Button-1>\
+ 23.9} .guisrc_1.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_1.pane.f1.w_0.r2.src 23 9];set y [guiGetTextY .guisrc_1.pane.f1.w_0.r2.src 23 9] 
+     tk::TextButton1 .guisrc_1.pane.f1.w_0.r2.src $x $y
+    .guisrc_1.pane.f1.w_0.r2.src tag remove sel 0.0 end
+     tk::CancelRepeat
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     tk::ButtonEnter .guisrc_1.pane.f1.w_0.r1.file.frame.arrow
+     tk::ButtonLeave .guisrc_1.pane.f1.w_0.r1.file.frame.arrow
+         if { [ .guisrc_1.pane.f1.w_0.r1.reset cget -state ] == "normal" } {
+            .guisrc_1.pane.f1.w_0.r1.reset configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_1.pane.f1.w_0.r1.reset
+ .guisrc_1.pane.f1.w_0.r1.reset configure -relief flat 
+     tk::ButtonLeave .guisrc_1.pane.f1.w_0.r1.reset
+srcWinExitSource .guisrc_1 1
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.open
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.edit
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.find
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.left
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.right
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.up
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.down
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.modname
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f1.w_0.r1.reset
+tixPrimitive:Destructor .guisrc_1.pane.f1.w_0.r1.file.shell.slistbox
+tixComboBox:Destructor .guisrc_1.pane.f1.w_0.r1.file
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f2.cmd.cmd1.lab
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f2.cmd.cmd1.ent
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f2.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f2.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f2.cmd.cmd2.but2
+tixBalloon:ClientDestroy .icon.b .guisrc_1.pane.f2.cmd.cmd2.but2
+ 	idoc_cleanup .guisrc_1.pane.f3.mesg.text.text
+    
+tixPrimitive:Destructor .guisrc_1.pane.f3.mesg.text
+tixPrimitive:Destructor .guisrc_1.pane
+#Gui Step(59)===>(TixHList).keymgr.pane.ump.golden.list.f1.hlist <Button-1> {{{      DFF  32      y_reg[14] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 59:  (TixHList) <Button-1>\
+ {{      DFF  32      y_reg[14] }}} .keymgr.pane.ump.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.ump.golden.list.f1.hlist {1}];set y [guiGetHListEntryY .keymgr.pane.ump.golden.list.f1.hlist {1}] 
+_tixRecordFlags <ButtonPress-1> % 76556 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72457062 ?? 149 33 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.ump.golden.list.f1.hlist 159 176; 
+	 tixHList:Button-1 .keymgr.pane.ump.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+scrollSelect keyMgrUmpGList select 33
+show_ump_point_class .keymgr.pane.ump.golden.list.f1.hlist
+#Gui Step(61)===>(TixHList).keymgr.pane.ump.golden.list.f1.hlist <ButtonRelease-1> {{{      DFF  32      y_reg[14] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 61:  (TixHList) <ButtonRelease-1>\
+ {{      DFF  32      y_reg[14] }}} .keymgr.pane.ump.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.ump.golden.list.f1.hlist {1}];set y [guiGetHListEntryY .keymgr.pane.ump.golden.list.f1.hlist {1}] 
+_tixRecordFlags <ButtonRelease-1> % 76612 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72457187 ?? 149 33 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.ump.golden.list.f1.hlist 159 176; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.ump.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+pop_umap_menu .keymgr golden .keymgr.pane.ump.golden.list.f1.hlist 159 176
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     set tk::Priv(window) .keymgr.pane.ump.golden.list.f1.hlist.com.menu
+    if {[.keymgr.pane.ump.golden.list.f1.hlist.com.menu cget -type] eq "tearoff"} {
+	if {"NotifyUngrab" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .keymgr.pane.ump.golden.list.f1.hlist.com.menu
+	    }
+	}
+    }
+    tk::MenuMotion .keymgr.pane.ump.golden.list.f1.hlist.com.menu 0 0 1024
+    tk::MenuInvoke .keymgr.pane.ump.golden.list.f1.hlist.com.menu 1
+#Gui Step(63)===>(Menu).keymgr.pane.ump.golden.list.f1.hlist.com.menu <Button> {(menu-item) "Source Code"}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 63:  (Menu) <Button>\
+ (menu-item) "Source Code"} .keymgr.pane.ump.golden.list.f1.hlist.com.menu } 
+set x [guiGetMenuX .keymgr.pane.ump.golden.list.f1.hlist.com.menu 11];set y [guiGetMenuY .keymgr.pane.ump.golden.list.f1.hlist.com.menu 11 ] 
+     tk::MenuMotion .keymgr.pane.ump.golden.list.f1.hlist.com.menu $x $y 0
+     tk::MenuButtonDown .keymgr.pane.ump.golden.list.f1.hlist.com.menu
+    tk::MenuInvoke .keymgr.pane.ump.golden.list.f1.hlist.com.menu 1
+_tixRecordFlags <Configure> % 78483 00000000 ?? ?? ?? ?? 23 ?? ?? 0 ?? ?? ?? 256 436 4 ?? 0 0 ?? ?? ?? ?? 22 .guisrc_2.pane.f1.w_0.r1.file ?? ??; 
+	tixWidgetDoWhenIdle tixComboBox:align .guisrc_2.pane.f1.w_0.r1.file
+    ; _tixDeleteFlags;
+srcWinKeywordText guisrc_2 0
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .guisrc_2 826 596 112 135 
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+ guiWinConfig .guisrc_2 826 596 0 0 
+ guiWinConfig .guisrc_2 826 596 112 135 
+if {![srcWinKey .guisrc_2.pane.f1.w_0.r2.src .guisrc_2.pane.f1.w_0.r2.line guisrc_2 0 ??]} {break}
+         if { [ .guisrc_2.pane.f1.w_0.r1.down cget -state ] == "normal" } {
+            .guisrc_2.pane.f1.w_0.r1.down configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_2.pane.f1.w_0.r1.down
+ .guisrc_2.pane.f1.w_0.r1.down configure -relief flat 
+     tk::ButtonLeave .guisrc_2.pane.f1.w_0.r1.down
+     tk::MbEnter .guisrc_2.bt.win
+     tk::MbMotion .guisrc_2.bt.win up 320 158
+     tk::MbMotion .guisrc_2.bt.win up 321 151
+     tk::MbMotion .guisrc_2.bt.win up 321 146
+     tk::MbMotion .guisrc_2.bt.win up 321 145
+     tk::MbMotion .guisrc_2.bt.win up 321 144
+     tk::MbMotion .guisrc_2.bt.win up 320 144
+     tk::MbMotion .guisrc_2.bt.win up 318 144
+     tk::MbMotion .guisrc_2.bt.win up 316 144
+     tk::MbMotion .guisrc_2.bt.win up 311 146
+     tk::MbMotion .guisrc_2.bt.win up 302 150
+     tk::MbLeave .guisrc_2.bt.win
+ .guisrc_2.bt.copyPath instate !disabled {.guisrc_2.bt.copyPath state active} 
+ .guisrc_2.bt.copyPath state !active 
+         if { [ .guisrc_2.pane.f1.w_0.r1.up cget -state ] == "normal" } {
+            .guisrc_2.pane.f1.w_0.r1.up configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_2.pane.f1.w_0.r1.up
+ .guisrc_2.pane.f1.w_0.r1.up configure -relief flat 
+     tk::ButtonLeave .guisrc_2.pane.f1.w_0.r1.up
+         if { [ .guisrc_2.pane.f1.w_0.r1.right cget -state ] == "normal" } {
+            .guisrc_2.pane.f1.w_0.r1.right configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_2.pane.f1.w_0.r1.right
+ .guisrc_2.pane.f1.w_0.r1.right configure -relief flat 
+     tk::ButtonLeave .guisrc_2.pane.f1.w_0.r1.right
+         if { [ .guisrc_2.pane.f1.w_0.r1.edit cget -state ] == "normal" } {
+            .guisrc_2.pane.f1.w_0.r1.edit configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_2.pane.f1.w_0.r1.edit
+ .guisrc_2.pane.f1.w_0.r1.edit configure -relief flat 
+     tk::ButtonLeave .guisrc_2.pane.f1.w_0.r1.edit
+         if { [ .guisrc_2.pane.f1.w_0.r1.left cget -state ] == "normal" } {
+            .guisrc_2.pane.f1.w_0.r1.left configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_2.pane.f1.w_0.r1.left
+ .guisrc_2.pane.f1.w_0.r1.left configure -relief flat 
+     tk::ButtonLeave .guisrc_2.pane.f1.w_0.r1.left
+         if { [ .guisrc_2.pane.f1.w_0.r1.up cget -state ] == "normal" } {
+            .guisrc_2.pane.f1.w_0.r1.up configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_2.pane.f1.w_0.r1.up
+ .guisrc_2.pane.f1.w_0.r1.up configure -relief flat 
+     tk::ButtonLeave .guisrc_2.pane.f1.w_0.r1.up
+           if {!$tk_strictMotif} {
+              .guisrc_2.pane.f1.w_0.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_2 0; break
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_2.pane.f1.w_0.r2.hbar cget -activebackground]
+	.guisrc_2.pane.f1.w_0.r2.hbar configure -activebackground [.guisrc_2.pane.f1.w_0.r2.hbar cget -background]
+    }
+    .guisrc_2.pane.f1.w_0.r2.hbar activate [.guisrc_2.pane.f1.w_0.r2.hbar identify 203 8]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_2.pane.f1.w_0.r2.hbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_2.pane.f1.w_0.r2.hbar activate {}
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig .keymgr 1604 829 8 63 
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 299 11]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 455 11]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 482 3]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+ guiWinConfig .guisrc_2 826 596 112 135 
+ guiWinConfig .keymgr 1604 829 8 63 
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_2.pane.f1.w_0.r2.vbar cget -activebackground]
+	.guisrc_2.pane.f1.w_0.r2.vbar configure -activebackground [.guisrc_2.pane.f1.w_0.r2.vbar cget -background]
+    }
+    .guisrc_2.pane.f1.w_0.r2.vbar activate [.guisrc_2.pane.f1.w_0.r2.vbar identify 0 376]
+ guiWinConfig . 1600 829 8 57 
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_2.pane.f1.w_0.r2.vbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_2.pane.f1.w_0.r2.vbar activate {}
+ guiWinConfig .guisrc_2 826 596 112 135 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig .keymgr 1604 829 8 63 
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.com.revised.list.hsb cget -activebackground]
+	.keymgr.pane.com.revised.list.hsb configure -activebackground [.keymgr.pane.com.revised.list.hsb cget -background]
+    }
+    .keymgr.pane.com.revised.list.hsb activate [.keymgr.pane.com.revised.list.hsb identify 429 0]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.com.revised.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.com.revised.list.hsb activate {}
+ guiWinConfig .guisrc_2 826 596 112 135 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+ guiWinConfig .guisrc_2 826 596 112 135 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_2.pane.f1.w_0.r2.hbar cget -activebackground]
+	.guisrc_2.pane.f1.w_0.r2.hbar configure -activebackground [.guisrc_2.pane.f1.w_0.r2.hbar cget -background]
+    }
+    .guisrc_2.pane.f1.w_0.r2.hbar activate [.guisrc_2.pane.f1.w_0.r2.hbar identify 684 3]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_2.pane.f1.w_0.r2.hbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_2.pane.f1.w_0.r2.hbar activate {}
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig .keymgr 1604 829 8 63 
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.com.revised.list.hsb cget -activebackground]
+	.keymgr.pane.com.revised.list.hsb configure -activebackground [.keymgr.pane.com.revised.list.hsb cget -background]
+    }
+    .keymgr.pane.com.revised.list.hsb activate [.keymgr.pane.com.revised.list.hsb identify 170 6]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.com.revised.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.com.revised.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     tk::MbEnter .v_menu.opt
+     tk::MbMotion .v_menu.opt up 325 61
+     tk::MbMotion .v_menu.opt up 296 61
+     tk::MbMotion .v_menu.opt up 290 60
+     tk::MbMotion .v_menu.opt up 289 60
+     tk::MbLeave .v_menu.opt
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 192 4]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 159 7]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 79 11]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 204 7]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 281 0]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 387 2]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 494 11]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 569 3]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 614 7]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+     tk::MbEnter .v_menu.help
+     tk::MbMotion .v_menu.help up 509 60
+     tk::MbMotion .v_menu.help up 502 62
+     tk::MbLeave .v_menu.help
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig .guisrc_2 826 596 112 135 
+ guiWinConfig . 1600 829 8 57 
+     tk::MbEnter .keymgr.bt.help
+     tk::MbMotion .keymgr.bt.help up 477 68
+     tk::MbMotion .keymgr.bt.help up 468 73
+     tk::MbMotion .keymgr.bt.help up 458 78
+     tk::MbLeave .keymgr.bt.help
+     tk::MbEnter .keymgr.bt.win
+     tk::MbMotion .keymgr.bt.win up 439 88
+     tk::MbMotion .keymgr.bt.win up 426 94
+     tk::MbLeave .keymgr.bt.win
+         if { [ .keymgr.pane.ump.title.gfind cget -state ] == "normal" } {
+            .keymgr.pane.ump.title.gfind configure -relief groove
+        }
+    
+     tk::ButtonEnter .keymgr.pane.ump.title.gfind
+ .keymgr.pane.ump.title.gfind configure -relief flat 
+     tk::ButtonLeave .keymgr.pane.ump.title.gfind
+         if { [ .keymgr.pane.ump.title.gfilter cget -state ] == "normal" } {
+            .keymgr.pane.ump.title.gfilter configure -relief groove
+        }
+    
+     tk::ButtonEnter .keymgr.pane.ump.title.gfilter
+ .keymgr.pane.ump.title.gfilter configure -relief flat 
+     tk::ButtonLeave .keymgr.pane.ump.title.gfilter
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 412 4]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.revised.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.revised.list.hsb cget -activebackground]
+	.keymgr.pane.map.revised.list.hsb configure -activebackground [.keymgr.pane.map.revised.list.hsb cget -background]
+    }
+    .keymgr.pane.map.revised.list.hsb activate [.keymgr.pane.map.revised.list.hsb identify 42 7]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.revised.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.revised.list.hsb activate {}
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig .guisrc_2 826 596 112 135 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.com.revised.list.hsb cget -activebackground]
+	.keymgr.pane.com.revised.list.hsb configure -activebackground [.keymgr.pane.com.revised.list.hsb cget -background]
+    }
+    .keymgr.pane.com.revised.list.hsb activate [.keymgr.pane.com.revised.list.hsb identify 413 4]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.com.revised.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.com.revised.list.hsb activate {}
+ guiWinConfig .guisrc_2 826 596 112 135 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+ guiWinConfig .guisrc_2 826 596 112 135 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+#Gui Step(64)===>(Text).guisrc_2.pane.f1.w_0.r2.src <Button-1> 23.9
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 64:  (Text) <Button-1>\
+ 23.9} .guisrc_2.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_2.pane.f1.w_0.r2.src 23 9];set y [guiGetTextY .guisrc_2.pane.f1.w_0.r2.src 23 9] 
+srcWinBtn1 .guisrc_2.pane.f1.w_0.r2.src 99 376 .guisrc_2.pane.f1.w_0.r1.cursor 0 guisrc_2; srcWinParamInfobox 0 2 guisrc_2 .guisrc_2.pane.f1.w_0.r2.src
+break
+break
+#Gui Step(65)===>(Text).guisrc_2.pane.f1.w_0.r2.src <Button-1> 23.9
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 65:  (Text) <Button-1>\
+ 23.9} .guisrc_2.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_2.pane.f1.w_0.r2.src 23 9];set y [guiGetTextY .guisrc_2.pane.f1.w_0.r2.src 23 9] 
+     tk::TextButton1 .guisrc_2.pane.f1.w_0.r2.src $x $y
+    .guisrc_2.pane.f1.w_0.r2.src tag remove sel 0.0 end
+     tk::CancelRepeat
+#Gui Step(67)===>(Text).guisrc_2.pane.f1.w_0.r2.src <Button-1> 23.9
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 67:  (Text) <Button-1>\
+ 23.9} .guisrc_2.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_2.pane.f1.w_0.r2.src 23 9];set y [guiGetTextY .guisrc_2.pane.f1.w_0.r2.src 23 9] 
+srcWinBtn1 .guisrc_2.pane.f1.w_0.r2.src 99 376 .guisrc_2.pane.f1.w_0.r1.cursor 0 guisrc_2; srcWinParamInfobox 0 2 guisrc_2 .guisrc_2.pane.f1.w_0.r2.src
+break
+break
+#Gui Step(68)===>(Text).guisrc_2.pane.f1.w_0.r2.src <Button-1> 23.9
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 68:  (Text) <Button-1>\
+ 23.9} .guisrc_2.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_2.pane.f1.w_0.r2.src 23 9];set y [guiGetTextY .guisrc_2.pane.f1.w_0.r2.src 23 9] 
+     tk::TextButton1 .guisrc_2.pane.f1.w_0.r2.src $x $y
+    .guisrc_2.pane.f1.w_0.r2.src tag remove sel 0.0 end
+     tk::CancelRepeat
+#Gui Step(70)===>(Text).guisrc_2.pane.f1.w_0.r2.src <Button-1> 24.0
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 70:  (Text) <Button-1>\
+ 24.0} .guisrc_2.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_2.pane.f1.w_0.r2.src 24 0];set y [guiGetTextY .guisrc_2.pane.f1.w_0.r2.src 24 0] 
+srcWinBtn1 .guisrc_2.pane.f1.w_0.r2.src 97 394 .guisrc_2.pane.f1.w_0.r1.cursor 0 guisrc_2; srcWinParamInfobox 0 2 guisrc_2 .guisrc_2.pane.f1.w_0.r2.src
+break
+break
+#Gui Step(71)===>(Text).guisrc_2.pane.f1.w_0.r2.src <Button-1> 24.0
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 71:  (Text) <Button-1>\
+ 24.0} .guisrc_2.pane.f1.w_0.r2.src } 
+set x [guiGetTextX .guisrc_2.pane.f1.w_0.r2.src 24 0];set y [guiGetTextY .guisrc_2.pane.f1.w_0.r2.src 24 0] 
+     tk::TextButton1 .guisrc_2.pane.f1.w_0.r2.src $x $y
+    .guisrc_2.pane.f1.w_0.r2.src tag remove sel 0.0 end
+     set tk::Priv(x) 89
+    set tk::Priv(y) 378
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 89 378
+break
+break
+     set tk::Priv(x) 81
+    set tk::Priv(y) 367
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 81 367
+break
+break
+     set tk::Priv(x) 77
+    set tk::Priv(y) 361
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 77 361
+break
+break
+     set tk::Priv(x) 74
+    set tk::Priv(y) 356
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 74 356
+break
+break
+     set tk::Priv(x) 66
+    set tk::Priv(y) 345
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 66 345
+break
+break
+     set tk::Priv(x) 59
+    set tk::Priv(y) 332
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 59 332
+break
+break
+     set tk::Priv(x) 56
+    set tk::Priv(y) 324
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 56 324
+break
+break
+     set tk::Priv(x) 48
+    set tk::Priv(y) 309
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 48 309
+break
+break
+     set tk::Priv(x) 44
+    set tk::Priv(y) 299
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 44 299
+break
+break
+     set tk::Priv(x) 38
+    set tk::Priv(y) 285
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 38 285
+break
+break
+     set tk::Priv(x) 35
+    set tk::Priv(y) 278
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 35 278
+break
+break
+     set tk::Priv(x) 31
+    set tk::Priv(y) 256
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 31 256
+break
+break
+     set tk::Priv(x) 29
+    set tk::Priv(y) 249
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 29 249
+break
+break
+     set tk::Priv(x) 26
+    set tk::Priv(y) 227
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 26 227
+break
+break
+     set tk::Priv(x) 23
+    set tk::Priv(y) 203
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 23 203
+break
+break
+     set tk::Priv(x) 23
+    set tk::Priv(y) 190
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 23 190
+break
+break
+     set tk::Priv(x) 22
+    set tk::Priv(y) 168
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 22 168
+break
+break
+     set tk::Priv(x) 22
+    set tk::Priv(y) 157
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 22 157
+break
+break
+     set tk::Priv(x) 22
+    set tk::Priv(y) 137
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 22 137
+break
+break
+     set tk::Priv(x) 22
+    set tk::Priv(y) 119
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 22 119
+break
+break
+     set tk::Priv(x) 22
+    set tk::Priv(y) 110
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 22 110
+break
+break
+     set tk::Priv(x) 22
+    set tk::Priv(y) 91
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 22 91
+break
+break
+     set tk::Priv(x) 23
+    set tk::Priv(y) 71
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 23 71
+break
+break
+     set tk::Priv(x) 24
+    set tk::Priv(y) 54
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 24 54
+break
+break
+     set tk::Priv(x) 27
+    set tk::Priv(y) 41
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 27 41
+break
+break
+     set tk::Priv(x) 30
+    set tk::Priv(y) 28
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 30 28
+break
+break
+     set tk::Priv(x) 31
+    set tk::Priv(y) 17
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 31 17
+break
+break
+     set tk::Priv(x) 33
+    set tk::Priv(y) 10
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 33 10
+break
+break
+     set tk::Priv(x) 34
+    set tk::Priv(y) 8
+    tk::TextSelectTo .guisrc_2.pane.f1.w_0.r2.src 34 8
+break
+break
+     tk::CancelRepeat
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 38 11]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+ .keymgr.bt.ok instate !disabled {.keymgr.bt.ok state active} 
+ .keymgr.bt.ok state !active 
+     tk::MbEnter .v_menu.ltx
+     tk::MbMotion .v_menu.ltx up 261 60
+     tk::MbLeave .v_menu.ltx
+     tk::MbEnter .keymgr.bt.pref
+     tk::MbMotion .keymgr.bt.pref up 268 73
+     tk::MbMotion .keymgr.bt.pref up 287 82
+     tk::MbLeave .keymgr.bt.pref
+ .guisrc_2.bt.hlp instate !disabled {.guisrc_2.bt.hlp state active} 
+ .guisrc_2.bt.hlp state !active 
+     tk::ButtonEnter .guisrc_2.pane.f2.cmd.cmd2.but1
+     tk::ButtonLeave .guisrc_2.pane.f2.cmd.cmd2.but1
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_2.pane.f3.mesg.text.hsb cget -activebackground]
+	.guisrc_2.pane.f3.mesg.text.hsb configure -activebackground [.guisrc_2.pane.f3.mesg.text.hsb cget -background]
+    }
+    .guisrc_2.pane.f3.mesg.text.hsb activate [.guisrc_2.pane.f3.mesg.text.hsb identify 564 1]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_2.pane.f3.mesg.text.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_2.pane.f3.mesg.text.hsb activate {}
+ 	tk::CheckEnter .guisrc_2.pane.f2.cmd.cmd2.chk
+    
+ 	tk::CheckLeave .guisrc_2.pane.f2.cmd.cmd2.chk
+    
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_2.pane.f1.w_0.r2.hbar cget -activebackground]
+	.guisrc_2.pane.f1.w_0.r2.hbar configure -activebackground [.guisrc_2.pane.f1.w_0.r2.hbar cget -background]
+    }
+    .guisrc_2.pane.f1.w_0.r2.hbar activate [.guisrc_2.pane.f1.w_0.r2.hbar identify 481 12]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_2.pane.f1.w_0.r2.hbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_2.pane.f1.w_0.r2.hbar activate {}
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_2.pane.f3.mesg.text.hsb cget -activebackground]
+	.guisrc_2.pane.f3.mesg.text.hsb configure -activebackground [.guisrc_2.pane.f3.mesg.text.hsb cget -background]
+    }
+    .guisrc_2.pane.f3.mesg.text.hsb activate [.guisrc_2.pane.f3.mesg.text.hsb identify 65 12]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_2.pane.f3.mesg.text.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_2.pane.f3.mesg.text.hsb activate {}
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_2.pane.f1.w_0.r2.hbar cget -activebackground]
+	.guisrc_2.pane.f1.w_0.r2.hbar configure -activebackground [.guisrc_2.pane.f1.w_0.r2.hbar cget -background]
+    }
+    .guisrc_2.pane.f1.w_0.r2.hbar activate [.guisrc_2.pane.f1.w_0.r2.hbar identify 223 11]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_2.pane.f1.w_0.r2.hbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_2.pane.f1.w_0.r2.hbar activate {}
+srcWinExitSource .guisrc_2 2
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.open
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.edit
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.find
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.left
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.right
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.up
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.down
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.modname
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f1.w_0.r1.reset
+tixPrimitive:Destructor .guisrc_2.pane.f1.w_0.r1.file.shell.slistbox
+tixComboBox:Destructor .guisrc_2.pane.f1.w_0.r1.file
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f2.cmd.cmd1.lab
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f2.cmd.cmd1.ent
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f2.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f2.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f2.cmd.cmd2.but2
+tixBalloon:ClientDestroy .icon.b .guisrc_2.pane.f2.cmd.cmd2.but2
+ 	idoc_cleanup .guisrc_2.pane.f3.mesg.text.text
+    
+tixPrimitive:Destructor .guisrc_2.pane.f3.mesg.text
+tixPrimitive:Destructor .guisrc_2.pane
+callback Gui_hlist_leave .keymgr.pane.ump.revised.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.vbar cget -activebackground]
+	.keymgr.pane.ump.golden.vbar configure -activebackground [.keymgr.pane.ump.golden.vbar cget -background]
+    }
+    .keymgr.pane.ump.golden.vbar activate [.keymgr.pane.ump.golden.vbar identify 10 55]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.vbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.vbar activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 265 10]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 82 8]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 113 11]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 66 5]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 141 10]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 162 1]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 74 9]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+#Gui Step(73)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <Button-1> {{{(+)   PO   15      y[15] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 73:  (TixHList) <Button-1>\
+ {{(+)   PO   15      y[15] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {0}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {0}] 
+_tixRecordFlags <ButtonPress-1> % 99980 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72582343 ?? 153 14 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.com.golden.list.f1.hlist 163 567; 
+	 tixHList:Button-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+#Gui Step(74)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <ButtonRelease-1> {{{(+)   PO   15      y[15] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 74:  (TixHList) <ButtonRelease-1>\
+ {{(+)   PO   15      y[15] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {0}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {0}] 
+_tixRecordFlags <ButtonRelease-1> % 100198 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72582500 ?? 153 14 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.com.golden.list.f1.hlist 163 567; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrComList select 14
+show_cmp_point_class .keymgr.pane.com.golden.list.f1.hlist
+#Gui Step(76)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <Button-1> {{{(+)   PO   16      y[14] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 76:  (TixHList) <Button-1>\
+ {{(+)   PO   16      y[14] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {1}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {1}] 
+_tixRecordFlags <ButtonPress-1> % 100468 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72583265 ?? 132 25 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.com.golden.list.f1.hlist 142 578; 
+	 tixHList:Button-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+#Gui Step(77)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <ButtonRelease-1> {{{(+)   PO   16      y[14] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 77:  (TixHList) <ButtonRelease-1>\
+ {{(+)   PO   16      y[14] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {1}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {1}] 
+_tixRecordFlags <ButtonRelease-1> % 100578 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72583390 ?? 132 25 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.com.golden.list.f1.hlist 142 578; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrComList select 25
+show_cmp_point_class .keymgr.pane.com.golden.list.f1.hlist
+#Gui Step(79)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <Button-1> {{{(+)   PO   17      y[13] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 79:  (TixHList) <Button-1>\
+ {{(+)   PO   17      y[13] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {2}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {2}] 
+_tixRecordFlags <ButtonPress-1> % 100850 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72583875 ?? 120 52 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.com.golden.list.f1.hlist 130 605; 
+	 tixHList:Button-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+_tixRecordFlags <B1-Motion> % 100960 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 256 72583921 ?? 121 52 ?? ?? 0 ?? ?? 0x0000f3 00000000 6 .keymgr.pane.com.golden.list.f1.hlist 131 605; 
+	set tkPriv(x) 121
+	set tkPriv(y) 52
+	set tkPriv(X) 131
+	set tkPriv(Y) 605
+ 	tixHList:B1-Motion .keymgr.pane.com.golden.list.f1.hlist 121 52
+    ; _tixDeleteFlags;
+_tixRecordFlags <B1-Motion> % 100961 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 256 72583937 ?? 121 51 ?? ?? 0 ?? ?? 0x0000f3 00000000 6 .keymgr.pane.com.golden.list.f1.hlist 131 604; 
+	set tkPriv(x) 121
+	set tkPriv(y) 51
+	set tkPriv(X) 131
+	set tkPriv(Y) 604
+ 	tixHList:B1-Motion .keymgr.pane.com.golden.list.f1.hlist 121 51
+    ; _tixDeleteFlags;
+_tixRecordFlags <B1-Motion> % 100962 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 256 72584015 ?? 122 51 ?? ?? 0 ?? ?? 0x0000f3 00000000 6 .keymgr.pane.com.golden.list.f1.hlist 132 604; 
+	set tkPriv(x) 122
+	set tkPriv(y) 51
+	set tkPriv(X) 132
+	set tkPriv(Y) 604
+ 	tixHList:B1-Motion .keymgr.pane.com.golden.list.f1.hlist 122 51
+    ; _tixDeleteFlags;
+#Gui Step(80)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <ButtonRelease-1> {{{(+)   PO   17      y[13] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 80:  (TixHList) <ButtonRelease-1>\
+ {{(+)   PO   17      y[13] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {2}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {2}] 
+_tixRecordFlags <ButtonRelease-1> % 100962 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72584015 ?? 122 51 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.com.golden.list.f1.hlist 132 604; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrComList select 51
+show_cmp_point_class .keymgr.pane.com.golden.list.f1.hlist
+#Gui Step(82)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <Button-1> {{{(+)   PO   18      y[12] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 82:  (TixHList) <Button-1>\
+ {{(+)   PO   18      y[12] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {3}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {3}] 
+_tixRecordFlags <ButtonPress-1> % 101224 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72584468 ?? 115 72 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.com.golden.list.f1.hlist 125 625; 
+	 tixHList:Button-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+#Gui Step(83)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <ButtonRelease-1> {{{(+)   PO   18      y[12] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 83:  (TixHList) <ButtonRelease-1>\
+ {{(+)   PO   18      y[12] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {3}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {3}] 
+_tixRecordFlags <ButtonRelease-1> % 101334 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72584562 ?? 115 72 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.com.golden.list.f1.hlist 125 625; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrComList select 72
+show_cmp_point_class .keymgr.pane.com.golden.list.f1.hlist
+#Gui Step(85)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <Button-1> {{{(+)   PO   19      y[11] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 85:  (TixHList) <Button-1>\
+ {{(+)   PO   19      y[11] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {4}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {4}] 
+_tixRecordFlags <ButtonPress-1> % 101592 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72584968 ?? 115 86 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.com.golden.list.f1.hlist 125 639; 
+	 tixHList:Button-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+#Gui Step(86)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <ButtonRelease-1> {{{(+)   PO   19      y[11] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 86:  (TixHList) <ButtonRelease-1>\
+ {{(+)   PO   19      y[11] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {4}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {4}] 
+_tixRecordFlags <ButtonRelease-1> % 101702 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72585078 ?? 115 86 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.com.golden.list.f1.hlist 125 639; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrComList select 86
+show_cmp_point_class .keymgr.pane.com.golden.list.f1.hlist
+#Gui Step(88)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <Button-1> {{{(+)   PO   20      y[10] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 88:  (TixHList) <Button-1>\
+ {{(+)   PO   20      y[10] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {5}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {5}] 
+_tixRecordFlags <ButtonPress-1> % 101968 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72585468 ?? 119 123 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.com.golden.list.f1.hlist 129 676; 
+	 tixHList:Button-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+#Gui Step(89)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <ButtonRelease-1> {{{(+)   PO   20      y[10] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 89:  (TixHList) <ButtonRelease-1>\
+ {{(+)   PO   20      y[10] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {5}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {5}] 
+_tixRecordFlags <ButtonRelease-1> % 102078 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72585593 ?? 119 123 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.com.golden.list.f1.hlist 129 676; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrComList select 123
+show_cmp_point_class .keymgr.pane.com.golden.list.f1.hlist
+#Gui Step(91)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <Button-1> {{{(+)   PO   21      y[9] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 91:  (TixHList) <Button-1>\
+ {{(+)   PO   21      y[9] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {6}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {6}] 
+_tixRecordFlags <ButtonPress-1> % 102337 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72585937 ?? 115 136 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.com.golden.list.f1.hlist 125 689; 
+	 tixHList:Button-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+#Gui Step(92)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <ButtonRelease-1> {{{(+)   PO   21      y[9] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 92:  (TixHList) <ButtonRelease-1>\
+ {{(+)   PO   21      y[9] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {6}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {6}] 
+_tixRecordFlags <ButtonRelease-1> % 102448 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72586062 ?? 115 136 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.com.golden.list.f1.hlist 125 689; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrComList select 136
+show_cmp_point_class .keymgr.pane.com.golden.list.f1.hlist
+             #scrollSelect keyMgrComList select 136
+            pop_com_menu .keymgr.pane.com.golden.list.f1.hlist 125 689
+        
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     set tk::Priv(window) .keymgr.pane.com.golden.list.f1.hlist.com.menu
+    if {[.keymgr.pane.com.golden.list.f1.hlist.com.menu cget -type] eq "tearoff"} {
+	if {"NotifyUngrab" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .keymgr.pane.com.golden.list.f1.hlist.com.menu
+	    }
+	}
+    }
+    tk::MenuMotion .keymgr.pane.com.golden.list.f1.hlist.com.menu 0 75 1024
+    tk::MenuInvoke .keymgr.pane.com.golden.list.f1.hlist.com.menu 1
+#Gui Step(95)===>(Menu).keymgr.pane.com.golden.list.f1.hlist.com.menu <Button> {(menu-item) "Source Code"}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 95:  (Menu) <Button>\
+ (menu-item) "Source Code"} .keymgr.pane.com.golden.list.f1.hlist.com.menu } 
+set x [guiGetMenuX .keymgr.pane.com.golden.list.f1.hlist.com.menu 8];set y [guiGetMenuY .keymgr.pane.com.golden.list.f1.hlist.com.menu 8 ] 
+     tk::MenuMotion .keymgr.pane.com.golden.list.f1.hlist.com.menu $x $y 0
+     tk::MenuButtonDown .keymgr.pane.com.golden.list.f1.hlist.com.menu
+    tk::MenuInvoke .keymgr.pane.com.golden.list.f1.hlist.com.menu 1
+_tixRecordFlags <Configure> % 104891 00000000 ?? ?? ?? ?? 23 ?? ?? 0 ?? ?? ?? 275 1 4 ?? 0 0 ?? ?? ?? ?? 22 .guisrc_3.pane.f1.pane.f1.w_0.r1.r2.file ?? ??; 
+	tixWidgetDoWhenIdle tixComboBox:align .guisrc_3.pane.f1.pane.f1.w_0.r1.r2.file
+    ; _tixDeleteFlags;
+_tixRecordFlags <Configure> % 105009 00000000 ?? ?? ?? ?? 23 ?? ?? 0 ?? ?? ?? 276 1 4 ?? 0 0 ?? ?? ?? ?? 22 .guisrc_3.pane.f1.pane.f2.w_1.r1.r2.file ?? ??; 
+	tixWidgetDoWhenIdle tixComboBox:align .guisrc_3.pane.f1.pane.f2.w_1.r1.r2.file
+    ; _tixDeleteFlags;
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .guisrc_3 821 578 86 109 
+ guiWinConfig .guisrc_3 821 578 0 0 
+ guiWinConfig .guisrc_3 821 578 86 109 
+if {![srcWinKey .guisrc_3.pane.f1.pane.f2.w_1.r2.src .guisrc_3.pane.f1.pane.f2.w_1.r2.line guisrc_3 1 ??]} {break}
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_3.pane.f3.mesg.text.hsb cget -activebackground]
+	.guisrc_3.pane.f3.mesg.text.hsb configure -activebackground [.guisrc_3.pane.f3.mesg.text.hsb cget -background]
+    }
+    .guisrc_3.pane.f3.mesg.text.hsb activate [.guisrc_3.pane.f3.mesg.text.hsb identify 145 5]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_3.pane.f3.mesg.text.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_3.pane.f3.mesg.text.hsb activate {}
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_3.pane.f1.pane.f1.w_0.r2.hbar cget -activebackground]
+	.guisrc_3.pane.f1.pane.f1.w_0.r2.hbar configure -activebackground [.guisrc_3.pane.f1.pane.f1.w_0.r2.hbar cget -background]
+    }
+    .guisrc_3.pane.f1.pane.f1.w_0.r2.hbar activate [.guisrc_3.pane.f1.pane.f1.w_0.r2.hbar identify 166 7]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_3.pane.f1.pane.f1.w_0.r2.hbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_3.pane.f1.pane.f1.w_0.r2.hbar activate {}
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar cget -activebackground]
+	.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar configure -activebackground [.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar cget -background]
+    }
+    .guisrc_3.pane.f1.pane.f1.w_0.r2.vbar activate [.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar identify 4 307]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_3.pane.f1.pane.f1.w_0.r2.vbar activate {}
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+         if { [ .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.left cget -state ] == "normal" } {
+            .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.left configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.left
+ .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.left configure -relief flat 
+     tk::ButtonLeave .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.left
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar cget -activebackground]
+	.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar configure -activebackground [.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar cget -background]
+    }
+    .guisrc_3.pane.f1.pane.f1.w_0.r2.vbar activate [.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar identify 11 361]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_3.pane.f1.pane.f1.w_0.r2.vbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_3.pane.f1.pane.f1.w_0.r2.vbar activate {}
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_3.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_3 1; break
+srcWinExitSource .guisrc_3 3
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.open
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.edit
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.find
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.left
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.right
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.up
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.down
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r1.modname
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.w_0.r1.r2.reset
+tixPrimitive:Destructor .guisrc_3.pane.f1.pane.f1.w_0.r1.r2.file.shell.slistbox
+tixComboBox:Destructor .guisrc_3.pane.f1.pane.f1.w_0.r1.r2.file
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.cmd.cmd1.lab
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.cmd.cmd1.ent
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.cmd.cmd2.but2
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f1.cmd.cmd2.but2
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r1.open
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r1.edit
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r1.find
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r1.left
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r1.right
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r1.up
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r1.down
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r1.modname
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.w_1.r1.r2.reset
+tixPrimitive:Destructor .guisrc_3.pane.f1.pane.f2.w_1.r1.r2.file.shell.slistbox
+tixComboBox:Destructor .guisrc_3.pane.f1.pane.f2.w_1.r1.r2.file
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.cmd.cmd1.lab
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.cmd.cmd1.ent
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.cmd.cmd2.but2
+tixBalloon:ClientDestroy .icon.b .guisrc_3.pane.f1.pane.f2.cmd.cmd2.but2
+tixPrimitive:Destructor .guisrc_3.pane.f1.pane
+ 	idoc_cleanup .guisrc_3.pane.f3.mesg.text.text
+    
+tixPrimitive:Destructor .guisrc_3.pane.f3.mesg.text
+tixPrimitive:Destructor .guisrc_3.pane
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+#Gui Step(96)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <Button-1> {{{(+)   PO   20      y[10] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 96:  (TixHList) <Button-1>\
+ {{(+)   PO   20      y[10] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {5}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {5}] 
+_tixRecordFlags <ButtonPress-1> % 129924 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 72599687 ?? 119 110 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .keymgr.pane.com.golden.list.f1.hlist 129 663; 
+	 tixHList:Button-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y ""
+    ; _tixDeleteFlags;
+#Gui Step(97)===>(TixHList).keymgr.pane.com.golden.list.f1.hlist <ButtonRelease-1> {{{(+)   PO   20      y[10] }}}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 97:  (TixHList) <ButtonRelease-1>\
+ {{(+)   PO   20      y[10] }}} .keymgr.pane.com.golden.list.f1.hlist } 
+set x [guiGetHListEntryX .keymgr.pane.com.golden.list.f1.hlist {5}];set y [guiGetHListEntryY .keymgr.pane.com.golden.list.f1.hlist {5}] 
+_tixRecordFlags <ButtonRelease-1> % 130034 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 72599781 ?? 119 110 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .keymgr.pane.com.golden.list.f1.hlist 129 663; 
+	 tixHList:ButtonRelease-1 .keymgr.pane.com.golden.list.f1.hlist  $x $y
+    ; _tixDeleteFlags;
+scrollSelect keyMgrComList select 110
+show_cmp_point_class .keymgr.pane.com.golden.list.f1.hlist
+             #scrollSelect keyMgrComList select 110
+            pop_com_menu .keymgr.pane.com.golden.list.f1.hlist 129 663
+        
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+     set tk::Priv(window) .keymgr.pane.com.golden.list.f1.hlist.com.menu
+    if {[.keymgr.pane.com.golden.list.f1.hlist.com.menu cget -type] eq "tearoff"} {
+	if {"NotifyUngrab" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .keymgr.pane.com.golden.list.f1.hlist.com.menu
+	    }
+	}
+    }
+    tk::MenuMotion .keymgr.pane.com.golden.list.f1.hlist.com.menu 0 49 1024
+    tk::MenuInvoke .keymgr.pane.com.golden.list.f1.hlist.com.menu 1
+#Gui Step(100)===>(Menu).keymgr.pane.com.golden.list.f1.hlist.com.menu <Button> {(menu-item) "Source Code"}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 100:  (Menu) <Button>\
+ (menu-item) "Source Code"} .keymgr.pane.com.golden.list.f1.hlist.com.menu } 
+set x [guiGetMenuX .keymgr.pane.com.golden.list.f1.hlist.com.menu 8];set y [guiGetMenuY .keymgr.pane.com.golden.list.f1.hlist.com.menu 8 ] 
+     tk::MenuMotion .keymgr.pane.com.golden.list.f1.hlist.com.menu $x $y 0
+     tk::MenuButtonDown .keymgr.pane.com.golden.list.f1.hlist.com.menu
+    tk::MenuInvoke .keymgr.pane.com.golden.list.f1.hlist.com.menu 1
+_tixRecordFlags <Configure> % 132559 00000000 ?? ?? ?? ?? 23 ?? ?? 0 ?? ?? ?? 275 1 4 ?? 0 0 ?? ?? ?? ?? 22 .guisrc_4.pane.f1.pane.f1.w_0.r1.r2.file ?? ??; 
+	tixWidgetDoWhenIdle tixComboBox:align .guisrc_4.pane.f1.pane.f1.w_0.r1.r2.file
+    ; _tixDeleteFlags;
+_tixRecordFlags <Configure> % 132677 00000000 ?? ?? ?? ?? 23 ?? ?? 0 ?? ?? ?? 276 1 4 ?? 0 0 ?? ?? ?? ?? 22 .guisrc_4.pane.f1.pane.f2.w_1.r1.r2.file ?? ??; 
+	tixWidgetDoWhenIdle tixComboBox:align .guisrc_4.pane.f1.pane.f2.w_1.r1.r2.file
+    ; _tixDeleteFlags;
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .guisrc_4 821 578 112 135 
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+ guiWinConfig .guisrc_4 821 578 0 0 
+ guiWinConfig .guisrc_4 821 578 112 135 
+if {![srcWinKey .guisrc_4.pane.f1.pane.f2.w_1.r2.src .guisrc_4.pane.f1.pane.f2.w_1.r2.line guisrc_4 1 ??]} {break}
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_4.pane.f1.pane.f1.w_0.r2.vbar cget -activebackground]
+	.guisrc_4.pane.f1.pane.f1.w_0.r2.vbar configure -activebackground [.guisrc_4.pane.f1.pane.f1.w_0.r2.vbar cget -background]
+    }
+    .guisrc_4.pane.f1.pane.f1.w_0.r2.vbar activate [.guisrc_4.pane.f1.pane.f1.w_0.r2.vbar identify 8 204]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_4.pane.f1.pane.f1.w_0.r2.vbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_4.pane.f1.pane.f1.w_0.r2.vbar activate {}
+           if {!$tk_strictMotif} {
+              .guisrc_4.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_4 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_4.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_4 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_4.pane.f1.pane.f2.w_1.r2.src yview scroll 5 units
+          }
+      
+srcWinKeywordText guisrc_4 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_4.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_4 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_4.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_4 1; break
+           if {!$tk_strictMotif} {
+              .guisrc_4.pane.f1.pane.f2.w_1.r2.src yview scroll -5 units
+          }
+      
+srcWinKeywordText guisrc_4 1; break
+         if { [ .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.up cget -state ] == "normal" } {
+            .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.up configure -relief groove
+        }
+    
+     tk::ButtonEnter .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.up
+ .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.up configure -relief flat 
+     tk::ButtonLeave .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.up
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 26 10]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.guisrc_4.pane.f3.mesg.text.hsb cget -activebackground]
+	.guisrc_4.pane.f3.mesg.text.hsb configure -activebackground [.guisrc_4.pane.f3.mesg.text.hsb cget -background]
+    }
+    .guisrc_4.pane.f3.mesg.text.hsb activate [.guisrc_4.pane.f3.mesg.text.hsb identify 738 11]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.guisrc_4.pane.f3.mesg.text.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .guisrc_4.pane.f3.mesg.text.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.com.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.revised.list.f1.hlist
+ 	tk::CheckEnter .guisrc_4.pane.f1.pane.f2.cmd.cmd2.chk
+    
+ 	tk::CheckLeave .guisrc_4.pane.f1.pane.f2.cmd.cmd2.chk
+    
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     tk::ButtonEnter .guisrc_4.pane.f1.pane.f1.w_0.r1.r2.file.frame.arrow
+     tk::ButtonLeave .guisrc_4.pane.f1.pane.f1.w_0.r1.r2.file.frame.arrow
+ .keymgr.bt.ok instate !disabled {.keymgr.bt.ok state active} 
+ .keymgr.bt.ok state !active 
+callback Gui_hlist_leave .keymgr.pane.ump.revised.list.f1.hlist
+         if { [ .keymgr.pane.map.title.filter cget -state ] == "normal" } {
+            .keymgr.pane.map.title.filter configure -relief groove
+        }
+    
+     tk::ButtonEnter .keymgr.pane.map.title.filter
+ .keymgr.pane.map.title.filter configure -relief flat 
+     tk::ButtonLeave .keymgr.pane.map.title.filter
+callback Gui_hlist_leave .keymgr.pane.map.revised.list.f1.hlist
+srcWinExitSource .guisrc_4 4
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r1.open
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r1.edit
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r1.find
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r1.left
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r1.right
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r1.up
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r1.down
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r1.modname
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.w_0.r1.r2.reset
+tixPrimitive:Destructor .guisrc_4.pane.f1.pane.f1.w_0.r1.r2.file.shell.slistbox
+tixComboBox:Destructor .guisrc_4.pane.f1.pane.f1.w_0.r1.r2.file
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.cmd.cmd1.lab
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.cmd.cmd1.ent
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.cmd.cmd2.but2
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f1.cmd.cmd2.but2
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.open
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.edit
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.find
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.left
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.right
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.up
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.down
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r1.modname
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.w_1.r1.r2.reset
+tixPrimitive:Destructor .guisrc_4.pane.f1.pane.f2.w_1.r1.r2.file.shell.slistbox
+tixComboBox:Destructor .guisrc_4.pane.f1.pane.f2.w_1.r1.r2.file
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.cmd.cmd1.lab
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.cmd.cmd1.ent
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.cmd.cmd2.but1
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.cmd.cmd2.but2
+tixBalloon:ClientDestroy .icon.b .guisrc_4.pane.f1.pane.f2.cmd.cmd2.but2
+tixPrimitive:Destructor .guisrc_4.pane.f1.pane
+ 	idoc_cleanup .guisrc_4.pane.f3.mesg.text.text
+    
+tixPrimitive:Destructor .guisrc_4.pane.f3.mesg.text
+tixPrimitive:Destructor .guisrc_4.pane
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.vbar cget -activebackground]
+	.keymgr.pane.ump.golden.vbar configure -activebackground [.keymgr.pane.ump.golden.vbar cget -background]
+    }
+    .keymgr.pane.ump.golden.vbar activate [.keymgr.pane.ump.golden.vbar identify 12 119]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.vbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.vbar activate {}
+callback Gui_hlist_leave .keymgr.pane.ump.revised.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.vbar cget -activebackground]
+	.keymgr.pane.ump.golden.vbar configure -activebackground [.keymgr.pane.ump.golden.vbar cget -background]
+    }
+    .keymgr.pane.ump.golden.vbar activate [.keymgr.pane.ump.golden.vbar identify 8 103]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.vbar configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.vbar activate {}
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll  1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll -1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll -1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll -1 pages
+scrollSet .keymgr.pane.ump.golden.list.f1.hlist keyMgrUmpGList scroll -1 pages
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     tk::MbEnter .keymgr.bt.pref
+     tk::MbMotion .keymgr.bt.pref up 348 92
+     tk::MbLeave .keymgr.bt.pref
+     tk::MbEnter .keymgr.bt.win
+     tk::MbMotion .keymgr.bt.win up 381 82
+     tk::MbMotion .keymgr.bt.win up 424 72
+     tk::MbLeave .keymgr.bt.win
+callback Gui_destroy_dialog .keymgr
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.pineq.title.find
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.pineq.title.filter
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.pineq.title.repo
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.pineq.title.sort
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.pineq.title.gateclass
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.pineq.title.cls
+tixPrimitive:Destructor .keymgr.pane.pineq.golden.list
+tixPrimitive:Destructor .keymgr.pane.pineq.revised.list
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.gfind
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.gfilter
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.gunmapgateclass
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.gunmapcls
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.runmapgateclass
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.runmapcls
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.rfind
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.rfilter
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.ump.title.repo
+tixPrimitive:Destructor .keymgr.pane.ump.golden.list
+tixPrimitive:Destructor .keymgr.pane.ump.revised.list
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.map.title.dall
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.map.title.aall
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.map.title.remp
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.map.title.find
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.map.title.filter
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.map.title.repo
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.map.title.gateclass
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.map.title.cls
+tixPrimitive:Destructor .keymgr.pane.map.golden.list
+tixPrimitive:Destructor .keymgr.pane.map.revised.list
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.com.title.dall
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.com.title.comp
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.com.title.find
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.com.title.filter
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.com.title.repo
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.com.title.sort
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.com.title.gateclass
+tixBalloon:ClientDestroy .icon.b .keymgr.pane.com.title.cls
+tixPrimitive:Destructor .keymgr.pane.com.golden.list
+tixPrimitive:Destructor .keymgr.pane.com.revised.list
+tixPrimitive:Destructor .keymgr.pane
+         if { [ .v_menu.logo cget -state ] == "normal" } {
+            .v_menu.logo configure -relief groove
+        }
+    
+     tk::ButtonEnter .v_menu.logo
+ .v_menu.logo configure -relief flat 
+     tk::ButtonLeave .v_menu.logo
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist

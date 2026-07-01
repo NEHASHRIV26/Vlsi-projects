@@ -1,0 +1,16 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-VFILE
+/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v
+-LIBEXT
+.v
+-LIBEXT
+.V
+-LIBEXT
+.z
+-LIBEXT
+.Z
+-LIBEXT
+.gz

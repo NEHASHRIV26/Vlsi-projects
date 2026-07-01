@@ -1,0 +1,264 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Thu Jun 18 13:53:19 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.15-s110_1 (64bit) 09/23/2022 13:08 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.15-s110_1 NR220912-2004/21_15-UB (database version 18.20.592) {superthreading v2.17}
+#@(#)CDS: AAE 21.15-s039 (64bit) 09/23/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.15-s038_1 () Sep 20 2022 11:42:13 ( )
+#@(#)CDS: SYNTECH 21.15-s012_1 () Sep  5 2022 10:25:51 ( )
+#@(#)CDS: CPE v21.15-s076
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s867 (64bit) Sun Jun 26 22:12:54 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getVersion
+getVersion
+getVersion
+win
+set init_gnd_net VSS
+set init_lef_file ../../../../install/FOUNDRY/digital/90nm/dig/lef/gsclib090_translated.lef
+set init_verilog ../synthesis/memory_netlist.v
+set init_mmmc_file Default.view
+set init_pwr_net VDD
+init_design
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -coreMarginsBy die -site gsclib090site -r 1 0.7 8 8 8 8
+uiSetTool select
+getIoFlowFlag
+fit
+clearGlobalNets
+globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+clearGlobalNets
+globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+clearGlobalNets
+globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+clearGlobalNets
+globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+clearGlobalNets
+globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+clearGlobalNets
+globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_short 0 -skip_crossing_trunks none -stacked_via_top_layer Metal9 -stacked_via_bottom_layer Metal1 -via_using_exact_crossover_size 1 -orthogonal_only true -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+addRing -nets {VDD VSS} -type core_rings -follow core -layer {top Metal9 bottom Metal9 left Metal8 right Metal8} -width {top 1.8 bottom 1.8 left 1.8 right 1.8} -spacing {top 0.5 bottom 0.5 left 0.5 right 0.5} -offset {top 1.8 bottom 1.8 left 1.8 right 1.8} -center 1 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_short 0 -skip_crossing_trunks none -stacked_via_top_layer Metal9 -stacked_via_bottom_layer Metal1 -via_using_exact_crossover_size 1 -orthogonal_only true -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+addRing -nets {VDD VSS} -type core_rings -follow core -layer {top Metal9 bottom Metal9 left Metal8 right Metal8} -width {top 1.8 bottom 1.8 left 1.8 right 1.8} -spacing {top 0.5 bottom 0.5 left 0.5 right 0.5} -offset {top 1.8 bottom 1.8 left 1.8 right 1.8} -center 1 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length stripe_width -stacked_via_top_layer Metal9 -stacked_via_bottom_layer Metal1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring } -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape   }
+addStripe -nets {VDD VSS} -layer Metal9 -direction horizontal -width 1 -spacing 0.4 -number_of_sets 20 -start_from bottom -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit Metal9 -padcore_ring_bottom_layer_limit Metal1 -block_ring_top_layer_limit Metal9 -block_ring_bottom_layer_limit Metal1 -use_wire_group 0 -snap_wire_center_to_grid None
+ui_view_box
+ui_view_box
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType inst
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType regular
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType special
+ui_view_box
+ui_view_box
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType inst
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType regular
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType special
+selectWire 2.0100 9.5200 134.0000 10.5200 9 VSS
+deselectWire 2.0100 9.5200 134.0000 10.5200 9 VSS
+deselectWire 2.0100 9.5200 134.0000 10.5200 9 VSS
+selectWire 2.0100 9.5200 134.0000 10.5200 9 VSS
+deselectWire 2.0100 9.5200 134.0000 10.5200 9 VSS
+deselectWire 2.0100 9.5200 134.0000 10.5200 9 VSS
+selectWire 2.0100 45.8500 134.0000 46.8500 9 VSS
+deselectAll
+gui_group_hinst
+::uiSetTool getLocation {guiAddShape::fillPointAndShowTextForm guiAddText startX startY}
+uiSetTool select
+setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length stripe_width -stacked_via_top_layer Metal9 -stacked_via_bottom_layer Metal1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring } -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape   }
+addStripe -nets {VDD VSS} -layer Metal8 -direction vertical -width 1 -spacing 0.4 -number_of_sets 20 -start_from left -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit Metal9 -padcore_ring_bottom_layer_limit Metal1 -block_ring_top_layer_limit Metal9 -block_ring_bottom_layer_limit Metal1 -use_wire_group 0 -snap_wire_center_to_grid None
+setSrouteMode -viaConnectToShape { noshape }
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { Metal1(1) Metal9(9) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { Metal1(1) Metal9(9) } -nets { VDD VSS } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { Metal1(1) Metal9(9) }
+setLayerPreference Metal9 -isSelectable 0
+setLayerPreference Metal9 -isVisible 0
+setLayerPreference Metal9 -isVisible 1
+setLayerPreference Metal9 -isSelectable 1
+setLayerPreference Metal9 -isVisible 0
+setLayerPreference Via8 -isVisible 0
+setLayerPreference Metal8 -isVisible 0
+zoomBox -28.41650 29.52250 85.13200 84.98600
+zoomBox -11.74600 40.52900 47.52750 69.48150
+zoomBox -1.65600 47.64850 24.64500 60.49550
+zoomBox 1.46450 49.83950 17.61700 57.72950
+zoomBox -13.33600 40.83050 37.05200 65.44300
+zoomBox -49.01250 19.04400 84.58950 84.30300
+zoomBox -84.89200 -2.89600 132.65800 103.36800
+zoomBox -49.01300 19.04350 84.59000 84.30300
+zoomBox -26.97900 32.51700 55.07050 72.59500
+zoomBox -13.44800 40.79100 36.94200 65.40450
+zoomBox -7.47200 44.44550 28.93550 62.22900
+zoomBox -3.15450 47.08550 23.15050 59.93450
+zoomBox 1.18250 49.73800 17.33850 57.62950
+zoomBox 3.09850 50.90900 14.77150 56.61100
+zoomBox 5.02250 52.08600 12.19200 55.58800
+zoomBox 6.20450 52.80900 10.60800 54.96000
+zoomBox 7.10350 53.35900 9.40250 54.48200
+zoomBox 7.57250 53.64600 8.77300 54.23250
+zoomBox 7.81750 53.79550 8.44450 54.10200
+zoomBox 7.39100 53.53250 9.05550 54.34550
+zoomBox 6.31150 52.85850 10.72400 55.01400
+zoomBox 5.25350 52.19500 12.43950 55.70500
+fit
+zoomBox -95.58400 -21.75700 258.61300 151.25350
+zoomBox -38.80600 24.16400 118.35450 100.93050
+zoomBox -31.59150 29.44750 101.99500 94.69900
+zoomBox -20.60550 37.47950 75.91100 84.62400
+zoomBox -12.71800 43.26250 57.01650 77.32500
+zoomBox -6.75250 47.52750 43.63050 72.13750
+zoomBox -0.75950 51.81200 30.18250 66.92600
+zoomBox 1.88700 53.70450 24.24300 64.62450
+zoomBox -9.49450 45.56700 49.78150 74.52100
+fit
+setLayerPreference Metal8 -isVisible 1
+setLayerPreference Via8 -isVisible 1
+setLayerPreference Metal9 -isVisible 1
+saveDesign memory_powerplan.enc
+saveDesign memory_powerplan.enc
+addEndCap -preCap FILL1 -postCap FILL1 -prefix ENDCAP
+setLayerPreference node_layer -isVisible 0
+zoomBox -48.18800 37.51850 136.70600 127.83150
+zoomBox -26.10900 65.09000 87.43900 120.55350
+zoomBox -20.83350 71.67200 75.68250 118.81600
+zoomBox -6.54350 89.50000 43.83850 114.10950
+zoomBox -4.20250 92.42050 38.62200 113.33850
+zoomBox -2.21300 94.90250 34.18800 112.68300
+zoomBox -0.52200 97.01250 30.41900 112.12600
+zoomBox 2.83850 101.48450 21.84000 110.76600
+zoomBox 3.64000 102.55200 19.79200 110.44150
+zoomBox 5.81250 105.44350 14.24450 109.56200
+zoomBox 6.94600 106.95250 11.34850 109.10300
+zoomBox 7.53700 107.74050 9.83600 108.86350
+zoomBox 7.84600 108.15150 9.04650 108.73800
+zoomBox 7.97600 108.32500 8.71350 108.68500
+zoomBox 8.03250 108.40100 8.56700 108.66200
+zoomBox 7.82350 108.15800 9.02950 108.74700
+zoomBox 7.75700 108.08100 9.17600 108.77400
+zoomBox 7.96750 108.32600 8.70900 108.68800
+zoomBox 8.07650 108.45350 8.46550 108.64350
+zoomBox 8.13400 108.52000 8.33800 108.61950
+zoomBox 8.16950 108.56050 8.26000 108.60450
+zoomBox 8.18000 108.57250 8.23600 108.60000
+zoomBox 8.18700 108.58200 8.21800 108.59700
+zoomBox 8.17400 108.56650 8.24650 108.60200
+zoomBox 8.13550 108.52200 8.33050 108.61700
+zoomBox 8.05800 108.43250 8.49900 108.64800
+zoomBox 7.88550 108.23200 8.88050 108.71800
+zoomBox 7.49750 107.78000 9.74050 108.87550
+zoomBox 6.62350 106.76150 11.68000 109.23150
+zoomBox 5.18550 105.08550 14.87400 109.81800
+zoomBox 2.44350 101.87450 21.00450 110.94100
+zoomBox -2.80900 95.72400 32.74900 113.09250
+zoomBox -16.58550 79.59100 63.55400 118.73600
+zoomBox -57.48350 31.69650 155.00500 135.48850
+zoomBox -69.07100 18.12650 180.91600 140.23500
+zoomBox 25.15250 52.02550 155.64800 115.76700
+zoomBox 74.33750 69.72050 142.45750 102.99450
+zoomBox 100.01200 78.95750 135.57200 96.32700
+zoomBox 115.61000 84.56900 131.38900 92.27650
+zoomBox 122.53000 87.05900 129.53250 90.47950
+zoomBox 125.16900 88.00850 128.82450 89.79400
+zoomBox 126.28100 88.40850 128.52600 89.50500
+zoomBox 126.54650 88.50400 128.45500 89.43600
+zoomBox 127.26550 88.76300 128.26200 89.24950
+zoomBox 127.55800 88.88400 128.17000 89.18300
+zoomBox 127.73750 88.95850 128.11350 89.14200
+zoomBox 127.45850 88.71750 128.84100 89.39300
+zoomBox 126.63300 88.00900 130.95050 90.11800
+zoomBox 124.62950 86.28750 136.08000 91.88050
+zoomBox 116.00950 78.91050 158.03550 99.43850
+zoomBox 90.97750 57.42200 222.07400 121.45700
+zoomBox -57.35900 -70.61950 608.53550 254.64250
+fit
+setLayerPreference node_layer -isVisible 1
+setLayerPreference Poly -isVisible 0
+setRouteMode -earlyGlobalHonorMsvRouteConstraint false -earlyGlobalRoutePartitionPinGuide true
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -droutePostRouteSpreadWire 1
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule LEFDefaultRouteSpec_gpdk090
+setNanoRouteMode -quiet -timingEngine {}
+setUsefulSkewMode -noBoundary false -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 1 -moduleAwareSpare 0 -preserveRouting 1 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+place_design
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setRouteMode -earlyGlobalHonorMsvRouteConstraint false -earlyGlobalRoutePartitionPinGuide true
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -noBoundary false -maxAllowedDelay 1
+setPlaceMode -fp false
+place_design
+setLayerPreference Poly -isVisible 0
+setLayerPreference Cont -isVisible 0
+setLayerPreference Metal1 -isVisible 0
+setLayerPreference Via1 -isVisible 0
+setLayerPreference Metal2 -isVisible 0
+setLayerPreference Via2 -isVisible 0
+setLayerPreference Metal3 -isVisible 0
+setLayerPreference Via3 -isVisible 0
+setLayerPreference Metal4 -isVisible 0
+setLayerPreference Via4 -isVisible 0
+setLayerPreference Metal5 -isVisible 0
+setLayerPreference Via5 -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+gui_select -rect {212.48550 34.11550 213.38250 36.58150}
+gui_select -rect {216.96900 64.15500 212.71000 60.79250}
+gui_select -rect {8.48600 113.02500 74.84200 34.56400}
+deselectAll

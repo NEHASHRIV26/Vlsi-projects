@@ -1,0 +1,422 @@
+hal: Options:   -cdslib /home/vlsi19/day3/cds.lib -logfile hal.log /home/vlsi19/day3/sr_tb.v.
+hal: Workspace: /home/vlsi19/day3.
+hal: Date: Wed Jun 03 16:07:03 IST 2026.
+hal: Running on design source files.....
+hal: *M,_SCOPE: __dummy_top
+hal: Snapshot:  worklib.sr_tb:v.
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+     |
+ncelab: *W,CUVWSI (./sr_tb.v,4|5): 1 input port was not connected:
+ncelab: (./sr.v,1): rst
+
+	Top level design units:
+		sr_tb
+hal: *M,_SCOPE: __dummy_top
+halcheck: *M,_SCOPE: sr_tb
+halcheck: *W,NEEDIO (./sr_tb.v,1|0): Top-level module 'sr_tb' has no inputs/outputs/inouts.
+@:sr_tb sr_tb
+halcheck: *W,UNCONN (./sr_tb.v,4|0): Input port 'rst' defined in design-unit 'sr' is not connected in its instance 'sri'.
+@:rst sr_tb.sri
+@:sri 
+halcheck: *W,REVROP (./sr_tb.v,6|0): Register 'clk' is being read/assigned outside the process in which it was assigned using a blocking assignment.
+halcheck: (./sr_tb.v,7): Assigned using blocking assignment in this process.
+halcheck: *W,EVTRIG (./sr_tb.v,7|0): Always block with no event trigger at the start of the block in module 'sr_tb'.
+halcheck: *W,NBGEND (./sr_tb.v,7|0): Missing begin/end statement in the 'always' block.
+halcheck: *W,SEPLIN (./sr_tb.v,7|0): Use a separate line for each HDL statement.
+halcheck: *W,RDBFAS (./sr_tb.v,7|0): Register 'clk', assigned using blocking assignment, is being read before getting assigned.
+halcheck: *W,NOBLKN (./sr_tb.v,8|0): Each block should be labeled with a meaningful name.
+halcheck: *W,SEPLIN (./sr_tb.v,9|0): Use a separate line for each HDL statement.
+halcheck: *W,SEPLIN (./sr_tb.v,10|0): Use a separate line for each HDL statement.
+halcheck: *W,SEPLIN (./sr_tb.v,11|0): Use a separate line for each HDL statement.
+halcheck: *W,SEPLIN (./sr_tb.v,12|0): Use a separate line for each HDL statement.
+halcheck: *W,SEPLIN (./sr_tb.v,13|0): Use a separate line for each HDL statement.
+halcheck: *W,SEPLIN (./sr_tb.v,14|0): Use a separate line for each HDL statement.
+halcheck: *W,BADSYS (./sr_tb.v,17|0): System task $finish in module 'sr_tb' is ignored.
+halcheck: *N,IDLENG (./sr_tb.v,4|0): Identifier name 'sri' is not of appropriate length (4 to 16 characters).
+halcheck: *N,IDLENG (./sr.v,1|0): Identifier name 'sr' is not of appropriate length (4 to 16 characters).
+halcheck: *M,_SCOPE: sr_tb.sri
+halcheck: *N,PRTCNT (./sr.v,1|0): Module/Entity 'sr' contains '5' ports.
+halcheck: (./sr.v,1): Number of Input ports: 4.
+halcheck: (./sr.v,1): Number of Output ports: 1.
+halcheck: *N,DECLIN (./sr.v,1|0): Use a separate line for each HDL declaration.
+halcheck: *W,NOBLKN (./sr.v,3|0): Each block should be labeled with a meaningful name.
+halcheck: *W,NBGEND (./sr.v,4|0): Missing begin/end statement in the 'if' block.
+halcheck: *W,SYNTXZ (./sr.v,11|0): Synthesizing 'x'/'z' values in module 'sr'.
+halcheck: *M,_SCOPE: sr_tb
+halcheck: *W,URDWIR (./sr_tb.v,3|0): Wire 'q' defined in module 'sr_tb' does not drive any object, but is assigned at least once.
+@:q 
+halcheck: *W,URDREG (./sr_tb.v,2|0): Local register variable 'rst' is not read, but is assigned at least once in module 'sr_tb'.
+@:rst 
+halcheck: Total errors   = 0.
+halcheck: Total warnings = 20.
+hal: *M,_SCOPE: __dummy_top
+halsynth: Loading design snapshot....
+halsynth: Traversing design hierarchy....
+halsynth: *M,_SCOPE: sr_tb
+halsynth: *W,INIUSP (./sr_tb.v,5|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+halsynth: *E,AWNDEL (./sr_tb.v,7|0): Always block with no event trigger at the start in module sr_tb.
+halsynth: *W,INIUSP (./sr_tb.v,8|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+halsynth: *W,INIUSP (./sr_tb.v,16|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+halsynth: *W,COMBLP: In module sr_tb, combinational loop detected for node clk.
+halsynth: (./sr_tb.v,7|0): Source HDL information for the error/warning mentioned above.
+@:clk 
+halsynth: *W,IGNDLY (./sr_tb.v,7|0): Lumped delay in module 'sr_tb' is ignored.
+~:CLKOUT
+~:CLKSRD
+~:COMBLP
+~:INPOUT
+~:MUDREG
+~:MULWIR
+~:UNDRIV
+halsynth: Total errors   = 1.
+halsynth: Total warnings = 5.
+hal: *M,_SCOPE: __dummy_top
+halstruct: *M,_SCOPE: sr_tb
+halstruct: *E,CMBPAU (./sr_tb.v,2|0): Combinational loop detected through 'clk' in module/design-unit 'sr_tb'.
+@:clk 
+@:clk 
+@:$$cpiHT_3824_1528 
+halstruct: (./sr_tb.v,7): sr_tb.clk.
+@:clk 
+@:clk 
+@:$$cpiHT_3824_1528 
+@:clk 
+halstruct: *E,UNCONI (./sr_tb.v,4|0): Input port 'rst' of entity/module 'sr' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'sr_tb.sri'.
+@:sri 
+halstruct: (./sr_tb.v,4): 'rst' is unmapped.
+@:rst sr_tb.sri
+halstruct: *E,UNCONI (./sr_tb.v,4|0): Input port 's' of entity/module 'sr' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'sr_tb.sri'.
+@:sri 
+@:s 
+halstruct: (./sr_tb.v,4): 's' mapped to actual expression 's' which is undriven.
+@:s sr_tb.sri
+halstruct: *E,UNCONI (./sr_tb.v,4|0): Input port 'r' of entity/module 'sr' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'sr_tb.sri'.
+@:sri 
+@:r 
+halstruct: (./sr_tb.v,4): 'r' mapped to actual expression 'r' which is undriven.
+@:r sr_tb.sri
+halstruct: *W,UNCONO (./sr_tb.v,4|0): Port 'q' (which is being used as an output) of entity/module 'sr' is being driven inside the design, but not connected (either partially or completely) in its instance 'sr_tb.sri'.
+@:q sr_tb.sri
+halstruct: *M,_SCOPE: sr_tb.sri
+halstruct: *W,FFWASR (./sr.v,11|0): Flip-flop 'q' does not have any asynchronous set or reset.
+@:$$cpiST_56_496 
+@:q 
+halstruct: *N,CLKINF (./sr_tb.v,2|0): Signal 'sr_tb.clk' was inferred as clock.
+@:clk sr_tb
+@:$$cpiST_56_496 
+@:q 
+halstruct: (./sr_tb.v,2): Clock source is signal 'sr_tb.clk'.
+@:clk sr_tb
+halstruct: (./sr.v,11): Drives the flip-flop 'sr_tb.sri.q'.
+@:clk sr_tb
+halstruct: *W,CLKNPI (./sr.v,11|0): Flip-flop 'sr_tb.sri.q' has clock 'clk' which is not derived from primary input.
+@:$$cpiST_56_496 
+@:q 
+@:clk 
+@:clk sr_tb
+@:clk 
+halstruct: (./sr_tb.v,7): Derived from local variable 'clk'.
+halstruct: *W,NEGCLK (./sr.v,11|0): Clock signal 'sr_tb.clk' of flip-flop 'sr_tb.sri.q' is derived from an inverter.
+@:q 
+@:clk 
+halstruct: *W,ATLGLC (./sr_tb.v,1|0): Glue logic inferred in top-level module/design-unit 'sr_tb'.
+@:sr_tb sr_tb
+halstruct: (./sr_tb.v,7): HDL-statement inferred as glue logic.
+@:clk sr_tb
+halstruct: *N,NUMDFF (./sr_tb.v,1|0): Number of single-bit D flip-flops present in the hierarchy is 1.
+halstruct: Design facts generated in 'hal.design_facts'.
+halstruct: Total errors   = 4.
+halstruct: Total warnings = 5.
+~:DSCNCK
+^:DSCNCK
+~:SLENEX
+^:SLENEX
+~:DSCNEN
+^:DSCNEN
+~:PCNOTC
+^:PCNOTC
+~:INPASN
+~:UNCONN
+~:UNDRIV
+~:USEPRT
+~:UASPRT
+~:URDPRT
+~:GATCLK
+~:RENAME
+~:RWRACE
+~:WWRACE
+~:LPISCS
+~:LPSRCS
+~:CMBPAU
+^:CMBPAU
+~:ASNCFL
+^:ASNCFL
+~:CONTLN
+^:CONTLN
+~:LATINF
+^:LATINF
+~:MULMCK
+^:MULMCK
+~:FFCKNP
+^:FFCKNP
+~:GTDCLK
+^:GTDCLK
+~:CLKLAT
+^:CLKLAT
+~:CLKNPI
+^:CLKNPI
+~:GTCLKN
+^:GTCLKN
+~:MRSTDT
+^:MRSTDT
+~:FDTHRU
+^:FDTHRU
+~:DFDRVS
+^:DFDRVS
+~:NEFLOP
+^:NEFLOP
+~:ACNCPI
+^:ACNCPI
+~:LENCPI
+^:LENCPI
+~:CLKDAT
+^:CLKDAT
+~:CLKLDT
+^:CLKLDT
+~:CLKINF
+^:CLKINF
+~:CDFDAT
+^:CDFDAT
+~:CDLDAT
+^:CDLDAT
+~:CAAFSR
+^:CAAFSR
+~:CACSRF
+^:CACSRF
+~:CAALSR
+^:CAALSR
+~:CACSRL
+^:CACSRL
+~:CLKDMN
+^:CLKDMN
+~:INSYNC
+^:INSYNC
+~:CBPAHI
+^:CBPAHI
+~:LFLTSE
+^:LFLTSE
+~:LFFTNE
+^:LFFTNE
+~:INFNOT
+^:INFNOT
+~:DALIAS
+^:DALIAS
+~:JKFFDT
+^:JKFFDT
+~:LATRAN
+^:LATRAN
+~:UNCONI
+^:UNCONI
+~:UNCONO
+^:UNCONO
+~:DIFCLK
+^:DIFCLK
+~:DIFRST
+^:DIFRST
+~:MLTDRV
+^:MLTDRV
+~:SUTHRU
+^:SUTHRU
+~:SEICLK
+^:SEICLK
+~:SMTCLK
+^:SMTCLK
+~:ASRTCK
+^:ASRTCK
+~:ASRTCL
+^:ASRTCL
+~:ASRTSC
+^:ASRTSC
+~:SCICLK
+^:SCICLK
+~:MULTCK
+^:MULTCK
+~:NOTCLK
+^:NOTCLK
+~:TCDFDT
+^:TCDFDT
+~:TCDLDT
+^:TCDLDT
+~:TCKDAT
+^:TCKDAT
+~:TCKLDT
+^:TCKLDT
+~:TXCNOP
+^:TXCNOP
+~:MEMNOP
+^:MEMNOP
+~:TENNOC
+^:TENNOC
+~:TENNOD
+^:TENNOD
+~:GLTASR
+^:GLTASR
+~:RSTEDG
+^:RSTEDG
+~:NOTSCN
+^:NOTSCN
+~:MCKNDB
+^:MCKNDB
+~:WENNDB
+^:WENNDB
+~:SCNLEN
+^:SCNLEN
+~:TMSCFF
+^:TMSCFF
+~:OUTMNR
+^:OUTMNR
+~:INPMNR
+^:INPMNR
+~:SRENSL
+^:SRENSL
+~:LDFFPI
+^:LDFFPI
+~:RSTDAT
+^:RSTDAT
+~:RSTGNH
+^:RSTGNH
+~:CLKGNH
+^:CLKGNH
+~:MXTSBC
+^:MXTSBC
+~:TSBNTH
+^:TSBNTH
+~:MXFNOT
+^:MXFNOT
+~:ATLGLC
+^:ATLGLC
+~:SLNOTP
+^:SLNOTP
+~:TPOUNR
+^:TPOUNR
+~:SELCLK
+^:SELCLK
+~:EDGMIX
+^:EDGMIX
+~:LGRSTL
+^:LGRSTL
+~:FRSTDL
+^:FRSTDL
+~:FRSTDF
+^:FRSTDF
+~:RSTDPT
+^:RSTDPT
+~:CLKDPT
+^:CLKDPT
+~:CLKUCL
+^:CLKUCL
+~:RSTUCL
+^:RSTUCL
+~:ENGTNR
+^:ENGTNR
+~:RSTDMN
+^:RSTDMN
+~:CLKNTP
+^:CLKNTP
+~:ADRSND
+^:ADRSND
+~:CGCENC
+^:CGCENC
+~:SEDFRS
+^:SEDFRS
+~:MULTCC
+^:MULTCC
+~:SMCKRS
+^:SMCKRS
+~:MEMNCB
+^:MEMNCB
+~:MTOMPH
+^:MTOMPH
+~:UVRFCN
+^:UVRFCN
+~:CONVRF
+^:CONVRF
+~:RSTENA
+^:RSTENA
+~:MOTINP
+^:MOTINP
+~:OPDNMT
+^:OPDNMT
+~:FENCNT
+^:FENCNT
+~:TPIUNR
+^:TPIUNR
+~:IPRTNR
+^:IPRTNR
+~:SYNPRT
+^:SYNPRT
+~:CONCLK
+^:CONCLK
+~:DATUNB
+^:DATUNB
+~:RSTINF
+^:RSTINF
+~:CKSMFC
+^:CKSMFC
+~:CDRNCF
+^:CDRNCF
+~:SAMESR
+^:SAMESR
+~:CGECCP
+^:CGECCP
+~:RSTNFR
+^:RSTNFR
+~:DTUNCP
+^:DTUNCP
+~:INSTCL
+^:INSTCL
+~:INSTCN
+^:INSTCN
+~:RSTCCK
+^:RSTCCK
+~:CGCPCK
+^:CGCPCK
+~:RSTCLK
+^:RSTCLK
+~:FFSRST
+^:FFSRST
+~:SGUNDV
+^:SGUNDV
+~:FFWASR
+^:FFWASR
+~:FFWNSR
+^:FFWNSR
+~:FFASRT
+^:FFASRT
+~:LCNSTD
+^:LCNSTD
+~:FFCSTD
+^:FFCSTD
+~:GENTOP
+^:GENTOP
+~:LTCHNT
+^:LTCHNT
+~:MLTDIO
+^:MLTDIO
+~:SYNASN
+^:SYNASN
+~:MULRST
+^:MULRST
+~:MCKDMN
+^:MCKDMN
+~:CLKGNP
+^:CLKGNP
+~:RSTGNP
+^:RSTGNP
+~:TSBINF
+^:TSBINF
+~:RTCDAT
+^:RTCDAT
+~:LENCPC
+^:LENCPC
+hal: *M,_SCOPE: __dummy_top

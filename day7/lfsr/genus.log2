@@ -1,0 +1,39 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[15:47:27.043473] Configured Lic search path (23.02-s003): 5280@cadence
+
+Version: 23.11-s100_1, built Sun Apr 21 22:58:10 PDT 2024
+Options: -files run_counter.tcl 
+Date:    Mon Jun 08 15:47:27 2026
+Host:    cadence (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (8cores*16cpus*1physical cpu*Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz 16384KB) (32312612KB)
+PID:     3454481
+OS:      Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+Checking out license: Genus_Synthesis
+[15:47:27.451194] Periodic Lic check successful
+[15:47:27.975498] Feature usage summary:
+[15:47:27.975499] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (15 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source run_counter.tcl
+#@ Begin verbose source ./run_counter.tcl
+@file(run_counter.tcl) 1: genusread_libs /home/install/FOUNDRY/digital/90nm/dig/lib/slow.lib
+#@ End verbose source ./run_counter.tcl
+invalid command name "genusread_libs"
+Encountered problems processing file: run_counter.tcl
+WARNING: This version of the tool is 777 days old.

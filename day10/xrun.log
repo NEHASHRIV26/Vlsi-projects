@@ -1,0 +1,41 @@
+xrun(64): 22.09-s003: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	22.09-s003: Started on Jun 12, 2026 at 15:48:17 IST
+xrun
+	inline_cons.sv
+file: inline_cons.sv
+	module worklib.inline:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x0eed762d
+		inline
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.inline:sv <0x07d537f2>
+			streams:   1, words:  3766
+		worklib.\$unit_0x0eed762d :compilation_unit <0x79ac3555>
+			streams:   7, words:  2143
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                   Instances  Unique
+		Modules:                   1       1
+		Registers:                 7       9
+		Initial blocks:            1       1
+		Assertions:                2       2
+		Compilation units:         1       1
+		SV Class declarations:     1       1
+		SV Class specializations:  1       1
+	Writing initial simulation snapshot: worklib.inline:sv
+Loading snapshot worklib.inline:sv .................... Done
+SVSEED default: 1
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /home/install/XCELIUM2209/tools/xcelium/files/xmsimrc
+xcelium> run
+randomize successful addr 1037   data 9
+randomize successful addr 2000  data 3934064408
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun(64)	22.09-s003: Exiting on Jun 12, 2026 at 15:48:17 IST  (total: 00:00:00)

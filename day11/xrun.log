@@ -1,0 +1,47 @@
+xrun(64): 22.09-s003: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	22.09-s003: Started on Jun 13, 2026 at 09:58:43 IST
+xrun
+	mailbox.sv
+Recompiling... reason: file './mailbox.sv' is newer than expected.
+	expected: Sat Jun 13 09:57:32 2026
+	actual:   Sat Jun 13 09:58:39 2026
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x39d131b6
+		top
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.top:sv <0x1f8cfcce>
+			streams:   4, words:  2400
+		worklib.\$unit_0x39d131b6 :compilation_unit <0x37085d08>
+			streams:  23, words: 13965
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                    1       1
+		Registers:                 20      28
+		Initial blocks:             4       4
+		Assertions:                 1       1
+		Compilation units:          1       1
+		SV Class declarations:      3       3
+		SV Class specializations:   3       3
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+SVSEED default: 1
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /home/install/XCELIUM2209/tools/xcelium/files/xmsimrc
+xcelium> run
+ GEN:1, addr=178, wdata=254, rd_data=0, tt=0
+ GEN:2, addr=50, wdata=212, rd_data=0, tt=0
+ GEN:3, addr=67, wdata=251, rd_data=0, tt=0
+ GEN:4, addr=57, wdata=96, rd_data=0, tt=0
+ DRIVER:3, addr=178, wdata=254, rd_data=0, tt=0
+ DRIVER:2, addr=50, wdata=212, rd_data=0, tt=0
+ DRIVER:1, addr=67, wdata=251, rd_data=0, tt=0
+ DRIVER:0, addr=57, wdata=96, rd_data=0, tt=0
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun(64)	22.09-s003: Exiting on Jun 13, 2026 at 09:58:44 IST  (total: 00:00:01)

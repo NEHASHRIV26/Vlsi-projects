@@ -1,0 +1,8 @@
+ncelab(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+     |
+ncelab: *W,CUVWSI (./sr_tb.v,4|5): 1 input port was not connected:
+ncelab: (./sr.v,1): rst
+
+ncelab: Memory Usage - 49.9M program + 32.7M data = 82.6M total (Peak 87.6M)
+ncelab: CPU Usage - 0.0s system + 0.0s user = 0.0s total (0.2s, 17.3% cpu)

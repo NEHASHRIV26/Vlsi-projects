@@ -1,0 +1,1899 @@
+#Version: 22.20-s200 (27-Feb-2023) (64 bit executable)
+#Gui Step(0)===>(Text).a.pane.f3.command.text.text <Button-1> 1.1
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 0:  (Text) <Button-1>\
+ 1.1} .a.pane.f3.command.text.text } 
+set x [guiGetTextX .a.pane.f3.command.text.text 1 1];set y [guiGetTextY .a.pane.f3.command.text.text 1 1] 
+   tkTextButton1 .a.pane.f3.command.text.text $x $y
+  .a.pane.f3.command.text.text tag remove sel 0.0 end
+#Gui Step(1)===>(Text).a.pane.f3.command.text.text <Button-1> 1.1
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 1:  (Text) <Button-1>\
+ 1.1} .a.pane.f3.command.text.text } 
+set x [guiGetTextX .a.pane.f3.command.text.text 1 1];set y [guiGetTextY .a.pane.f3.command.text.text 1 1] 
+     tk::TextButton1 .a.pane.f3.command.text.text $x $y
+    .a.pane.f3.command.text.text tag remove sel 0.0 end
+ guiMainWinButtonRelease-1 .a.pane.f3.command.text.text
+     tk::CancelRepeat
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text y
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text t
+ guiTextKeyPress .a.pane.f3.command.text.text y
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiTextKeyPress .a.pane.f3.command.text.text /
+ guiTextKeyPress .a.pane.f3.command.text.text h
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text i
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text {}
+ guiTextKeyPress .a.pane.f3.command.text.text F
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text d
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text /
+ guiTextKeyPress .a.pane.f3.command.text.text 9
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text d
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiTextKeyPress .a.pane.f3.command.text.text /
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text o
+ guiTextKeyPress .a.pane.f3.command.text.text w
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text b
+ guiMainWinKeyReturn .a.pane.f3.command.text.text 
+ guiWinConfig .b.frame.lab 168 21 1 1 
+ guiWinConfig .b.frame.lab 216 21 1 1 
+ guiWinConfig .a.pane.f3.command.text.text.promt2 60 19 1 20 
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text g
+ guiTextKeyPress .a.pane.f3.command.text.text n
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text v
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text o
+ guiTextKeyPress .a.pane.f3.command.text.text g
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text u
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text y
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiMainWinBackSpace .a.pane.f3.command.text.text 
+ guiTextKeyPress .a.pane.f3.command.text.text /
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text y
+   global suffix
+  set line [.a.pane.f3.command.text.text count -lines 0.0 end]
+  set cmd [.a.pane.f3.command.text.text get $line.0 $line.end]
+  set msg_ls [gui_main_cmd_match $cmd]
+  set msg_ls_cnt [llength $msg_ls]
+  if { $msg_ls_cnt == 0 } {
+      #CCMPR01202506, CCMPR01185591
+      #return
+      break
+  } elseif { $msg_ls_cnt > 1 } {
+      gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+      #CCMPR01202506, CCMPR01185591
+      #return
+      #CCMPR1716034 : sync-up tab completion for file name with batch mode (print out the suffix)
+      #variable $suffix is set in uti/utirl.c gui_main_cmd_match()
+      set suffix [string trim $suffix]
+      if {$suffix != ""} {
+         set pos [.a.pane.f3.command.text.text index insert]
+         set row [lindex [split $pos .] 0]
+         set ecol [lindex [split $pos .] 1]
+         .a.pane.f3.command.text.text insert $row.$ecol $suffix
+      }
+      break
+  }
+  
+  set ent [lindex $msg_ls 0]
+  if { [gui_str_end_with $ent "..."] } {
+      if { 0 } {
+          #Command completion type 1
+          #Need query again for complete command
+          set cmd2 [string range $ent 0 [expr [string length $ent] - 4]]
+          set msg2_ls [gui_main_cmd_match $cmd2]
+          set msg2_ls_cnt [llength $msg2_ls]
+          
+          if { $msg2_ls_cnt == 0 } {
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          } elseif { $msg2_ls_cnt > 1 } {
+              gui_cmd_file_completion_info .a.pane.f3.command.text.text $msg_ls
+              
+              #CCMPR01202506, CCMPR01185591
+              #return
+              break
+          }
+          
+          set ent [lindex $msg2_ls 0]
+      } else {
+          #Command completion type 2: only complete current part
+          set ent [string range $ent 0 [expr [string length $ent] - 4]]
+          append ent "*"
+      }
+  }
+  
+  #Process to command/file name completion
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  if { [gui_str_end_with $ent "*"] || [gui_str_end_with $ent "#"] } {
+      #Command completion
+      set cmd2 [string range $ent 0 [expr [string length $ent] - 2]]
+      set cmd_tail [string range $cmd2 [string length $cmd] end]
+      .a.pane.f3.command.text.text insert $row.$ecol $cmd_tail
+      
+      #Alex-ToDo-guiPuts "Alex-Command completion=$cmd2, $cmd_tail"
+  } else {
+      #File name completion
+      set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+      set name [lindex [split $item " "] end]
+      set name [lindex [split $name "/"] end]
+      set len [string length $name]
+      if {[string first $name $ent] != -1} {
+        set scol [expr $ecol - $len]
+        .a.pane.f3.command.text.text delete $row.$scol $row.$ecol
+        .a.pane.f3.command.text.text insert $row.$scol $ent
+      } else {
+        .a.pane.f3.command.text.text insert $row.$ecol $ent
+      }
+      #Alex-ToDo-guiPuts "Alex-File name completion=$ent"
+  }
+  
+  #Append " " at end of command window
+  set pos [.a.pane.f3.command.text.text index insert]
+  set row [lindex [split $pos .] 0]
+  set ecol [lindex [split $pos .] 1]
+  
+  set item [.a.pane.f3.command.text.text get $row.1 $row.$ecol]
+  set endingchar [string index $item [expr [string length $item] - 1]]
+  if {$endingchar != "/"} {
+    .a.pane.f3.command.text.text insert $row.$ecol " "
+  }
+  
+  #CCMPR01202506, CCMPR01185591
+  break
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text u
+ guiTextKeyPress .a.pane.f3.command.text.text .
+ guiTextKeyPress .a.pane.f3.command.text.text v
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text g
+ guiTextKeyPress .a.pane.f3.command.text.text o
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text n
+ guiMainWinKeyReturn .a.pane.f3.command.text.text 
+ guiWinConfig .b.frame.lab 168 21 1 1 
+ guiWinConfig .b.frame.lab 229 21 1 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.hsb 1 13 0 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.hsb 1 13 0 1 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .a.pane.f3.command.text.text.promt3 60 19 1 39 
+ guiWinConfig . 1600 829 8 57 
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text a
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text g
+ guiTextKeyPress .a.pane.f3.command.text.text n
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text v
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text l
+ guiTextKeyPress .a.pane.f3.command.text.text o
+ guiTextKeyPress .a.pane.f3.command.text.text g
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+#Gui Step(4)===>(Text).a.pane.f3.command.text.text <Button-1> 3.22
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 4:  (Text) <Button-1>\
+ 3.22} .a.pane.f3.command.text.text } 
+set x [guiGetTextX .a.pane.f3.command.text.text 3 22];set y [guiGetTextY .a.pane.f3.command.text.text 3 22] 
+   tkTextButton1 .a.pane.f3.command.text.text $x $y
+  .a.pane.f3.command.text.text tag remove sel 0.0 end
+#Gui Step(5)===>(Text).a.pane.f3.command.text.text <Button-1> 3.22
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 5:  (Text) <Button-1>\
+ 3.22} .a.pane.f3.command.text.text } 
+set x [guiGetTextX .a.pane.f3.command.text.text 3 22];set y [guiGetTextY .a.pane.f3.command.text.text 3 22] 
+     tk::TextButton1 .a.pane.f3.command.text.text $x $y
+    .a.pane.f3.command.text.text tag remove sel 0.0 end
+ guiMainWinButtonRelease-1 .a.pane.f3.command.text.text
+     tk::CancelRepeat
+ guiTextKeyPress .a.pane.f3.command.text.text {}
+   tk_textPaste .a.pane.f3.command.text.text
+ 
+ guiTextKeyPress .a.pane.f3.command.text.text \ 
+ guiTextKeyPress .a.pane.f3.command.text.text -
+ guiTextKeyPress .a.pane.f3.command.text.text r
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text v
+ guiTextKeyPress .a.pane.f3.command.text.text i
+ guiTextKeyPress .a.pane.f3.command.text.text s
+ guiTextKeyPress .a.pane.f3.command.text.text e
+ guiTextKeyPress .a.pane.f3.command.text.text d
+ guiMainWinKeyReturn .a.pane.f3.command.text.text 
+ guiWinConfig .b.frame.lab 172 21 1 1 
+ guiWinConfig .b.frame.lab 229 21 1 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.hsb 1 13 0 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.hsb 1 13 0 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe 1598 463 0 0 
+tixVStack:ClientGeomProc .a.pane.f1.middle.nb -configure .a.pane.f1.middle.nb.nbframe.hier
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.hier 1582 408 8 47 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1 1600 465 0 0 
+ guiWinConfig .a.pane.f2 1600 155 0 465 
+ guiWinConfig .a.pane.f3 1600 106 0 620 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_r.list.hsb 1 13 0 1 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.listbox 1 1 0 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.vsb 13 1 1 0 
+ guiWinConfig .a.pane.f1.middle.nb.nbframe.design.sw1.bkd_g.list.hsb 1 13 0 1 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .a.pane.f3.command.text.text.promt4 60 19 1 58 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+     tk::ButtonEnter .icon.mode.frame.arrow
+_tixRecordFlags <1> % 25688 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 83096421 ?? 9 9 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .icon.mode.frame.arrow 1595 109; 
+	tixComboBox:ArrowDown [tixGetMegaWidget .icon.mode.frame.arrow TixComboBox]
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusIn> % 25704 ?? ?? ?? NotifyNonlinearVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyNonlinearVirtual" eq "NotifyNonlinear" || "NotifyNonlinearVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+     tk::ButtonDown .icon.mode.frame.arrow
+_tixRecordFlags <ButtonRelease-1> % 25947 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 83096531 ?? 9 9 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .icon.mode.frame.arrow 1595 109; 
+	tixComboBox:ArrowUp   [tixGetMegaWidget .icon.mode.frame.arrow TixComboBox]
+    ; _tixDeleteFlags;
+     tk::ButtonUp .icon.mode.frame.arrow
+     tk::ButtonLeave .icon.mode.frame.arrow
+     set tk::Priv(window) .icon.mode.shell
+    if {[.icon.mode.shell cget -type] eq "tearoff"} {
+	if {"NotifyNormal" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .icon.mode.shell
+	    }
+	}
+    }
+    tk::MenuMotion .icon.mode.shell 82 2 0
+_tixRecordFlags <1> % 26012 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 83097031 ?? 59 28 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .icon.mode.shell.slistbox.listbox 1554 156; 
+	if {[set [tixGetMegaWidget .icon.mode.shell.slistbox.listbox](-state)] eq "disabled"} {
+	    break
+	}
+    ; _tixDeleteFlags;
+set x [guiGetListBoxEntryX .icon.mode.shell.slistbox.listbox 1];set y [guiGetListBoxEntryY .icon.mode.shell.slistbox.listbox 1] 
+     if {[winfo exists .icon.mode.shell.slistbox.listbox]} {
+	tk::ListboxBeginSelect .icon.mode.shell.slistbox.listbox [.icon.mode.shell.slistbox.listbox index  @$x,$y] 1
+    }
+#Gui Step(14)===>(Listbox).icon.mode.shell.slistbox.listbox <Button-1> LEC
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 14:  (Listbox) <Button-1>\
+ LEC} .icon.mode.shell.slistbox.listbox } 
+_tixRecordFlags <1> % 26012 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 0 83097031 ?? 59 28 ?? ?? 0 ?? ?? 0x0000f3 00000000 4 .icon.mode.shell.slistbox.listbox 1554 156; 
+	if {[string is true -strict [.icon.mode.shell.slistbox.listbox cget -takefocus]]} {
+	    focus .icon.mode.shell.slistbox.listbox
+	}
+	tixScrolledListBox:Browse [tixGetMegaWidget .icon.mode.shell.slistbox.listbox]
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusOut> % 26012 ?? ?? ?? NotifyNonlinearVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyNonlinearVirtual NotifyNonlinear] ||
+	    [string equal NotifyNonlinearVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+focus .icon.mode.shell.slistbox.listbox
+#Gui Step(15)===>(Listbox).icon.mode.shell.slistbox.listbox <ButtonRelease-1> LEC
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 15:  (Listbox) <ButtonRelease-1>\
+ LEC} .icon.mode.shell.slistbox.listbox } 
+_tixRecordFlags <ButtonRelease-1> % 27311 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 83097125 ?? 59 28 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .icon.mode.shell.slistbox.listbox 1554 156; 
+	if {[set [tixGetMegaWidget .icon.mode.shell.slistbox.listbox](-state)] eq "disabled"} {
+	    break
+	}
+    ; _tixDeleteFlags;
+#Gui Step(16)===>(Listbox).icon.mode.shell.slistbox.listbox <ButtonRelease-1> LEC
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 16:  (Listbox) <ButtonRelease-1>\
+ LEC} .icon.mode.shell.slistbox.listbox } 
+     tk::CancelRepeat
+    .icon.mode.shell.slistbox.listbox activate @59,28
+#Gui Step(17)===>(Listbox).icon.mode.shell.slistbox.listbox <ButtonRelease-1> LEC
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 17:  (Listbox) <ButtonRelease-1>\
+ LEC} .icon.mode.shell.slistbox.listbox } 
+_tixRecordFlags <ButtonRelease-1> % 27311 ?? 1 ?? ?? ?? ?? ?? ?? ?? ?? 256 83097125 ?? 59 28 ?? ?? 0 ?? ?? 0x0000f3 00000000 5 .icon.mode.shell.slistbox.listbox 1554 156; 
+	tixScrolledListBox:Browse [tixGetMegaWidget .icon.mode.shell.slistbox.listbox]
+    ; _tixDeleteFlags;
+ guiWinConfig .b.frame.lab 140 21 1 1 
+ guiWinConfig .b.met 203 23 1393 4 
+ guiWinConfig .b.frame 1381 23 4 4 
+ guiWinConfig .b.met.canvas 201 21 1 1 
+ guiWinConfig .b.frame.lab 130 21 1 1 
+ guiWinConfig .b.frame.lab 147 21 1 1 
+ guiWinConfig .b.frame.lab 146 21 1 1 
+ guiWinConfig .b.frame.lab 136 21 1 1 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+ guiWinConfig .b.frame.lab 147 21 1 1 
+ guiWinConfig .b.frame.lab 148 21 1 1 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+ guiWinConfig .b.frame.lab 215 21 1 1 
+ guiWinConfig .a.pane.f3.command.text.text.promt5 44 19 1 77 
+ guiWinConfig .a.pane.f3.command.text.text.promt6 44 19 45 77 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .icon.hierCmp cget -state ] == "normal" } {
+            .icon.hierCmp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.hierCmp
+ .icon.hierCmp configure -relief flat 
+     tk::ButtonLeave .icon.hierCmp
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .icon.comp cget -state ] == "normal" } {
+            .icon.comp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.comp
+ .icon.comp configure -relief flat 
+     tk::ButtonLeave .icon.comp
+     tk::MbEnter .v_menu.ltx
+     tk::MbMotion .v_menu.ltx up 234 73
+     tk::MbLeave .v_menu.ltx
+     tk::MbEnter .v_menu.ltx
+     tk::MbMotion .v_menu.ltx up 217 73
+     tk::MbMotion .v_menu.ltx up 216 85
+     tk::MbLeave .v_menu.ltx
+         if { [ .icon.comp cget -state ] == "normal" } {
+            .icon.comp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.comp
+ .icon.comp configure -relief flat 
+     tk::ButtonLeave .icon.comp
+         if { [ .icon.gate cget -state ] == "normal" } {
+            .icon.gate configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.gate
+ .icon.gate configure -relief flat 
+     tk::ButtonLeave .icon.gate
+         if { [ .icon.hierCmp cget -state ] == "normal" } {
+            .icon.hierCmp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.hierCmp
+ .icon.hierCmp configure -relief flat 
+     tk::ButtonLeave .icon.hierCmp
+     tk::MbEnter .v_menu.tool
+     tk::MbMotion .v_menu.tool up 152 87
+     tk::MbMotion .v_menu.tool up 157 86
+     tk::MbMotion .v_menu.tool up 158 85
+     tk::MbMotion .v_menu.tool up 159 85
+     tk::MbMotion .v_menu.tool up 160 85
+     tk::MbMotion .v_menu.tool up 154 85
+     tk::MbMotion .v_menu.tool up 145 85
+     tk::MbLeave .v_menu.tool
+     tk::MbEnter .v_menu.compare
+     tk::MbMotion .v_menu.compare up 140 85
+     tk::MbMotion .v_menu.compare up 138 84
+     tk::MbMotion .v_menu.compare up 136 84
+     tk::MbMotion .v_menu.compare up 132 83
+     tk::MbMotion .v_menu.compare up 130 83
+     tk::MbMotion .v_menu.compare up 129 82
+     tk::MbMotion .v_menu.compare up 128 82
+     tk::MbMotion .v_menu.compare up 127 82
+     tk::MbMotion .v_menu.compare up 124 81
+     tk::MbMotion .v_menu.compare up 122 80
+     tk::MbMotion .v_menu.compare up 121 80
+     if {$tk::Priv(inMenubutton) ne ""} {
+	tk::MbPost $tk::Priv(inMenubutton) 121 80
+    }
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+     tk::MbMotion .v_menu.compare down 121 80
+     tk::MbButtonUp .v_menu.compare
+     tk::MbMotion .v_menu.compare up 121 80
+     tk::MbLeave .v_menu.compare
+     set tk::Priv(window) .v_menu.compare.menu
+    if {[.v_menu.compare.menu cget -type] eq "tearoff"} {
+	if {"NotifyNormal" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .v_menu.compare.menu
+	    }
+	}
+    }
+    tk::MenuMotion .v_menu.compare.menu 72 5 0
+#Gui Step(20)===>(Menu).v_menu.compare.menu <Button> {(menu-item) "Compare"}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 20:  (Menu) <Button>\
+ (menu-item) "Compare"} .v_menu.compare.menu } 
+set x [guiGetMenuX .v_menu.compare.menu 0];set y [guiGetMenuY .v_menu.compare.menu 0 ] 
+     tk::MenuMotion .v_menu.compare.menu $x $y 0
+     tk::MenuButtonDown .v_menu.compare.menu
+    tk::MenuInvoke .v_menu.compare.menu 1
+         if { [ .icon.hierCmp cget -state ] == "normal" } {
+            .icon.hierCmp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.hierCmp
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .compare 546 441 527 172 
+ guiWinConfig . 1600 829 8 57 
+     tk::TraverseWithinMenu .v_menu.compare.menu {}
+ .icon.hierCmp configure -relief flat 
+     tk::ButtonLeave .icon.hierCmp
+ .compare.bt.ok instate !disabled {.compare.bt.ok state active} 
+ .compare.bt.ok state !active 
+ .compare.bt.quit instate !disabled {.compare.bt.quit state active} 
+ .compare.bt.quit state !active 
+ 	tk::CheckEnter .compare.bkd.add.timestamp.chk
+    
+ 	tk::CheckLeave .compare.bkd.add.timestamp.chk
+    
+ .compare.bt.ok instate !disabled {.compare.bt.ok state active} 
+ .compare.bt.ok instate !disabled { ttk::clickToFocus .compare.bt.ok; .compare.bt.ok state pressed } 
+ .compare.bt.ok instate pressed { .compare.bt.ok state !pressed; .compare.bt.ok instate !disabled { .compare.bt.ok invoke } } 
+ guiWinConfig .a.pane.f3.command.text.text.promt1 60 19 1 -7 
+ guiWinConfig .a.pane.f3.command.text.text.promt2 60 19 1 12 
+ guiWinConfig .a.pane.f3.command.text.text.promt3 60 19 1 31 
+ guiWinConfig .a.pane.f3.command.text.text.promt4 60 19 1 50 
+ guiWinConfig .a.pane.f3.command.text.text.promt5 44 19 1 69 
+ guiWinConfig .a.pane.f3.command.text.text.promt6 44 19 45 69 
+ guiWinConfig .a.pane.f3.command.text.text.promt2 60 19 1 -7 
+ guiWinConfig .a.pane.f3.command.text.text.promt3 60 19 1 12 
+ guiWinConfig .a.pane.f3.command.text.text.promt4 60 19 1 31 
+ guiWinConfig .a.pane.f3.command.text.text.promt5 44 19 1 50 
+ guiWinConfig .a.pane.f3.command.text.text.promt6 44 19 45 50 
+ guiWinConfig .a.pane.f3.command.text.text.promt7 44 19 1 69 
+ guiWinConfig .b.frame.lab 91 21 1 1 
+ guiWinConfig .b.frame.lab 317 21 1 1 
+ guiWinConfig .b.frame.lab 325 21 1 1 
+ guiWinConfig .b.frame.lab 104 21 1 1 
+tixBalloon:ClientDestroy .icon.b .compare.bkd.add.parallel.btn
+ guiWinConfig .a.pane.f3.command.text.text.promt2 60 19 1 -11 
+ guiWinConfig .a.pane.f3.command.text.text.promt5 44 19 1 46 
+ guiWinConfig .a.pane.f3.command.text.text.promt6 44 19 45 46 
+ guiWinConfig .a.pane.f3.command.text.text.promt8 44 19 1 84 
+_tixRecordFlags <FocusIn> % 44402 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+     tk::CancelRepeat
+    tk::EntryInsert .icon.mode.frame.entry {}
+_tixRecordFlags <KeyPress> % 43862 ?? ?? ?? ?? ?? ?? 77 ?? ?? ?? 0 83104750 ?? -853 490 {} ?? 0 ?? 0 0x0000f3 00000000 2 .icon.mode.frame.entry 645 590; 
+	tixComboBox:EntKeyPress [tixGetMegaWidget .icon.mode.frame.entry TixComboBox]
+    ; _tixDeleteFlags;
+ guiWinConfig .a.pane.f3.command.text.text.promt3 60 19 1 8 
+ guiWinConfig .a.pane.f3.command.text.text.promt7 44 19 1 65 
+ guiWinConfig .a.pane.f3.command.text.text.promt4 60 19 1 27 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .icon.comp cget -state ] == "normal" } {
+            .icon.comp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.comp
+ .icon.comp configure -relief flat 
+     tk::ButtonLeave .icon.comp
+     tk::MbEnter .v_menu.ltx
+     tk::MbMotion .v_menu.ltx up 213 86
+     tk::MbMotion .v_menu.ltx up 211 84
+     tk::MbMotion .v_menu.ltx up 210 83
+     tk::MbMotion .v_menu.ltx up 204 80
+     tk::MbLeave .v_menu.ltx
+     tk::MbEnter .v_menu.tool
+     tk::MbMotion .v_menu.tool up 195 78
+     tk::MbMotion .v_menu.tool up 191 78
+     tk::MbMotion .v_menu.tool up 188 77
+     tk::MbMotion .v_menu.tool up 185 76
+     tk::MbMotion .v_menu.tool up 184 76
+     if {$tk::Priv(inMenubutton) ne ""} {
+	tk::MbPost $tk::Priv(inMenubutton) 184 76
+    }
+_tixRecordFlags <FocusOut> % 44674 ?? ?? ?? NotifyNonlinearVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyNonlinearVirtual NotifyNonlinear] ||
+	    [string equal NotifyNonlinearVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+     tk::MbMotion .v_menu.tool down 184 76
+     tk::MbMotion .v_menu.tool down 184 76
+     tk::MbButtonUp .v_menu.tool
+     tk::MbMotion .v_menu.tool up 184 76
+     tk::MbLeave .v_menu.tool
+     set tk::Priv(window) .v_menu.tool.menu
+    if {[.v_menu.tool.menu cget -type] eq "tearoff"} {
+	if {"NotifyNormal" ne "NotifyUngrab"} {
+	    if {[tk windowingsystem] eq "x11"} {
+		tk_menuSetFocus .v_menu.tool.menu
+	    }
+	}
+    }
+    tk::MenuMotion .v_menu.tool.menu 44 1 0
+#Gui Step(25)===>(Menu).v_menu.tool.menu <Button> {(menu-item) "Mapping Manager"}
+global guiReplayPause
+if {[info exists guiReplayPause] && $guiReplayPause == 1} { guiReplayBreakMsg {Step 25:  (Menu) <Button>\
+ (menu-item) "Mapping Manager"} .v_menu.tool.menu } 
+set x [guiGetMenuX .v_menu.tool.menu 2];set y [guiGetMenuY .v_menu.tool.menu 2 ] 
+     tk::MenuMotion .v_menu.tool.menu $x $y 0
+     tk::MenuButtonDown .v_menu.tool.menu
+    tk::MenuInvoke .v_menu.tool.menu 1
+_tixRecordFlags <FocusIn> % 44833 ?? ?? ?? NotifyNonlinearVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyNonlinearVirtual" eq "NotifyNonlinear" || "NotifyNonlinearVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .keymgr 1704 829 -114 57 
+ guiWinConfig .keymgr 1604 829 8 63 
+ guiWinConfig .keymgr 835 655 0 0 
+ guiWinConfig .keymgr 1704 829 -114 57 
+ guiWinConfig .keymgr 1704 829 -114 57 
+ guiWinConfig .keymgr 1604 829 8 63 
+     tk::CancelRepeat
+    tk::EntryInsert .icon.mode.frame.entry {}
+_tixRecordFlags <KeyPress> % 47992 ?? ?? ?? ?? ?? ?? 77 ?? ?? ?? 0 83107609 ?? -1288 47 {} ?? 0 ?? 0 0x0000f3 00000000 2 .icon.mode.frame.entry 210 147; 
+	tixComboBox:EntKeyPress [tixGetMegaWidget .icon.mode.frame.entry TixComboBox]
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusOut> % 53068 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+ guiWinConfig .keymgr.bt 1602 36 1 1 
+ guiWinConfig .keymgr.cdnBranding 1602 2 1 37 
+ guiWinConfig .keymgr.pane 1602 789 1 39 
+ guiWinConfig .keymgr.pane.sep2 1602 2 0 409 
+ guiWinConfig .keymgr.pane.sep1 1602 2 0 204 
+ guiWinConfig .keymgr.pane.ump 1602 205 0 0 
+ guiWinConfig .keymgr.pane.map 1602 205 0 205 
+ guiWinConfig .keymgr.pane.com 1602 379 0 410 
+ guiWinConfig .keymgr.pane.ump.title 1602 40 0 0 
+ guiWinConfig .keymgr.pane.ump.golden 801 165 0 40 
+ guiWinConfig .keymgr.pane.ump.revised 801 165 801 40 
+ guiWinConfig .keymgr.pane.map.title 1602 40 0 0 
+ guiWinConfig .keymgr.pane.map.vbar 13 165 1589 40 
+ guiWinConfig .keymgr.pane.map.golden 794 165 0 40 
+ guiWinConfig .keymgr.pane.map.revised 795 165 794 40 
+ guiWinConfig .keymgr.pane.com.title 1602 40 0 0 
+ guiWinConfig .keymgr.pane.com.vbar 13 339 1589 40 
+ guiWinConfig .keymgr.pane.com.golden 794 339 0 40 
+ guiWinConfig .keymgr.pane.com.revised 795 339 794 40 
+ guiWinConfig .keymgr.pane.btn2 9 9 1589 406 
+ guiWinConfig .keymgr.pane.btn1 9 9 1589 201 
+ guiWinConfig .keymgr.pane.ump.title.runmapcls 28 28 1572 6 
+ guiWinConfig .keymgr.pane.ump.title.runmapgateclass 28 28 1540 6 
+ guiWinConfig .keymgr.pane.ump.title.rfind 32 32 1504 4 
+ guiWinConfig .keymgr.pane.ump.title.rfilter 32 32 1468 4 
+ guiWinConfig .keymgr.pane.ump.title.repo 32 32 1432 4 
+ guiWinConfig .keymgr.pane.ump.golden.vbar 13 165 788 0 
+ guiWinConfig .keymgr.pane.ump.golden.list 788 165 0 0 
+ guiWinConfig .keymgr.pane.ump.revised.vbar 13 165 788 0 
+ guiWinConfig .keymgr.pane.ump.revised.list 788 165 0 0 
+ guiWinConfig .keymgr.pane.map.title.aall 32 32 1569 4 
+ guiWinConfig .keymgr.pane.map.title.remp 32 32 1535 4 
+ guiWinConfig .keymgr.pane.map.title.dall 32 32 1501 4 
+ guiWinConfig .keymgr.pane.map.title.cls 28 28 1471 6 
+ guiWinConfig .keymgr.pane.map.title.gateclass 28 28 1441 6 
+ guiWinConfig .keymgr.pane.map.title.find 32 32 1407 4 
+ guiWinConfig .keymgr.pane.map.title.filter 32 32 1373 4 
+ guiWinConfig .keymgr.pane.map.title.repo 32 32 1339 4 
+ guiWinConfig .keymgr.pane.map.golden.list 794 165 0 0 
+ guiWinConfig .keymgr.pane.map.revised.list 795 165 0 0 
+ guiWinConfig .keymgr.pane.com.title.comp 32 32 1569 4 
+ guiWinConfig .keymgr.pane.com.title.dall 32 32 1535 4 
+ guiWinConfig .keymgr.pane.com.title.cls 28 28 1505 6 
+ guiWinConfig .keymgr.pane.com.title.gateclass 28 28 1475 6 
+ guiWinConfig .keymgr.pane.com.title.find 32 32 1441 4 
+ guiWinConfig .keymgr.pane.com.title.filter 32 32 1407 4 
+ guiWinConfig .keymgr.pane.com.title.sort 28 28 1377 6 
+ guiWinConfig .keymgr.pane.com.title.repo 32 32 1343 4 
+ guiWinConfig .keymgr.pane.com.golden.list 794 339 0 0 
+ guiWinConfig .keymgr.pane.com.revised.list 795 339 0 0 
+ guiWinConfig .keymgr.pane.ump.golden.list.f1 788 152 0 0 
+ guiWinConfig .keymgr.pane.ump.golden.list.hsb 788 13 0 152 
+ guiWinConfig .keymgr.pane.ump.revised.list.f1 788 152 0 0 
+ guiWinConfig .keymgr.pane.ump.revised.list.hsb 788 13 0 152 
+ guiWinConfig .keymgr.pane.map.golden.list.f1 794 152 0 0 
+ guiWinConfig .keymgr.pane.map.golden.list.hsb 794 13 0 152 
+ guiWinConfig .keymgr.pane.map.revised.list.f1 795 152 0 0 
+ guiWinConfig .keymgr.pane.map.revised.list.hsb 795 13 0 152 
+ guiWinConfig .keymgr.pane.com.golden.list.f1 794 326 0 0 
+ guiWinConfig .keymgr.pane.com.golden.list.hsb 794 13 0 326 
+ guiWinConfig .keymgr.pane.com.revised.list.f1 795 326 0 0 
+ guiWinConfig .keymgr.pane.com.revised.list.hsb 795 13 0 326 
+ guiWinConfig .keymgr.pane.ump.golden.list.f1.hlist 786 150 1 1 
+ guiWinConfig .keymgr.pane.ump.revised.list.f1.hlist 786 150 1 1 
+ guiWinConfig .keymgr.pane.map.golden.list.f1.hlist 792 150 1 1 
+ guiWinConfig .keymgr.pane.map.revised.list.f1.hlist 793 150 1 1 
+ guiWinConfig .keymgr.pane.com.golden.list.f1.hlist 792 324 1 1 
+ guiWinConfig .keymgr.pane.com.revised.list.f1.hlist 793 324 1 1 
+callback Gui_hlist_leave .keymgr.pane.ump.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.ump.golden.list.hsb cget -activebackground]
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground [.keymgr.pane.ump.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.ump.golden.list.hsb activate [.keymgr.pane.ump.golden.list.hsb identify 244 1]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.ump.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.ump.golden.list.hsb activate {}
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 153 6]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.keymgr.pane.map.golden.list.hsb cget -activebackground]
+	.keymgr.pane.map.golden.list.hsb configure -activebackground [.keymgr.pane.map.golden.list.hsb cget -background]
+    }
+    .keymgr.pane.map.golden.list.hsb activate [.keymgr.pane.map.golden.list.hsb identify 117 9]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.keymgr.pane.map.golden.list.hsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .keymgr.pane.map.golden.list.hsb activate {}
+scrollSet .keymgr.pane.map.golden.list.f1.hlist keyMgrMapList scroll 1 pages
+scrollSet .keymgr.pane.map.golden.list.f1.hlist keyMgrMapList scroll 1 pages
+scrollSet .keymgr.pane.map.golden.list.f1.hlist keyMgrMapList scroll 1 pages
+scrollSet .keymgr.pane.map.golden.list.f1.hlist keyMgrMapList scroll 1 pages
+scrollSet .keymgr.pane.map.golden.list.f1.hlist keyMgrMapList scroll 1 pages
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll 1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll 1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll 1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll 1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll 1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll 1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+scrollSet .keymgr.pane.com.golden.list.f1.hlist keyMgrComList scroll -1 pages
+callback Gui_hlist_leave .keymgr.pane.com.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.golden.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.map.revised.list.f1.hlist
+callback Gui_hlist_leave .keymgr.pane.ump.revised.list.f1.hlist
+         if { [ .v_menu.logo cget -state ] == "normal" } {
+            .v_menu.logo configure -relief groove
+        }
+    
+     tk::ButtonEnter .v_menu.logo
+ .v_menu.logo configure -relief flat 
+     tk::ButtonLeave .v_menu.logo
+         if { [ .v_menu.logo cget -state ] == "normal" } {
+            .v_menu.logo configure -relief groove
+        }
+    
+     tk::ButtonEnter .v_menu.logo
+ .v_menu.logo configure -relief flat 
+     tk::ButtonLeave .v_menu.logo
+ guiWinConfig .keymgr 1604 829 0 0 
+         if { [ .keymgr.pane.ump.title.rfind cget -state ] == "normal" } {
+            .keymgr.pane.ump.title.rfind configure -relief groove
+        }
+    
+     tk::ButtonEnter .keymgr.pane.ump.title.rfind
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig .keymgr 1604 829 0 0 
+ guiWinConfig . 1600 829 8 57 
+_tixRecordFlags <FocusIn> % 59271 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+ .keymgr.pane.ump.title.rfind configure -relief flat 
+     tk::ButtonLeave .keymgr.pane.ump.title.rfind
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+_tixRecordFlags <FocusOut> % 59408 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+     tk::MbEnter .v_menu.compare
+     tk::MbMotion .v_menu.compare up 70 61
+     tk::MbLeave .v_menu.compare
+     tk::MbEnter .v_menu.read
+     tk::MbMotion .v_menu.read up 54 61
+     tk::MbMotion .v_menu.read up 52 61
+     tk::MbMotion .v_menu.read up 35 64
+     tk::MbMotion .v_menu.read up 33 64
+     tk::MbLeave .v_menu.read
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .icon.hierCmp cget -state ] == "normal" } {
+            .icon.hierCmp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.hierCmp
+ .icon.hierCmp configure -relief flat 
+     tk::ButtonLeave .icon.hierCmp
+     tk::MbEnter .v_menu.read
+     tk::MbMotion .v_menu.read up 13 64
+     tk::MbMotion .v_menu.read up 15 67
+     tk::MbMotion .v_menu.read up 18 71
+     tk::MbLeave .v_menu.read
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .icon.modelmgr cget -state ] == "normal" } {
+            .icon.modelmgr configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.modelmgr
+ .icon.modelmgr configure -relief flat 
+     tk::ButtonLeave .icon.modelmgr
+     tk::MbEnter .v_menu.read
+     tk::MbMotion .v_menu.read up 41 84
+     tk::MbMotion .v_menu.read up 18 63
+     tk::MbLeave .v_menu.read
+     tk::MbEnter .v_menu.read
+     tk::MbMotion .v_menu.read up 14 71
+     tk::MbMotion .v_menu.read up 15 72
+     tk::MbLeave .v_menu.read
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .icon.hierCmp cget -state ] == "normal" } {
+            .icon.hierCmp configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.hierCmp
+ .icon.hierCmp configure -relief flat 
+     tk::ButtonLeave .icon.hierCmp
+         if { [ .icon.rrcmgr cget -state ] == "normal" } {
+            .icon.rrcmgr configure -relief groove
+        }
+    
+     tk::ButtonEnter .icon.rrcmgr
+ .icon.rrcmgr configure -relief flat 
+     tk::ButtonLeave .icon.rrcmgr
+     tk::MbEnter .v_menu.read
+     tk::MbMotion .v_menu.read up 51 83
+     tk::MbMotion .v_menu.read up 50 82
+     tk::MbMotion .v_menu.read up 48 82
+     tk::MbMotion .v_menu.read up 32 72
+     tk::MbMotion .v_menu.read up 23 68
+     tk::MbLeave .v_menu.read
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+_tixRecordFlags <FocusIn> % 61686 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+_tixRecordFlags <FocusOut> % 61889 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusIn> % 61902 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+_tixRecordFlags <FocusOut> % 62029 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusIn> % 62115 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+_tixRecordFlags <FocusOut> % 62233 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusIn> % 62278 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+ guiWinConfig . 1600 829 0 0 
+     tk::CancelRepeat
+    tk::EntryInsert .icon.mode.frame.entry {}
+_tixRecordFlags <KeyPress> % 62312 ?? ?? ?? ?? ?? ?? 77 ?? ?? ?? 0 83722062 ?? -1 0 {} ?? 0 ?? 0 0x0000f3 00000000 2 .icon.mode.frame.entry 1489 43; 
+	tixComboBox:EntKeyPress [tixGetMegaWidget .icon.mode.frame.entry TixComboBox]
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusOut> % 62319 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+ guiWinConfig . 1600 829 0 0 
+     tk::MbEnter .v_menu.win
+     tk::MbMotion .v_menu.win up 386 19
+     tk::MbLeave .v_menu.win
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+ guiWinConfig . 1600 829 0 0 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 0 0 
+ guiWinConfig . 1600 829 8 57 
+ guiWinConfig . 1600 829 8 57 
+_tixRecordFlags <FocusIn> % 62874 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+ guiWinConfig . 1600 829 0 0 
+_tixRecordFlags <FocusOut> % 62899 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+ guiWinConfig . 1600 829 0 0 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+         if { [ .v_menu.logo cget -state ] == "normal" } {
+            .v_menu.logo configure -relief groove
+        }
+    
+     tk::ButtonEnter .v_menu.logo
+ .v_menu.logo configure -relief flat 
+     tk::ButtonLeave .v_menu.logo
+ guiWinConfig .b.frame.lab 4 21 1 1 
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+         if { [ .v_menu.logo cget -state ] == "normal" } {
+            .v_menu.logo configure -relief groove
+        }
+    
+     tk::ButtonEnter .v_menu.logo
+ .v_menu.logo configure -relief flat 
+     tk::ButtonLeave .v_menu.logo
+     tk::MbEnter .v_menu.read
+     tk::MbMotion .v_menu.read up 0 26
+     tk::MbLeave .v_menu.read
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+         if { [ .v_menu.logo cget -state ] == "normal" } {
+            .v_menu.logo configure -relief groove
+        }
+    
+     tk::ButtonEnter .v_menu.logo
+ .v_menu.logo configure -relief flat 
+     tk::ButtonLeave .v_menu.logo
+     if {$tk_strictMotif} {
+	set tk::Priv(activeBg) [.a.pane.f2.mesg.text.vsb cget -activebackground]
+	.a.pane.f2.mesg.text.vsb configure -activebackground [.a.pane.f2.mesg.text.vsb cget -background]
+    }
+    .a.pane.f2.mesg.text.vsb activate [.a.pane.f2.mesg.text.vsb identify 11 84]
+     if {$tk_strictMotif && [info exists tk::Priv(activeBg)]} {
+	.a.pane.f2.mesg.text.vsb configure -activebackground $tk::Priv(activeBg)
+    }
+    .a.pane.f2.mesg.text.vsb activate {}
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.golden.fm.tree.f1.hlist
+_tixRecordFlags <FocusIn> % 66967 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+         if { [ .v_menu.logo cget -state ] == "normal" } {
+            .v_menu.logo configure -relief groove
+        }
+    
+     tk::ButtonEnter .v_menu.logo
+ .v_menu.logo configure -relief flat 
+     tk::ButtonLeave .v_menu.logo
+_tixRecordFlags <FocusOut> % 67007 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;
+_tixRecordFlags <FocusIn> % 67028 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 9 .icon.mode ?? ??; 
+	if {"NotifyVirtual" eq "NotifyNonlinear" || "NotifyVirtual" eq "NotifyNonlinearVirtual"} {
+	    focus [.icon.mode subwidget entry]
+ 	    # CYGNUS: Setting the selection if there is no data
+	    # causes backspace to misbehave.
+	    if {[[set .icon.mode(w:entry)] get] ne ""} {
+  		[set .icon.mode(w:entry)] selection from 0
+  		[set .icon.mode(w:entry)] selection to end
+  	    }
+ 	}
+    ; _tixDeleteFlags;
+     tk::CancelRepeat
+    tk::EntryInsert .icon.mode.frame.entry {}
+_tixRecordFlags <KeyPress> % 67043 ?? ?? ?? ?? ?? ?? 77 ?? ?? ?? 0 84588984 ?? -604 120 {} ?? 0 ?? 0 0x0000f3 00000000 2 .icon.mode.frame.entry 886 163; 
+	tixComboBox:EntKeyPress [tixGetMegaWidget .icon.mode.frame.entry TixComboBox]
+    ; _tixDeleteFlags;
+callback Gui_hlist_leave .a.pane.f1.middle.nb.nbframe.hier.revised.fm.tree.f1.hlist
+_tixRecordFlags <FocusOut> % 67073 ?? ?? ?? NotifyVirtual ?? ?? ?? NotifyNormal ?? ?? ?? ?? ?? ?? ?? ?? ?? 0 ?? ?? ?? ?? 10 .icon.mode ?? ??; 
+	if {[string equal NotifyVirtual NotifyNonlinear] ||
+	    [string equal NotifyVirtual NotifyNonlinearVirtual]} {
+ 	    if {[info exists .icon.mode(cancelTab)]} {
+		unset .icon.mode(cancelTab)
+	    } else {
+		if {[set .icon.mode(-state)] ne "disabled"} {
+		    if {[set .icon.mode(-selection)] ne [set .icon.mode(-value)]} {
+			tixComboBox:Invoke .icon.mode
+		    }
+		}
+	    }
+	}
+    ; _tixDeleteFlags;

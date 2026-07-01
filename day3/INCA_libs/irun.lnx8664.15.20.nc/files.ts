@@ -1,0 +1,11 @@
+1780482634 /home/vlsi19/day3/cds.lib
+1780482638 /home/vlsi19/day3/hdl.var
+1780466531 /home/vlsi19/day3/mult.v
+1780466482 /home/vlsi19/day3/mult_tb.v
+1780309724 /home/vlsi19/day3/ha.v
+1780480335 /home/vlsi19/day3/alu.v
+1780479859 /home/vlsi19/day3/alu_tb.v
+1780482254 /home/vlsi19/day3/sr.v
+1780483232 /home/vlsi19/day3/sr_tb.v
+1780483485 /home/vlsi19/day3/jk.v
+1780483883 /home/vlsi19/day3/jk_tb.v

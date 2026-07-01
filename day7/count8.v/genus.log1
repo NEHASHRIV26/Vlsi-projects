@@ -1,0 +1,50 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[13:22:16.043385] Configured Lic search path (23.02-s003): 5280@cadence
+
+Version: 23.11-s100_1, built Sun Apr 21 22:58:10 PDT 2024
+Options: 
+Date:    Mon Jun 08 13:22:16 2026
+Host:    cadence (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (8cores*16cpus*1physical cpu*Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz 16384KB) (32312612KB)
+PID:     1987516
+OS:      Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+Checking out license: Genus_Synthesis
+[13:22:16.143672] Periodic Lic check successful
+[13:22:16.667969] Feature usage summary:
+[13:22:16.667969] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (14 seconds elapsed).
+
+WARNING: This version of the tool is 777 days old.
+@genus:root: 1> read_libs /home/install/FOUNDRY/digital/90nm/dig/lib/slow.lib
+
+  Message Summary for Library slow.lib:
+  *************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  Missing library level attribute. [LBR-516]: 1
+  *************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.900000, 125.000000) in library 'slow.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+@genus:root: 2> read_hdl counter.v
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'counter.v'.
+        : The specified file could not be opened.  Check the value of the init_hdl_search_path attribute.
+@genus:root: 3> read_hdl count8.v counter.v
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'counter.v'.

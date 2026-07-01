@@ -1,0 +1,9 @@
+MacroModel pin counter_u_d_reg[0]/CK  67.70ps 67.70ps 67.70ps 67.70ps 0pf worst_case
+MacroModel pin counter_u_d_reg[0]/CK  93.90ps 93.90ps 93.90ps 93.90ps 0pf worst_case
+MacroModel pin counter_u_d_reg[1]/CK  70.50ps 70.50ps 70.50ps 70.50ps 0pf worst_case
+MacroModel pin counter_u_d_reg[3]/CK  36.20ps 36.20ps 36.20ps 36.20ps 0pf worst_case
+MacroModel pin counter_u_d_reg[2]/CK  51.30ps 51.30ps 51.30ps 51.30ps 0pf worst_case
+MacroModel pin counter_u_d_reg[0]/CK  67.70ps 67.70ps 67.70ps 67.70ps 0pf worst_case
+MacroModel pin counter_u_d_reg[1]/CK  70.50ps 70.50ps 70.50ps 70.50ps 0pf worst_case
+MacroModel pin counter_u_d_reg[3]/CK  47.90ps 47.90ps 47.90ps 47.90ps 0pf worst_case
+MacroModel pin counter_u_d_reg[2]/CK  63.00ps 63.00ps 63.00ps 63.00ps 0pf worst_case

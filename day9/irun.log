@@ -1,0 +1,91 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Jun 16, 2026 at 10:52:38 IST
+irun
+	memory.v
+	memory_tb.v
+	-access +rwc
+	-gui
+	-coverage all
+Recompiling... reason: file './memory_tb.v' is newer than expected.
+	expected: Tue Jun 16 10:32:14 2026
+	actual:   Tue Jun 16 10:38:28 2026
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		memory_tb
+
+	Extracting FSMs for coverage:
+		worklib.memory
+		worklib.memory_tb
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+ncelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+reg [data_width-1:0]  mem [0:2**addr_width];
+                        |
+ncelab: *W,COVMDD (./memory.v,11|24): Toggle coverage for bit, logic, reg, wire, and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage on for these types specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+integer i;
+        |
+ncelab: *W,COVUTA (./memory.v,12|8): Toggle coverage is not supported for SystemVerilog integer, real, string, dynamic array, sparse memory, and array of enum. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              2       2
+		Registers:           13      13
+		Scalar wires:         5       -
+		Vectored wires:       3       -
+		Always blocks:        2       2
+		Initial blocks:       4       4
+		Pseudo assignments:   7       7
+	Writing initial simulation snapshot: worklib.memory_tb:v
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/install/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm memory_tb.addr memory_tb.clk memory_tb.count memory_tb.cs memory_tb.data_in memory_tb.data_out memory_tb.re memory_tb.reset memory_tb.we
+Created probe 1
+ncsim> run
+ncsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+                   0  addr=xxxxdata_in=xxxxxxxx,data_out=xxxxxxxx
+                   5  addr=0000data_in=12153524,data_out=xxxxxxxx
+                  25  addr=0000data_in=12153524,data_out=00000000
+                  45  addr=0001data_in=c0895e81,data_out=00000000
+                  65  addr=0001data_in=c0895e81,data_out=c0895e81
+                  85  addr=0002data_in=8484d609,data_out=c0895e81
+                 105  addr=0002data_in=8484d609,data_out=8484d609
+                 125  addr=0003data_in=b1f05663,data_out=8484d609
+                 145  addr=0003data_in=b1f05663,data_out=b1f05663
+                 165  addr=0004data_in=06b97b0d,data_out=b1f05663
+                 185  addr=0004data_in=06b97b0d,data_out=06b97b0d
+                 205  addr=0005data_in=46df998d,data_out=06b97b0d
+                 225  addr=0005data_in=46df998d,data_out=46df998d
+                 245  addr=0006data_in=b2c28465,data_out=46df998d
+                 265  addr=0006data_in=b2c28465,data_out=b2c28465
+                 285  addr=0007data_in=89375212,data_out=b2c28465
+                 305  addr=0007data_in=89375212,data_out=89375212
+                 325  addr=0008data_in=00f3e301,data_out=89375212
+                 345  addr=0008data_in=00f3e301,data_out=00f3e301
+                 365  addr=0009data_in=06d7cd0d,data_out=00f3e301
+                 385  addr=0009data_in=06d7cd0d,data_out=06d7cd0d
+                 405  addr=000adata_in=3b23f176,data_out=06d7cd0d
+                 425  addr=000adata_in=3b23f176,data_out=3b23f176
+                 445  addr=000bdata_in=1e8dcd3d,data_out=3b23f176
+                 465  addr=000bdata_in=1e8dcd3d,data_out=1e8dcd3d
+                 485  addr=000cdata_in=76d457ed,data_out=1e8dcd3d
+                 505  addr=000cdata_in=76d457ed,data_out=76d457ed
+                 525  addr=000ddata_in=462df78c,data_out=76d457ed
+                 545  addr=000ddata_in=462df78c,data_out=462df78c
+                 565  addr=000edata_in=7cfde9f9,data_out=462df78c
+                 585  addr=000edata_in=7cfde9f9,data_out=7cfde9f9
+                 605  addr=000fdata_in=e33724c6,data_out=7cfde9f9
+                 625  addr=000fdata_in=e33724c6,data_out=e33724c6
+Simulation complete via $finish(1) at time 635 NS + 0
+./memory_tb.v:30  $finish; // end the test
+ncsim> ^C
+ncsim> exit
+ncsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+TOOL:	irun(64)	15.20-s086: Exiting on Jun 16, 2026 at 11:01:13 IST  (total: 00:08:35)

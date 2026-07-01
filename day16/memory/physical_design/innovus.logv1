@@ -1,0 +1,644 @@
+[06/18 13:22:15      0s] 
+[06/18 13:22:15      0s] Cadence Innovus(TM) Implementation System.
+[06/18 13:22:15      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[06/18 13:22:15      0s] 
+[06/18 13:22:15      0s] Version:	v21.15-s110_1, built Fri Sep 23 13:08:12 PDT 2022
+[06/18 13:22:15      0s] Options:	
+[06/18 13:22:15      0s] Date:		Thu Jun 18 13:22:15 2026
+[06/18 13:22:15      0s] Host:		cadence (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (8cores*16cpus*Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz 16384KB)
+[06/18 13:22:15      0s] OS:		Red Hat Enterprise Linux release 8.7 (Ootpa)
+[06/18 13:22:15      0s] 
+[06/18 13:22:15      0s] License:
+[06/18 13:22:15      0s] 		[13:22:15.095601] Configured Lic search path (21.01-s002): 5280@cadence
+
+[06/18 13:22:15      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[06/18 13:22:15      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[06/18 13:22:29     12s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v21.15-s110_1 (64bit) 09/23/2022 13:08 (Linux 3.10.0-693.el7.x86_64)
+[06/18 13:22:31     15s] @(#)CDS: NanoRoute 21.15-s110_1 NR220912-2004/21_15-UB (database version 18.20.592) {superthreading v2.17}
+[06/18 13:22:31     15s] @(#)CDS: AAE 21.15-s039 (64bit) 09/23/2022 (Linux 3.10.0-693.el7.x86_64)
+[06/18 13:22:31     15s] @(#)CDS: CTE 21.15-s038_1 () Sep 20 2022 11:42:13 ( )
+[06/18 13:22:31     15s] @(#)CDS: SYNTECH 21.15-s012_1 () Sep  5 2022 10:25:51 ( )
+[06/18 13:22:31     15s] @(#)CDS: CPE v21.15-s076
+[06/18 13:22:31     15s] @(#)CDS: IQuantus/TQuantus 21.1.1-s867 (64bit) Sun Jun 26 22:12:54 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+[06/18 13:22:31     15s] @(#)CDS: OA 22.60-p076 Wed May 18 13:45:29 2022
+[06/18 13:22:31     15s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[06/18 13:22:31     15s] @(#)CDS: RCDB 11.15.0
+[06/18 13:22:31     15s] @(#)CDS: STYLUS 21.12-s013_1 (08/15/2022 08:25 PDT)
+[06/18 13:22:31     15s] @(#)CDS: SystemPlanner-21.15Rel-8720 (21.15) (2022-08-22 18:31:54+0800)
+[06/18 13:22:31     15s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_2439309_cadence_vlsi19_8XKFWf.
+
+[06/18 13:22:31     15s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[06/18 13:22:34     17s] 
+[06/18 13:22:34     17s] **INFO:  MMMC transition support version v31-84 
+[06/18 13:22:34     17s] 
+[06/18 13:22:34     17s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[06/18 13:22:34     17s] <CMD> suppressMessage ENCEXT-2799
+[06/18 13:22:34     17s] <CMD> getVersion
+[06/18 13:22:34     17s] <CMD> getVersion
+[06/18 13:22:34     18s] <CMD> getVersion
+[06/18 13:22:34     18s] [INFO] Loading PVS 22.20 fill procedures
+[06/18 13:22:35     18s] <CMD> win
+[06/18 13:24:15     29s] <CMD> set init_gnd_net VSS
+[06/18 13:24:15     29s] <CMD> set init_lef_file ../../../../install/FOUNDRY/digital/90nm/dig/lef/gsclib090_translated.lef
+[06/18 13:24:15     29s] <CMD> set init_verilog ../synthesis/memory_netlist.v
+[06/18 13:24:15     29s] <CMD> set init_mmmc_file Default.view
+[06/18 13:24:15     29s] <CMD> set init_pwr_net VDD
+[06/18 13:24:15     29s] <CMD> init_design
+[06/18 13:24:15     29s] #% Begin Load MMMC data ... (date=06/18 13:24:15, mem=968.1M)
+[06/18 13:24:15     29s] #% End Load MMMC data ... (date=06/18 13:24:15, total cpu=0:00:00.0, real=0:00:00.0, peak res=968.7M, current mem=968.7M)
+[06/18 13:24:15     29s] 
+[06/18 13:24:15     29s] Loading LEF file ../../../../install/FOUNDRY/digital/90nm/dig/lef/gsclib090_translated.lef ...
+[06/18 13:24:15     29s] **WARN: (IMPLF-105):	The layer 'Oxide' specified in SAMENET spacing
+[06/18 13:24:15     29s] rule is neither a routing layer nor a cut layer. The rule is ignored.
+[06/18 13:24:15     29s] **WARN: (IMPLF-105):	The layer 'Poly' specified in SAMENET spacing
+[06/18 13:24:15     29s] rule is neither a routing layer nor a cut layer. The rule is ignored.
+[06/18 13:24:15     29s] Set DBUPerIGU to M2 pitch 580.
+[06/18 13:24:15     29s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/18 13:24:15     29s] Type 'man IMPLF-200' for more detail.
+[06/18 13:24:15     29s] 
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+[06/18 13:24:15     29s] Loading view definition file from Default.view
+[06/18 13:24:15     29s] Reading slow timing library '/home/install/FOUNDRY/digital/90nm/dig/lib/slow.lib' ...
+[06/18 13:24:15     30s] Read 479 cells in library 'slow' 
+[06/18 13:24:15     30s] Reading fast timing library '/home/install/FOUNDRY/digital/90nm/dig/lib/fast.lib' ...
+[06/18 13:24:16     30s] Read 479 cells in library 'fast' 
+[06/18 13:24:16     30s] Ending "PreSetAnalysisView" (total cpu=0:00:00.9, real=0:00:01.0, peak res=1047.8M, current mem=990.5M)
+[06/18 13:24:16     30s] *** End library_loading (cpu=0.02min, real=0.02min, mem=32.0M, fe_cpu=0.51min, fe_real=2.02min, fe_mem=1069.3M) ***
+[06/18 13:24:16     30s] #% Begin Load netlist data ... (date=06/18 13:24:16, mem=990.5M)
+[06/18 13:24:16     30s] *** Begin netlist parsing (mem=1069.3M) ***
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3XL' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3XL' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2XL' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2XL' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X4' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X4' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X2' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X2' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR3XL' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR3XL' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR3X1' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR3X1' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR2XL' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR2XL' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR2X4' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR2X4' is defined in LEF but not in the timing library.
+[06/18 13:24:16     30s] Type 'man IMPVL-159' for more detail.
+[06/18 13:24:16     30s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[06/18 13:24:16     30s] To increase the message display limit, refer to the product command reference manual.
+[06/18 13:24:16     30s] Created 479 new cells from 2 timing libraries.
+[06/18 13:24:16     30s] Reading netlist ...
+[06/18 13:24:16     30s] Backslashed names will retain backslash and a trailing blank character.
+[06/18 13:24:16     30s] Reading verilog netlist '../synthesis/memory_netlist.v'
+[06/18 13:24:16     30s] 
+[06/18 13:24:16     30s] *** Memory Usage v#1 (Current mem = 1069.305M, initial mem = 483.863M) ***
+[06/18 13:24:16     30s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1069.3M) ***
+[06/18 13:24:16     30s] #% End Load netlist data ... (date=06/18 13:24:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=1005.0M, current mem=1005.0M)
+[06/18 13:24:16     30s] Top level cell is memory.
+[06/18 13:24:16     30s] Hooked 958 DB cells to tlib cells.
+[06/18 13:24:16     30s] Ending "BindLib:" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1015.7M, current mem=1015.7M)
+[06/18 13:24:16     30s] Starting recursive module instantiation check.
+[06/18 13:24:16     30s] No recursion found.
+[06/18 13:24:16     30s] Building hierarchical netlist for Cell memory ...
+[06/18 13:24:16     30s] *** Netlist is unique.
+[06/18 13:24:16     30s] Setting Std. cell height to 5220 DBU (smallest netlist inst).
+[06/18 13:24:16     30s] ** info: there are 967 modules.
+[06/18 13:24:16     30s] ** info: there are 726 stdCell insts.
+[06/18 13:24:16     30s] 
+[06/18 13:24:16     30s] *** Memory Usage v#1 (Current mem = 1124.719M, initial mem = 483.863M) ***
+[06/18 13:24:16     30s] **WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[06/18 13:24:16     30s] Type 'man IMPFP-3961' for more detail.
+[06/18 13:24:16     30s] **WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[06/18 13:24:16     30s] Type 'man IMPFP-3961' for more detail.
+[06/18 13:24:16     30s] Horizontal Layer M1 offset = 290 (derived)
+[06/18 13:24:16     30s] Vertical Layer M2 offset = 290 (derived)
+[06/18 13:24:16     30s] Start create_tracks
+[06/18 13:24:16     30s] Generated pitch 0.29 in Metal8 is different from 0.87 defined in technology file in unpreferred direction.
+[06/18 13:24:16     30s] Extraction setup Started 
+[06/18 13:24:16     30s] 
+[06/18 13:24:16     30s] Trim Metal Layers:
+[06/18 13:24:16     30s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[06/18 13:24:16     30s] **WARN: (IMPEXT-6202):	In addition to the technology file, the capacitance table file is specified for all the RC corners. If the technology file  is already specified for all the RC corners, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command to enable the technology file to be used for preRoute and postRoute (effort level medium/high/signoff) extraction engines.
+[06/18 13:24:16     30s] Type 'man IMPEXT-6202' for more detail.
+[06/18 13:24:16     30s] Reading Capacitance Table File ../../../../install/FOUNDRY/digital/90nm/dig/captable/gpdk090.lef.extended.CapTbl ...
+[06/18 13:24:16     30s] Cap table was created using Encounter 05.20-s112_1.
+[06/18 13:24:16     30s] Process name: gpdk090_9l.
+[06/18 13:24:16     31s] Importing multi-corner RC tables ... 
+[06/18 13:24:16     31s] Summary of Active RC-Corners : 
+[06/18 13:24:16     31s]  
+[06/18 13:24:16     31s]  Analysis View: worst_case
+[06/18 13:24:16     31s]     RC-Corner Name        : rc_corner
+[06/18 13:24:16     31s]     RC-Corner Index       : 0
+[06/18 13:24:16     31s]     RC-Corner Temperature : 125 Celsius
+[06/18 13:24:16     31s]     RC-Corner Cap Table   : '../../../../install/FOUNDRY/digital/90nm/dig/captable/gpdk090.lef.extended.CapTbl'
+[06/18 13:24:16     31s]     RC-Corner PreRoute Res Factor         : 1
+[06/18 13:24:16     31s]     RC-Corner PreRoute Cap Factor         : 1
+[06/18 13:24:16     31s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[06/18 13:24:16     31s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[06/18 13:24:16     31s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[06/18 13:24:16     31s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[06/18 13:24:16     31s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[06/18 13:24:16     31s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[06/18 13:24:16     31s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[06/18 13:24:16     31s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[06/18 13:24:16     31s]     RC-Corner Technology file: '../../../../install/FOUNDRY/digital/90nm/dig/qrc/gpdk090_9l.tch'
+[06/18 13:24:16     31s]  
+[06/18 13:24:16     31s]  Analysis View: best_corner
+[06/18 13:24:16     31s]     RC-Corner Name        : rc_corner
+[06/18 13:24:16     31s]     RC-Corner Index       : 0
+[06/18 13:24:16     31s]     RC-Corner Temperature : 125 Celsius
+[06/18 13:24:16     31s]     RC-Corner Cap Table   : '../../../../install/FOUNDRY/digital/90nm/dig/captable/gpdk090.lef.extended.CapTbl'
+[06/18 13:24:16     31s]     RC-Corner PreRoute Res Factor         : 1
+[06/18 13:24:16     31s]     RC-Corner PreRoute Cap Factor         : 1
+[06/18 13:24:16     31s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[06/18 13:24:16     31s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[06/18 13:24:16     31s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[06/18 13:24:16     31s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[06/18 13:24:16     31s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[06/18 13:24:16     31s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[06/18 13:24:16     31s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[06/18 13:24:16     31s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[06/18 13:24:16     31s]     RC-Corner Technology file: '../../../../install/FOUNDRY/digital/90nm/dig/qrc/gpdk090_9l.tch'
+[06/18 13:24:16     31s] 
+[06/18 13:24:16     31s] Trim Metal Layers:
+[06/18 13:24:16     31s] LayerId::1 widthSet size::4
+[06/18 13:24:16     31s] LayerId::2 widthSet size::4
+[06/18 13:24:16     31s] LayerId::3 widthSet size::4
+[06/18 13:24:16     31s] LayerId::4 widthSet size::4
+[06/18 13:24:16     31s] LayerId::5 widthSet size::4
+[06/18 13:24:16     31s] LayerId::6 widthSet size::4
+[06/18 13:24:16     31s] LayerId::7 widthSet size::4
+[06/18 13:24:16     31s] LayerId::8 widthSet size::4
+[06/18 13:24:16     31s] LayerId::9 widthSet size::3
+[06/18 13:24:16     31s] Updating RC grid for preRoute extraction ...
+[06/18 13:24:16     31s] eee: pegSigSF::1.070000
+[06/18 13:24:16     31s] Initializing multi-corner capacitance tables ... 
+[06/18 13:24:16     31s] Initializing multi-corner resistance tables ...
+[06/18 13:24:16     31s] eee: l::1 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] eee: l::2 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] eee: l::3 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] eee: l::4 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] eee: l::5 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] eee: l::6 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] eee: l::7 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] eee: l::8 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] eee: l::9 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[06/18 13:24:16     31s] {RT rc_corner 0 9 9 {8 0} 1}
+[06/18 13:24:16     31s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 wcR=0.700000 newSi=0.000000 wHLS=1.750000 siPrev=0 viaL=0.000000
+[06/18 13:24:16     31s] *Info: initialize multi-corner CTS.
+[06/18 13:24:16     31s] Ending "SetAnalysisView" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1280.5M, current mem=1047.0M)
+[06/18 13:24:16     31s] Reading timing constraints file '../synthesis/memory_tool.sdc' ...
+[06/18 13:24:16     31s] Current (total cpu=0:00:31.2, real=0:02:01, peak res=1303.6M, current mem=1303.6M)
+[06/18 13:24:16     31s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../synthesis/memory_tool.sdc, Line 9).
+[06/18 13:24:16     31s] 
+[06/18 13:24:16     31s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File ../synthesis/memory_tool.sdc, Line 10).
+[06/18 13:24:16     31s] 
+[06/18 13:24:16     31s] INFO (CTE): Reading of timing constraints file ../synthesis/memory_tool.sdc completed, with 2 WARNING
+[06/18 13:24:16     31s] Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1324.0M, current mem=1324.0M)
+[06/18 13:24:16     31s] Current (total cpu=0:00:31.2, real=0:02:01, peak res=1324.0M, current mem=1324.0M)
+[06/18 13:24:16     31s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[06/18 13:24:16     31s] 
+[06/18 13:24:16     31s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[06/18 13:24:16     31s] Summary for sequential cells identification: 
+[06/18 13:24:16     31s]   Identified SBFF number: 112
+[06/18 13:24:16     31s]   Identified MBFF number: 0
+[06/18 13:24:16     31s]   Identified SB Latch number: 0
+[06/18 13:24:16     31s]   Identified MB Latch number: 0
+[06/18 13:24:16     31s]   Not identified SBFF number: 8
+[06/18 13:24:16     31s]   Not identified MBFF number: 0
+[06/18 13:24:16     31s]   Not identified SB Latch number: 0
+[06/18 13:24:16     31s]   Not identified MB Latch number: 0
+[06/18 13:24:16     31s]   Number of sequential cells which are not FFs: 32
+[06/18 13:24:16     31s] Total number of combinational cells: 317
+[06/18 13:24:16     31s] Total number of sequential cells: 152
+[06/18 13:24:16     31s] Total number of tristate cells: 10
+[06/18 13:24:16     31s] Total number of level shifter cells: 0
+[06/18 13:24:16     31s] Total number of power gating cells: 0
+[06/18 13:24:16     31s] Total number of isolation cells: 0
+[06/18 13:24:16     31s] Total number of power switch cells: 0
+[06/18 13:24:16     31s] Total number of pulse generator cells: 0
+[06/18 13:24:16     31s] Total number of always on buffers: 0
+[06/18 13:24:16     31s] Total number of retention cells: 0
+[06/18 13:24:16     31s] List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+[06/18 13:24:16     31s] Total number of usable buffers: 16
+[06/18 13:24:16     31s] List of unusable buffers:
+[06/18 13:24:16     31s] Total number of unusable buffers: 0
+[06/18 13:24:16     31s] List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+[06/18 13:24:16     31s] Total number of usable inverters: 19
+[06/18 13:24:16     31s] List of unusable inverters:
+[06/18 13:24:16     31s] Total number of unusable inverters: 0
+[06/18 13:24:16     31s] List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+[06/18 13:24:16     31s] Total number of identified usable delay cells: 8
+[06/18 13:24:16     31s] List of identified unusable delay cells:
+[06/18 13:24:16     31s] Total number of identified unusable delay cells: 0
+[06/18 13:24:16     31s] 
+[06/18 13:24:16     31s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+[06/18 13:24:17     31s] 
+[06/18 13:24:17     31s] TimeStamp Deleting Cell Server Begin ...
+[06/18 13:24:17     31s] 
+[06/18 13:24:17     31s] TimeStamp Deleting Cell Server End ...
+[06/18 13:24:17     31s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1346.4M, current mem=1346.3M)
+[06/18 13:24:17     31s] 
+[06/18 13:24:17     31s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[06/18 13:24:17     31s] Summary for sequential cells identification: 
+[06/18 13:24:17     31s]   Identified SBFF number: 112
+[06/18 13:24:17     31s]   Identified MBFF number: 0
+[06/18 13:24:17     31s]   Identified SB Latch number: 0
+[06/18 13:24:17     31s]   Identified MB Latch number: 0
+[06/18 13:24:17     31s]   Not identified SBFF number: 8
+[06/18 13:24:17     31s]   Not identified MBFF number: 0
+[06/18 13:24:17     31s]   Not identified SB Latch number: 0
+[06/18 13:24:17     31s]   Not identified MB Latch number: 0
+[06/18 13:24:17     31s]   Number of sequential cells which are not FFs: 32
+[06/18 13:24:17     31s]  Visiting view : worst_case
+[06/18 13:24:17     31s]    : PowerDomain = none : Weighted F : unweighted  = 36.00 (1.000) with rcCorner = 0
+[06/18 13:24:17     31s]    : PowerDomain = none : Weighted F : unweighted  = 33.00 (1.000) with rcCorner = -1
+[06/18 13:24:17     31s]  Visiting view : best_corner
+[06/18 13:24:17     31s]    : PowerDomain = none : Weighted F : unweighted  = 12.10 (1.000) with rcCorner = 0
+[06/18 13:24:17     31s]    : PowerDomain = none : Weighted F : unweighted  = 11.00 (1.000) with rcCorner = -1
+[06/18 13:24:17     31s] TLC MultiMap info (StdDelay):
+[06/18 13:24:17     31s]   : min_delay + fast + 1 + no RcCorner := 11ps
+[06/18 13:24:17     31s]   : min_delay + fast + 1 + rc_corner := 12.1ps
+[06/18 13:24:17     31s]   : max_delay + slow + 1 + no RcCorner := 33ps
+[06/18 13:24:17     31s]   : max_delay + slow + 1 + rc_corner := 36ps
+[06/18 13:24:17     31s]  Setting StdDelay to: 36ps
+[06/18 13:24:17     31s] 
+[06/18 13:24:17     31s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[06/18 13:24:17     31s] 
+[06/18 13:24:17     31s] TimeStamp Deleting Cell Server Begin ...
+[06/18 13:24:17     31s] 
+[06/18 13:24:17     31s] TimeStamp Deleting Cell Server End ...
+[06/18 13:24:17     31s] 
+[06/18 13:24:17     31s] *** Summary of all messages that are not suppressed in this session:
+[06/18 13:24:17     31s] Severity  ID               Count  Summary                                  
+[06/18 13:24:17     31s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[06/18 13:24:17     31s] WARNING   IMPLF-105            2  The layer '%s' specified in SAMENET spac...
+[06/18 13:24:17     31s] WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+[06/18 13:24:17     31s] WARNING   IMPEXT-6202          1  In addition to the technology file, the ...
+[06/18 13:24:17     31s] WARNING   IMPVL-159          958  Pin '%s' of cell '%s' is defined in LEF ...
+[06/18 13:24:17     31s] WARNING   TCLCMD-1461          2  Skipped unsupported command: %s          
+[06/18 13:24:17     31s] *** Message Summary: 966 warning(s), 0 error(s)
+[06/18 13:24:17     31s] 
+[06/18 13:31:42     55s] <CMD> zoomBox -43.29600 -4.80600 147.80250 88.53750
+[06/18 13:31:46     55s] <CMD> getIoFlowFlag
+[06/18 13:33:33     61s] <CMD> setIoFlowFlag 0
+[06/18 13:33:33     61s] <CMD> floorPlan -coreMarginsBy die -site gsclib090site -r 1 0.7 8 8 8 8
+[06/18 13:33:33     61s] **WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[06/18 13:33:33     61s] Type 'man IMPFP-3961' for more detail.
+[06/18 13:33:33     61s] **WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[06/18 13:33:33     61s] Type 'man IMPFP-3961' for more detail.
+[06/18 13:33:33     61s] Horizontal Layer M1 offset = 290 (derived)
+[06/18 13:33:33     61s] Vertical Layer M2 offset = 290 (derived)
+[06/18 13:33:33     61s] Start create_tracks
+[06/18 13:33:33     61s] Generated pitch 0.29 in Metal8 is different from 0.87 defined in technology file in unpreferred direction.
+[06/18 13:33:33     61s] <CMD> uiSetTool select
+[06/18 13:33:33     61s] <CMD> getIoFlowFlag
+[06/18 13:33:33     61s] <CMD> fit
+[06/18 13:33:57     62s] <CMD> zoomBox -36.98950 29.42650 120.17050 106.19250
+[06/18 13:33:57     62s] <CMD> zoomBox -23.96850 40.20750 89.58050 95.67150
+[06/18 13:33:58     62s] <CMD> zoomBox -11.74550 50.87400 57.98850 84.93600
+[06/18 13:33:58     62s] <CMD> zoomBox -0.09950 61.38400 26.20200 74.23100
+[06/18 13:33:59     62s] <CMD> zoomBox 3.83350 64.92450 15.50400 70.62500
+[06/18 13:33:59     62s] <CMD> zoomBox -4.92250 59.25500 26.02400 74.37100
+[06/18 13:34:00     62s] <CMD> zoomBox -28.02650 44.23150 54.02850 84.31200
+[06/18 13:34:00     63s] <CMD> zoomBox -88.80950 4.57650 128.75850 110.84950
+[06/18 13:34:01     63s] <CMD> zoomBox -249.60150 -100.29950 327.27350 181.48000
+[06/18 13:34:01     63s] <CMD> zoomBox -120.86750 -17.35100 180.26550 129.74000
+[06/18 13:34:02     63s] <CMD> zoomBox -174.86550 -52.14400 241.92800 151.44250
+[06/18 13:34:05     63s] <CMD> zoomIn
+[06/18 13:34:07     63s] <CMD> zoomOut
+[06/18 13:34:08     63s] <CMD> uiSetTool ruler
+[06/18 13:34:17     64s] <CMD> zoomIn
+[06/18 13:34:18     64s] <CMD> fit
+[06/18 13:34:19     64s] <CMD> fit
+[06/18 13:34:23     64s] <CMD> uiSetTool ruler
+[06/18 13:34:25     65s] <CMD> uiSetTool ruler
+[06/18 13:34:25     65s] <CMD> uiSetTool ruler
+[06/18 13:34:25     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:26     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:27     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> zoomBox -40.63200 31.78350 116.52800 108.54950
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:28     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> zoomBox -15.17850 55.15350 54.55450 89.21500
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> zoomBox -5.47500 64.06300 30.92750 81.84400
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:29     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:30     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:31     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:32     65s] <CMD> uiSetTool ruler
+[06/18 13:34:33     65s] <CMD> uiSetTool ruler
+[06/18 13:34:33     65s] <CMD> uiSetTool ruler
+[06/18 13:34:33     65s] <CMD> uiSetTool ruler
+[06/18 13:34:33     65s] <CMD> uiSetTool ruler
+[06/18 13:34:33     65s] <CMD> uiSetTool ruler
+[06/18 13:34:33     65s] <CMD> uiSetTool ruler
+[06/18 13:34:33     65s] <CMD> uiSetTool ruler
+[06/18 13:34:33     65s] <CMD> uiSetTool ruler
+[06/18 13:34:58     67s] <CMD> fit
+[06/18 13:39:02     81s] <CMD> clearGlobalNets
+[06/18 13:39:02     81s] <CMD> globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+[06/18 13:39:02     81s] <CMD> globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+[06/18 13:39:03     81s] <CMD> clearGlobalNets
+[06/18 13:39:03     81s] <CMD> globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+[06/18 13:39:03     81s] <CMD> globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+[06/18 13:39:05     81s] <CMD> clearGlobalNets
+[06/18 13:39:05     81s] <CMD> globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+[06/18 13:39:05     81s] <CMD> globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+[06/18 13:39:07     81s] <CMD> clearGlobalNets
+[06/18 13:39:07     81s] <CMD> globalNetConnect VDD -type pgpin -pin VDD -instanceBasename * -hierarchicalInstance {}
+[06/18 13:39:07     81s] <CMD> globalNetConnect VSS -type pgpin -pin VSS -instanceBasename * -hierarchicalInstance {}
+[06/18 13:39:50     84s] <CMD> zoomBox -69.54950 3.70600 186.35800 128.70600
+[06/18 13:39:50     84s] <CMD> zoomBox -41.16800 26.42600 115.99100 103.19150
+[06/18 13:39:50     84s] <CMD> zoomBox -34.39250 31.84950 99.19250 97.10050
+[06/18 13:39:51     84s] <CMD> zoomBox -28.63400 36.45950 84.91400 91.92300
+[06/18 13:39:51     84s] <CMD> zoomBox -112.01300 -32.16350 304.69450 171.38100
+[06/18 13:39:54     84s] <CMD> fit
+[06/18 13:40:25     86s] <CMD> set sprCreateIeRingOffset 1.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeRingThreshold 1.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeRingJogDistance 1.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeRingLayers {}
+[06/18 13:40:25     86s] <CMD> set sprCreateIeRingOffset 1.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeRingThreshold 1.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeRingJogDistance 1.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeRingLayers {}
+[06/18 13:40:25     86s] <CMD> set sprCreateIeStripeWidth 10.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeStripeThreshold 1.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeStripeWidth 10.0
+[06/18 13:40:25     86s] <CMD> set sprCreateIeStripeThreshold 1.0
+[06/18 13:40:26     86s] <CMD> set sprCreateIeRingOffset 1.0
+[06/18 13:40:26     86s] <CMD> set sprCreateIeRingThreshold 1.0
+[06/18 13:40:26     86s] <CMD> set sprCreateIeRingJogDistance 1.0
+[06/18 13:40:26     86s] <CMD> set sprCreateIeRingLayers {}
+[06/18 13:40:26     86s] <CMD> set sprCreateIeStripeWidth 10.0
+[06/18 13:40:26     86s] <CMD> set sprCreateIeStripeThreshold 1.0
+[06/18 13:43:39     96s] 
+[06/18 13:43:39     96s] viaInitial starts at Thu Jun 18 13:43:39 2026
+viaInitial ends at Thu Jun 18 13:43:39 2026
+<CMD> setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_short 0 -skip_crossing_trunks none -stacked_via_top_layer Metal9 -stacked_via_bottom_layer Metal1 -via_using_exact_crossover_size 1 -orthogonal_only true -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+[06/18 13:44:17     98s] The ring targets are set to core/block ring wires.
+[06/18 13:44:17     98s] addRing command will consider rows while creating rings.
+[06/18 13:44:17     98s] addRing command will disallow rings to go over rows.
+[06/18 13:44:17     98s] addRing command will ignore shorts while creating rings.
+[06/18 13:44:17     98s] <CMD> addRing -nets {VDD VSS} -type core_rings -follow core -layer {top Metal9 bottom Metal9 left Metal8 right Metal8} -width {top 1.8 bottom 1.8 left 1.8 right 1.8} -spacing {top 0.5 bottom 0.5 left 0.5 right 0.5} -offset {top 1.8 bottom 1.8 left 1.8 right 1.8} -center 1 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+[06/18 13:44:17     98s] 
+[06/18 13:44:17     98s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1631.7M)
+[06/18 13:44:17     98s] Ring generation is complete.
+[06/18 13:44:17     98s] vias are now being generated.
+[06/18 13:44:17     98s] addRing created 8 wires.
+[06/18 13:44:17     98s] ViaGen created 8 vias, deleted 0 via to avoid violation.
+[06/18 13:44:17     98s] +--------+----------------+----------------+
+[06/18 13:44:17     98s] |  Layer |     Created    |     Deleted    |
+[06/18 13:44:17     98s] +--------+----------------+----------------+
+[06/18 13:44:17     98s] | Metal8 |        4       |       NA       |
+[06/18 13:44:17     98s] |  Via8  |        8       |        0       |
+[06/18 13:44:17     98s] | Metal9 |        4       |       NA       |
+[06/18 13:44:17     98s] +--------+----------------+----------------+
+[06/18 13:44:38    100s] <CMD> zoomBox 2.66250 67.14250 136.24850 132.39350
+[06/18 13:45:18    102s] <CMD> zoomBox -24.54200 44.52550 160.35200 134.83850
+[06/18 13:45:18    102s] <CMD> zoomBox -86.22050 -6.68550 214.85050 140.37500
+[06/18 13:45:19    102s] <CMD> zoomBox -62.24450 13.22150 193.66550 138.22300
+[06/18 13:45:19    102s] <CMD> zoomBox -24.54250 44.52500 160.35250 134.83850
+[06/18 13:45:20    102s] <CMD> zoomBox -9.81850 56.75050 147.34250 133.51700
+[06/18 13:45:20    102s] <CMD> zoomBox 2.69700 67.14200 136.28400 132.39350
+[06/18 13:45:58    104s] <CMD> fit
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingOffset 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingThreshold 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingJogDistance 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingLayers {}
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingOffset 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingThreshold 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingJogDistance 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingLayers {}
+[06/18 13:46:23    106s] <CMD> set sprCreateIeStripeWidth 10.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeStripeThreshold 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeStripeWidth 10.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeStripeThreshold 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingOffset 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingThreshold 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingJogDistance 1.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeRingLayers {}
+[06/18 13:46:23    106s] <CMD> set sprCreateIeStripeWidth 10.0
+[06/18 13:46:23    106s] <CMD> set sprCreateIeStripeThreshold 1.0
+[06/18 13:48:10    112s] <CMD> setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length stripe_width -stacked_via_top_layer Metal9 -stacked_via_bottom_layer Metal1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring } -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape   }
+[06/18 13:48:10    112s] addStripe will allow jog to connect padcore ring and block ring.
+[06/18 13:48:10    112s] 
+[06/18 13:48:10    112s] Stripes will stop at the boundary of the specified area.
+[06/18 13:48:10    112s] When breaking rings, the power planner will consider the existence of blocks.
+[06/18 13:48:10    112s] Stripes will not extend to closest target.
+[06/18 13:48:10    112s] The power planner will set stripe antenna targets to none (no trimming allowed).
+[06/18 13:48:10    112s] Stripes will not be created over regions without power planning wires.
+[06/18 13:48:10    112s] The entire stripe set will break at the domain if one of the nets is not in the domain.
+[06/18 13:48:10    112s] addStripe will break automatically at non-default domains when generating global stripes over the core area or default domain.
+[06/18 13:48:10    112s] Offset for stripe breaking is set to 0.
+[06/18 13:48:10    112s] <CMD> addStripe -nets {VDD VSS} -layer Metal9 -direction horizontal -width 1 -spacing 0.4 -number_of_sets 20 -start_from bottom -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit Metal9 -padcore_ring_bottom_layer_limit Metal1 -block_ring_top_layer_limit Metal9 -block_ring_bottom_layer_limit Metal1 -use_wire_group 0 -snap_wire_center_to_grid None
+[06/18 13:48:10    112s] 
+[06/18 13:48:10    112s] Initialize fgc environment(mem: 1640.4M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Starting stripe generation ...
+[06/18 13:48:10    112s] Non-Default Mode Option Settings :
+[06/18 13:48:10    112s]   NONE
+[06/18 13:48:10    112s] Completing 10% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Completing 20% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Completing 30% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Completing 40% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Completing 50% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Completing 60% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Completing 70% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Completing 80% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Completing 90% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1640.4M)
+[06/18 13:48:10    112s] Stripe generation is complete.
+[06/18 13:48:10    112s] vias are now being generated.
+[06/18 13:48:10    112s] addStripe created 40 wires.
+[06/18 13:48:10    112s] ViaGen created 80 vias, deleted 0 via to avoid violation.
+[06/18 13:48:10    112s] +--------+----------------+----------------+
+[06/18 13:48:10    112s] |  Layer |     Created    |     Deleted    |
+[06/18 13:48:10    112s] +--------+----------------+----------------+
+[06/18 13:48:10    112s] |  Via8  |       80       |        0       |
+[06/18 13:48:10    112s] | Metal9 |       40       |       NA       |
+[06/18 13:48:10    112s] +--------+----------------+----------------+
+[06/18 13:48:45    114s] <CMD> ui_view_box
+[06/18 13:48:45    114s] <CMD> ui_view_box
+[06/18 13:48:45    114s] <CMD> dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType inst
+[06/18 13:48:45    114s] <CMD> dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType regular
+[06/18 13:48:45    114s] <CMD> dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType special

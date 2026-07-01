@@ -1,0 +1,1836 @@
+xrun(64): 22.09-s003: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	22.09-s003: Started on Jun 16, 2026 at 09:11:19 IST
+xrun
+	memory_tb.sv
+	-access +rwc
+	-gui
+	-coverage all
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/install/XCELIUM2209/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm memory_tb.memory_inst.cs
+Created probe 1
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+stop -create -name Randomize -randomize
+Created stop Randomize
+
+Generator addr=2724 wr_data = d865991a, trans_type=WRITE 
+
+Generator addr=2724, rd_data=0, trans_type=READ 
+
+Generator addr=b2d4 wr_data = 9198dcf7, trans_type=WRITE 
+
+Generator addr=b2d4, rd_data=0, trans_type=READ 
+
+Generator addr=b700 wr_data = d672fd0b, trans_type=WRITE 
+
+Generator addr=b700, rd_data=0, trans_type=READ 
+
+Generator addr=e13c wr_data = 6f83731a, trans_type=WRITE 
+
+Generator addr=e13c, rd_data=0, trans_type=READ 
+
+Generator addr=8df8 wr_data = d8aeb430, trans_type=WRITE 
+
+Generator addr=8df8, rd_data=0, trans_type=READ 
+
+Generator addr=f034 wr_data = 6f84f3de, trans_type=WRITE 
+
+Generator addr=f034, rd_data=0, trans_type=READ 
+
+Generator addr=110c wr_data = 332532b2, trans_type=WRITE 
+
+Generator addr=110c, rd_data=0, trans_type=READ 
+
+Generator addr=7584 wr_data = 281f57bc, trans_type=WRITE 
+
+Generator addr=7584, rd_data=0, trans_type=READ 
+
+Generator addr=a6e0 wr_data = b4f1c8ce, trans_type=WRITE 
+
+Generator addr=a6e0, rd_data=0, trans_type=READ 
+
+Generator addr=2bec wr_data = 0c10f039, trans_type=WRITE 
+
+Generator addr=2bec, rd_data=0, trans_type=READ 
+
+Generator addr=1fd4 wr_data = 40c09c2a, trans_type=WRITE 
+
+Generator addr=1fd4, rd_data=0, trans_type=READ 
+
+Generator addr=8c70 wr_data = 106afca1, trans_type=WRITE 
+
+Generator addr=8c70, rd_data=0, trans_type=READ 
+
+Generator addr=8fe0 wr_data = 6a8e54a2, trans_type=WRITE 
+
+Generator addr=8fe0, rd_data=0, trans_type=READ 
+
+Generator addr=dabc wr_data = 3208d9e4, trans_type=WRITE 
+
+Generator addr=dabc, rd_data=0, trans_type=READ 
+
+Generator addr=acbc wr_data = 319c9115, trans_type=WRITE 
+
+Generator addr=acbc, rd_data=0, trans_type=READ 
+
+Generator addr=6794 wr_data = fef28773, trans_type=WRITE 
+
+Generator addr=6794, rd_data=0, trans_type=READ 
+
+Generator addr=0938 wr_data = 89bce49b, trans_type=WRITE 
+
+Generator addr=938, rd_data=0, trans_type=READ 
+
+Generator addr=8fec wr_data = caa50182, trans_type=WRITE 
+
+Generator addr=8fec, rd_data=0, trans_type=READ 
+
+Generator addr=b0f0 wr_data = 8b8ea638, trans_type=WRITE 
+
+Generator addr=b0f0, rd_data=0, trans_type=READ 
+
+Generator addr=fd24 wr_data = 184d5d2f, trans_type=WRITE 
+
+Generator addr=fd24, rd_data=0, trans_type=READ 
+
+Generator addr=8b60 wr_data = ec6ae5b4, trans_type=WRITE 
+
+Generator addr=8b60, rd_data=0, trans_type=READ 
+
+Generator addr=c114 wr_data = 16149b8f, trans_type=WRITE 
+
+Generator addr=c114, rd_data=0, trans_type=READ 
+
+Generator addr=5eec wr_data = 436fee52, trans_type=WRITE 
+
+Generator addr=5eec, rd_data=0, trans_type=READ 
+
+Generator addr=2758 wr_data = 9f9c182a, trans_type=WRITE 
+
+Generator addr=2758, rd_data=0, trans_type=READ 
+
+Generator addr=eefc wr_data = 8dae5fbb, trans_type=WRITE 
+
+Generator addr=eefc, rd_data=0, trans_type=READ 
+
+Generator addr=0adc wr_data = d6357eba, trans_type=WRITE 
+
+Generator addr=adc, rd_data=0, trans_type=READ 
+
+Generator addr=711c wr_data = 9aa67532, trans_type=WRITE 
+
+Generator addr=711c, rd_data=0, trans_type=READ 
+
+Generator addr=ae58 wr_data = c88ff9ba, trans_type=WRITE 
+
+Generator addr=ae58, rd_data=0, trans_type=READ 
+
+Generator addr=7f8c wr_data = 6dfe6caa, trans_type=WRITE 
+
+Generator addr=7f8c, rd_data=0, trans_type=READ 
+
+Generator addr=efd4 wr_data = e9a4ff90, trans_type=WRITE 
+
+Generator addr=efd4, rd_data=0, trans_type=READ 
+
+Generator addr=e3f8 wr_data = 308e7f0d, trans_type=WRITE 
+
+Generator addr=e3f8, rd_data=0, trans_type=READ 
+
+Generator addr=4c64 wr_data = 8e880b05, trans_type=WRITE 
+
+Generator addr=4c64, rd_data=0, trans_type=READ 
+
+Generator addr=48a0 wr_data = 253c9106, trans_type=WRITE 
+
+Generator addr=48a0, rd_data=0, trans_type=READ 
+
+Generator addr=b49c wr_data = dda618aa, trans_type=WRITE 
+
+Generator addr=b49c, rd_data=0, trans_type=READ 
+
+Generator addr=36e0 wr_data = 35c126b0, trans_type=WRITE 
+
+Generator addr=36e0, rd_data=0, trans_type=READ 
+
+Generator addr=dbac wr_data = 86892c24, trans_type=WRITE 
+
+Generator addr=dbac, rd_data=0, trans_type=READ 
+
+Generator addr=65cc wr_data = 95c8ba52, trans_type=WRITE 
+
+Generator addr=65cc, rd_data=0, trans_type=READ 
+
+Generator addr=e6c0 wr_data = c74d5a8a, trans_type=WRITE 
+
+Generator addr=e6c0, rd_data=0, trans_type=READ 
+
+Generator addr=107c wr_data = ac40b00c, trans_type=WRITE 
+
+Generator addr=107c, rd_data=0, trans_type=READ 
+
+Generator addr=dad8 wr_data = 226d9345, trans_type=WRITE 
+
+Generator addr=dad8, rd_data=0, trans_type=READ 
+
+Generator addr=b1f8 wr_data = 2d6a6cef, trans_type=WRITE 
+
+Generator addr=b1f8, rd_data=0, trans_type=READ 
+
+Generator addr=e95c wr_data = 0aa3f6f1, trans_type=WRITE 
+
+Generator addr=e95c, rd_data=0, trans_type=READ 
+
+Generator addr=7ef4 wr_data = 2b79042d, trans_type=WRITE 
+
+Generator addr=7ef4, rd_data=0, trans_type=READ 
+
+Generator addr=fa28 wr_data = 9e98f49a, trans_type=WRITE 
+
+Generator addr=fa28, rd_data=0, trans_type=READ 
+
+Generator addr=b198 wr_data = ffe07788, trans_type=WRITE 
+
+Generator addr=b198, rd_data=0, trans_type=READ 
+
+Generator addr=15b4 wr_data = 39cea57e, trans_type=WRITE 
+
+Generator addr=15b4, rd_data=0, trans_type=READ 
+
+Generator addr=e710 wr_data = 655ac49b, trans_type=WRITE 
+
+Generator addr=e710, rd_data=0, trans_type=READ 
+
+Generator addr=d41c wr_data = 521eaff1, trans_type=WRITE 
+
+Generator addr=d41c, rd_data=0, trans_type=READ 
+
+Generator addr=40e0 wr_data = 8d841183, trans_type=WRITE 
+
+Generator addr=40e0, rd_data=0, trans_type=READ 
+
+Generator addr=6250 wr_data = f33792a8, trans_type=WRITE 
+
+Generator addr=6250, rd_data=0, trans_type=READ 
+
+Generator addr=dfe0 wr_data = c8b4e01c, trans_type=WRITE 
+
+Generator addr=dfe0, rd_data=0, trans_type=READ 
+
+Generator addr=f8ec wr_data = a20e5c75, trans_type=WRITE 
+
+Generator addr=f8ec, rd_data=0, trans_type=READ 
+
+Generator addr=7b84 wr_data = 5371c071, trans_type=WRITE 
+
+Generator addr=7b84, rd_data=0, trans_type=READ 
+
+Generator addr=a914 wr_data = 39f22b6b, trans_type=WRITE 
+
+Generator addr=a914, rd_data=0, trans_type=READ 
+
+Generator addr=07d0 wr_data = 5526df17, trans_type=WRITE 
+
+Generator addr=7d0, rd_data=0, trans_type=READ 
+
+Generator addr=1744 wr_data = fdb280bc, trans_type=WRITE 
+
+Generator addr=1744, rd_data=0, trans_type=READ 
+
+Generator addr=b380 wr_data = ab04c129, trans_type=WRITE 
+
+Generator addr=b380, rd_data=0, trans_type=READ 
+
+Generator addr=7420 wr_data = 5f115546, trans_type=WRITE 
+
+Generator addr=7420, rd_data=0, trans_type=READ 
+
+Generator addr=f6e0 wr_data = 5f7a5856, trans_type=WRITE 
+
+Generator addr=f6e0, rd_data=0, trans_type=READ 
+
+Generator addr=e9a8 wr_data = de2dddb2, trans_type=WRITE 
+
+Generator addr=e9a8, rd_data=0, trans_type=READ 
+
+Generator addr=3bcc wr_data = 2dd6bfcf, trans_type=WRITE 
+
+Generator addr=3bcc, rd_data=0, trans_type=READ 
+
+Generator addr=07ac wr_data = d2e0e572, trans_type=WRITE 
+
+Generator addr=7ac, rd_data=0, trans_type=READ 
+
+Generator addr=eb4c wr_data = 2106a74d, trans_type=WRITE 
+
+Generator addr=eb4c, rd_data=0, trans_type=READ 
+
+Generator addr=10f0 wr_data = 5a51f42f, trans_type=WRITE 
+
+Generator addr=10f0, rd_data=0, trans_type=READ 
+
+Generator addr=74fc wr_data = 4908bac3, trans_type=WRITE 
+
+Generator addr=74fc, rd_data=0, trans_type=READ 
+
+Generator addr=53f8 wr_data = 86c14b67, trans_type=WRITE 
+
+Generator addr=53f8, rd_data=0, trans_type=READ 
+
+Generator addr=cd54 wr_data = 5059148b, trans_type=WRITE 
+
+Generator addr=cd54, rd_data=0, trans_type=READ 
+
+Generator addr=3a94 wr_data = 66ec0bf4, trans_type=WRITE 
+
+Generator addr=3a94, rd_data=0, trans_type=READ 
+
+Generator addr=2b60 wr_data = 41630e59, trans_type=WRITE 
+
+Generator addr=2b60, rd_data=0, trans_type=READ 
+
+Generator addr=1b54 wr_data = 6b4dbc59, trans_type=WRITE 
+
+Generator addr=1b54, rd_data=0, trans_type=READ 
+
+Generator addr=ddb4 wr_data = ec476dcb, trans_type=WRITE 
+
+Generator addr=ddb4, rd_data=0, trans_type=READ 
+
+Generator addr=1dbc wr_data = 0836ff37, trans_type=WRITE 
+
+Generator addr=1dbc, rd_data=0, trans_type=READ 
+
+Generator addr=a294 wr_data = f705a7ca, trans_type=WRITE 
+
+Generator addr=a294, rd_data=0, trans_type=READ 
+
+Generator addr=a434 wr_data = c2807a44, trans_type=WRITE 
+
+Generator addr=a434, rd_data=0, trans_type=READ 
+
+Generator addr=01e8 wr_data = f150f28b, trans_type=WRITE 
+
+Generator addr=1e8, rd_data=0, trans_type=READ 
+
+Generator addr=f768 wr_data = 9487fc6e, trans_type=WRITE 
+
+Generator addr=f768, rd_data=0, trans_type=READ 
+
+Generator addr=e014 wr_data = 699a6d14, trans_type=WRITE 
+
+Generator addr=e014, rd_data=0, trans_type=READ 
+
+Generator addr=65b8 wr_data = 13326192, trans_type=WRITE 
+
+Generator addr=65b8, rd_data=0, trans_type=READ 
+
+Generator addr=2184 wr_data = e8bfb76a, trans_type=WRITE 
+
+Generator addr=2184, rd_data=0, trans_type=READ 
+
+Generator addr=7d0c wr_data = e0afb20a, trans_type=WRITE 
+
+Generator addr=7d0c, rd_data=0, trans_type=READ 
+
+Generator addr=0160 wr_data = 5467b8f3, trans_type=WRITE 
+
+Generator addr=160, rd_data=0, trans_type=READ 
+
+Generator addr=39c4 wr_data = 69f3d0c6, trans_type=WRITE 
+
+Generator addr=39c4, rd_data=0, trans_type=READ 
+
+Generator addr=f4d8 wr_data = a8197195, trans_type=WRITE 
+
+Generator addr=f4d8, rd_data=0, trans_type=READ 
+
+Generator addr=dc0c wr_data = a4a9dce1, trans_type=WRITE 
+
+Generator addr=dc0c, rd_data=0, trans_type=READ 
+
+Generator addr=9614 wr_data = 4afbc25c, trans_type=WRITE 
+
+Generator addr=9614, rd_data=0, trans_type=READ 
+
+Generator addr=cabc wr_data = 3975c0a0, trans_type=WRITE 
+
+Generator addr=cabc, rd_data=0, trans_type=READ 
+
+Generator addr=2030 wr_data = 0c746655, trans_type=WRITE 
+
+Generator addr=2030, rd_data=0, trans_type=READ 
+
+Generator addr=0074 wr_data = 7b5416e0, trans_type=WRITE 
+
+Generator addr=74, rd_data=0, trans_type=READ 
+
+Generator addr=d0f0 wr_data = 84d95aa8, trans_type=WRITE 
+
+Generator addr=d0f0, rd_data=0, trans_type=READ 
+
+Generator addr=7e3c wr_data = 605380e8, trans_type=WRITE 
+
+Generator addr=7e3c, rd_data=0, trans_type=READ 
+
+Generator addr=debc wr_data = e7c96707, trans_type=WRITE 
+
+Generator addr=debc, rd_data=0, trans_type=READ 
+
+Generator addr=5e10 wr_data = 6aec9ce9, trans_type=WRITE 
+
+Generator addr=5e10, rd_data=0, trans_type=READ 
+
+Generator addr=acc8 wr_data = d651329f, trans_type=WRITE 
+
+Generator addr=acc8, rd_data=0, trans_type=READ 
+
+Generator addr=1504 wr_data = caafd4ea, trans_type=WRITE 
+
+Generator addr=1504, rd_data=0, trans_type=READ 
+
+Generator addr=2414 wr_data = 61a79b8c, trans_type=WRITE 
+
+Generator addr=2414, rd_data=0, trans_type=READ 
+
+Generator addr=ba18 wr_data = 93a9d14f, trans_type=WRITE 
+
+Generator addr=ba18, rd_data=0, trans_type=READ 
+
+Generator addr=a698 wr_data = baddc35f, trans_type=WRITE 
+
+Generator addr=a698, rd_data=0, trans_type=READ 
+
+Generator addr=616c wr_data = e7d5af68, trans_type=WRITE 
+
+Generator addr=616c, rd_data=0, trans_type=READ 
+
+Generator addr=3ef8 wr_data = 579da7a3, trans_type=WRITE 
+
+Generator addr=3ef8, rd_data=0, trans_type=READ 
+
+Generator addr=03ac wr_data = c7f8bb77, trans_type=WRITE 
+
+Generator addr=3ac, rd_data=0, trans_type=READ 
+
+Gen -mbox size=200
+driver-mbox size=200
+                  15 Drive to dut WRITE addr=2724, wr_data = d865991a,  trans_type=WRITE 
+
+                  15 Monitor WRITE addr=2724 wr_data = d865991a, trans_type=WRITE 
+
+                  15 Score Board addr=2724 wr_data = d865991a, rd_data=0, trans _type=WRITE 
+
+                  45 Monitor READ addr=2724 rd_data = d865991a, trans_type=READ count=2
+
+                  45 Score Board addr=2724 wr_data = 0, rd_data=d865991a, trans _type=READ 
+
+                  55 Driver to dut READ addr=2724, rd_data = d865991a,  trans_type=READ 
+
+                  65 Drive to dut WRITE addr=b2d4, wr_data = 9198dcf7,  trans_type=WRITE 
+
+                  65 Monitor WRITE addr=b2d4 wr_data = 9198dcf7, trans_type=WRITE 
+
+                  65 Score Board addr=b2d4 wr_data = 9198dcf7, rd_data=0, trans _type=WRITE 
+
+                  95 Monitor READ addr=b2d4 rd_data = 9198dcf7, trans_type=READ count=2
+
+                  95 Score Board addr=b2d4 wr_data = 0, rd_data=9198dcf7, trans _type=READ 
+
+                 105 Driver to dut READ addr=b2d4, rd_data = 9198dcf7,  trans_type=READ 
+
+                 115 Drive to dut WRITE addr=b700, wr_data = d672fd0b,  trans_type=WRITE 
+
+                 115 Monitor WRITE addr=b700 wr_data = d672fd0b, trans_type=WRITE 
+
+                 115 Score Board addr=b700 wr_data = d672fd0b, rd_data=0, trans _type=WRITE 
+
+                 145 Monitor READ addr=b700 rd_data = d672fd0b, trans_type=READ count=2
+
+                 145 Score Board addr=b700 wr_data = 0, rd_data=d672fd0b, trans _type=READ 
+
+                 155 Driver to dut READ addr=b700, rd_data = d672fd0b,  trans_type=READ 
+
+                 165 Drive to dut WRITE addr=e13c, wr_data = 6f83731a,  trans_type=WRITE 
+
+                 165 Monitor WRITE addr=e13c wr_data = 6f83731a, trans_type=WRITE 
+
+                 165 Score Board addr=e13c wr_data = 6f83731a, rd_data=0, trans _type=WRITE 
+
+                 195 Monitor READ addr=e13c rd_data = 6f83731a, trans_type=READ count=2
+
+                 195 Score Board addr=e13c wr_data = 0, rd_data=6f83731a, trans _type=READ 
+
+                 205 Driver to dut READ addr=e13c, rd_data = 6f83731a,  trans_type=READ 
+
+                 215 Drive to dut WRITE addr=8df8, wr_data = d8aeb430,  trans_type=WRITE 
+
+                 215 Monitor WRITE addr=8df8 wr_data = d8aeb430, trans_type=WRITE 
+
+                 215 Score Board addr=8df8 wr_data = d8aeb430, rd_data=0, trans _type=WRITE 
+
+                 245 Monitor READ addr=8df8 rd_data = d8aeb430, trans_type=READ count=2
+
+                 245 Score Board addr=8df8 wr_data = 0, rd_data=d8aeb430, trans _type=READ 
+
+                 255 Driver to dut READ addr=8df8, rd_data = d8aeb430,  trans_type=READ 
+
+                 265 Drive to dut WRITE addr=f034, wr_data = 6f84f3de,  trans_type=WRITE 
+
+                 265 Monitor WRITE addr=f034 wr_data = 6f84f3de, trans_type=WRITE 
+
+                 265 Score Board addr=f034 wr_data = 6f84f3de, rd_data=0, trans _type=WRITE 
+
+                 295 Monitor READ addr=f034 rd_data = 6f84f3de, trans_type=READ count=2
+
+                 295 Score Board addr=f034 wr_data = 0, rd_data=6f84f3de, trans _type=READ 
+
+                 305 Driver to dut READ addr=f034, rd_data = 6f84f3de,  trans_type=READ 
+
+                 315 Drive to dut WRITE addr=110c, wr_data = 332532b2,  trans_type=WRITE 
+
+                 315 Monitor WRITE addr=110c wr_data = 332532b2, trans_type=WRITE 
+
+                 315 Score Board addr=110c wr_data = 332532b2, rd_data=0, trans _type=WRITE 
+
+                 345 Monitor READ addr=110c rd_data = 332532b2, trans_type=READ count=2
+
+                 345 Score Board addr=110c wr_data = 0, rd_data=332532b2, trans _type=READ 
+
+                 355 Driver to dut READ addr=110c, rd_data = 332532b2,  trans_type=READ 
+
+                 365 Drive to dut WRITE addr=7584, wr_data = 281f57bc,  trans_type=WRITE 
+
+                 365 Monitor WRITE addr=7584 wr_data = 281f57bc, trans_type=WRITE 
+
+                 365 Score Board addr=7584 wr_data = 281f57bc, rd_data=0, trans _type=WRITE 
+
+                 395 Monitor READ addr=7584 rd_data = 281f57bc, trans_type=READ count=2
+
+                 395 Score Board addr=7584 wr_data = 0, rd_data=281f57bc, trans _type=READ 
+
+                 405 Driver to dut READ addr=7584, rd_data = 281f57bc,  trans_type=READ 
+
+                 415 Drive to dut WRITE addr=a6e0, wr_data = b4f1c8ce,  trans_type=WRITE 
+
+                 415 Monitor WRITE addr=a6e0 wr_data = b4f1c8ce, trans_type=WRITE 
+
+                 415 Score Board addr=a6e0 wr_data = b4f1c8ce, rd_data=0, trans _type=WRITE 
+
+                 445 Monitor READ addr=a6e0 rd_data = b4f1c8ce, trans_type=READ count=2
+
+                 445 Score Board addr=a6e0 wr_data = 0, rd_data=b4f1c8ce, trans _type=READ 
+
+                 455 Driver to dut READ addr=a6e0, rd_data = b4f1c8ce,  trans_type=READ 
+
+                 465 Drive to dut WRITE addr=2bec, wr_data = 0c10f039,  trans_type=WRITE 
+
+                 465 Monitor WRITE addr=2bec wr_data = c10f039, trans_type=WRITE 
+
+                 465 Score Board addr=2bec wr_data = c10f039, rd_data=0, trans _type=WRITE 
+
+                 495 Monitor READ addr=2bec rd_data = c10f039, trans_type=READ count=2
+
+                 495 Score Board addr=2bec wr_data = 0, rd_data=c10f039, trans _type=READ 
+
+                 505 Driver to dut READ addr=2bec, rd_data = 0c10f039,  trans_type=READ 
+
+                 515 Drive to dut WRITE addr=1fd4, wr_data = 40c09c2a,  trans_type=WRITE 
+
+                 515 Monitor WRITE addr=1fd4 wr_data = 40c09c2a, trans_type=WRITE 
+
+                 515 Score Board addr=1fd4 wr_data = 40c09c2a, rd_data=0, trans _type=WRITE 
+
+                 545 Monitor READ addr=1fd4 rd_data = 40c09c2a, trans_type=READ count=2
+
+                 545 Score Board addr=1fd4 wr_data = 0, rd_data=40c09c2a, trans _type=READ 
+
+                 555 Driver to dut READ addr=1fd4, rd_data = 40c09c2a,  trans_type=READ 
+
+                 565 Drive to dut WRITE addr=8c70, wr_data = 106afca1,  trans_type=WRITE 
+
+                 565 Monitor WRITE addr=8c70 wr_data = 106afca1, trans_type=WRITE 
+
+                 565 Score Board addr=8c70 wr_data = 106afca1, rd_data=0, trans _type=WRITE 
+
+                 595 Monitor READ addr=8c70 rd_data = 106afca1, trans_type=READ count=2
+
+                 595 Score Board addr=8c70 wr_data = 0, rd_data=106afca1, trans _type=READ 
+
+                 605 Driver to dut READ addr=8c70, rd_data = 106afca1,  trans_type=READ 
+
+                 615 Drive to dut WRITE addr=8fe0, wr_data = 6a8e54a2,  trans_type=WRITE 
+
+                 615 Monitor WRITE addr=8fe0 wr_data = 6a8e54a2, trans_type=WRITE 
+
+                 615 Score Board addr=8fe0 wr_data = 6a8e54a2, rd_data=0, trans _type=WRITE 
+
+                 645 Monitor READ addr=8fe0 rd_data = 6a8e54a2, trans_type=READ count=2
+
+                 645 Score Board addr=8fe0 wr_data = 0, rd_data=6a8e54a2, trans _type=READ 
+
+                 655 Driver to dut READ addr=8fe0, rd_data = 6a8e54a2,  trans_type=READ 
+
+                 665 Drive to dut WRITE addr=dabc, wr_data = 3208d9e4,  trans_type=WRITE 
+
+                 665 Monitor WRITE addr=dabc wr_data = 3208d9e4, trans_type=WRITE 
+
+                 665 Score Board addr=dabc wr_data = 3208d9e4, rd_data=0, trans _type=WRITE 
+
+                 695 Monitor READ addr=dabc rd_data = 3208d9e4, trans_type=READ count=2
+
+                 695 Score Board addr=dabc wr_data = 0, rd_data=3208d9e4, trans _type=READ 
+
+                 705 Driver to dut READ addr=dabc, rd_data = 3208d9e4,  trans_type=READ 
+
+                 715 Drive to dut WRITE addr=acbc, wr_data = 319c9115,  trans_type=WRITE 
+
+                 715 Monitor WRITE addr=acbc wr_data = 319c9115, trans_type=WRITE 
+
+                 715 Score Board addr=acbc wr_data = 319c9115, rd_data=0, trans _type=WRITE 
+
+                 745 Monitor READ addr=acbc rd_data = 319c9115, trans_type=READ count=2
+
+                 745 Score Board addr=acbc wr_data = 0, rd_data=319c9115, trans _type=READ 
+
+                 755 Driver to dut READ addr=acbc, rd_data = 319c9115,  trans_type=READ 
+
+                 765 Drive to dut WRITE addr=6794, wr_data = fef28773,  trans_type=WRITE 
+
+                 765 Monitor WRITE addr=6794 wr_data = fef28773, trans_type=WRITE 
+
+                 765 Score Board addr=6794 wr_data = fef28773, rd_data=0, trans _type=WRITE 
+
+                 795 Monitor READ addr=6794 rd_data = fef28773, trans_type=READ count=2
+
+                 795 Score Board addr=6794 wr_data = 0, rd_data=fef28773, trans _type=READ 
+
+                 805 Driver to dut READ addr=6794, rd_data = fef28773,  trans_type=READ 
+
+                 815 Drive to dut WRITE addr=938, wr_data = 89bce49b,  trans_type=WRITE 
+
+                 815 Monitor WRITE addr=938 wr_data = 89bce49b, trans_type=WRITE 
+
+                 815 Score Board addr=938 wr_data = 89bce49b, rd_data=0, trans _type=WRITE 
+
+                 845 Monitor READ addr=938 rd_data = 89bce49b, trans_type=READ count=2
+
+                 845 Score Board addr=938 wr_data = 0, rd_data=89bce49b, trans _type=READ 
+
+                 855 Driver to dut READ addr=938, rd_data = 89bce49b,  trans_type=READ 
+
+                 865 Drive to dut WRITE addr=8fec, wr_data = caa50182,  trans_type=WRITE 
+
+                 865 Monitor WRITE addr=8fec wr_data = caa50182, trans_type=WRITE 
+
+                 865 Score Board addr=8fec wr_data = caa50182, rd_data=0, trans _type=WRITE 
+
+                 895 Monitor READ addr=8fec rd_data = caa50182, trans_type=READ count=2
+
+                 895 Score Board addr=8fec wr_data = 0, rd_data=caa50182, trans _type=READ 
+
+                 905 Driver to dut READ addr=8fec, rd_data = caa50182,  trans_type=READ 
+
+                 915 Drive to dut WRITE addr=b0f0, wr_data = 8b8ea638,  trans_type=WRITE 
+
+                 915 Monitor WRITE addr=b0f0 wr_data = 8b8ea638, trans_type=WRITE 
+
+                 915 Score Board addr=b0f0 wr_data = 8b8ea638, rd_data=0, trans _type=WRITE 
+
+                 945 Monitor READ addr=b0f0 rd_data = 8b8ea638, trans_type=READ count=2
+
+                 945 Score Board addr=b0f0 wr_data = 0, rd_data=8b8ea638, trans _type=READ 
+
+                 955 Driver to dut READ addr=b0f0, rd_data = 8b8ea638,  trans_type=READ 
+
+                 965 Drive to dut WRITE addr=fd24, wr_data = 184d5d2f,  trans_type=WRITE 
+
+                 965 Monitor WRITE addr=fd24 wr_data = 184d5d2f, trans_type=WRITE 
+
+                 965 Score Board addr=fd24 wr_data = 184d5d2f, rd_data=0, trans _type=WRITE 
+
+                 995 Monitor READ addr=fd24 rd_data = 184d5d2f, trans_type=READ count=2
+
+                 995 Score Board addr=fd24 wr_data = 0, rd_data=184d5d2f, trans _type=READ 
+
+                1005 Driver to dut READ addr=fd24, rd_data = 184d5d2f,  trans_type=READ 
+
+                1015 Drive to dut WRITE addr=8b60, wr_data = ec6ae5b4,  trans_type=WRITE 
+
+                1015 Monitor WRITE addr=8b60 wr_data = ec6ae5b4, trans_type=WRITE 
+
+                1015 Score Board addr=8b60 wr_data = ec6ae5b4, rd_data=0, trans _type=WRITE 
+
+                1045 Monitor READ addr=8b60 rd_data = ec6ae5b4, trans_type=READ count=2
+
+                1045 Score Board addr=8b60 wr_data = 0, rd_data=ec6ae5b4, trans _type=READ 
+
+                1055 Driver to dut READ addr=8b60, rd_data = ec6ae5b4,  trans_type=READ 
+
+                1065 Drive to dut WRITE addr=c114, wr_data = 16149b8f,  trans_type=WRITE 
+
+                1065 Monitor WRITE addr=c114 wr_data = 16149b8f, trans_type=WRITE 
+
+                1065 Score Board addr=c114 wr_data = 16149b8f, rd_data=0, trans _type=WRITE 
+
+                1095 Monitor READ addr=c114 rd_data = 16149b8f, trans_type=READ count=2
+
+                1095 Score Board addr=c114 wr_data = 0, rd_data=16149b8f, trans _type=READ 
+
+                1105 Driver to dut READ addr=c114, rd_data = 16149b8f,  trans_type=READ 
+
+                1115 Drive to dut WRITE addr=5eec, wr_data = 436fee52,  trans_type=WRITE 
+
+                1115 Monitor WRITE addr=5eec wr_data = 436fee52, trans_type=WRITE 
+
+                1115 Score Board addr=5eec wr_data = 436fee52, rd_data=0, trans _type=WRITE 
+
+                1145 Monitor READ addr=5eec rd_data = 436fee52, trans_type=READ count=2
+
+                1145 Score Board addr=5eec wr_data = 0, rd_data=436fee52, trans _type=READ 
+
+                1155 Driver to dut READ addr=5eec, rd_data = 436fee52,  trans_type=READ 
+
+                1165 Drive to dut WRITE addr=2758, wr_data = 9f9c182a,  trans_type=WRITE 
+
+                1165 Monitor WRITE addr=2758 wr_data = 9f9c182a, trans_type=WRITE 
+
+                1165 Score Board addr=2758 wr_data = 9f9c182a, rd_data=0, trans _type=WRITE 
+
+                1195 Monitor READ addr=2758 rd_data = 9f9c182a, trans_type=READ count=2
+
+                1195 Score Board addr=2758 wr_data = 0, rd_data=9f9c182a, trans _type=READ 
+
+                1205 Driver to dut READ addr=2758, rd_data = 9f9c182a,  trans_type=READ 
+
+                1215 Drive to dut WRITE addr=eefc, wr_data = 8dae5fbb,  trans_type=WRITE 
+
+                1215 Monitor WRITE addr=eefc wr_data = 8dae5fbb, trans_type=WRITE 
+
+                1215 Score Board addr=eefc wr_data = 8dae5fbb, rd_data=0, trans _type=WRITE 
+
+                1245 Monitor READ addr=eefc rd_data = 8dae5fbb, trans_type=READ count=2
+
+                1245 Score Board addr=eefc wr_data = 0, rd_data=8dae5fbb, trans _type=READ 
+
+                1255 Driver to dut READ addr=eefc, rd_data = 8dae5fbb,  trans_type=READ 
+
+                1265 Drive to dut WRITE addr=adc, wr_data = d6357eba,  trans_type=WRITE 
+
+                1265 Monitor WRITE addr=adc wr_data = d6357eba, trans_type=WRITE 
+
+                1265 Score Board addr=adc wr_data = d6357eba, rd_data=0, trans _type=WRITE 
+
+                1295 Monitor READ addr=adc rd_data = d6357eba, trans_type=READ count=2
+
+                1295 Score Board addr=adc wr_data = 0, rd_data=d6357eba, trans _type=READ 
+
+                1305 Driver to dut READ addr=adc, rd_data = d6357eba,  trans_type=READ 
+
+                1315 Drive to dut WRITE addr=711c, wr_data = 9aa67532,  trans_type=WRITE 
+
+                1315 Monitor WRITE addr=711c wr_data = 9aa67532, trans_type=WRITE 
+
+                1315 Score Board addr=711c wr_data = 9aa67532, rd_data=0, trans _type=WRITE 
+
+                1345 Monitor READ addr=711c rd_data = 9aa67532, trans_type=READ count=2
+
+                1345 Score Board addr=711c wr_data = 0, rd_data=9aa67532, trans _type=READ 
+
+                1355 Driver to dut READ addr=711c, rd_data = 9aa67532,  trans_type=READ 
+
+                1365 Drive to dut WRITE addr=ae58, wr_data = c88ff9ba,  trans_type=WRITE 
+
+                1365 Monitor WRITE addr=ae58 wr_data = c88ff9ba, trans_type=WRITE 
+
+                1365 Score Board addr=ae58 wr_data = c88ff9ba, rd_data=0, trans _type=WRITE 
+
+                1395 Monitor READ addr=ae58 rd_data = c88ff9ba, trans_type=READ count=2
+
+                1395 Score Board addr=ae58 wr_data = 0, rd_data=c88ff9ba, trans _type=READ 
+
+                1405 Driver to dut READ addr=ae58, rd_data = c88ff9ba,  trans_type=READ 
+
+                1415 Drive to dut WRITE addr=7f8c, wr_data = 6dfe6caa,  trans_type=WRITE 
+
+                1415 Monitor WRITE addr=7f8c wr_data = 6dfe6caa, trans_type=WRITE 
+
+                1415 Score Board addr=7f8c wr_data = 6dfe6caa, rd_data=0, trans _type=WRITE 
+
+                1445 Monitor READ addr=7f8c rd_data = 6dfe6caa, trans_type=READ count=2
+
+                1445 Score Board addr=7f8c wr_data = 0, rd_data=6dfe6caa, trans _type=READ 
+
+                1455 Driver to dut READ addr=7f8c, rd_data = 6dfe6caa,  trans_type=READ 
+
+                1465 Drive to dut WRITE addr=efd4, wr_data = e9a4ff90,  trans_type=WRITE 
+
+                1465 Monitor WRITE addr=efd4 wr_data = e9a4ff90, trans_type=WRITE 
+
+                1465 Score Board addr=efd4 wr_data = e9a4ff90, rd_data=0, trans _type=WRITE 
+
+                1495 Monitor READ addr=efd4 rd_data = e9a4ff90, trans_type=READ count=2
+
+                1495 Score Board addr=efd4 wr_data = 0, rd_data=e9a4ff90, trans _type=READ 
+
+                1505 Driver to dut READ addr=efd4, rd_data = e9a4ff90,  trans_type=READ 
+
+                1515 Drive to dut WRITE addr=e3f8, wr_data = 308e7f0d,  trans_type=WRITE 
+
+                1515 Monitor WRITE addr=e3f8 wr_data = 308e7f0d, trans_type=WRITE 
+
+                1515 Score Board addr=e3f8 wr_data = 308e7f0d, rd_data=0, trans _type=WRITE 
+
+                1545 Monitor READ addr=e3f8 rd_data = 308e7f0d, trans_type=READ count=2
+
+                1545 Score Board addr=e3f8 wr_data = 0, rd_data=308e7f0d, trans _type=READ 
+
+                1555 Driver to dut READ addr=e3f8, rd_data = 308e7f0d,  trans_type=READ 
+
+                1565 Drive to dut WRITE addr=4c64, wr_data = 8e880b05,  trans_type=WRITE 
+
+                1565 Monitor WRITE addr=4c64 wr_data = 8e880b05, trans_type=WRITE 
+
+                1565 Score Board addr=4c64 wr_data = 8e880b05, rd_data=0, trans _type=WRITE 
+
+                1595 Monitor READ addr=4c64 rd_data = 8e880b05, trans_type=READ count=2
+
+                1595 Score Board addr=4c64 wr_data = 0, rd_data=8e880b05, trans _type=READ 
+
+                1605 Driver to dut READ addr=4c64, rd_data = 8e880b05,  trans_type=READ 
+
+                1615 Drive to dut WRITE addr=48a0, wr_data = 253c9106,  trans_type=WRITE 
+
+                1615 Monitor WRITE addr=48a0 wr_data = 253c9106, trans_type=WRITE 
+
+                1615 Score Board addr=48a0 wr_data = 253c9106, rd_data=0, trans _type=WRITE 
+
+                1645 Monitor READ addr=48a0 rd_data = 253c9106, trans_type=READ count=2
+
+                1645 Score Board addr=48a0 wr_data = 0, rd_data=253c9106, trans _type=READ 
+
+                1655 Driver to dut READ addr=48a0, rd_data = 253c9106,  trans_type=READ 
+
+                1665 Drive to dut WRITE addr=b49c, wr_data = dda618aa,  trans_type=WRITE 
+
+                1665 Monitor WRITE addr=b49c wr_data = dda618aa, trans_type=WRITE 
+
+                1665 Score Board addr=b49c wr_data = dda618aa, rd_data=0, trans _type=WRITE 
+
+                1695 Monitor READ addr=b49c rd_data = dda618aa, trans_type=READ count=2
+
+                1695 Score Board addr=b49c wr_data = 0, rd_data=dda618aa, trans _type=READ 
+
+                1705 Driver to dut READ addr=b49c, rd_data = dda618aa,  trans_type=READ 
+
+                1715 Drive to dut WRITE addr=36e0, wr_data = 35c126b0,  trans_type=WRITE 
+
+                1715 Monitor WRITE addr=36e0 wr_data = 35c126b0, trans_type=WRITE 
+
+                1715 Score Board addr=36e0 wr_data = 35c126b0, rd_data=0, trans _type=WRITE 
+
+                1745 Monitor READ addr=36e0 rd_data = 35c126b0, trans_type=READ count=2
+
+                1745 Score Board addr=36e0 wr_data = 0, rd_data=35c126b0, trans _type=READ 
+
+                1755 Driver to dut READ addr=36e0, rd_data = 35c126b0,  trans_type=READ 
+
+                1765 Drive to dut WRITE addr=dbac, wr_data = 86892c24,  trans_type=WRITE 
+
+                1765 Monitor WRITE addr=dbac wr_data = 86892c24, trans_type=WRITE 
+
+                1765 Score Board addr=dbac wr_data = 86892c24, rd_data=0, trans _type=WRITE 
+
+                1795 Monitor READ addr=dbac rd_data = 86892c24, trans_type=READ count=2
+
+                1795 Score Board addr=dbac wr_data = 0, rd_data=86892c24, trans _type=READ 
+
+                1805 Driver to dut READ addr=dbac, rd_data = 86892c24,  trans_type=READ 
+
+                1815 Drive to dut WRITE addr=65cc, wr_data = 95c8ba52,  trans_type=WRITE 
+
+                1815 Monitor WRITE addr=65cc wr_data = 95c8ba52, trans_type=WRITE 
+
+                1815 Score Board addr=65cc wr_data = 95c8ba52, rd_data=0, trans _type=WRITE 
+
+                1845 Monitor READ addr=65cc rd_data = 95c8ba52, trans_type=READ count=2
+
+                1845 Score Board addr=65cc wr_data = 0, rd_data=95c8ba52, trans _type=READ 
+
+                1855 Driver to dut READ addr=65cc, rd_data = 95c8ba52,  trans_type=READ 
+
+                1865 Drive to dut WRITE addr=e6c0, wr_data = c74d5a8a,  trans_type=WRITE 
+
+                1865 Monitor WRITE addr=e6c0 wr_data = c74d5a8a, trans_type=WRITE 
+
+                1865 Score Board addr=e6c0 wr_data = c74d5a8a, rd_data=0, trans _type=WRITE 
+
+                1895 Monitor READ addr=e6c0 rd_data = c74d5a8a, trans_type=READ count=2
+
+                1895 Score Board addr=e6c0 wr_data = 0, rd_data=c74d5a8a, trans _type=READ 
+
+                1905 Driver to dut READ addr=e6c0, rd_data = c74d5a8a,  trans_type=READ 
+
+                1915 Drive to dut WRITE addr=107c, wr_data = ac40b00c,  trans_type=WRITE 
+
+                1915 Monitor WRITE addr=107c wr_data = ac40b00c, trans_type=WRITE 
+
+                1915 Score Board addr=107c wr_data = ac40b00c, rd_data=0, trans _type=WRITE 
+
+                1945 Monitor READ addr=107c rd_data = ac40b00c, trans_type=READ count=2
+
+                1945 Score Board addr=107c wr_data = 0, rd_data=ac40b00c, trans _type=READ 
+
+                1955 Driver to dut READ addr=107c, rd_data = ac40b00c,  trans_type=READ 
+
+                1965 Drive to dut WRITE addr=dad8, wr_data = 226d9345,  trans_type=WRITE 
+
+                1965 Monitor WRITE addr=dad8 wr_data = 226d9345, trans_type=WRITE 
+
+                1965 Score Board addr=dad8 wr_data = 226d9345, rd_data=0, trans _type=WRITE 
+
+                1995 Monitor READ addr=dad8 rd_data = 226d9345, trans_type=READ count=2
+
+                1995 Score Board addr=dad8 wr_data = 0, rd_data=226d9345, trans _type=READ 
+
+                2005 Driver to dut READ addr=dad8, rd_data = 226d9345,  trans_type=READ 
+
+                2015 Drive to dut WRITE addr=b1f8, wr_data = 2d6a6cef,  trans_type=WRITE 
+
+                2015 Monitor WRITE addr=b1f8 wr_data = 2d6a6cef, trans_type=WRITE 
+
+                2015 Score Board addr=b1f8 wr_data = 2d6a6cef, rd_data=0, trans _type=WRITE 
+
+                2045 Monitor READ addr=b1f8 rd_data = 2d6a6cef, trans_type=READ count=2
+
+                2045 Score Board addr=b1f8 wr_data = 0, rd_data=2d6a6cef, trans _type=READ 
+
+                2055 Driver to dut READ addr=b1f8, rd_data = 2d6a6cef,  trans_type=READ 
+
+                2065 Drive to dut WRITE addr=e95c, wr_data = 0aa3f6f1,  trans_type=WRITE 
+
+                2065 Monitor WRITE addr=e95c wr_data = aa3f6f1, trans_type=WRITE 
+
+                2065 Score Board addr=e95c wr_data = aa3f6f1, rd_data=0, trans _type=WRITE 
+
+                2095 Monitor READ addr=e95c rd_data = aa3f6f1, trans_type=READ count=2
+
+                2095 Score Board addr=e95c wr_data = 0, rd_data=aa3f6f1, trans _type=READ 
+
+                2105 Driver to dut READ addr=e95c, rd_data = 0aa3f6f1,  trans_type=READ 
+
+                2115 Drive to dut WRITE addr=7ef4, wr_data = 2b79042d,  trans_type=WRITE 
+
+                2115 Monitor WRITE addr=7ef4 wr_data = 2b79042d, trans_type=WRITE 
+
+                2115 Score Board addr=7ef4 wr_data = 2b79042d, rd_data=0, trans _type=WRITE 
+
+                2145 Monitor READ addr=7ef4 rd_data = 2b79042d, trans_type=READ count=2
+
+                2145 Score Board addr=7ef4 wr_data = 0, rd_data=2b79042d, trans _type=READ 
+
+                2155 Driver to dut READ addr=7ef4, rd_data = 2b79042d,  trans_type=READ 
+
+                2165 Drive to dut WRITE addr=fa28, wr_data = 9e98f49a,  trans_type=WRITE 
+
+                2165 Monitor WRITE addr=fa28 wr_data = 9e98f49a, trans_type=WRITE 
+
+                2165 Score Board addr=fa28 wr_data = 9e98f49a, rd_data=0, trans _type=WRITE 
+
+                2195 Monitor READ addr=fa28 rd_data = 9e98f49a, trans_type=READ count=2
+
+                2195 Score Board addr=fa28 wr_data = 0, rd_data=9e98f49a, trans _type=READ 
+
+                2205 Driver to dut READ addr=fa28, rd_data = 9e98f49a,  trans_type=READ 
+
+                2215 Drive to dut WRITE addr=b198, wr_data = ffe07788,  trans_type=WRITE 
+
+                2215 Monitor WRITE addr=b198 wr_data = ffe07788, trans_type=WRITE 
+
+                2215 Score Board addr=b198 wr_data = ffe07788, rd_data=0, trans _type=WRITE 
+
+                2245 Monitor READ addr=b198 rd_data = ffe07788, trans_type=READ count=2
+
+                2245 Score Board addr=b198 wr_data = 0, rd_data=ffe07788, trans _type=READ 
+
+                2255 Driver to dut READ addr=b198, rd_data = ffe07788,  trans_type=READ 
+
+                2265 Drive to dut WRITE addr=15b4, wr_data = 39cea57e,  trans_type=WRITE 
+
+                2265 Monitor WRITE addr=15b4 wr_data = 39cea57e, trans_type=WRITE 
+
+                2265 Score Board addr=15b4 wr_data = 39cea57e, rd_data=0, trans _type=WRITE 
+
+                2295 Monitor READ addr=15b4 rd_data = 39cea57e, trans_type=READ count=2
+
+                2295 Score Board addr=15b4 wr_data = 0, rd_data=39cea57e, trans _type=READ 
+
+                2305 Driver to dut READ addr=15b4, rd_data = 39cea57e,  trans_type=READ 
+
+                2315 Drive to dut WRITE addr=e710, wr_data = 655ac49b,  trans_type=WRITE 
+
+                2315 Monitor WRITE addr=e710 wr_data = 655ac49b, trans_type=WRITE 
+
+                2315 Score Board addr=e710 wr_data = 655ac49b, rd_data=0, trans _type=WRITE 
+
+                2345 Monitor READ addr=e710 rd_data = 655ac49b, trans_type=READ count=2
+
+                2345 Score Board addr=e710 wr_data = 0, rd_data=655ac49b, trans _type=READ 
+
+                2355 Driver to dut READ addr=e710, rd_data = 655ac49b,  trans_type=READ 
+
+                2365 Drive to dut WRITE addr=d41c, wr_data = 521eaff1,  trans_type=WRITE 
+
+                2365 Monitor WRITE addr=d41c wr_data = 521eaff1, trans_type=WRITE 
+
+                2365 Score Board addr=d41c wr_data = 521eaff1, rd_data=0, trans _type=WRITE 
+
+                2395 Monitor READ addr=d41c rd_data = 521eaff1, trans_type=READ count=2
+
+                2395 Score Board addr=d41c wr_data = 0, rd_data=521eaff1, trans _type=READ 
+
+                2405 Driver to dut READ addr=d41c, rd_data = 521eaff1,  trans_type=READ 
+
+                2415 Drive to dut WRITE addr=40e0, wr_data = 8d841183,  trans_type=WRITE 
+
+                2415 Monitor WRITE addr=40e0 wr_data = 8d841183, trans_type=WRITE 
+
+                2415 Score Board addr=40e0 wr_data = 8d841183, rd_data=0, trans _type=WRITE 
+
+                2445 Monitor READ addr=40e0 rd_data = 8d841183, trans_type=READ count=2
+
+                2445 Score Board addr=40e0 wr_data = 0, rd_data=8d841183, trans _type=READ 
+
+                2455 Driver to dut READ addr=40e0, rd_data = 8d841183,  trans_type=READ 
+
+                2465 Drive to dut WRITE addr=6250, wr_data = f33792a8,  trans_type=WRITE 
+
+                2465 Monitor WRITE addr=6250 wr_data = f33792a8, trans_type=WRITE 
+
+                2465 Score Board addr=6250 wr_data = f33792a8, rd_data=0, trans _type=WRITE 
+
+                2495 Monitor READ addr=6250 rd_data = f33792a8, trans_type=READ count=2
+
+                2495 Score Board addr=6250 wr_data = 0, rd_data=f33792a8, trans _type=READ 
+
+                2505 Driver to dut READ addr=6250, rd_data = f33792a8,  trans_type=READ 
+
+                2515 Drive to dut WRITE addr=dfe0, wr_data = c8b4e01c,  trans_type=WRITE 
+
+                2515 Monitor WRITE addr=dfe0 wr_data = c8b4e01c, trans_type=WRITE 
+
+                2515 Score Board addr=dfe0 wr_data = c8b4e01c, rd_data=0, trans _type=WRITE 
+
+                2545 Monitor READ addr=dfe0 rd_data = c8b4e01c, trans_type=READ count=2
+
+                2545 Score Board addr=dfe0 wr_data = 0, rd_data=c8b4e01c, trans _type=READ 
+
+                2555 Driver to dut READ addr=dfe0, rd_data = c8b4e01c,  trans_type=READ 
+
+                2565 Drive to dut WRITE addr=f8ec, wr_data = a20e5c75,  trans_type=WRITE 
+
+                2565 Monitor WRITE addr=f8ec wr_data = a20e5c75, trans_type=WRITE 
+
+                2565 Score Board addr=f8ec wr_data = a20e5c75, rd_data=0, trans _type=WRITE 
+
+                2595 Monitor READ addr=f8ec rd_data = a20e5c75, trans_type=READ count=2
+
+                2595 Score Board addr=f8ec wr_data = 0, rd_data=a20e5c75, trans _type=READ 
+
+                2605 Driver to dut READ addr=f8ec, rd_data = a20e5c75,  trans_type=READ 
+
+                2615 Drive to dut WRITE addr=7b84, wr_data = 5371c071,  trans_type=WRITE 
+
+                2615 Monitor WRITE addr=7b84 wr_data = 5371c071, trans_type=WRITE 
+
+                2615 Score Board addr=7b84 wr_data = 5371c071, rd_data=0, trans _type=WRITE 
+
+                2645 Monitor READ addr=7b84 rd_data = 5371c071, trans_type=READ count=2
+
+                2645 Score Board addr=7b84 wr_data = 0, rd_data=5371c071, trans _type=READ 
+
+                2655 Driver to dut READ addr=7b84, rd_data = 5371c071,  trans_type=READ 
+
+                2665 Drive to dut WRITE addr=a914, wr_data = 39f22b6b,  trans_type=WRITE 
+
+                2665 Monitor WRITE addr=a914 wr_data = 39f22b6b, trans_type=WRITE 
+
+                2665 Score Board addr=a914 wr_data = 39f22b6b, rd_data=0, trans _type=WRITE 
+
+                2695 Monitor READ addr=a914 rd_data = 39f22b6b, trans_type=READ count=2
+
+                2695 Score Board addr=a914 wr_data = 0, rd_data=39f22b6b, trans _type=READ 
+
+                2705 Driver to dut READ addr=a914, rd_data = 39f22b6b,  trans_type=READ 
+
+                2715 Drive to dut WRITE addr=7d0, wr_data = 5526df17,  trans_type=WRITE 
+
+                2715 Monitor WRITE addr=7d0 wr_data = 5526df17, trans_type=WRITE 
+
+                2715 Score Board addr=7d0 wr_data = 5526df17, rd_data=0, trans _type=WRITE 
+
+                2745 Monitor READ addr=7d0 rd_data = 5526df17, trans_type=READ count=2
+
+                2745 Score Board addr=7d0 wr_data = 0, rd_data=5526df17, trans _type=READ 
+
+                2755 Driver to dut READ addr=7d0, rd_data = 5526df17,  trans_type=READ 
+
+                2765 Drive to dut WRITE addr=1744, wr_data = fdb280bc,  trans_type=WRITE 
+
+                2765 Monitor WRITE addr=1744 wr_data = fdb280bc, trans_type=WRITE 
+
+                2765 Score Board addr=1744 wr_data = fdb280bc, rd_data=0, trans _type=WRITE 
+
+                2795 Monitor READ addr=1744 rd_data = fdb280bc, trans_type=READ count=2
+
+                2795 Score Board addr=1744 wr_data = 0, rd_data=fdb280bc, trans _type=READ 
+
+                2805 Driver to dut READ addr=1744, rd_data = fdb280bc,  trans_type=READ 
+
+                2815 Drive to dut WRITE addr=b380, wr_data = ab04c129,  trans_type=WRITE 
+
+                2815 Monitor WRITE addr=b380 wr_data = ab04c129, trans_type=WRITE 
+
+                2815 Score Board addr=b380 wr_data = ab04c129, rd_data=0, trans _type=WRITE 
+
+                2845 Monitor READ addr=b380 rd_data = ab04c129, trans_type=READ count=2
+
+                2845 Score Board addr=b380 wr_data = 0, rd_data=ab04c129, trans _type=READ 
+
+                2855 Driver to dut READ addr=b380, rd_data = ab04c129,  trans_type=READ 
+
+                2865 Drive to dut WRITE addr=7420, wr_data = 5f115546,  trans_type=WRITE 
+
+                2865 Monitor WRITE addr=7420 wr_data = 5f115546, trans_type=WRITE 
+
+                2865 Score Board addr=7420 wr_data = 5f115546, rd_data=0, trans _type=WRITE 
+
+                2895 Monitor READ addr=7420 rd_data = 5f115546, trans_type=READ count=2
+
+                2895 Score Board addr=7420 wr_data = 0, rd_data=5f115546, trans _type=READ 
+
+                2905 Driver to dut READ addr=7420, rd_data = 5f115546,  trans_type=READ 
+
+                2915 Drive to dut WRITE addr=f6e0, wr_data = 5f7a5856,  trans_type=WRITE 
+
+                2915 Monitor WRITE addr=f6e0 wr_data = 5f7a5856, trans_type=WRITE 
+
+                2915 Score Board addr=f6e0 wr_data = 5f7a5856, rd_data=0, trans _type=WRITE 
+
+                2945 Monitor READ addr=f6e0 rd_data = 5f7a5856, trans_type=READ count=2
+
+                2945 Score Board addr=f6e0 wr_data = 0, rd_data=5f7a5856, trans _type=READ 
+
+                2955 Driver to dut READ addr=f6e0, rd_data = 5f7a5856,  trans_type=READ 
+
+                2965 Drive to dut WRITE addr=e9a8, wr_data = de2dddb2,  trans_type=WRITE 
+
+                2965 Monitor WRITE addr=e9a8 wr_data = de2dddb2, trans_type=WRITE 
+
+                2965 Score Board addr=e9a8 wr_data = de2dddb2, rd_data=0, trans _type=WRITE 
+
+                2995 Monitor READ addr=e9a8 rd_data = de2dddb2, trans_type=READ count=2
+
+                2995 Score Board addr=e9a8 wr_data = 0, rd_data=de2dddb2, trans _type=READ 
+
+                3005 Driver to dut READ addr=e9a8, rd_data = de2dddb2,  trans_type=READ 
+
+                3015 Drive to dut WRITE addr=3bcc, wr_data = 2dd6bfcf,  trans_type=WRITE 
+
+                3015 Monitor WRITE addr=3bcc wr_data = 2dd6bfcf, trans_type=WRITE 
+
+                3015 Score Board addr=3bcc wr_data = 2dd6bfcf, rd_data=0, trans _type=WRITE 
+
+                3045 Monitor READ addr=3bcc rd_data = 2dd6bfcf, trans_type=READ count=2
+
+                3045 Score Board addr=3bcc wr_data = 0, rd_data=2dd6bfcf, trans _type=READ 
+
+                3055 Driver to dut READ addr=3bcc, rd_data = 2dd6bfcf,  trans_type=READ 
+
+                3065 Drive to dut WRITE addr=7ac, wr_data = d2e0e572,  trans_type=WRITE 
+
+                3065 Monitor WRITE addr=7ac wr_data = d2e0e572, trans_type=WRITE 
+
+                3065 Score Board addr=7ac wr_data = d2e0e572, rd_data=0, trans _type=WRITE 
+
+                3095 Monitor READ addr=7ac rd_data = d2e0e572, trans_type=READ count=2
+
+                3095 Score Board addr=7ac wr_data = 0, rd_data=d2e0e572, trans _type=READ 
+
+                3105 Driver to dut READ addr=7ac, rd_data = d2e0e572,  trans_type=READ 
+
+                3115 Drive to dut WRITE addr=eb4c, wr_data = 2106a74d,  trans_type=WRITE 
+
+                3115 Monitor WRITE addr=eb4c wr_data = 2106a74d, trans_type=WRITE 
+
+                3115 Score Board addr=eb4c wr_data = 2106a74d, rd_data=0, trans _type=WRITE 
+
+                3145 Monitor READ addr=eb4c rd_data = 2106a74d, trans_type=READ count=2
+
+                3145 Score Board addr=eb4c wr_data = 0, rd_data=2106a74d, trans _type=READ 
+
+                3155 Driver to dut READ addr=eb4c, rd_data = 2106a74d,  trans_type=READ 
+
+                3165 Drive to dut WRITE addr=10f0, wr_data = 5a51f42f,  trans_type=WRITE 
+
+                3165 Monitor WRITE addr=10f0 wr_data = 5a51f42f, trans_type=WRITE 
+
+                3165 Score Board addr=10f0 wr_data = 5a51f42f, rd_data=0, trans _type=WRITE 
+
+                3195 Monitor READ addr=10f0 rd_data = 5a51f42f, trans_type=READ count=2
+
+                3195 Score Board addr=10f0 wr_data = 0, rd_data=5a51f42f, trans _type=READ 
+
+                3205 Driver to dut READ addr=10f0, rd_data = 5a51f42f,  trans_type=READ 
+
+                3215 Drive to dut WRITE addr=74fc, wr_data = 4908bac3,  trans_type=WRITE 
+
+                3215 Monitor WRITE addr=74fc wr_data = 4908bac3, trans_type=WRITE 
+
+                3215 Score Board addr=74fc wr_data = 4908bac3, rd_data=0, trans _type=WRITE 
+
+                3245 Monitor READ addr=74fc rd_data = 4908bac3, trans_type=READ count=2
+
+                3245 Score Board addr=74fc wr_data = 0, rd_data=4908bac3, trans _type=READ 
+
+                3255 Driver to dut READ addr=74fc, rd_data = 4908bac3,  trans_type=READ 
+
+                3265 Drive to dut WRITE addr=53f8, wr_data = 86c14b67,  trans_type=WRITE 
+
+                3265 Monitor WRITE addr=53f8 wr_data = 86c14b67, trans_type=WRITE 
+
+                3265 Score Board addr=53f8 wr_data = 86c14b67, rd_data=0, trans _type=WRITE 
+
+                3295 Monitor READ addr=53f8 rd_data = 86c14b67, trans_type=READ count=2
+
+                3295 Score Board addr=53f8 wr_data = 0, rd_data=86c14b67, trans _type=READ 
+
+                3305 Driver to dut READ addr=53f8, rd_data = 86c14b67,  trans_type=READ 
+
+                3315 Drive to dut WRITE addr=cd54, wr_data = 5059148b,  trans_type=WRITE 
+
+                3315 Monitor WRITE addr=cd54 wr_data = 5059148b, trans_type=WRITE 
+
+                3315 Score Board addr=cd54 wr_data = 5059148b, rd_data=0, trans _type=WRITE 
+
+                3345 Monitor READ addr=cd54 rd_data = 5059148b, trans_type=READ count=2
+
+                3345 Score Board addr=cd54 wr_data = 0, rd_data=5059148b, trans _type=READ 
+
+                3355 Driver to dut READ addr=cd54, rd_data = 5059148b,  trans_type=READ 
+
+                3365 Drive to dut WRITE addr=3a94, wr_data = 66ec0bf4,  trans_type=WRITE 
+
+                3365 Monitor WRITE addr=3a94 wr_data = 66ec0bf4, trans_type=WRITE 
+
+                3365 Score Board addr=3a94 wr_data = 66ec0bf4, rd_data=0, trans _type=WRITE 
+
+                3395 Monitor READ addr=3a94 rd_data = 66ec0bf4, trans_type=READ count=2
+
+                3395 Score Board addr=3a94 wr_data = 0, rd_data=66ec0bf4, trans _type=READ 
+
+                3405 Driver to dut READ addr=3a94, rd_data = 66ec0bf4,  trans_type=READ 
+
+                3415 Drive to dut WRITE addr=2b60, wr_data = 41630e59,  trans_type=WRITE 
+
+                3415 Monitor WRITE addr=2b60 wr_data = 41630e59, trans_type=WRITE 
+
+                3415 Score Board addr=2b60 wr_data = 41630e59, rd_data=0, trans _type=WRITE 
+
+                3445 Monitor READ addr=2b60 rd_data = 41630e59, trans_type=READ count=2
+
+                3445 Score Board addr=2b60 wr_data = 0, rd_data=41630e59, trans _type=READ 
+
+                3455 Driver to dut READ addr=2b60, rd_data = 41630e59,  trans_type=READ 
+
+                3465 Drive to dut WRITE addr=1b54, wr_data = 6b4dbc59,  trans_type=WRITE 
+
+                3465 Monitor WRITE addr=1b54 wr_data = 6b4dbc59, trans_type=WRITE 
+
+                3465 Score Board addr=1b54 wr_data = 6b4dbc59, rd_data=0, trans _type=WRITE 
+
+                3495 Monitor READ addr=1b54 rd_data = 6b4dbc59, trans_type=READ count=2
+
+                3495 Score Board addr=1b54 wr_data = 0, rd_data=6b4dbc59, trans _type=READ 
+
+                3505 Driver to dut READ addr=1b54, rd_data = 6b4dbc59,  trans_type=READ 
+
+                3515 Drive to dut WRITE addr=ddb4, wr_data = ec476dcb,  trans_type=WRITE 
+
+                3515 Monitor WRITE addr=ddb4 wr_data = ec476dcb, trans_type=WRITE 
+
+                3515 Score Board addr=ddb4 wr_data = ec476dcb, rd_data=0, trans _type=WRITE 
+
+                3545 Monitor READ addr=ddb4 rd_data = ec476dcb, trans_type=READ count=2
+
+                3545 Score Board addr=ddb4 wr_data = 0, rd_data=ec476dcb, trans _type=READ 
+
+                3555 Driver to dut READ addr=ddb4, rd_data = ec476dcb,  trans_type=READ 
+
+                3565 Drive to dut WRITE addr=1dbc, wr_data = 0836ff37,  trans_type=WRITE 
+
+                3565 Monitor WRITE addr=1dbc wr_data = 836ff37, trans_type=WRITE 
+
+                3565 Score Board addr=1dbc wr_data = 836ff37, rd_data=0, trans _type=WRITE 
+
+                3595 Monitor READ addr=1dbc rd_data = 836ff37, trans_type=READ count=2
+
+                3595 Score Board addr=1dbc wr_data = 0, rd_data=836ff37, trans _type=READ 
+
+                3605 Driver to dut READ addr=1dbc, rd_data = 0836ff37,  trans_type=READ 
+
+                3615 Drive to dut WRITE addr=a294, wr_data = f705a7ca,  trans_type=WRITE 
+
+                3615 Monitor WRITE addr=a294 wr_data = f705a7ca, trans_type=WRITE 
+
+                3615 Score Board addr=a294 wr_data = f705a7ca, rd_data=0, trans _type=WRITE 
+
+                3645 Monitor READ addr=a294 rd_data = f705a7ca, trans_type=READ count=2
+
+                3645 Score Board addr=a294 wr_data = 0, rd_data=f705a7ca, trans _type=READ 
+
+                3655 Driver to dut READ addr=a294, rd_data = f705a7ca,  trans_type=READ 
+
+                3665 Drive to dut WRITE addr=a434, wr_data = c2807a44,  trans_type=WRITE 
+
+                3665 Monitor WRITE addr=a434 wr_data = c2807a44, trans_type=WRITE 
+
+                3665 Score Board addr=a434 wr_data = c2807a44, rd_data=0, trans _type=WRITE 
+
+                3695 Monitor READ addr=a434 rd_data = c2807a44, trans_type=READ count=2
+
+                3695 Score Board addr=a434 wr_data = 0, rd_data=c2807a44, trans _type=READ 
+
+                3705 Driver to dut READ addr=a434, rd_data = c2807a44,  trans_type=READ 
+
+                3715 Drive to dut WRITE addr=1e8, wr_data = f150f28b,  trans_type=WRITE 
+
+                3715 Monitor WRITE addr=1e8 wr_data = f150f28b, trans_type=WRITE 
+
+                3715 Score Board addr=1e8 wr_data = f150f28b, rd_data=0, trans _type=WRITE 
+
+                3745 Monitor READ addr=1e8 rd_data = f150f28b, trans_type=READ count=2
+
+                3745 Score Board addr=1e8 wr_data = 0, rd_data=f150f28b, trans _type=READ 
+
+                3755 Driver to dut READ addr=1e8, rd_data = f150f28b,  trans_type=READ 
+
+                3765 Drive to dut WRITE addr=f768, wr_data = 9487fc6e,  trans_type=WRITE 
+
+                3765 Monitor WRITE addr=f768 wr_data = 9487fc6e, trans_type=WRITE 
+
+                3765 Score Board addr=f768 wr_data = 9487fc6e, rd_data=0, trans _type=WRITE 
+
+                3795 Monitor READ addr=f768 rd_data = 9487fc6e, trans_type=READ count=2
+
+                3795 Score Board addr=f768 wr_data = 0, rd_data=9487fc6e, trans _type=READ 
+
+                3805 Driver to dut READ addr=f768, rd_data = 9487fc6e,  trans_type=READ 
+
+                3815 Drive to dut WRITE addr=e014, wr_data = 699a6d14,  trans_type=WRITE 
+
+                3815 Monitor WRITE addr=e014 wr_data = 699a6d14, trans_type=WRITE 
+
+                3815 Score Board addr=e014 wr_data = 699a6d14, rd_data=0, trans _type=WRITE 
+
+                3845 Monitor READ addr=e014 rd_data = 699a6d14, trans_type=READ count=2
+
+                3845 Score Board addr=e014 wr_data = 0, rd_data=699a6d14, trans _type=READ 
+
+                3855 Driver to dut READ addr=e014, rd_data = 699a6d14,  trans_type=READ 
+
+                3865 Drive to dut WRITE addr=65b8, wr_data = 13326192,  trans_type=WRITE 
+
+                3865 Monitor WRITE addr=65b8 wr_data = 13326192, trans_type=WRITE 
+
+                3865 Score Board addr=65b8 wr_data = 13326192, rd_data=0, trans _type=WRITE 
+
+                3895 Monitor READ addr=65b8 rd_data = 13326192, trans_type=READ count=2
+
+                3895 Score Board addr=65b8 wr_data = 0, rd_data=13326192, trans _type=READ 
+
+                3905 Driver to dut READ addr=65b8, rd_data = 13326192,  trans_type=READ 
+
+                3915 Drive to dut WRITE addr=2184, wr_data = e8bfb76a,  trans_type=WRITE 
+
+                3915 Monitor WRITE addr=2184 wr_data = e8bfb76a, trans_type=WRITE 
+
+                3915 Score Board addr=2184 wr_data = e8bfb76a, rd_data=0, trans _type=WRITE 
+
+                3945 Monitor READ addr=2184 rd_data = e8bfb76a, trans_type=READ count=2
+
+                3945 Score Board addr=2184 wr_data = 0, rd_data=e8bfb76a, trans _type=READ 
+
+                3955 Driver to dut READ addr=2184, rd_data = e8bfb76a,  trans_type=READ 
+
+                3965 Drive to dut WRITE addr=7d0c, wr_data = e0afb20a,  trans_type=WRITE 
+
+                3965 Monitor WRITE addr=7d0c wr_data = e0afb20a, trans_type=WRITE 
+
+                3965 Score Board addr=7d0c wr_data = e0afb20a, rd_data=0, trans _type=WRITE 
+
+                3995 Monitor READ addr=7d0c rd_data = e0afb20a, trans_type=READ count=2
+
+                3995 Score Board addr=7d0c wr_data = 0, rd_data=e0afb20a, trans _type=READ 
+
+                4005 Driver to dut READ addr=7d0c, rd_data = e0afb20a,  trans_type=READ 
+
+                4015 Drive to dut WRITE addr=160, wr_data = 5467b8f3,  trans_type=WRITE 
+
+                4015 Monitor WRITE addr=160 wr_data = 5467b8f3, trans_type=WRITE 
+
+                4015 Score Board addr=160 wr_data = 5467b8f3, rd_data=0, trans _type=WRITE 
+
+                4045 Monitor READ addr=160 rd_data = 5467b8f3, trans_type=READ count=2
+
+                4045 Score Board addr=160 wr_data = 0, rd_data=5467b8f3, trans _type=READ 
+
+                4055 Driver to dut READ addr=160, rd_data = 5467b8f3,  trans_type=READ 
+
+                4065 Drive to dut WRITE addr=39c4, wr_data = 69f3d0c6,  trans_type=WRITE 
+
+                4065 Monitor WRITE addr=39c4 wr_data = 69f3d0c6, trans_type=WRITE 
+
+                4065 Score Board addr=39c4 wr_data = 69f3d0c6, rd_data=0, trans _type=WRITE 
+
+                4095 Monitor READ addr=39c4 rd_data = 69f3d0c6, trans_type=READ count=2
+
+                4095 Score Board addr=39c4 wr_data = 0, rd_data=69f3d0c6, trans _type=READ 
+
+                4105 Driver to dut READ addr=39c4, rd_data = 69f3d0c6,  trans_type=READ 
+
+                4115 Drive to dut WRITE addr=f4d8, wr_data = a8197195,  trans_type=WRITE 
+
+                4115 Monitor WRITE addr=f4d8 wr_data = a8197195, trans_type=WRITE 
+
+                4115 Score Board addr=f4d8 wr_data = a8197195, rd_data=0, trans _type=WRITE 
+
+                4145 Monitor READ addr=f4d8 rd_data = a8197195, trans_type=READ count=2
+
+                4145 Score Board addr=f4d8 wr_data = 0, rd_data=a8197195, trans _type=READ 
+
+                4155 Driver to dut READ addr=f4d8, rd_data = a8197195,  trans_type=READ 
+
+                4165 Drive to dut WRITE addr=dc0c, wr_data = a4a9dce1,  trans_type=WRITE 
+
+                4165 Monitor WRITE addr=dc0c wr_data = a4a9dce1, trans_type=WRITE 
+
+                4165 Score Board addr=dc0c wr_data = a4a9dce1, rd_data=0, trans _type=WRITE 
+
+                4195 Monitor READ addr=dc0c rd_data = a4a9dce1, trans_type=READ count=2
+
+                4195 Score Board addr=dc0c wr_data = 0, rd_data=a4a9dce1, trans _type=READ 
+
+                4205 Driver to dut READ addr=dc0c, rd_data = a4a9dce1,  trans_type=READ 
+
+                4215 Drive to dut WRITE addr=9614, wr_data = 4afbc25c,  trans_type=WRITE 
+
+                4215 Monitor WRITE addr=9614 wr_data = 4afbc25c, trans_type=WRITE 
+
+                4215 Score Board addr=9614 wr_data = 4afbc25c, rd_data=0, trans _type=WRITE 
+
+                4245 Monitor READ addr=9614 rd_data = 4afbc25c, trans_type=READ count=2
+
+                4245 Score Board addr=9614 wr_data = 0, rd_data=4afbc25c, trans _type=READ 
+
+                4255 Driver to dut READ addr=9614, rd_data = 4afbc25c,  trans_type=READ 
+
+                4265 Drive to dut WRITE addr=cabc, wr_data = 3975c0a0,  trans_type=WRITE 
+
+                4265 Monitor WRITE addr=cabc wr_data = 3975c0a0, trans_type=WRITE 
+
+                4265 Score Board addr=cabc wr_data = 3975c0a0, rd_data=0, trans _type=WRITE 
+
+                4295 Monitor READ addr=cabc rd_data = 3975c0a0, trans_type=READ count=2
+
+                4295 Score Board addr=cabc wr_data = 0, rd_data=3975c0a0, trans _type=READ 
+
+                4305 Driver to dut READ addr=cabc, rd_data = 3975c0a0,  trans_type=READ 
+
+                4315 Drive to dut WRITE addr=2030, wr_data = 0c746655,  trans_type=WRITE 
+
+                4315 Monitor WRITE addr=2030 wr_data = c746655, trans_type=WRITE 
+
+                4315 Score Board addr=2030 wr_data = c746655, rd_data=0, trans _type=WRITE 
+
+                4345 Monitor READ addr=2030 rd_data = c746655, trans_type=READ count=2
+
+                4345 Score Board addr=2030 wr_data = 0, rd_data=c746655, trans _type=READ 
+
+                4355 Driver to dut READ addr=2030, rd_data = 0c746655,  trans_type=READ 
+
+                4365 Drive to dut WRITE addr=74, wr_data = 7b5416e0,  trans_type=WRITE 
+
+                4365 Monitor WRITE addr=74 wr_data = 7b5416e0, trans_type=WRITE 
+
+                4365 Score Board addr=74 wr_data = 7b5416e0, rd_data=0, trans _type=WRITE 
+
+                4395 Monitor READ addr=74 rd_data = 7b5416e0, trans_type=READ count=2
+
+                4395 Score Board addr=74 wr_data = 0, rd_data=7b5416e0, trans _type=READ 
+
+                4405 Driver to dut READ addr=74, rd_data = 7b5416e0,  trans_type=READ 
+
+                4415 Drive to dut WRITE addr=d0f0, wr_data = 84d95aa8,  trans_type=WRITE 
+
+                4415 Monitor WRITE addr=d0f0 wr_data = 84d95aa8, trans_type=WRITE 
+
+                4415 Score Board addr=d0f0 wr_data = 84d95aa8, rd_data=0, trans _type=WRITE 
+
+                4445 Monitor READ addr=d0f0 rd_data = 84d95aa8, trans_type=READ count=2
+
+                4445 Score Board addr=d0f0 wr_data = 0, rd_data=84d95aa8, trans _type=READ 
+
+                4455 Driver to dut READ addr=d0f0, rd_data = 84d95aa8,  trans_type=READ 
+
+                4465 Drive to dut WRITE addr=7e3c, wr_data = 605380e8,  trans_type=WRITE 
+
+                4465 Monitor WRITE addr=7e3c wr_data = 605380e8, trans_type=WRITE 
+
+                4465 Score Board addr=7e3c wr_data = 605380e8, rd_data=0, trans _type=WRITE 
+
+                4495 Monitor READ addr=7e3c rd_data = 605380e8, trans_type=READ count=2
+
+                4495 Score Board addr=7e3c wr_data = 0, rd_data=605380e8, trans _type=READ 
+
+                4505 Driver to dut READ addr=7e3c, rd_data = 605380e8,  trans_type=READ 
+
+                4515 Drive to dut WRITE addr=debc, wr_data = e7c96707,  trans_type=WRITE 
+
+                4515 Monitor WRITE addr=debc wr_data = e7c96707, trans_type=WRITE 
+
+                4515 Score Board addr=debc wr_data = e7c96707, rd_data=0, trans _type=WRITE 
+
+                4545 Monitor READ addr=debc rd_data = e7c96707, trans_type=READ count=2
+
+                4545 Score Board addr=debc wr_data = 0, rd_data=e7c96707, trans _type=READ 
+
+                4555 Driver to dut READ addr=debc, rd_data = e7c96707,  trans_type=READ 
+
+                4565 Drive to dut WRITE addr=5e10, wr_data = 6aec9ce9,  trans_type=WRITE 
+
+                4565 Monitor WRITE addr=5e10 wr_data = 6aec9ce9, trans_type=WRITE 
+
+                4565 Score Board addr=5e10 wr_data = 6aec9ce9, rd_data=0, trans _type=WRITE 
+
+                4595 Monitor READ addr=5e10 rd_data = 6aec9ce9, trans_type=READ count=2
+
+                4595 Score Board addr=5e10 wr_data = 0, rd_data=6aec9ce9, trans _type=READ 
+
+                4605 Driver to dut READ addr=5e10, rd_data = 6aec9ce9,  trans_type=READ 
+
+                4615 Drive to dut WRITE addr=acc8, wr_data = d651329f,  trans_type=WRITE 
+
+                4615 Monitor WRITE addr=acc8 wr_data = d651329f, trans_type=WRITE 
+
+                4615 Score Board addr=acc8 wr_data = d651329f, rd_data=0, trans _type=WRITE 
+
+                4645 Monitor READ addr=acc8 rd_data = d651329f, trans_type=READ count=2
+
+                4645 Score Board addr=acc8 wr_data = 0, rd_data=d651329f, trans _type=READ 
+
+                4655 Driver to dut READ addr=acc8, rd_data = d651329f,  trans_type=READ 
+
+                4665 Drive to dut WRITE addr=1504, wr_data = caafd4ea,  trans_type=WRITE 
+
+                4665 Monitor WRITE addr=1504 wr_data = caafd4ea, trans_type=WRITE 
+
+                4665 Score Board addr=1504 wr_data = caafd4ea, rd_data=0, trans _type=WRITE 
+
+                4695 Monitor READ addr=1504 rd_data = caafd4ea, trans_type=READ count=2
+
+                4695 Score Board addr=1504 wr_data = 0, rd_data=caafd4ea, trans _type=READ 
+
+                4705 Driver to dut READ addr=1504, rd_data = caafd4ea,  trans_type=READ 
+
+                4715 Drive to dut WRITE addr=2414, wr_data = 61a79b8c,  trans_type=WRITE 
+
+                4715 Monitor WRITE addr=2414 wr_data = 61a79b8c, trans_type=WRITE 
+
+                4715 Score Board addr=2414 wr_data = 61a79b8c, rd_data=0, trans _type=WRITE 
+
+                4745 Monitor READ addr=2414 rd_data = 61a79b8c, trans_type=READ count=2
+
+                4745 Score Board addr=2414 wr_data = 0, rd_data=61a79b8c, trans _type=READ 
+
+                4755 Driver to dut READ addr=2414, rd_data = 61a79b8c,  trans_type=READ 
+
+                4765 Drive to dut WRITE addr=ba18, wr_data = 93a9d14f,  trans_type=WRITE 
+
+                4765 Monitor WRITE addr=ba18 wr_data = 93a9d14f, trans_type=WRITE 
+
+                4765 Score Board addr=ba18 wr_data = 93a9d14f, rd_data=0, trans _type=WRITE 
+
+                4795 Monitor READ addr=ba18 rd_data = 93a9d14f, trans_type=READ count=2
+
+                4795 Score Board addr=ba18 wr_data = 0, rd_data=93a9d14f, trans _type=READ 
+
+                4805 Driver to dut READ addr=ba18, rd_data = 93a9d14f,  trans_type=READ 
+
+                4815 Drive to dut WRITE addr=a698, wr_data = baddc35f,  trans_type=WRITE 
+
+                4815 Monitor WRITE addr=a698 wr_data = baddc35f, trans_type=WRITE 
+
+                4815 Score Board addr=a698 wr_data = baddc35f, rd_data=0, trans _type=WRITE 
+
+                4845 Monitor READ addr=a698 rd_data = baddc35f, trans_type=READ count=2
+
+                4845 Score Board addr=a698 wr_data = 0, rd_data=baddc35f, trans _type=READ 
+
+                4855 Driver to dut READ addr=a698, rd_data = baddc35f,  trans_type=READ 
+
+                4865 Drive to dut WRITE addr=616c, wr_data = e7d5af68,  trans_type=WRITE 
+
+                4865 Monitor WRITE addr=616c wr_data = e7d5af68, trans_type=WRITE 
+
+                4865 Score Board addr=616c wr_data = e7d5af68, rd_data=0, trans _type=WRITE 
+
+                4895 Monitor READ addr=616c rd_data = e7d5af68, trans_type=READ count=2
+
+                4895 Score Board addr=616c wr_data = 0, rd_data=e7d5af68, trans _type=READ 
+
+                4905 Driver to dut READ addr=616c, rd_data = e7d5af68,  trans_type=READ 
+
+                4915 Drive to dut WRITE addr=3ef8, wr_data = 579da7a3,  trans_type=WRITE 
+
+                4915 Monitor WRITE addr=3ef8 wr_data = 579da7a3, trans_type=WRITE 
+
+                4915 Score Board addr=3ef8 wr_data = 579da7a3, rd_data=0, trans _type=WRITE 
+
+                4945 Monitor READ addr=3ef8 rd_data = 579da7a3, trans_type=READ count=2
+
+                4945 Score Board addr=3ef8 wr_data = 0, rd_data=579da7a3, trans _type=READ 
+
+                4955 Driver to dut READ addr=3ef8, rd_data = 579da7a3,  trans_type=READ 
+
+                4965 Drive to dut WRITE addr=3ac, wr_data = c7f8bb77,  trans_type=WRITE 
+
+                4965 Monitor WRITE addr=3ac wr_data = c7f8bb77, trans_type=WRITE 
+
+                4965 Score Board addr=3ac wr_data = c7f8bb77, rd_data=0, trans _type=WRITE 
+
+                4995 Monitor READ addr=3ac rd_data = c7f8bb77, trans_type=READ count=2
+
+                4995 Score Board addr=3ac wr_data = 0, rd_data=c7f8bb77, trans _type=READ 
+
+                5005 Driver to dut READ addr=3ac, rd_data = c7f8bb77,  trans_type=READ 
+
+             1000000 Addr=74, Write data=7b5416e0 MATCHED with READ data=7b5416e0
+             1000000 Write entries=99 Read entries=99
+             1000000 Addr=160, Write data=5467b8f3 MATCHED with READ data=5467b8f3
+             1000000 Write entries=98 Read entries=98
+             1000000 Addr=1e8, Write data=f150f28b MATCHED with READ data=f150f28b
+             1000000 Write entries=97 Read entries=97
+             1000000 Addr=3ac, Write data=c7f8bb77 MATCHED with READ data=c7f8bb77
+             1000000 Write entries=96 Read entries=96
+             1000000 Addr=7ac, Write data=d2e0e572 MATCHED with READ data=d2e0e572
+             1000000 Write entries=95 Read entries=95
+             1000000 Addr=7d0, Write data=5526df17 MATCHED with READ data=5526df17
+             1000000 Write entries=94 Read entries=94
+             1000000 Addr=938, Write data=89bce49b MATCHED with READ data=89bce49b
+             1000000 Write entries=93 Read entries=93
+             1000000 Addr=adc, Write data=d6357eba MATCHED with READ data=d6357eba
+             1000000 Write entries=92 Read entries=92
+             1000000 Addr=107c, Write data=ac40b00c MATCHED with READ data=ac40b00c
+             1000000 Write entries=91 Read entries=91
+             1000000 Addr=10f0, Write data=5a51f42f MATCHED with READ data=5a51f42f
+             1000000 Write entries=90 Read entries=90
+             1000000 Addr=110c, Write data=332532b2 MATCHED with READ data=332532b2
+             1000000 Write entries=89 Read entries=89
+             1000000 Addr=1504, Write data=caafd4ea MATCHED with READ data=caafd4ea
+             1000000 Write entries=88 Read entries=88
+             1000000 Addr=15b4, Write data=39cea57e MATCHED with READ data=39cea57e
+             1000000 Write entries=87 Read entries=87
+             1000000 Addr=1744, Write data=fdb280bc MATCHED with READ data=fdb280bc
+             1000000 Write entries=86 Read entries=86
+             1000000 Addr=1b54, Write data=6b4dbc59 MATCHED with READ data=6b4dbc59
+             1000000 Write entries=85 Read entries=85
+             1000000 Addr=1dbc, Write data=836ff37 MATCHED with READ data=836ff37
+             1000000 Write entries=84 Read entries=84
+             1000000 Addr=1fd4, Write data=40c09c2a MATCHED with READ data=40c09c2a
+             1000000 Write entries=83 Read entries=83
+             1000000 Addr=2030, Write data=c746655 MATCHED with READ data=c746655
+             1000000 Write entries=82 Read entries=82
+             1000000 Addr=2184, Write data=e8bfb76a MATCHED with READ data=e8bfb76a
+             1000000 Write entries=81 Read entries=81
+             1000000 Addr=2414, Write data=61a79b8c MATCHED with READ data=61a79b8c
+             1000000 Write entries=80 Read entries=80
+             1000000 Addr=2724, Write data=d865991a MATCHED with READ data=d865991a
+             1000000 Write entries=79 Read entries=79
+             1000000 Addr=2758, Write data=9f9c182a MATCHED with READ data=9f9c182a
+             1000000 Write entries=78 Read entries=78
+             1000000 Addr=2b60, Write data=41630e59 MATCHED with READ data=41630e59
+             1000000 Write entries=77 Read entries=77
+             1000000 Addr=2bec, Write data=c10f039 MATCHED with READ data=c10f039
+             1000000 Write entries=76 Read entries=76
+             1000000 Addr=36e0, Write data=35c126b0 MATCHED with READ data=35c126b0
+             1000000 Write entries=75 Read entries=75
+             1000000 Addr=39c4, Write data=69f3d0c6 MATCHED with READ data=69f3d0c6
+             1000000 Write entries=74 Read entries=74
+             1000000 Addr=3a94, Write data=66ec0bf4 MATCHED with READ data=66ec0bf4
+             1000000 Write entries=73 Read entries=73
+             1000000 Addr=3bcc, Write data=2dd6bfcf MATCHED with READ data=2dd6bfcf
+             1000000 Write entries=72 Read entries=72
+             1000000 Addr=3ef8, Write data=579da7a3 MATCHED with READ data=579da7a3
+             1000000 Write entries=71 Read entries=71
+             1000000 Addr=40e0, Write data=8d841183 MATCHED with READ data=8d841183
+             1000000 Write entries=70 Read entries=70
+             1000000 Addr=48a0, Write data=253c9106 MATCHED with READ data=253c9106
+             1000000 Write entries=69 Read entries=69
+             1000000 Addr=4c64, Write data=8e880b05 MATCHED with READ data=8e880b05
+             1000000 Write entries=68 Read entries=68
+             1000000 Addr=53f8, Write data=86c14b67 MATCHED with READ data=86c14b67
+             1000000 Write entries=67 Read entries=67
+             1000000 Addr=5e10, Write data=6aec9ce9 MATCHED with READ data=6aec9ce9
+             1000000 Write entries=66 Read entries=66
+             1000000 Addr=5eec, Write data=436fee52 MATCHED with READ data=436fee52
+             1000000 Write entries=65 Read entries=65
+             1000000 Addr=616c, Write data=e7d5af68 MATCHED with READ data=e7d5af68
+             1000000 Write entries=64 Read entries=64
+             1000000 Addr=6250, Write data=f33792a8 MATCHED with READ data=f33792a8
+             1000000 Write entries=63 Read entries=63
+             1000000 Addr=65b8, Write data=13326192 MATCHED with READ data=13326192
+             1000000 Write entries=62 Read entries=62
+             1000000 Addr=65cc, Write data=95c8ba52 MATCHED with READ data=95c8ba52
+             1000000 Write entries=61 Read entries=61
+             1000000 Addr=6794, Write data=fef28773 MATCHED with READ data=fef28773
+             1000000 Write entries=60 Read entries=60
+             1000000 Addr=711c, Write data=9aa67532 MATCHED with READ data=9aa67532
+             1000000 Write entries=59 Read entries=59
+             1000000 Addr=7420, Write data=5f115546 MATCHED with READ data=5f115546
+             1000000 Write entries=58 Read entries=58
+             1000000 Addr=74fc, Write data=4908bac3 MATCHED with READ data=4908bac3
+             1000000 Write entries=57 Read entries=57
+             1000000 Addr=7584, Write data=281f57bc MATCHED with READ data=281f57bc
+             1000000 Write entries=56 Read entries=56
+             1000000 Addr=7b84, Write data=5371c071 MATCHED with READ data=5371c071
+             1000000 Write entries=55 Read entries=55
+             1000000 Addr=7d0c, Write data=e0afb20a MATCHED with READ data=e0afb20a
+             1000000 Write entries=54 Read entries=54
+             1000000 Addr=7e3c, Write data=605380e8 MATCHED with READ data=605380e8
+             1000000 Write entries=53 Read entries=53
+             1000000 Addr=7ef4, Write data=2b79042d MATCHED with READ data=2b79042d
+             1000000 Write entries=52 Read entries=52
+             1000000 Addr=7f8c, Write data=6dfe6caa MATCHED with READ data=6dfe6caa
+             1000000 Write entries=51 Read entries=51
+             1000000 Addr=8b60, Write data=ec6ae5b4 MATCHED with READ data=ec6ae5b4
+             1000000 Write entries=50 Read entries=50
+             1000000 Addr=8c70, Write data=106afca1 MATCHED with READ data=106afca1
+             1000000 Write entries=49 Read entries=49
+             1000000 Addr=8df8, Write data=d8aeb430 MATCHED with READ data=d8aeb430
+             1000000 Write entries=48 Read entries=48
+             1000000 Addr=8fe0, Write data=6a8e54a2 MATCHED with READ data=6a8e54a2
+             1000000 Write entries=47 Read entries=47
+             1000000 Addr=8fec, Write data=caa50182 MATCHED with READ data=caa50182
+             1000000 Write entries=46 Read entries=46
+             1000000 Addr=9614, Write data=4afbc25c MATCHED with READ data=4afbc25c
+             1000000 Write entries=45 Read entries=45
+             1000000 Addr=a294, Write data=f705a7ca MATCHED with READ data=f705a7ca
+             1000000 Write entries=44 Read entries=44
+             1000000 Addr=a434, Write data=c2807a44 MATCHED with READ data=c2807a44
+             1000000 Write entries=43 Read entries=43
+             1000000 Addr=a698, Write data=baddc35f MATCHED with READ data=baddc35f
+             1000000 Write entries=42 Read entries=42
+             1000000 Addr=a6e0, Write data=b4f1c8ce MATCHED with READ data=b4f1c8ce
+             1000000 Write entries=41 Read entries=41
+             1000000 Addr=a914, Write data=39f22b6b MATCHED with READ data=39f22b6b
+             1000000 Write entries=40 Read entries=40
+             1000000 Addr=acbc, Write data=319c9115 MATCHED with READ data=319c9115
+             1000000 Write entries=39 Read entries=39
+             1000000 Addr=acc8, Write data=d651329f MATCHED with READ data=d651329f
+             1000000 Write entries=38 Read entries=38
+             1000000 Addr=ae58, Write data=c88ff9ba MATCHED with READ data=c88ff9ba
+             1000000 Write entries=37 Read entries=37
+             1000000 Addr=b0f0, Write data=8b8ea638 MATCHED with READ data=8b8ea638
+             1000000 Write entries=36 Read entries=36
+             1000000 Addr=b198, Write data=ffe07788 MATCHED with READ data=ffe07788
+             1000000 Write entries=35 Read entries=35
+             1000000 Addr=b1f8, Write data=2d6a6cef MATCHED with READ data=2d6a6cef
+             1000000 Write entries=34 Read entries=34
+             1000000 Addr=b2d4, Write data=9198dcf7 MATCHED with READ data=9198dcf7
+             1000000 Write entries=33 Read entries=33
+             1000000 Addr=b380, Write data=ab04c129 MATCHED with READ data=ab04c129
+             1000000 Write entries=32 Read entries=32
+             1000000 Addr=b49c, Write data=dda618aa MATCHED with READ data=dda618aa
+             1000000 Write entries=31 Read entries=31
+             1000000 Addr=b700, Write data=d672fd0b MATCHED with READ data=d672fd0b
+             1000000 Write entries=30 Read entries=30
+             1000000 Addr=ba18, Write data=93a9d14f MATCHED with READ data=93a9d14f
+             1000000 Write entries=29 Read entries=29
+             1000000 Addr=c114, Write data=16149b8f MATCHED with READ data=16149b8f
+             1000000 Write entries=28 Read entries=28
+             1000000 Addr=cabc, Write data=3975c0a0 MATCHED with READ data=3975c0a0
+             1000000 Write entries=27 Read entries=27
+             1000000 Addr=cd54, Write data=5059148b MATCHED with READ data=5059148b
+             1000000 Write entries=26 Read entries=26
+             1000000 Addr=d0f0, Write data=84d95aa8 MATCHED with READ data=84d95aa8
+             1000000 Write entries=25 Read entries=25
+             1000000 Addr=d41c, Write data=521eaff1 MATCHED with READ data=521eaff1
+             1000000 Write entries=24 Read entries=24
+             1000000 Addr=dabc, Write data=3208d9e4 MATCHED with READ data=3208d9e4
+             1000000 Write entries=23 Read entries=23
+             1000000 Addr=dad8, Write data=226d9345 MATCHED with READ data=226d9345
+             1000000 Write entries=22 Read entries=22
+             1000000 Addr=dbac, Write data=86892c24 MATCHED with READ data=86892c24
+             1000000 Write entries=21 Read entries=21
+             1000000 Addr=dc0c, Write data=a4a9dce1 MATCHED with READ data=a4a9dce1
+             1000000 Write entries=20 Read entries=20
+             1000000 Addr=ddb4, Write data=ec476dcb MATCHED with READ data=ec476dcb
+             1000000 Write entries=19 Read entries=19
+             1000000 Addr=debc, Write data=e7c96707 MATCHED with READ data=e7c96707
+             1000000 Write entries=18 Read entries=18
+             1000000 Addr=dfe0, Write data=c8b4e01c MATCHED with READ data=c8b4e01c
+             1000000 Write entries=17 Read entries=17
+             1000000 Addr=e014, Write data=699a6d14 MATCHED with READ data=699a6d14
+             1000000 Write entries=16 Read entries=16
+             1000000 Addr=e13c, Write data=6f83731a MATCHED with READ data=6f83731a
+             1000000 Write entries=15 Read entries=15
+             1000000 Addr=e3f8, Write data=308e7f0d MATCHED with READ data=308e7f0d
+             1000000 Write entries=14 Read entries=14
+             1000000 Addr=e6c0, Write data=c74d5a8a MATCHED with READ data=c74d5a8a
+             1000000 Write entries=13 Read entries=13
+             1000000 Addr=e710, Write data=655ac49b MATCHED with READ data=655ac49b
+             1000000 Write entries=12 Read entries=12
+             1000000 Addr=e95c, Write data=aa3f6f1 MATCHED with READ data=aa3f6f1
+             1000000 Write entries=11 Read entries=11
+             1000000 Addr=e9a8, Write data=de2dddb2 MATCHED with READ data=de2dddb2
+             1000000 Write entries=10 Read entries=10
+             1000000 Addr=eb4c, Write data=2106a74d MATCHED with READ data=2106a74d
+             1000000 Write entries=9 Read entries=9
+             1000000 Addr=eefc, Write data=8dae5fbb MATCHED with READ data=8dae5fbb
+             1000000 Write entries=8 Read entries=8
+             1000000 Addr=efd4, Write data=e9a4ff90 MATCHED with READ data=e9a4ff90
+             1000000 Write entries=7 Read entries=7
+             1000000 Addr=f034, Write data=6f84f3de MATCHED with READ data=6f84f3de
+             1000000 Write entries=6 Read entries=6
+             1000000 Addr=f4d8, Write data=a8197195 MATCHED with READ data=a8197195
+             1000000 Write entries=5 Read entries=5
+             1000000 Addr=f6e0, Write data=5f7a5856 MATCHED with READ data=5f7a5856
+             1000000 Write entries=4 Read entries=4
+             1000000 Addr=f768, Write data=9487fc6e MATCHED with READ data=9487fc6e
+             1000000 Write entries=3 Read entries=3
+             1000000 Addr=f8ec, Write data=a20e5c75 MATCHED with READ data=a20e5c75
+             1000000 Write entries=2 Read entries=2
+             1000000 Addr=fa28, Write data=9e98f49a MATCHED with READ data=9e98f49a
+             1000000 Write entries=1 Read entries=1
+             1000000 Addr=fd24, Write data=184d5d2f MATCHED with READ data=184d5d2f
+             1000000 Write entries=0 Read entries=0
+Simulation complete via implicit call to $finish(1) at time 1 MS + 3
+./mem_pgtest.sv:46   $exit;
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> ^C
+xcelium> exit
+...Regained control from SimVision
+-------------------------------------
+xmsim: *F,C58EXS: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+TOOL:	xrun(64)	22.09-s003: Exiting on Jun 16, 2026 at 09:12:03 IST  (total: 00:00:44)

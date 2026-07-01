@@ -1,0 +1,17 @@
+# Cadence Genus(TM) Synthesis Solution, Version 23.11-s100_1, built Apr 22 2024 11:28:10
+
+# Date: Mon Jun 08 13:47:48 2026
+# Host: cadence (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (8cores*16cpus*1physical cpu*Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz 16384KB)
+# OS:   Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+read_libs /home/install/FOUNDRY/digital/90nm/dig/lib/slow.lib
+read_hdl counter.v
+read_hdl count8.v
+elaborate
+read_sdc constraints_counter.sdc
+syn_generic
+gui_show
+syn_map
+syn_opt
+write_hdl > counter_netlist_2ghz.v
+write_sdc > counter_tool.sdc

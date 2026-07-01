@@ -1,0 +1,154 @@
+Starting Command: build_model 
+
+INFO (TDA-005): Command Line Invocation: 
+            build_model -cell count8 -designtop count8 -allowmissingmodules no -workdir /home/vlsi19/day21/synthesis/test_scripts -designsource /home/vlsi19/day21/synthesis/test_scripts/count8.test_netlist.v -messagecounteach 100 -stdout summary -techlib /home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v  [end TDA_005]
+
+INFO (TDA-014): Cadence(R) Modus(TM) DFT Software Solution, Version 22.10-p008_1, built Oct 18 2022 (linux26_64) [end TDA_014]
+
+INFO (TDA-015): Log File: /home/vlsi19/day21/synthesis/test_scripts/testresults/logs/log_build_model_062526143630-203637000 [end TDA_015]
+
+INFO (TDA-007): Job Information:
+            Date Started: Thursday Jun 25 14:36:30 2026  IST
+            Host machine is cadence, x86_64 running Linux 4.18.0-425.3.1.el8.x86_64.
+            This job is process number 2454983.
+[end TDA_007]
+
+INFO (TDA-009): Options/Values information.
+            (options marked with '*' have program generated values,
+             options marked with '+' were specified to default.)
+
+            -WORKDIR /home/vlsi19/day21/synthesis/test_scripts
+
+            -designtop count8
+            -TECHLIB /home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v
+            -LOGFILE /home/vlsi19/day21/synthesis/test_scripts/testresults/logs/log_build_model_062526143630-203637000
+            -STDOUT summary
+            -messagecounteach 100
+            -DESIGNSOURCE /home/vlsi19/day21/synthesis/test_scripts/count8.test_netlist.v
+          + -allowmissingmodules no
+[end TDA_009]
+INFO (TFW-117): Modus checked out a modus_atpg license.  [end TFW_117] 
+INFO (TEI-195): Build Model - Controller starting: [end TEI_195] 
+
+
+Search Order  1:  "/home/vlsi19/day21/synthesis/test_scripts/count8.test_netlist.v"
+Search Order  2:  "/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v"
+
+
+
+Reading Verilog data from /home/vlsi19/day21/synthesis/test_scripts/count8.test_netlist.v
+
+Verilog Parser complete - 1 modules, 0 gates, 0 user defined primitives.
+
+
+Reading Verilog data from /home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v
+
+Verilog Parser complete - 480 modules, 1855 gates, 3 user defined primitives.
+
+
+
+INFO (TEI-196): Build Model - Hierarchical Model Build starting: [end TEI_196] 
+
+WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_dff' has no external net connection for any usage in the design. Cell contents file: '/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v'.  [end TEI_110] 
+
+
+Number of blocks in the hierarchical model is: 406.
+
+Number of technology library cell instances in the hierarchical model is: 79.
+
+
+INFO (TEI-197): Build Model - Hierarchical Model Build completed. [end TEI_197] 
+
+
+
+INFO (TEI-198): Build Model - Flat Model Build starting: [end TEI_198] 
+
+ defaultTIE = X
+ defaultDFN = T
+
+
+INFO (TLM-055): Design Summary
+                --------------
+
+Hierarchical Model:                  Flattened Model:
+            406  Blocks                         286  Blocks
+          1,226  Pins                           286  Nodes
+            716  Nets
+
+Primary Inputs:                      Primary Outputs:
+          5  Input Only                         9  Output Only
+          0  Input/Output                       0  Input/Output
+          5  Total Inputs                       9  Total Outputs
+
+Tied Nets:                           Dotted Nets:
+         16  Tied to 0                          0  Two-State
+          8  Tied to 1                          0  Three-State
+          0  Tied to X                          0  Total Dotted Nets
+         24  Total Tied Nets
+
+Selected Primitive Functions:
+          0  Clock Chopper (CHOP) primitives 
+          0  RAMs
+          0  ROMs
+          0  TSDs
+          0  Resistors
+          0  Transistors
+         14  MUX2s
+          0  Latches
+
+
+          8  Rising  Edge Flop w/Set-Dominant and Reset Port
+          8  Total Flops
+
+         79  Technology Library Cell Instances
+
+[end TLM_055] 
+Optimization removed logic for 3 of 31 cells in this design.
+
+Optimization removed a total of 0 tied Latch Ports.
+Optimization removed a total of 8 non-controlling inputs.
+Optimization removed a total of 24 dangling logic nodes.
+
+
+
+INFO (TEI-199): Build Model - Flat Model Build completed.  [end TEI_199] 
+
+
+INFO (TDA-001): Maximum Memory used during the run and Cumulative Time in hours:minutes:seconds:
+
+                  Total Memory =          101,305,744  bytes
+
+                      CPU Time =    0:00:00.78
+                  Elapsed Time =    0:00:01.11                    [end TDA_001]
+
+
+
+INFO (TEI-200): Build Model - Controller completed. [end TEI_200] 
+
+INFO (TFW-119): Modus checked in a modus_atpg license.  [end TFW_119] 
+
+
+
+-------------------------------------------------------------------------------
+*                      Message Summary                                        *
+-------------------------------------------------------------------------------
+ Count  Number             First Instance of Message Text
+------- ------             ------------------------------
+
+  INFO Messages...
+      1 INFO (TEI-195): Build Model - Controller starting:  
+      1 INFO (TEI-196): Build Model - Hierarchical Model Build starting:  
+      1 INFO (TEI-197): Build Model - Hierarchical Model Build completed.  
+      1 INFO (TEI-198): Build Model - Flat Model Build starting:  
+      1 INFO (TEI-199): Build Model - Flat Model Build completed.   
+      1 INFO (TEI-200): Build Model - Controller completed.  
+      1 INFO (TFW-117): Modus checked out a modus_atpg license.   
+      1 INFO (TFW-119): Modus checked in a modus_atpg license.   
+      1 INFO (TLM-055): Design Summary
+
+  WARNING Messages...
+      1 WARNING (TEI-110): Pin 'NOTIFIER' of 'cell udp_dff' has no external net connection for any usage in the design. Cell contents file: '/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v'.   
+
+ For a detailed explanation of a message and a suggested user response execute 'msgHelp <message id>'.  For example: msgHelp TDA-009
+
+-------------------------------------------------------------------------------

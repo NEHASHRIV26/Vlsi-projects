@@ -1,0 +1,1680 @@
+
+Cadence Tempus(TM) Timing Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v23.13-s084_1, built Fri Nov 22 17:27:06 PST 2024
+Options:	
+Date:		Wed Jun 24 15:48:01 2026
+Host:		cadence (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (8cores*16cpus*Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz 16384KB)
+OS:		Red Hat Enterprise Linux 8.7 (Ootpa)
+
+License:
+		[15:48:01.094105] Configured Lic search path (23.02-s006): 5280@cadence
+
+		tpsxl	Tempus Timing Signoff Solution XL	23.1	checkout succeeded
+		16 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+**ERROR: (IMPOAX-8053):	Could not open shared library libtempusoax22.so : liboaPrivateCDS.so: cannot open shared object file: No such file or directory.
+**ERROR: (IMPOAX-8053):	Could not open shared library libcdsSkillPcell.so : /home/install/SSV231/tools.lnx86/ssv/bin/64bit/../../../lib/64bit/libcdsSkillPcell.so: undefined symbol: _ZTIN12OpenAccess_413oaFSComponentE.
+**ERROR: (IMPOAX-8033):	OpenAccess features will be disabled in this session.
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+environment variable TMPDIR is '/tmp/ssv_tmpdir_3751618_1264e3e4-24b5-4102-a1cf-52b99347a28c_hIUtNJ'.
+<CMD> ::stop_gui -keepDgui
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+<CMD> read_design -physical_data count8_routed.enc.dat/ count8
+# Tempus Timing Solution 23.13-s084_1
+# read_design
+#  -physical_data 1
+#  dir count8_routed.enc.dat/ count8
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPSYC-141):	You have set -timerMode to 1 so the setting in the config file will be ignored.
+Loading design 'count8' saved by 'Innovus' '21.15-s110_1' on 'Wed Jun 24 09:19:28 2026'.
+**ERROR: (IMPOAX-820):	The OpenAccess (OA) features are disabled in the current session of Tempus Timing Solution because the oax shared library could not be loaded properly. This could be because your installation was not properly configured. To enable OA features, exit the current session and re-launch Tempus Timing Solution either after fixing your installation by running the Configure Installation phase, or after setting the OA_HOME variable to point to a proper OA installation. Check the "OpenAccess Installation and Configuration Guide" manual for more information.
+
+**ERROR: (IMPOAX-850):	oaxCreateCdsLibArray command cannot be run as OpenAccess features are disabled in this session.
+#% Begin Load MMMC data ... (date=06/24 15:50:45, mem=1669.5M)
+**WARN: (UI-638):	The option '-cap_table' to the command 'create_rc_corner' is ignored since it is related to the RC extraction mode which Tempus does not support. Tempus only supports the signoff QRC extraction.
+Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+#% End Load MMMC data ... (date=06/24 15:50:45, total cpu=0:00:00.0, real=0:00:00.0, peak res=1670.9M, current mem=1670.9M)
+rc_corner
+
+Loading LEF file /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/libs/lef/gsclib090_translated.lef ...
+**WARN: (IMPLF-105):	The layer 'Oxide' specified in SAMENET spacing
+rule is neither a routing layer nor a cut layer. The rule is ignored.
+**WARN: (IMPLF-105):	The layer 'Poly' specified in SAMENET spacing
+rule is neither a routing layer nor a cut layer. The rule is ignored.
+Set DBUPerIGU to M2 pitch 580.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/viewDefinition.tcl
+Reading slow timing library '/home/install/FOUNDRY/digital/90nm/dig/lib/slow.lib' ...
+Read 479 cells in library 'slow' 
+Reading fast timing library '/home/install/FOUNDRY/digital/90nm/dig/lib/fast.lib' ...
+Read 479 cells in library 'fast' 
+*** End library_loading (cpu=0.02min, real=0.02min, mem=83.0M, fe_cpu=0.38min, fe_real=2.75min, fe_mem=1875.0M) ***
+#% Begin Load netlist data ... (date=06/24 15:50:46, mem=1738.5M)
+*** Begin netlist parsing (mem=1875.0M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3XL' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3XL' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2XL' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2XL' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X4' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X4' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X2' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X2' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR3XL' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR3XL' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR3X1' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR3X1' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR2XL' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR2XL' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR2X4' is defined in LEF but not in the timing library.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR2X4' is defined in LEF but not in the timing library.
+**WARN: (EMS-62):	Message <IMPVL-159> has exceeded the default message display limit of 20.
+To avoid this warning, increase the display limit per unique message by
+using the set_message -limit <number> command.
+The message limit can be removed by using the set_message -no_limit command.
+Note that setting a very large number using the set_message -limit command
+or removing the message limit using the set_message -no_limit command can
+significantly increase the log file size.
+To suppress a message, use the set_message -suppress command.
+Reading verilogBinary netlist '/home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/count8.v.bin'
+
+*** Memory Usage v#3 (Current mem = 2142.023M, initial mem = 835.133M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=2142.0M) ***
+#% End Load netlist data ... (date=06/24 15:50:47, total cpu=0:00:00.4, real=0:00:01.0, peak res=1858.7M, current mem=1850.6M)
+Top level cell is count8.
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+Building hierarchical netlist for Cell count8 ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 967 modules.
+** info: there are 64 stdCell insts.
+** info: there are 64 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#3 (Current mem = 2557.070M, initial mem = 835.133M) ***
+*info: set bottom ioPad orient R0
+**WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+**WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Horizontal Layer M1 offset = 290 (derived)
+Vertical Layer M2 offset = 290 (derived)
+Start create_tracks
+Generated pitch 0.29 in Metal8 is different from 0.87 defined in technology file in unpreferred direction.
+Set Default Input Pin Transition as 0.1 ps.
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+Loading preference file /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/gui.pref.tcl ...
+**WARN: (UI-156):	preference name 'MinFPModuleSize' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'MinFlightLineWidth' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'MaxFlightLineNetTerms' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'LevelFlight' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'DirectionSink' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'DirectionSource' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'ShowNumberBlockConnection' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'StrecthRestriction' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'StretchRectilinear' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'MoveRestriction' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'DisplayRelFPlan' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'LegalizeMacro' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'DisplayFPlanFlightLine' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'DisplayPinName' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'ExclusiveFlight' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'ShowToUnplace' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'FlightLineInMove' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'ShowConnectionInOutNumber' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'ConnectionColorType' is not supported in Tempus Timing Solution.
+**WARN: (UI-156):	preference name 'OnlyBundleNetFlight' is not supported in Tempus Timing Solution.
+**WARN: (EMS-27):	Message (UI-156) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**WARN: (IMPSYC-6134):	Setting analysis mode to setup does not have any impact on timing analysis as simultaneous setup/hold mode analysis is on. Use '-late' option to report setup timing reports.
+**WARN: (IMPEXT-7000):	The option '-engine preRoute' for setExtractRCMode is ignored because only Quantus QRC extraction mode, that is, '-engine postRoute -effortLevel signoff' is supported in Tempus Timing Solution. To avoid this message, remove this option from your scripts.
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+#WARNING (NRIF-90) Option setNanoRouteMode -route_bottom_routing_layer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option setDesignMode -bottomRoutingLayer instead.
+#WARNING (NRIF-91) Option setNanoRouteMode -route_top_routing_layer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option setDesignMode -topRoutingLayer instead.
+addRing command will ignore shorts while creating rings.
+addRing command will disallow rings to go over rows.
+addRing command will consider rows while creating rings.
+The ring targets are set to core/block ring wires.
+addStripe will allow jog to connect padcore ring and block ring.
+
+Stripes will not extend to closest target.
+When breaking rings, the power planner will consider the existence of blocks.
+addStripe will break automatically at non-default domains when generating global stripes over the core area or default domain.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+Stripes will not be created over regions without power planning wires.
+Offset for stripe breaking is set to 0.
+Stripes will stop at the boundary of the specified area.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Change floorplan default-technical-site to 'gsclib090site'.
+/home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/mmmc/modes/sdc/sdc.sdc
+Total number of combinational cells: 317
+Total number of sequential cells: 152
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/count8.fp.gz (mem = 2799.3M).
+#% Begin Load floorplan data ... (date=06/24 15:50:48, mem=2421.6M)
+*info: reset 77 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 81780 79460)
+**WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+**WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+ ... processed partition successfully.
+Reading binary special route file /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/count8.fp.spr.gz (Created by Innovus v21.15-s110_1 on Wed Jun 24 09:19:27 2026, version: 1)
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2421.6M, current mem=2421.6M)
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+#% End Load floorplan data ... (date=06/24 15:50:48, total cpu=0:00:00.1, real=0:00:00.0, peak res=2435.9M, current mem=2435.9M)
+#% Begin Load SymbolTable ... (date=06/24 15:50:48, mem=2435.9M)
+#% End Load SymbolTable ... (date=06/24 15:50:48, total cpu=0:00:00.0, real=0:00:00.0, peak res=2436.5M, current mem=2436.5M)
+Loading place ...
+#% Begin Load placement data ... (date=06/24 15:50:48, mem=2436.5M)
+Reading placement file - /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/count8.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v21.15-s110_1 on Wed Jun 24 09:19:27 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** applyConnectGlobalNets disabled.
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=2816.3M) ***
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+Total net length = 8.596e+02 (4.582e+02 4.014e+02) (ext = 3.290e+02)
+#% End Load placement data ... (date=06/24 15:50:48, total cpu=0:00:00.0, real=0:00:00.0, peak res=2437.3M, current mem=2437.3M)
+Reading PG file /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/count8.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on       Wed Jun 24 09:19:27 2026)
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=2832.3M) ***
+#% Begin Load routing data ... (date=06/24 15:50:48, mem=2437.7M)
+Reading routing file - /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/count8.route.gz.
+Reading Innovus routing data (Created by Innovus v21.15-s110_1 on Wed Jun 24 09:19:27 2026 Format: 20.1) ...
+*** Total 70 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=2832.3M) ***
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+#% End Load routing data ... (date=06/24 15:50:48, total cpu=0:00:00.0, real=0:00:00.0, peak res=2438.9M, current mem=2438.4M)
+Reading property file /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/count8.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=2832.3M) ***
+Set Default Input Pin Transition as 0.1 ps.
+Extraction setup Started for TopCell count8 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: worst_case
+    RC-Corner Name        : rc_corner
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+    RC-Corner Technology file: '/home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/libs/mmmc/rc_corner/gpdk090_9l.tch'
+ 
+ Analysis View: best_corner
+    RC-Corner Name        : rc_corner
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+    RC-Corner Technology file: '/home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/libs/mmmc/rc_corner/gpdk090_9l.tch'
+Initializing multi-corner resistance tables ...
+max_delay min_delay
+#% Begin Load power constraints ... (date=06/24 15:50:49, mem=2443.4M)
+'set_default_switching_activity' finished successfully.
+#% End Load power constraints ... (date=06/24 15:50:49, total cpu=0:00:00.0, real=0:00:00.0, peak res=2450.2M, current mem=2450.2M)
+**WARN: (TCLCMD-1263):	The -frame parameter is obsolete and will be removed from the software in a future release. To ensure compatibility with future releases, remove this parameter from your scripts.
+max_delay min_delay
+#% Begin load AAE data ... (date=06/24 15:50:49, mem=2473.4M)
+AAE DB initialization (MEM=2479.511719 CPU=0:00:00.0 REAL=0:00:00.0) 
+#% End load AAE data ... (date=06/24 15:50:49, total cpu=0:00:00.4, real=0:00:00.0, peak res=2479.9M, current mem=2479.9M)
+Restoring CCOpt config...
+  Extracting original clock gating for clk...
+    clock_tree clk contains 8 sinks and 0 clock gates.
+  Extracting original clock gating for clk done.
+  The skew group clk/sdc was created. It contains 8 sinks and 1 sources.
+Restoring CCOpt config done.
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version (null). They will be removed in the next release. 
+timing_enable_separate_device_slew_effect_sensitivities
+Ending "read_design" (total cpu=0:00:05.2, real=0:00:06.0, peak res=2503.9M, current mem=2332.3M)
+Loading  (count8)
+Traverse HInst (count8)
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+**WARN: (IMPSYC-3133):	The unloadTimingCon command is not supported in the MMMC environment.
+          To modify the active set of constraints you can use one of the following means:
+          - Use the set_analysis_view command to change the set of active views.
+          - Use the update_analysis_view command to change the constraint mode associated with an active view.
+          - Use the update_constraint_mode command to change the set of SDC files pointed to be active modes.
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+**WARN: (IMPSYC-3133):	The unloadTimingCon command is not supported in the MMMC environment.
+          To modify the active set of constraints you can use one of the following means:
+          - Use the set_analysis_view command to change the set of active views.
+          - Use the update_analysis_view command to change the constraint mode associated with an active view.
+          - Use the update_constraint_mode command to change the set of SDC files pointed to be active modes.
+<CMD> read_spef count8.spef
+Used active corner rc_corner for reading SPEF file as option '-rc_corner <cornerName>' is not specified in MMMC mode.
+
+SPEF files for RC Corner rc_corner:
+Top-level spef file 'count8.spef'.
+Start spef parsing (MEM=3063.84).
+SPEF file count8.spef.
+Number of Resistors     : 1000
+Number of Ground Caps   : 788
+Number of Coupling Caps : 0
+
+End spef parsing (MEM=3097.84 CPU=0:00:00.0 REAL=0:00:00.0).
+<CMD> all_setup_analysis_views
+<CMD> read_sdf count8.sdf
+**WARN: (TCLCMD-1234):	In multi-mode, multi-corner analysis mode, you should include the -view option with the read_sdf command to annotate the SDF file to specific view(s). Without the -view option, the SDF file will only be annotated to the current default view.
+<CMD> get_eco_opt_mode -optimization_failure_tracking_file -quiet
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+AAE_INFO: opIsDesignInPostRouteState() is 1
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=2633.68)
+/home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat/mmmc/modes/sdc/sdc.sdc
+End delay calculation. (MEM=2741.45 CPU=0:00:00.1 REAL=0:00:00.0)
+Begin loading slews from CTE ...
+Loading slews from CTE completed...
+End delay calculation (fullDC). (MEM=2736.55 CPU=0:00:00.1 REAL=0:00:00.0)
+Has not load the powerDB, will keep enalbed
+Has not load the powerDB, will keep enalbed
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net {}
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+**ERROR: (IMPOPT-560):	Net '' not found.
+**ERROR: (IMPSYT-7004):	Failed to execute add_repeater command.
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_21
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC0_n_21 (BUFX2) to drive load g4809__2802/B0 
+Estimated cell power/ground rail width = 0.408 um
+*** Starting refinePlace (0:00:36.2 mem=4210.7M) ***
+Total net bbox length = 8.611e+02 (4.594e+02 4.017e+02) (ext = 1.205e+02)
+Move report: Detail placement moves 4 insts, mean move: 3.62 um, max move: 6.09 um 
+	Max move on inst (FE_ECOC0_n_21): (21.75, 23.78) --> (25.23, 21.17)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4210.7MB
+Summary Report:
+Instances move: 4 (out of 65 movable)
+Instances flipped: 0
+Mean displacement: 3.62 um
+Max displacement: 6.09 um (Instance: FE_ECOC0_n_21) (21.75, 23.78) -> (25.23, 21.17)
+	Length: 6 sites, height: 1 rows, site name: gsclib090site, cell type: BUFX2
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 8.837e+02 (4.756e+02 4.081e+02) (ext = 1.205e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4210.7MB
+*** Finished refinePlace (0:00:36.2 mem=4210.7M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_21
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC1_n_21 (BUFX2) to drive load FE_ECOC0_n_21/A 
+*** Starting refinePlace (0:00:37.4 mem=4253.7M) ***
+Total net bbox length = 8.846e+02 (4.762e+02 4.084e+02) (ext = 1.205e+02)
+Move report: Detail placement moves 7 insts, mean move: 2.73 um, max move: 6.09 um 
+	Max move on inst (FE_ECOC1_n_21): (21.75, 23.78) --> (25.23, 21.17)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4229.7MB
+Summary Report:
+Instances move: 7 (out of 66 movable)
+Instances flipped: 0
+Mean displacement: 2.73 um
+Max displacement: 6.09 um (Instance: FE_ECOC1_n_21) (21.75, 23.78) -> (25.23, 21.17)
+	Length: 6 sites, height: 1 rows, site name: gsclib090site, cell type: BUFX2
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 9.008e+02 (4.840e+02 4.168e+02) (ext = 1.205e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4229.7MB
+*** Finished refinePlace (0:00:37.4 mem=4229.7M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_21
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC2_n_21 (BUFX2) to drive load FE_ECOC1_n_21/A 
+*** Starting refinePlace (0:00:37.5 mem=4245.7M) ***
+Total net bbox length = 9.017e+02 (4.846e+02 4.171e+02) (ext = 1.205e+02)
+Move report: Detail placement moves 6 insts, mean move: 4.16 um, max move: 6.09 um 
+	Max move on inst (FE_ECOC2_n_21): (21.75, 23.78) --> (25.23, 21.17)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4229.7MB
+Summary Report:
+Instances move: 6 (out of 67 movable)
+Instances flipped: 0
+Mean displacement: 4.16 um
+Max displacement: 6.09 um (Instance: FE_ECOC2_n_21) (21.75, 23.78) -> (25.23, 21.17)
+	Length: 6 sites, height: 1 rows, site name: gsclib090site, cell type: BUFX2
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 9.119e+02 (4.887e+02 4.232e+02) (ext = 1.205e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:01.0 MEM: 4229.7MB
+*** Finished refinePlace (0:00:37.5 mem=4229.7M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_21
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC3_n_21 (BUFX2) to drive load FE_ECOC2_n_21/A 
+*** Starting refinePlace (0:00:37.6 mem=4245.7M) ***
+Total net bbox length = 9.127e+02 (4.892e+02 4.235e+02) (ext = 1.205e+02)
+Move report: Detail placement moves 5 insts, mean move: 7.42 um, max move: 14.79 um 
+	Max move on inst (g4811): (31.61, 15.95) --> (24.65, 8.12)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4229.7MB
+Summary Report:
+Instances move: 5 (out of 68 movable)
+Instances flipped: 0
+Mean displacement: 7.42 um
+Max displacement: 14.79 um (Instance: g4811) (31.61, 15.95) -> (24.65, 8.12)
+	Length: 3 sites, height: 1 rows, site name: gsclib090site, cell type: INVXL
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 9.271e+02 (4.972e+02 4.299e+02) (ext = 1.205e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4229.7MB
+*** Finished refinePlace (0:00:37.6 mem=4229.7M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_21
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC4_n_21 (BUFX2) to drive load FE_ECOC3_n_21/A 
+*** Starting refinePlace (0:00:38.9 mem=4272.8M) ***
+Total net bbox length = 9.280e+02 (4.978e+02 4.302e+02) (ext = 1.205e+02)
+Move report: Detail placement moves 5 insts, mean move: 10.44 um, max move: 24.36 um 
+	Max move on inst (g4837): (31.03, 10.73) --> (9.28, 13.34)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+Summary Report:
+Instances move: 5 (out of 69 movable)
+Instances flipped: 0
+Mean displacement: 10.44 um
+Max displacement: 24.36 um (Instance: g4837) (31.03, 10.73) -> (9.28, 13.34)
+	Length: 3 sites, height: 1 rows, site name: gsclib090site, cell type: CLKINVX1
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 9.734e+02 (5.179e+02 4.554e+02) (ext = 1.190e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+*** Finished refinePlace (0:00:38.9 mem=4248.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_70
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC5_n_70 (BUFX2) to drive load counter_u_d_reg[5]/D 
+*** Starting refinePlace (0:00:39.0 mem=4264.8M) ***
+Total net bbox length = 9.748e+02 (5.191e+02 4.557e+02) (ext = 1.190e+02)
+Move report: Detail placement moves 2 insts, mean move: 7.69 um, max move: 12.47 um 
+	Max move on inst (g4806): (31.03, 26.39) --> (21.17, 29.00)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+Summary Report:
+Instances move: 2 (out of 70 movable)
+Instances flipped: 1
+Mean displacement: 7.69 um
+Max displacement: 12.47 um (Instance: g4806) (31.03, 26.39) -> (21.17, 29)
+	Length: 5 sites, height: 1 rows, site name: gsclib090site, cell type: CLKINVX2
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 9.876e+02 (5.342e+02 4.534e+02) (ext = 1.190e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+*** Finished refinePlace (0:00:39.0 mem=4248.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_70
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC6_n_70 (BUFX2) to drive load FE_ECOC5_n_70/A 
+*** Starting refinePlace (0:00:39.1 mem=4264.8M) ***
+Total net bbox length = 9.885e+02 (5.348e+02 4.537e+02) (ext = 1.190e+02)
+Move report: Detail placement moves 2 insts, mean move: 5.80 um, max move: 9.86 um 
+	Max move on inst (FE_ECOC6_n_70): (30.74, 29.00) --> (20.88, 29.00)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+Summary Report:
+Instances move: 2 (out of 71 movable)
+Instances flipped: 0
+Mean displacement: 5.80 um
+Max displacement: 9.86 um (Instance: FE_ECOC6_n_70) (30.74, 29) -> (20.88, 29)
+	Length: 6 sites, height: 1 rows, site name: gsclib090site, cell type: BUFX2
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 1.010e+03 (5.562e+02 4.537e+02) (ext = 1.190e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+*** Finished refinePlace (0:00:39.1 mem=4248.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_70
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC7_n_70 (BUFX2) to drive load FE_ECOC6_n_70/A 
+*** Starting refinePlace (0:00:39.1 mem=4264.8M) ***
+Total net bbox length = 1.011e+03 (5.574e+02 4.540e+02) (ext = 1.190e+02)
+Move report: Detail placement moves 5 insts, mean move: 16.47 um, max move: 29.58 um 
+	Max move on inst (g4826__5526): (27.84, 8.12) --> (8.70, 18.56)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+Summary Report:
+Instances move: 5 (out of 72 movable)
+Instances flipped: 0
+Mean displacement: 16.47 um
+Max displacement: 29.58 um (Instance: g4826__5526) (27.84, 8.12) -> (8.7, 18.56)
+	Length: 4 sites, height: 1 rows, site name: gsclib090site, cell type: NOR2XL
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 1.029e+03 (5.725e+02 4.566e+02) (ext = 1.208e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+*** Finished refinePlace (0:00:39.2 mem=4248.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_70
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC8_n_70 (BUFX2) to drive load FE_ECOC7_n_70/A 
+*** Starting refinePlace (0:00:40.2 mem=4272.8M) ***
+Total net bbox length = 1.031e+03 (5.736e+02 4.569e+02) (ext = 1.208e+02)
+**WARN: (IMPSP-2020):	Cannot find a legal location for instance 'g4833__6783_dup' (Cell NOR2X1).
+**ERROR: (IMPSP-2021):	Could not legalize <1> instances in the design. Check warning message IMPSP-270, IMPSP-452, IMPSP-2024, IMPSP-2039, IMPSP-2040, IMPSP-2042, or IMPSP-2020 in the log file for more details.Move report: Detail placement moves 6 insts, mean move: 12.71 um, max move: 24.65 um 
+	Max move on inst (g4825__5107): (31.03, 23.78) --> (16.82, 13.34)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+Summary Report:
+Instances move: 6 (out of 73 movable)
+Instances flipped: 1
+Mean displacement: 12.71 um
+Max displacement: 24.65 um (Instance: g4825__5107) (31.03, 23.78) -> (16.82, 13.34)
+	Length: 5 sites, height: 1 rows, site name: gsclib090site, cell type: NOR2X1
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 1.119e+03 (6.083e+02 5.103e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4248.8MB
+*** Finished refinePlace (0:00:40.2 mem=4248.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC9_n_12 (BUFX2) to drive load FE_RC_0_0/A2 
+*** Starting refinePlace (0:00:40.4 mem=4264.8M) ***
+Total net bbox length = 1.120e+03 (6.095e+02 5.105e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (99.6%), stopping detail placement.
+Total net bbox length = 1.120e+03 (6.095e+02 5.105e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.4 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC10_n_12 (BUFX2) to drive load FE_ECOC9_n_12/A 
+*** Starting refinePlace (0:00:40.4 mem=4264.8M) ***
+Total net bbox length = 1.121e+03 (6.101e+02 5.108e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (100.4%), stopping detail placement.
+Total net bbox length = 1.121e+03 (6.101e+02 5.108e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.4 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC11_n_12 (BUFX2) to drive load FE_ECOC10_n_12/A 
+*** Starting refinePlace (0:00:40.5 mem=4264.8M) ***
+Total net bbox length = 1.122e+03 (6.106e+02 5.111e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (101.2%), stopping detail placement.
+Total net bbox length = 1.122e+03 (6.106e+02 5.111e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.5 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC12_n_12 (BUFX2) to drive load FE_ECOC11_n_12/A 
+*** Starting refinePlace (0:00:40.5 mem=4264.8M) ***
+Total net bbox length = 1.123e+03 (6.112e+02 5.114e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (102.0%), stopping detail placement.
+Total net bbox length = 1.123e+03 (6.112e+02 5.114e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.5 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC13_n_12 (BUFX2) to drive load FE_ECOC12_n_12/A 
+*** Starting refinePlace (0:00:40.6 mem=4264.8M) ***
+Total net bbox length = 1.124e+03 (6.118e+02 5.117e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (102.8%), stopping detail placement.
+Total net bbox length = 1.124e+03 (6.118e+02 5.117e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.6 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC14_n_12 (BUFX2) to drive load FE_ECOC13_n_12/A 
+*** Starting refinePlace (0:00:40.7 mem=4264.8M) ***
+Total net bbox length = 1.124e+03 (6.124e+02 5.120e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (103.6%), stopping detail placement.
+Total net bbox length = 1.124e+03 (6.124e+02 5.120e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.7 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC15_n_12 (BUFX2) to drive load FE_ECOC14_n_12/A 
+*** Starting refinePlace (0:00:40.7 mem=4264.8M) ***
+Total net bbox length = 1.125e+03 (6.130e+02 5.123e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (104.4%), stopping detail placement.
+Total net bbox length = 1.125e+03 (6.130e+02 5.123e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.7 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC16_n_12 (BUFX2) to drive load FE_ECOC15_n_12/A 
+*** Starting refinePlace (0:00:40.8 mem=4264.8M) ***
+Total net bbox length = 1.126e+03 (6.135e+02 5.126e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (105.2%), stopping detail placement.
+Total net bbox length = 1.126e+03 (6.135e+02 5.126e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.8 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC17_n_12 (BUFX2) to drive load FE_ECOC16_n_12/A 
+*** Starting refinePlace (0:00:40.8 mem=4264.8M) ***
+Total net bbox length = 1.127e+03 (6.141e+02 5.129e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (106.0%), stopping detail placement.
+Total net bbox length = 1.127e+03 (6.141e+02 5.129e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.8 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC18_n_12 (BUFX2) to drive load FE_ECOC17_n_12/A 
+*** Starting refinePlace (0:00:40.9 mem=4264.8M) ***
+Total net bbox length = 1.128e+03 (6.147e+02 5.132e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (106.8%), stopping detail placement.
+Total net bbox length = 1.128e+03 (6.147e+02 5.132e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:40.9 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC19_n_12 (BUFX2) to drive load FE_ECOC18_n_12/A 
+*** Starting refinePlace (0:00:41.0 mem=4264.8M) ***
+Total net bbox length = 1.129e+03 (6.153e+02 5.134e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (107.6%), stopping detail placement.
+Total net bbox length = 1.129e+03 (6.153e+02 5.134e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:41.0 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_12
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC20_n_12 (BUFX2) to drive load FE_ECOC19_n_12/A 
+*** Starting refinePlace (0:00:41.8 mem=4264.8M) ***
+Total net bbox length = 1.130e+03 (6.159e+02 5.137e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (108.4%), stopping detail placement.
+Total net bbox length = 1.130e+03 (6.159e+02 5.137e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:41.8 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_14
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+**WARN: (IMPOPT-6106):	There is mismatch between RC data and routing for net n_14. Rebuilding the RC network for the net; coupling caps will be grounded.
+Add inst FE_ECOC21_n_14 (BUFX2) to drive load g4816__6161/A 
+*** Starting refinePlace (0:00:41.9 mem=4264.8M) ***
+Total net bbox length = 1.130e+03 (6.164e+02 5.134e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (109.2%), stopping detail placement.
+Total net bbox length = 1.130e+03 (6.164e+02 5.134e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:41.9 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_14
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC22_n_14 (BUFX2) to drive load FE_ECOC21_n_14/A 
+*** Starting refinePlace (0:00:42.0 mem=4264.8M) ***
+Total net bbox length = 1.131e+03 (6.170e+02 5.137e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (110.0%), stopping detail placement.
+Total net bbox length = 1.131e+03 (6.170e+02 5.137e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:42.0 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_14
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC23_n_14 (BUFX2) to drive load FE_ECOC22_n_14/A 
+*** Starting refinePlace (0:00:42.1 mem=4264.8M) ***
+Total net bbox length = 1.132e+03 (6.176e+02 5.140e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (110.8%), stopping detail placement.
+Total net bbox length = 1.132e+03 (6.176e+02 5.140e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:42.1 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_49
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+**WARN: (IMPOPT-6106):	There is mismatch between RC data and routing for net n_49. Rebuilding the RC network for the net; coupling caps will be grounded.
+Add inst FE_ECOC24_n_49 (BUFX2) to drive load counter_u_d_reg[7]/RN counter_u_d_reg[6]/RN counter_u_d_reg[4]/RN counter_u_d_reg[5]/RN counter_u_d_reg[1]/RN counter_u_d_reg[0]/RN counter_u_d_reg[2]/RN counter_u_d_reg[3]/RN 
+*** Starting refinePlace (0:00:43.2 mem=4264.8M) ***
+Total net bbox length = 1.133e+03 (6.184e+02 5.143e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (111.6%), stopping detail placement.
+Total net bbox length = 1.133e+03 (6.184e+02 5.143e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:43.2 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_49
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC25_n_49 (BUFX2) to drive load FE_ECOC24_n_49/A 
+*** Starting refinePlace (0:00:43.3 mem=4264.8M) ***
+Total net bbox length = 1.134e+03 (6.190e+02 5.146e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (112.4%), stopping detail placement.
+Total net bbox length = 1.134e+03 (6.190e+02 5.146e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:43.3 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_49
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC26_n_49 (BUFX2) to drive load FE_ECOC25_n_49/A 
+*** Starting refinePlace (0:00:43.3 mem=4264.8M) ***
+Total net bbox length = 1.134e+03 (6.196e+02 5.149e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (113.3%), stopping detail placement.
+Total net bbox length = 1.134e+03 (6.196e+02 5.149e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:43.3 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_49
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC27_n_49 (BUFX2) to drive load FE_ECOC26_n_49/A 
+*** Starting refinePlace (0:00:43.4 mem=4264.8M) ***
+Total net bbox length = 1.135e+03 (6.201e+02 5.152e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (114.1%), stopping detail placement.
+Total net bbox length = 1.135e+03 (6.201e+02 5.152e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4264.8MB
+*** Finished refinePlace (0:00:43.4 mem=4264.8M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_27
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC28_n_27 (BUFX2) to drive load FE_OCPC9_n_27/A g4804__7098/A1 
+*** Starting refinePlace (0:00:45.0 mem=4283.9M) ***
+Total net bbox length = 1.137e+03 (6.213e+02 5.155e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (114.9%), stopping detail placement.
+Total net bbox length = 1.137e+03 (6.213e+02 5.155e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:45.0 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_27
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC29_n_27 (BUFX2) to drive load FE_ECOC28_n_27/A 
+*** Starting refinePlace (0:00:45.1 mem=4283.9M) ***
+Total net bbox length = 1.138e+03 (6.219e+02 5.158e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (115.7%), stopping detail placement.
+Total net bbox length = 1.138e+03 (6.219e+02 5.158e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:45.1 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_27
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC30_n_27 (BUFX2) to drive load FE_ECOC29_n_27/A 
+*** Starting refinePlace (0:00:45.2 mem=4283.9M) ***
+Total net bbox length = 1.139e+03 (6.225e+02 5.161e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (116.5%), stopping detail placement.
+Total net bbox length = 1.139e+03 (6.225e+02 5.161e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:45.2 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+**WARN: (IMPSYC-123):	No wire on net FE_ECON27_n_49.
+**WARN: (IMPSYC-123):	No wire on net FE_ECON26_n_49.
+**WARN: (IMPSYC-123):	No wire on net FE_ECON25_n_49.
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_16
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC31_n_16 (BUFX2) to drive load g4809__2802/A1 g4815__4733/A 
+*** Starting refinePlace (0:00:46.6 mem=4283.9M) ***
+Total net bbox length = 1.139e+03 (6.230e+02 5.158e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (117.3%), stopping detail placement.
+Total net bbox length = 1.139e+03 (6.230e+02 5.158e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:46.6 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_16
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC32_n_16 (BUFX2) to drive load FE_ECOC31_n_16/A 
+*** Starting refinePlace (0:00:46.7 mem=4283.9M) ***
+Total net bbox length = 1.140e+03 (6.236e+02 5.161e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (118.1%), stopping detail placement.
+Total net bbox length = 1.140e+03 (6.236e+02 5.161e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:46.7 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_16
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC33_n_16 (BUFX2) to drive load FE_ECOC32_n_16/A 
+*** Starting refinePlace (0:00:46.8 mem=4283.9M) ***
+Total net bbox length = 1.141e+03 (6.242e+02 5.163e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (118.9%), stopping detail placement.
+Total net bbox length = 1.141e+03 (6.242e+02 5.163e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:46.8 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+**WARN: (IMPSYC-123):	No wire on net FE_ECON27_n_49.
+**WARN: (IMPSYC-123):	No wire on net FE_ECON26_n_49.
+**WARN: (IMPSYC-123):	No wire on net FE_ECON25_n_49.
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net FE_RN_1_0
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC34_FE_RN_1_0 (BUFX2) to drive load FE_RC_2_0/B 
+*** Starting refinePlace (0:00:48.3 mem=4283.9M) ***
+Total net bbox length = 1.142e+03 (6.254e+02 5.166e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (119.7%), stopping detail placement.
+Total net bbox length = 1.142e+03 (6.254e+02 5.166e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:48.3 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net FE_RN_1_0
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC35_FE_RN_1_0 (BUFX2) to drive load FE_ECOC34_FE_RN_1_0/A 
+*** Starting refinePlace (0:00:48.4 mem=4283.9M) ***
+Total net bbox length = 1.143e+03 (6.259e+02 5.169e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (120.5%), stopping detail placement.
+Total net bbox length = 1.143e+03 (6.259e+02 5.169e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:48.4 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net FE_RN_1_0
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC36_FE_RN_1_0 (BUFX2) to drive load FE_ECOC35_FE_RN_1_0/A 
+*** Starting refinePlace (0:00:48.5 mem=4283.9M) ***
+Total net bbox length = 1.144e+03 (6.265e+02 5.172e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (121.3%), stopping detail placement.
+Total net bbox length = 1.144e+03 (6.265e+02 5.172e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:48.5 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net FE_RN_1_0
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC37_FE_RN_1_0 (BUFX2) to drive load FE_ECOC36_FE_RN_1_0/A 
+*** Starting refinePlace (0:00:48.5 mem=4283.9M) ***
+Total net bbox length = 1.145e+03 (6.271e+02 5.175e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (122.1%), stopping detail placement.
+Total net bbox length = 1.145e+03 (6.271e+02 5.175e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:48.5 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+**WARN: (IMPSYC-123):	No wire on net FE_ECON27_n_49.
+**WARN: (IMPSYC-123):	No wire on net FE_ECON26_n_49.
+**WARN: (IMPSYC-123):	No wire on net FE_ECON25_n_49.
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+**WARN: (IMPOPT-6106):	There is mismatch between RC data and routing for net n_71. Rebuilding the RC network for the net; coupling caps will be grounded.
+Add inst FE_ECOC38_n_71 (BUFX2) to drive load counter_u_d_reg[1]/D 
+*** Starting refinePlace (0:00:50.0 mem=4283.9M) ***
+Total net bbox length = 1.149e+03 (6.277e+02 5.213e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (122.9%), stopping detail placement.
+Total net bbox length = 1.149e+03 (6.277e+02 5.213e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.0 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC39_n_71 (BUFX2) to drive load FE_ECOC38_n_71/A 
+*** Starting refinePlace (0:00:50.0 mem=4283.9M) ***
+Total net bbox length = 1.150e+03 (6.283e+02 5.216e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (123.7%), stopping detail placement.
+Total net bbox length = 1.150e+03 (6.283e+02 5.216e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.0 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC40_n_71 (BUFX2) to drive load FE_ECOC39_n_71/A 
+*** Starting refinePlace (0:00:50.1 mem=4283.9M) ***
+Total net bbox length = 1.151e+03 (6.288e+02 5.219e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (124.5%), stopping detail placement.
+Total net bbox length = 1.151e+03 (6.288e+02 5.219e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.1 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC41_n_71 (BUFX2) to drive load FE_ECOC40_n_71/A 
+*** Starting refinePlace (0:00:50.1 mem=4283.9M) ***
+Total net bbox length = 1.152e+03 (6.294e+02 5.221e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (125.3%), stopping detail placement.
+Total net bbox length = 1.152e+03 (6.294e+02 5.221e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.1 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC42_n_71 (BUFX2) to drive load FE_ECOC41_n_71/A 
+*** Starting refinePlace (0:00:50.2 mem=4283.9M) ***
+Total net bbox length = 1.152e+03 (6.300e+02 5.224e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (126.1%), stopping detail placement.
+Total net bbox length = 1.152e+03 (6.300e+02 5.224e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.2 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC43_n_71 (BUFX2) to drive load FE_ECOC42_n_71/A 
+*** Starting refinePlace (0:00:50.2 mem=4283.9M) ***
+Total net bbox length = 1.153e+03 (6.306e+02 5.227e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (126.9%), stopping detail placement.
+Total net bbox length = 1.153e+03 (6.306e+02 5.227e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.2 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC44_n_71 (BUFX2) to drive load FE_ECOC43_n_71/A 
+*** Starting refinePlace (0:00:50.3 mem=4283.9M) ***
+Total net bbox length = 1.154e+03 (6.312e+02 5.230e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (127.7%), stopping detail placement.
+Total net bbox length = 1.154e+03 (6.312e+02 5.230e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.3 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC45_n_71 (BUFX2) to drive load FE_ECOC44_n_71/A 
+*** Starting refinePlace (0:00:50.3 mem=4283.9M) ***
+Total net bbox length = 1.155e+03 (6.317e+02 5.233e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (128.5%), stopping detail placement.
+Total net bbox length = 1.155e+03 (6.317e+02 5.233e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.3 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC46_n_71 (BUFX2) to drive load FE_ECOC45_n_71/A 
+*** Starting refinePlace (0:00:50.4 mem=4283.9M) ***
+Total net bbox length = 1.156e+03 (6.323e+02 5.236e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (129.3%), stopping detail placement.
+Total net bbox length = 1.156e+03 (6.323e+02 5.236e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.4 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC47_n_71 (BUFX2) to drive load FE_ECOC46_n_71/A 
+*** Starting refinePlace (0:00:50.4 mem=4283.9M) ***
+Total net bbox length = 1.157e+03 (6.329e+02 5.239e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (130.1%), stopping detail placement.
+Total net bbox length = 1.157e+03 (6.329e+02 5.239e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.4 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC48_n_71 (BUFX2) to drive load FE_ECOC47_n_71/A 
+*** Starting refinePlace (0:00:50.5 mem=4283.9M) ***
+Total net bbox length = 1.158e+03 (6.335e+02 5.242e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (130.9%), stopping detail placement.
+Total net bbox length = 1.158e+03 (6.335e+02 5.242e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.5 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC49_n_71 (BUFX2) to drive load FE_ECOC48_n_71/A 
+*** Starting refinePlace (0:00:50.5 mem=4283.9M) ***
+Total net bbox length = 1.159e+03 (6.341e+02 5.245e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (131.7%), stopping detail placement.
+Total net bbox length = 1.159e+03 (6.341e+02 5.245e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.5 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC50_n_71 (BUFX2) to drive load FE_ECOC49_n_71/A 
+*** Starting refinePlace (0:00:50.6 mem=4283.9M) ***
+Total net bbox length = 1.159e+03 (6.346e+02 5.248e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (132.5%), stopping detail placement.
+Total net bbox length = 1.159e+03 (6.346e+02 5.248e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.6 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_71
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC51_n_71 (BUFX2) to drive load FE_ECOC50_n_71/A 
+*** Starting refinePlace (0:00:50.6 mem=4283.9M) ***
+Total net bbox length = 1.160e+03 (6.352e+02 5.250e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (133.3%), stopping detail placement.
+Total net bbox length = 1.160e+03 (6.352e+02 5.250e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:50.6 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_22
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC52_n_22 (BUFX2) to drive load g4795__3680/S0 
+*** Starting refinePlace (0:00:51.7 mem=4283.9M) ***
+Total net bbox length = 1.161e+03 (6.358e+02 5.253e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (134.1%), stopping detail placement.
+Total net bbox length = 1.161e+03 (6.358e+02 5.253e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:51.7 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_22
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC53_n_22 (BUFX2) to drive load FE_ECOC52_n_22/A 
+*** Starting refinePlace (0:00:51.8 mem=4283.9M) ***
+Total net bbox length = 1.162e+03 (6.364e+02 5.256e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (134.9%), stopping detail placement.
+Total net bbox length = 1.162e+03 (6.364e+02 5.256e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:51.8 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_22
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC54_n_22 (BUFX2) to drive load FE_ECOC53_n_22/A 
+*** Starting refinePlace (0:00:51.9 mem=4283.9M) ***
+Total net bbox length = 1.163e+03 (6.370e+02 5.259e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (135.7%), stopping detail placement.
+Total net bbox length = 1.163e+03 (6.370e+02 5.259e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:51.9 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_22
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC55_n_22 (BUFX2) to drive load FE_ECOC54_n_22/A 
+*** Starting refinePlace (0:00:51.9 mem=4283.9M) ***
+Total net bbox length = 1.164e+03 (6.375e+02 5.262e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (136.5%), stopping detail placement.
+Total net bbox length = 1.164e+03 (6.375e+02 5.262e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:52.0 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_22
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC56_n_22 (BUFX2) to drive load FE_ECOC55_n_22/A 
+*** Starting refinePlace (0:00:52.0 mem=4283.9M) ***
+Total net bbox length = 1.165e+03 (6.381e+02 5.265e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (137.3%), stopping detail placement.
+Total net bbox length = 1.165e+03 (6.381e+02 5.265e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:52.0 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_22
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC57_n_22 (BUFX2) to drive load FE_ECOC56_n_22/A 
+*** Starting refinePlace (0:00:52.1 mem=4283.9M) ***
+Total net bbox length = 1.165e+03 (6.387e+02 5.268e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (138.2%), stopping detail placement.
+Total net bbox length = 1.165e+03 (6.387e+02 5.268e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4283.9MB
+*** Finished refinePlace (0:00:52.1 mem=4283.9M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_48
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC58_n_48 (BUFX2) to drive load counter_u_d_reg[7]/D 
+*** Starting refinePlace (0:00:53.7 mem=4303.0M) ***
+Total net bbox length = 1.170e+03 (6.393e+02 5.311e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (139.0%), stopping detail placement.
+Total net bbox length = 1.170e+03 (6.393e+02 5.311e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4303.0MB
+*** Finished refinePlace (0:00:53.7 mem=4303.0M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_48
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC59_n_48 (BUFX2) to drive load FE_ECOC58_n_48/A 
+*** Starting refinePlace (0:00:53.8 mem=4303.0M) ***
+Total net bbox length = 1.171e+03 (6.399e+02 5.314e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (139.8%), stopping detail placement.
+Total net bbox length = 1.171e+03 (6.399e+02 5.314e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4303.0MB
+*** Finished refinePlace (0:00:53.8 mem=4303.0M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_48
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC60_n_48 (BUFX2) to drive load FE_ECOC59_n_48/A 
+*** Starting refinePlace (0:00:53.9 mem=4303.0M) ***
+Total net bbox length = 1.172e+03 (6.404e+02 5.317e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (140.6%), stopping detail placement.
+Total net bbox length = 1.172e+03 (6.404e+02 5.317e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4303.0MB
+*** Finished refinePlace (0:00:53.9 mem=4303.0M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_48
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC61_n_48 (BUFX2) to drive load FE_ECOC60_n_48/A 
+*** Starting refinePlace (0:00:54.0 mem=4303.0M) ***
+Total net bbox length = 1.173e+03 (6.410e+02 5.320e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (141.4%), stopping detail placement.
+Total net bbox length = 1.173e+03 (6.410e+02 5.320e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4303.0MB
+*** Finished refinePlace (0:00:54.0 mem=4303.0M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_48
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC62_n_48 (BUFX2) to drive load FE_ECOC61_n_48/A 
+*** Starting refinePlace (0:00:54.0 mem=4303.0M) ***
+Total net bbox length = 1.174e+03 (6.416e+02 5.323e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (142.2%), stopping detail placement.
+Total net bbox length = 1.174e+03 (6.416e+02 5.323e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4303.0MB
+*** Finished refinePlace (0:00:54.0 mem=4303.0M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+**WARN: (IMPSYC-123):	No wire on net FE_ECON27_n_49.
+**WARN: (IMPSYC-123):	No wire on net FE_ECON26_n_49.
+**WARN: (IMPSYC-123):	No wire on net FE_ECON25_n_49.
+<CMD_INTERNAL> zoomSelected
+<CMD_INTERNAL> zoomSelected
+<CMD> all_analysis_views
+best_corner worst_case
+<CMD> all_setup_analysis_views
+<CMD> all_hold_analysis_views
+<CMD> get_analysis_view $view -delay_corner
+<CMD> get_delay_corner $dc -rc_corner
+<CMD> add_repeater -cell BUFX2 -net n_44
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC63_n_44 (BUFX2) to drive load counter_u_d_reg[3]/D 
+*** Starting refinePlace (0:00:55.1 mem=4303.0M) ***
+Total net bbox length = 1.175e+03 (6.422e+02 5.326e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (143.0%), stopping detail placement.
+Total net bbox length = 1.175e+03 (6.422e+02 5.326e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4303.0MB
+*** Finished refinePlace (0:00:55.1 mem=4303.0M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_44
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC64_n_44 (BUFX2) to drive load FE_ECOC63_n_44/A 
+*** Starting refinePlace (0:00:55.2 mem=4303.0M) ***
+Total net bbox length = 1.176e+03 (6.428e+02 5.329e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (143.8%), stopping detail placement.
+Total net bbox length = 1.176e+03 (6.428e+02 5.329e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4303.0MB
+*** Finished refinePlace (0:00:55.2 mem=4303.0M) ***
+<CMD_INTERNAL> redraw
+<CMD> add_repeater -cell BUFX2 -net n_44
+#################################################################################
+# Design Name: count8
+# Design Mode: 65nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Add inst FE_ECOC65_n_44 (BUFX2) to drive load FE_ECOC64_n_44/A 
+*** Starting refinePlace (0:00:55.3 mem=4303.0M) ***
+Total net bbox length = 1.176e+03 (6.433e+02 5.332e+02) (ext = 1.266e+02)
+**ERROR: (IMPSP-2002):	Density too high (144.6%), stopping detail placement.
+Total net bbox length = 1.176e+03 (6.433e+02 5.332e+02) (ext = 1.266e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 4303.0MB
+*** Finished refinePlace (0:00:55.3 mem=4303.0M) ***
+<CMD_INTERNAL> redraw
+<CMD> get_time_unit
+<CMD> report_timing -output_format binary -max_paths 50000 -max_slack 0.75 -path_exceptions all -early > top.btarpt
+<CMD> load_timing_debug_report -name default_report top.btarpt -max_path_num 10000 -updateCategory 0 -isDrv 0
+Parsing file top.btarpt...
+<CMD> write_eco -format innovus -output hold.tcl

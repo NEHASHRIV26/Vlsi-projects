@@ -1,0 +1,36 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-XLMODE
+./test_scripts/Inca_libs_11_20_59/run.lnx8664.22.09.d
+-RUNMODE
+-amsdlibdir
+./test_scripts/Inca_libs_11_20_59/AMSD
+-STATUS
+-LIBEXT
+.v
+-LIBEXT
+.V
+-LIBEXT
+.z
+-LIBEXT
+.Z
+-LIBEXT
+.gz
+-XMLIBDIRNAME
+./test_scripts/Inca_libs_11_20_59
+-VFILE
+/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v
+./test_scripts/count8.test_netlist.v
+./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.mainsim.v
+-CDSLIB
+./test_scripts/Inca_libs_11_20_59/run.lnx8664.22.09.d/cdsrun.lib
+-HDLVAR
+./test_scripts/Inca_libs_11_20_59/run.lnx8664.22.09.d/hdlrun.var
+-no_analogsolver
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./test_scripts/Inca_libs_11_20_59/run.lnx8664.22.09.d/xllibs
+-ALLOWUNBOUND

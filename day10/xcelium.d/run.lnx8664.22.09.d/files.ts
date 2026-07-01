@@ -1,0 +1,9 @@
+1781237449 /home/vlsi19/day10/class.sv
+1781243851 /home/vlsi19/day10/random.sv
+1781245318 /home/vlsi19/day10/cons_random.sv
+1781252042 /home/vlsi19/day10/randmethods.sv
+1781252968 /home/vlsi19/day10/random_extern.sv
+1781254718 /home/vlsi19/day10/cons_set.sv
+1781257776 /home/vlsi19/day10/cons_dis.sv
+1781258879 /home/vlsi19/day10/cons_imp.sv
+1781259479 /home/vlsi19/day10/inline_cons.sv

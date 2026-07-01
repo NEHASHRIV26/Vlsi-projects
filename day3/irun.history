@@ -1,0 +1,43 @@
+s1(03Jun2026:10:25:13):  irun mult.v mult_tb.v -access +rwc -gui 
+s2(03Jun2026:10:25:48):  irun mult.v mult_tb.v -access +rwc -gui 
+s3(03Jun2026:10:28:12):  irun mult.v mult_tb.v -access +rwc -gui 
+s4(03Jun2026:10:36:05):  irun mult.v mult_tb.v -access +rwc -gui 
+s5(03Jun2026:10:49:08):  irun mult.v mult_tb.v -access +rwc -gui 
+s6(03Jun2026:10:50:13):  irun mult.v mult_tb.v -access +rwc -gui 
+s7(03Jun2026:10:55:52):  irun mult.v mult_tb.v -access +rwc -gui 
+s8(03Jun2026:10:57:00):  irun mult.v mult_tb.v -access +rwc -gui 
+s9(03Jun2026:11:03:17):  irun mult.v mult_tb.v -access +rwc -gui 
+s10(03Jun2026:11:08:56):  irun mult.v mult_tb.v -access +rwc -gui 
+s11(03Jun2026:11:12:04):  irun mult.v mult_tb.v -access +rwc -gui 
+s12(03Jun2026:11:12:41):  irun mult.v mult_tb.v -access +rwc -gui 
+s13(03Jun2026:11:12:56):  irun mult.v mult_tb.v -access +rwc -gui 
+s14(03Jun2026:11:13:15):  irun mult.v mult_tb.v -access +rwc -gui 
+s15(03Jun2026:11:14:30):  irun mult.v mult_tb.v -access +rwc -gui 
+s16(03Jun2026:11:17:13):  irun mult.v mult_tb.v -access +rwc -gui 
+s17(03Jun2026:11:18:10):  irun mult.v mult_tb.v -access +rwc -gui 
+s18(03Jun2026:11:19:23):  irun mult.v mult_tb.v -access +rwc -gui 
+s19(03Jun2026:11:20:26):  irun ha.v mult.v mult_tb.v -access +rwc -gui 
+s20(03Jun2026:11:31:46):  irun ha.v mult.v mult_tb.v -access +rwc -gui 
+s21(03Jun2026:11:32:15):  irun ha.v mult.v mult_tb.v -access +rwc -gui 
+s22(03Jun2026:15:17:49):  irun ad.v ad_tb.v -access +rwc -gui 
+s23(03Jun2026:15:18:15):  irun alu.v alu_tb.v -access +rwc -gui 
+s24(03Jun2026:15:20:10):  irun alu.v alu_tb.v -access +rwc -gui 
+s25(03Jun2026:15:20:23):  irun alu.v alu_tb.v -access +rwc -gui 
+s26(03Jun2026:15:21:00):  irun alu.v alu_tb.v -access +rwc -gui 
+s27(03Jun2026:15:21:10):  irun alu.v alu_tb.v -access +rwc -gui 
+s28(03Jun2026:15:22:23):  irun alu.v alu_tb.v -access +rwc -gui 
+s29(03Jun2026:15:52:03):  irun sr.v sr_tb.v -access +rwc -gui 
+s30(03Jun2026:15:53:15):  irun sr.v sr_tb.v -access +rwc -gui 
+s31(03Jun2026:15:54:23):  irun sr.v sr_tb.v -access +rwc -gui 
+s32(03Jun2026:15:54:49):  irun sr.v sr_tb.v -access +rwc -gui 
+s33(03Jun2026:15:55:31):  irun sr.v sr_tb.v -access +rwc -gui 
+s34(03Jun2026:15:58:02):  irun sr.v sr_tb.v -access +rwc -gui 
+s35(03Jun2026:15:59:15):  irun sr.v sr_tb.v -access +rwc -gui 
+s36(03Jun2026:16:02:02):  irun -c -q -nostdout -access +rwc -ncelabargs -partialdesign -log ./.hal-irun.log /home/vlsi19/day3/sr.v 
+s37(03Jun2026:16:02:06):  irun -c -q -nostdout -access +rwc -ncelabargs -partialdesign -log ./.hal-irun.log /home/vlsi19/day3/sr_tb.v 
+s38(03Jun2026:16:06:57):  irun -c -q -nostdout -access +rwc -ncelabargs -partialdesign -log ./.hal-irun.log /home/vlsi19/day3/sr.v 
+s39(03Jun2026:16:07:03):  irun -c -q -nostdout -access +rwc -ncelabargs -partialdesign -log ./.hal-irun.log /home/vlsi19/day3/sr_tb.v 
+s40(03Jun2026:16:13:16):  irun sr.v sr_tb.v -access +rwc -gui 
+s41(03Jun2026:16:20:23):  irun jk.v jk_tb.v -access +rwc -gui 
+s42(03Jun2026:16:21:27):  irun jk.v jk_tb.v -access +rwc -gui 
+s43(09Jun2026:11:35:22):  irun alu.v alu_tb.v -access +rwc -gui 

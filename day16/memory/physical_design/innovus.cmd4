@@ -1,0 +1,542 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Thu Jun 18 14:38:11 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.15-s110_1 (64bit) 09/23/2022 13:08 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.15-s110_1 NR220912-2004/21_15-UB (database version 18.20.592) {superthreading v2.17}
+#@(#)CDS: AAE 21.15-s039 (64bit) 09/23/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.15-s038_1 () Sep 20 2022 11:42:13 ( )
+#@(#)CDS: SYNTECH 21.15-s012_1 () Sep  5 2022 10:25:51 ( )
+#@(#)CDS: CPE v21.15-s076
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s867 (64bit) Sun Jun 26 22:12:54 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getVersion
+getVersion
+getVersion
+win
+encMessage warning 0
+encMessage debug 0
+is_common_ui_mode
+restoreDesign /home/vlsi19/day16/memory/physical_design/memory_powerplan.enc.dat memory
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+addEndCap -preCap FILL1 -postCap FILL1 -prefix ENDCAP
+setRouteMode -earlyGlobalHonorMsvRouteConstraint false -earlyGlobalRoutePartitionPinGuide true
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -droutePostRouteSpreadWire 1
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule LEFDefaultRouteSpec_gpdk090
+setNanoRouteMode -quiet -timingEngine {}
+setUsefulSkewMode -noBoundary false -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 1 -moduleAwareSpare 0 -preserveRouting 1 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+place_design
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+addEndCap -preCap FILL1 -postCap FILL1 -prefix ENDCAP
+setRouteMode -earlyGlobalHonorMsvRouteConstraint false -earlyGlobalRoutePartitionPinGuide true
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -noBoundary false -maxAllowedDelay 1
+setRouteMode -earlyGlobalHonorMsvRouteConstraint false -earlyGlobalRoutePartitionPinGuide true
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -noBoundary false -maxAllowedDelay 1
+setPlaceMode -fp false
+place_design
+setLayerPreference node_layer -isVisible 0
+setPlaceMode -fp false
+place_design
+setSrouteMode -viaConnectToShape { noshape }
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { Metal1(1) Metal9(9) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { Metal1(1) Metal9(9) } -nets { VDD VSS } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { Metal1(1) Metal9(9) }
+addEndCap -preCap FILL1 -postCap FILL1 -prefix ENDCAP
+setRouteMode -earlyGlobalHonorMsvRouteConstraint false -earlyGlobalRoutePartitionPinGuide true
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -noBoundary false -maxAllowedDelay 1
+setPlaceMode -fp false
+place_design
+setPlaceMode -fp false
+place_design
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_bump -isVisible 0
+setLayerPreference node_bump -isVisible 1
+setLayerPreference node_gird -isVisible 1
+setDrawView place
+setLayerPreference node_bump -isVisible 0
+setLayerPreference node_gird -isVisible 0
+setLayerPreference node_bump -isVisible 1
+zoomBox -195.02000 -87.76800 381.73200 193.95150
+zoomBox -77.80900 -11.20100 223.26050 135.85900
+zoomBox -16.51650 26.19550 140.64400 102.96200
+zoomBox 15.47800 45.49350 97.51750 85.56650
+zoomBox 0.37900 37.45850 113.92850 92.92250
+zoomBox 51.04550 61.86500 110.31900 90.81750
+zoomBox 76.27600 74.35400 107.21850 89.46800
+zoomBox 88.99800 80.23450 105.15000 88.12400
+zoomBox 92.65000 82.13500 102.57100 86.98100
+zoomBox 94.40250 82.94250 101.57100 86.44400
+zoomBox 93.66750 81.42200 105.34100 87.12400
+zoomBox 94.17600 81.90450 104.09850 86.75100
+selectObject Pin {mem_reg[10][3]/CK}
+zoomBox 90.65750 78.63900 113.02100 89.56250
+zoomBox 82.38950 71.33100 132.79200 95.95050
+zoomBox 73.02700 63.07700 155.09950 103.16600
+zoomBox 57.78250 49.63750 191.42450 114.91600
+zoomBox 54.88500 43.14000 212.11100 119.93850
+zoomBox 18.76400 -46.12950 509.21100 193.43350
+zoomBox 0.73450 -95.50250 679.55400 236.07300
+saveDesign memory_placement.enc
+saveDesign memory_placement.enc
+saveDesign memory_placement.enc
+saveDesign memory_placement.enc
+saveDesign memory_placement.enc
+deselectAll
+fit
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+timeDesign -preCTS -pathReports -drvReports -slackReports -numPaths 50 -prefix memory_preCTS -outDir timingReports
+getCTSMode -engine -quiet
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+zoomBox -79.46900 7.23700 176.43850 132.23700
+redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+timeDesign -preCTS -pathReports -drvReports -slackReports -numPaths 50 -prefix memory_preCTS -outDir timingReports
+redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+timeDesign -preCTS -pathReports -drvReports -slackReports -numPaths 50 -prefix memory_preCTS -outDir timingReports
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+create_ccopt_clock_tree_spec
+ctd_win -side none -id ctd_window
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+zoomBox 7.98600 46.19150 121.53400 101.65500
+zoomBox 41.36700 61.06300 100.64100 90.01600
+zoomBox 58.91850 68.88950 89.86100 84.00350
+zoomBox 66.31550 72.18800 85.31800 81.47000
+zoomBox 70.21750 74.97450 80.13750 79.82000
+zoomBox 71.37550 75.81050 78.54300 79.31150
+zoomBox 71.82750 76.13700 77.92000 79.11300
+zoomBox 71.43500 75.71550 78.60300 79.21700
+zoomBox 67.11300 71.07750 86.12300 80.36300
+zoomBox 58.41600 61.74200 101.26050 82.67000
+zoomBox 62.75300 66.39850 93.70900 81.51900
+zoomBox 59.94650 65.05600 96.36500 82.84500
+zoomBox 29.04350 50.27600 125.61050 97.44500
+zoomBox 62.75150 66.39750 93.70900 81.51900
+zoomBox 67.16450 68.50850 89.53200 79.43400
+zoomBox 74.97200 72.24300 82.14250 75.74550
+zoomBox 70.36650 70.03400 86.52650 77.92750
+zoomBox 56.80400 63.39400 99.65450 84.32450
+zoomBox 29.53250 49.91200 126.10750 97.08500
+zoomBox 43.08200 56.69700 112.85750 90.77950
+zoomBox 59.94400 65.14000 96.36800 82.93150
+zoomBox 62.66950 66.56750 93.63000 81.69050
+zoomBox 70.04100 70.43500 86.20350 78.32950
+zoomBox 72.27200 71.60700 83.94950 77.31100
+zoomBox 70.04750 70.43800 86.21050 78.33300
+zoomBox 74.70000 74.29700 79.88200 76.82800
+zoomBox 63.77050 65.23200 94.74550 80.36200
+zoomBox 20.45200 29.06700 154.19000 94.39250
+zoomBox -99.42600 -70.76000 317.75350 133.01500
+zoomBox -140.48500 -94.11250 350.31500 145.62300
+zoomBox -98.98850 -71.30850 318.19200 132.46700
+zoomBox 13.41100 -9.54100 231.18300 96.83150
+zoomBox 81.69600 27.98450 178.32250 75.18250
+zoomBox 111.99300 44.63400 154.86850 65.57700
+zoomBox 123.54100 50.96650 145.92350 61.89950
+zoomBox 129.56300 54.27250 141.24700 59.97950
+zoomBox 132.09750 55.66550 139.27300 59.17050
+zoomBox 133.65000 56.52100 138.05800 58.67400
+zoomBox 123.58900 50.97300 145.98300 61.91150
+zoomBox 61.14750 16.52050 194.97050 81.88750
+zoomBox -187.27100 -121.01450 390.50650 161.20600
+zoomBox -59.98700 -35.92000 241.61750 111.40150
+zoomBox 16.21900 15.42600 150.04400 80.79400
+zoomBox 39.59650 31.19050 121.78250 71.33500
+zoomBox 57.35100 43.18350 100.25350 64.13950
+zoomBox 66.61650 49.44350 89.01250 60.38300
+zoomBox 69.42050 51.34050 85.60200 59.24450
+zoomBox 72.67650 52.99050 79.85750 56.49800
+zoomBox 74.12050 53.72400 77.30800 55.28100
+zoomBox 71.68300 52.49350 81.63150 57.35300
+zoomBox 64.08150 48.64500 95.11950 63.80600
+zoomBox 40.46150 36.70850 137.28650 84.00350
+zoomBox -100.15250 -34.49450 391.66300 205.73700
+zoomBox -17.35700 46.47750 239.37450 171.88000
+zoomBox 32.94300 95.63600 146.85700 151.27850
+zoomBox 52.11900 114.40000 111.58400 143.44600
+zoomBox 61.56450 123.56250 92.60600 138.72500
+zoomBox 67.29800 129.11650 81.07300 135.84500
+zoomBox 67.97450 129.77800 79.68400 135.49750
+zoomBox 69.66150 131.59050 75.77450 134.57650
+zoomBox 70.31600 132.37850 74.07150 134.21300
+zoomBox 70.48550 132.58800 73.67750 134.14700
+zoomBox 69.61600 131.50200 75.73250 134.48950
+zoomBox 68.91800 130.63100 77.38350 134.76600
+zoomBox 66.51000 127.60000 82.72850 135.52200
+zoomBox 65.63000 126.48100 84.71050 135.80100
+zoomBox 61.96950 121.82750 93.03900 137.00350
+zoomBox 70.24050 127.51100 86.46000 135.43350
+zoomBox 75.26500 130.96400 82.46250 134.47950
+zoomBox 77.39500 132.46550 80.58950 134.02600
+zoomBox 78.17800 133.04050 79.84650 133.85550
+zoomBox 77.20250 132.23750 80.96650 134.07600
+zoomBox 74.30900 129.85700 84.29050 134.73250
+zoomBox 66.63500 123.54750 93.10400 136.47650
+zoomBox 46.29050 106.80850 116.47450 141.09050
+zoomBox 25.76750 89.93050 140.05050 145.75300
+zoomBox 44.19300 111.39850 103.85000 140.53850
+zoomBox 56.83500 126.04100 79.33650 137.03200
+zoomBox 61.61400 131.56150 70.10100 135.70700
+zoomBox 63.54300 132.98250 67.31000 134.82250
+zoomBox 61.98300 132.19600 69.20100 135.72150
+zoomBox 58.99500 130.69300 72.82250 137.44700
+zoomBox 53.28450 127.82100 79.77500 140.76050
+zoomBox 56.21400 131.00550 67.96850 136.74700
+zoomBox 57.66850 132.58500 62.10250 134.75100
+zoomBox 58.15200 133.11550 60.12050 134.07700
+zoomBox 57.32850 132.21250 63.47300 135.21400
+zoomBox 56.20300 130.98850 67.97700 136.73950
+zoomBox 53.21300 127.76200 79.74950 140.72400
+zoomBox 48.25500 122.42450 99.09100 147.25600
+zoomBox 35.15600 108.32950 149.72900 164.29350
+selectObject Net clk
+zoomSelected
+zoomBox -39.78800 40.89550 178.92050 147.72550
+zoomBox 10.10850 87.28900 124.27600 143.05500
+zoomBox 31.13500 106.83950 101.24850 141.08700
+zoomBox 50.12800 121.59250 81.23900 136.78900
+zoomBox 57.36950 127.21750 73.60950 135.15000
+zoomBox 60.42100 129.58750 70.39500 134.45950
+zoomBox 62.73850 131.65350 67.94550 134.19700
+zoomBox 63.94850 132.73200 66.66750 134.06000
+zoomBox 62.74950 131.65750 67.96000 134.20250
+zoomBox 61.17350 130.24500 69.65900 134.39000
+zoomBox 59.60500 128.84000 71.35050 134.57700
+zoomBox 56.05400 125.65950 75.18150 135.00250
+zoomBox 57.00950 128.80850 68.75650 134.54650
+zoomBox 57.75250 131.20800 63.88600 134.20400
+zoomBox 58.15200 132.46550 61.35400 134.02950
+zoomBox 57.72800 131.19650 63.86300 134.19300
+zoomBox 56.47900 127.80500 70.30700 134.55950
+zoomBox 54.42250 122.21350 80.91450 135.15350
+zoomBox 51.68200 114.85100 94.82100 135.92250
+zoomBox 48.95450 107.52200 108.66350 136.68750
+zoomBox 47.21950 102.86100 117.46650 137.17400
+zoomBox 49.71950 117.74450 86.38900 135.65600
+zoomBox 50.77600 124.01300 73.29600 135.01300
+zoomBox 51.74450 129.57200 61.73850 134.45350
+zoomBox 52.12150 131.69900 57.33900 134.24750
+zoomBox 51.60000 128.78050 63.36000 134.52500
+zoomBox 50.42450 122.20400 76.92950 135.15050
+zoomBox 47.73000 107.38250 107.46700 136.56150
+zoomBox 45.01850 90.72500 142.29100 138.23850
+zoomBox 47.11450 107.30900 106.85250 136.48850
+zoomBox 48.73000 119.93850 79.91400 135.17050
+zoomBox 49.59500 126.54200 65.87400 134.49350
+zoomBox 50.04650 129.98900 58.54500 134.14000
+zoomBox 50.23700 131.44150 55.45650 133.99100
+zoomBox 49.85200 128.53700 61.61700 134.28350
+zoomBox 48.89600 121.96850 75.41200 134.92050
+zoomBox 46.01200 102.43700 116.31850 136.77900
+zoomBox 40.03800 63.05550 198.49350 140.45450
+zoomBox 29.99000 -1.87650 333.54300 146.39650
+deselectAll
+selectInst g18797__2883
+fit
+zoomBox -31.23200 46.77500 153.66100 137.08750
+zoomBox 0.27000 79.60550 113.81800 135.06900
+zoomBox -30.48950 47.04000 154.40500 137.35350
+zoomBox -8.56100 71.56700 125.02600 136.81850
+zoomBox 18.68200 102.09050 88.41650 136.15300
+zoomBox 32.90350 118.02500 69.30600 135.80600
+zoomBox 38.03300 122.47000 64.33400 135.31700
+zoomBox 44.41700 128.00200 58.14700 134.70850
+zoomBox 47.10750 130.33400 55.53950 134.45250
+zoomBox 49.48850 132.39800 53.23100 134.22600
+zoomBox 50.22100 133.03300 52.52000 134.15600
+zoomBox 49.15300 132.10750 53.55850 134.25950
+zoomBox 47.10650 130.33450 55.54700 134.45750
+zoomBox 43.18600 126.93750 59.35850 134.83700
+zoomBox 45.18350 130.18950 53.62600 134.31350
+zoomBox 46.02450 131.55950 51.21000 134.09250
+zoomBox 44.79600 129.56150 54.73150 134.41450
+zoomBox 41.57700 124.32050 63.97050 135.25900
+zoomBox 26.12800 99.16700 108.31200 139.31050
+zoomBox 28.49650 116.16100 71.39800 137.11650
+zoomBox 29.49500 123.32250 55.84200 136.19200
+zoomBox 30.25350 128.77050 44.00800 135.48900
+zoomBox 30.59050 131.13450 37.77150 134.64200
+zoomBox 30.76550 132.36850 34.51500 134.20000
+zoomBox 30.79450 132.57100 33.98150 134.12750
+zoomBox 30.52250 130.67700 38.97450 134.80550
+zoomBox 29.90700 126.61300 48.95600 135.91750
+zoomBox 28.87300 119.91550 65.36550 137.74050
+selectObject Net clk
+zoomSelected
+zoomBox -40.75150 36.60700 179.07900 143.98500
+zoomBox -1.27550 71.21950 133.72850 137.16350
+zoomBox 8.14800 79.48250 122.90200 135.53500
+zoomBox 16.15800 86.50600 113.69950 134.15100
+deselectAll
+selectInst g18797__2883
+zoomBox 43.63100 101.93900 86.91200 123.08000
+zoomBox 52.08700 106.68900 78.66750 119.67250
+zoomBox 16.15350 86.50350 113.70200 134.15200
+zoomBox -88.68200 26.92750 215.61200 175.56250
+zoomBox -343.50550 -117.88350 463.32450 276.21950
+zoomBox -121.26100 16.80000 236.73400 191.66600
+zoomBox -36.53050 68.14850 150.34650 159.43000
+zoomBox -22.65050 76.56000 136.19500 154.14950
+zoomBox -1.28100 103.41400 81.63900 143.91700
+zoomBox 7.72500 114.73050 58.64850 139.60450
+zoomBox 16.65200 125.94800 35.85850 135.32950
+zoomBox 18.73700 128.56850 30.53350 134.33050
+zoomBox 19.68550 130.98250 25.84450 133.99100
+zoomBox 19.97550 131.71500 24.42600 133.88900
+zoomBox 20.08850 132.00150 23.87200 133.84950
+zoomBox 18.72550 128.56050 30.53200 134.32750
+zoomBox 12.07450 111.75900 63.05450 136.66050
+zoomBox -6.26900 65.33750 152.75800 143.01550
+zoomBox 24.27700 96.92050 107.29000 137.46900
+zoomBox 29.38750 107.12600 89.36600 136.42300
+zoomBox 31.65500 114.48700 74.99000 135.65450
+zoomBox 34.47700 123.64850 57.09850 134.69800
+zoomBox 35.66550 127.50900 49.55900 134.29550
+zoomBox 36.19000 129.21400 46.22950 134.11800
+zoomBox 36.39500 129.88000 44.92900 134.04850
+zoomBox 36.84250 131.33650 42.08450 133.89700
+zoomBox 36.94950 131.68400 41.40550 133.86050
+zoomBox 35.94500 128.42800 47.76200 134.20000
+zoomBox 32.82550 117.49700 69.69150 135.50450
+zoomBox 25.25400 90.93000 123.00500 138.67750
+zoomBox 51.93750 111.42200 102.96550 136.34700
+zoomBox 63.18250 120.05750 94.52000 135.36450
+zoomBox 70.08850 125.36050 89.33400 134.76100
+zoomBox 73.13850 127.70250 87.04350 134.49450
+zoomBox 76.20200 130.05550 84.74200 134.22700
+zoomBox 76.93350 130.61750 84.19250 134.16300
+zoomBox 78.08350 131.50050 83.32850 134.06250
+zoomBox 78.53250 131.84550 82.99150 134.02350
+zoomBox 74.33400 128.61950 86.15900 134.39550
+zoomBox 73.14550 127.70600 87.05700 134.50100
+zoomBox 60.05850 117.64650 96.94500 135.66400
+zoomBox 25.35800 90.97500 123.16300 138.74850
+zoomBox -44.49050 37.28700 175.93750 144.95700
+zoomBox 1.61850 90.06050 99.42400 137.83450
+zoomBox 28.87400 110.73800 79.92950 135.67650
+zoomBox 37.13350 117.00400 74.02200 135.02250
+zoomBox 49.09750 126.08000 65.46550 134.07500
+zoomBox 52.77950 128.87250 62.83250 133.78300
+zoomBox 53.65850 129.53950 62.20350 133.71350
+zoomBox 55.53600 130.85800 60.78450 133.42150
+zoomBox 52.79900 128.93650 62.85250 133.84700
+zoomBox 49.22800 126.42550 65.59800 134.42150
+zoomBox 53.65600 129.92750 62.20150 134.10150
+zoomBox 54.38150 130.50100 61.64500 134.04900
+zoomBox 55.96700 131.75550 60.42800 133.93450
+zoomBox 56.34550 132.05500 60.13750 133.90700
+zoomBox 56.66750 132.30900 59.89050 133.88350
+zoomBox 56.94050 132.52500 59.68050 133.86350
+zoomBox 57.17250 132.70850 59.50200 133.84650
+zoomBox 57.53750 132.99750 59.22150 133.82000
+zoomBox 57.80200 133.20600 59.01900 133.80050
+zoomBox 57.99300 133.35700 58.87250 133.78650
+zoomBox 58.06750 133.41600 58.81500 133.78100
+zoomBox 57.17000 132.70650 59.50400 133.84650
+zoomBox 53.62900 129.92100 62.19650 134.10600
+zoomBox 40.63000 119.69900 72.07700 135.05950
+zoomBox 2.76250 89.92250 100.86000 137.83900
+zoomBox -67.11250 34.97500 153.97700 142.96800
+zoomBox -47.50600 49.89000 140.42000 141.68400
+zoomBox -16.67500 73.34350 119.10200 139.66500
+zoomBox 21.69400 102.53100 92.57100 137.15150
+zoomBox 27.97950 107.31250 88.22500 136.74000
+zoomBox 45.00450 120.26300 76.45350 135.62450
+zoomBox 53.89100 127.02400 70.30800 135.04300
+zoomBox 56.58450 129.07250 68.44600 134.86650
+zoomBox 59.93150 131.62150 66.12400 134.64650
+zoomBox 60.94500 132.39400 65.42050 134.58000
+zoomBox 55.34200 128.12700 69.30550 134.94750
+zoomBox 41.77500 117.84750 78.79900 135.93200
+zoomBox -4.32650 82.96450 111.16800 139.37900
+zoomBox -89.36900 18.76350 170.92950 145.90850
+zoomBox -413.06100 -225.64850 398.91000 170.96600
+zoomBox -497.13600 -289.13100 458.12500 177.47450
+zoomBox -148.03150 -25.53100 212.24500 150.44900
+zoomBox -46.98800 50.76450 141.07850 142.62700
+deselectAll
+zoomBox 46.94700 103.44500 117.87750 138.09150
+zoomBox 78.58900 121.19050 110.06250 136.56400
+zoomBox 88.32800 126.65200 107.65700 136.09350
+zoomBox 94.30350 130.00600 106.17450 135.80450
+zoomBox 96.55950 130.73400 105.13750 134.92400
+zoomBox 99.40550 131.79200 103.88400 133.97950
+zoomBox 100.96500 132.46300 103.30300 133.60500
+zoomBox 101.63800 132.76550 103.07500 133.46750
+zoomBox 101.79900 132.83800 103.02050 133.43450
+zoomBox 100.64150 132.28450 103.39550 133.62950
+zoomBox 97.20600 130.64150 104.51000 134.20900
+zoomBox 92.15600 128.22550 106.14900 135.06050
+zoomBox 96.24850 130.34250 104.84150 134.54000
+zoomBox 99.36400 131.96300 103.85050 134.15450
+zoomBox 100.67650 132.64600 103.43300 133.99250
+zoomBox 101.83900 133.25050 103.06350 133.84850
+zoomBox 101.97800 133.32300 103.01900 133.83150
+zoomBox 102.19700 133.43700 102.94950 133.80450
+zoomBox 102.28250 133.48150 102.92250 133.79400
+zoomBox 102.35550 133.51950 102.89950 133.78500
+zoomBox 101.25150 132.94500 103.25100 133.92150
+zoomBox 97.21100 130.83950 104.55300 134.42600
+zoomBox 78.85600 121.38900 110.56000 136.87500
+zoomBox -0.11200 80.85400 136.77250 147.71650
+zoomBox -339.14900 -93.21950 251.85300 195.46050
+zoomBox -190.81900 -35.01500 172.13000 142.27050
+fit
+selectInst {mem_reg[3][20]}
+zoomSelected
+deselectAll
+selectInst {mem_reg[3][20]}
+zoomBox -24.60450 80.21400 64.79900 123.88400
+zoomBox -181.85300 26.71550 146.24850 186.97950
+zoomBox -114.60150 44.54500 122.45250 160.33600
+deselectAll
+selectInst {mem_reg[10][2]}
+deselectAll
+selectInst {mem_reg[10][2]}
+zoomBox -483.45950 -53.84250 256.00450 307.35500
+zoomBox -266.53250 -9.43750 187.59100 212.38300
+fit
+deselectInst {mem_reg[10][2]}
+selectInst {mem_reg[4][16]}
+zoomSelected
+deselectInst {mem_reg[4][16]}
+selectInst {mem_reg[4][16]}
+zoomSelected
+deselectInst {mem_reg[4][16]}
+selectObject Net clk
+zoomSelected
+deselectObject Net clk
+selectObject Net clk
+zoomSelected
+zoomBox -40.62300 2.45600 216.68250 128.13900
+zoomBox 6.74800 19.06850 192.65100 109.87450
+zoomBox 42.18150 31.45500 176.49700 97.06250
+zoomBox 67.84850 40.44450 164.89200 87.84600
+zoomBox 93.88600 49.62450 153.48300 78.73500
+zoomBox 109.97950 55.47450 146.57950 73.35200
+zoomBox 119.98000 59.27050 142.45700 70.24950
+zoomBox 126.12200 61.60200 139.92550 68.34450
+zoomBox 127.67600 62.43150 139.40900 68.16250
+zoomBox 131.03900 64.22700 138.24500 67.74700
+zoomBox 132.52300 65.01850 137.73000 67.56200
+zoomBox 133.55650 65.55400 137.31950 67.39200
+zoomBox 133.95450 65.75700 137.15300 67.31950
+zoomBox 134.58000 66.07700 136.89150 67.20600
+zoomBox 130.30250 63.91400 138.78950 68.05950
+zoomBox 110.87850 54.08800 147.52350 71.98750
+zoomBox 69.19600 32.99850 166.36000 80.45900
+zoomBox -41.17950 -22.86500 216.44750 102.97500
+zoomBox -152.43100 -79.15400 267.07150 125.75550
+zoomBox -38.53300 -42.31500 264.55750 105.73200
+zoomBox 5.94900 -27.92800 263.57600 97.91200
+fit
+setNanoRouteMode -quiet -routeWithTimingDriven 1
+setNanoRouteMode -quiet -routeWithSiDriven 1
+setNanoRouteMode -quiet -routeTopRoutingLayer 9
+setNanoRouteMode -quiet -routeBottomRoutingLayer 1
+setNanoRouteMode -quiet -drouteEndIteration 1
+setNanoRouteMode -quiet -routeWithTimingDriven true
+setNanoRouteMode -quiet -routeWithSiDriven true
+routeDesign -globalDetail
+setLayerPreference node_layer -isVisible 1
+zoomBox -11.83700 39.58150 121.74950 104.83300
+zoomBox 29.01700 64.22200 71.84350 85.14100
+zoomBox 38.29450 69.57050 60.65150 80.49100
+zoomBox 43.09100 72.34600 54.76150 78.04650
+zoomBox 44.52950 73.18200 52.96150 77.30050
+zoomBox 45.09100 73.50750 52.25800 77.00850
+zoomBox 45.56750 73.78450 51.66000 76.76050
+zoomBox 45.97300 74.02000 51.15150 76.54950
+zoomBox 46.41000 74.15150 50.81200 76.30150
+zoomBox 47.09650 74.35750 50.27700 75.91100
+zoomBox 47.36450 74.43800 50.06800 75.75850
+zoomBox 41.09650 72.54800 54.83250 79.25750
+zoomBox 20.36800 66.26700 70.77850 90.89050
+zoomBox -73.48100 37.84500 144.17100 144.15900
+zoomBox -120.11800 23.80100 181.13300 170.94950
+fit
+zoomBox -17.13250 0.43300 140.02800 77.19950
+zoomBox 37.71600 6.54650 74.11800 24.32750
+zoomBox 22.72450 4.88350 92.46000 38.94650
+zoomBox -17.05450 0.39050 140.11650 77.16200
+zoomBox -134.87550 -12.94550 281.85900 190.61200
+fit
+ui_view_box
+ui_view_box
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType inst
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType regular
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType special
+ui_view_box
+ui_view_box
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType inst
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType regular
+dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType special

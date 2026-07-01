@@ -1,0 +1,564 @@
+xrun(64): 22.09-s003: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	22.09-s003: Started on Jun 25, 2026 at 14:37:22 IST
+xrun
+	+access+rwc
+	+xmstatus
+	+xm64bit
+	+TESTFILE1=./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.scan.ex1.ts1.verilog
+	+TESTFILE2=./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.logic.ex1.ts2.verilog
+	+HEARTBEAT
+	+FAILSET
+	+xmtimescale+1ns/1ps
+	+xmoverride_timescale
+	+xmseq_udp_delay+2ps
+	+libext+.v+.V+.z+.Z+.gz
+	+xmlibdirname+./test_scripts/Inca_libs_11_20_59
+	-l ./test_scripts/ncverilog_FULLSCAN.log
+	-v /home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v
+	./test_scripts/count8.test_netlist.v
+	./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.mainsim.v
+
+   User defined plus("+") options:
+	+TESTFILE1=./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.scan.ex1.ts1.verilog
+	+TESTFILE2=./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.logic.ex1.ts2.verilog
+	+HEARTBEAT
+	+FAILSET
+
+xrun: *W,LEXTSF: Unknown suffix (.z) found in a libext option.  The suffixes will be mapped to Verilog.
+xrun: *W,LEXTSF: Unknown suffix (.Z) found in a libext option.  The suffixes will be mapped to Verilog.
+xrun: *W,LEXTSF: Unknown suffix (.gz) found in a libext option.  The suffixes will be mapped to Verilog.
+file: ./test_scripts/count8.test_netlist.v
+	module worklib.count8:v
+		errors: 0, warnings: 0
+file: ./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.mainsim.v
+	module worklib.test_scripts_FULLSCAN_count8_atpg:v
+		errors: 0, warnings: 0
+file: /home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v
+	module slow.AOI21X1:v
+		errors: 0, warnings: 0
+	module slow.AOI31X1:v
+		errors: 0, warnings: 0
+	module slow.AOI31X2:v
+		errors: 0, warnings: 0
+	module slow.BUFX2:v
+		errors: 0, warnings: 0
+	module slow.CLKBUFX2:v
+		errors: 0, warnings: 0
+	module slow.CLKINVX1:v
+		errors: 0, warnings: 0
+	module slow.CLKINVX2:v
+		errors: 0, warnings: 0
+	module slow.CLKINVX3:v
+		errors: 0, warnings: 0
+	module slow.INVX1:v
+		errors: 0, warnings: 0
+	module slow.INVXL:v
+		errors: 0, warnings: 0
+	module slow.MXI2X1:v
+		errors: 0, warnings: 0
+	module slow.NAND2X1:v
+		errors: 0, warnings: 0
+	module slow.NAND2X2:v
+		errors: 0, warnings: 0
+	module slow.NAND2XL:v
+		errors: 0, warnings: 0
+	module slow.NAND3X1:v
+		errors: 0, warnings: 0
+	module slow.NAND3X2:v
+		errors: 0, warnings: 0
+	module slow.NAND3XL:v
+		errors: 0, warnings: 0
+	module slow.NOR2BX1:v
+		errors: 0, warnings: 0
+	module slow.NOR2X1:v
+		errors: 0, warnings: 0
+	module slow.NOR2X2:v
+		errors: 0, warnings: 0
+	module slow.NOR2XL:v
+		errors: 0, warnings: 0
+	module slow.NOR3X1:v
+		errors: 0, warnings: 0
+	module slow.NOR3X2:v
+		errors: 0, warnings: 0
+	module slow.NOR4X1:v
+		errors: 0, warnings: 0
+	module slow.SDFFRHQX1:v
+		errors: 0, warnings: 0
+	module slow.SDFFRHQX2:v
+		errors: 0, warnings: 0
+	module slow.SDFFRHQX4:v
+		errors: 0, warnings: 0
+	primitive slow.udp_dff:v
+		errors: 0, warnings: 0
+	primitive slow.udp_mux2:v
+		errors: 0, warnings: 0
+xmvlog: Memory Usage - Current physical: 26.5M, Current virtual: 61.4M
+xmvlog: CPU Usage - 0.0s system + 0.0s user = 0.0s total (0.1s, 66.0% cpu)
+xmelab: *N,INFSUD: -NOSPECIFY is automatically used with -SEQ_UDP_DELAY.
+		Caching library 'slow' ....... Done
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		test_scripts_FULLSCAN_count8_atpg
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, negedge D, thold_negedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14394|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[7] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, negedge SI, thold_negedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14398|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[7] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, posedge D, thold_posedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14400|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[7] ).
+     $hold (posedge CK &&& RN == 1'b1, posedge SE, thold_posedge$SE$CK,  NOTIFIER);
+                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14402|69): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[7] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, posedge SI, thold_posedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14404|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[7] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, negedge D, thold_negedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14464|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[6] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, negedge SI, thold_negedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14468|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[6] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, posedge D, thold_posedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14470|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[6] ).
+     $hold (posedge CK &&& RN == 1'b1, posedge SE, thold_posedge$SE$CK,  NOTIFIER);
+                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14472|69): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[6] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, posedge SI, thold_posedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14474|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[6] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, posedge D, thold_posedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14540|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[4] ).
+     $hold (posedge CK &&& RN == 1'b1, posedge SE, thold_posedge$SE$CK,  NOTIFIER);
+                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14542|69): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[4] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, posedge SI, thold_posedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14544|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[4] ).
+     $recovery(posedge RN, posedge CK, trec$RN$CK, NOTIFIER);
+                                                |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14545|48): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[4] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, posedge D, thold_posedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14540|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[5] ).
+     $hold (posedge CK &&& RN == 1'b1, posedge SE, thold_posedge$SE$CK,  NOTIFIER);
+                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14542|69): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[5] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, posedge SI, thold_posedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14544|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[5] ).
+     $recovery(posedge RN, posedge CK, trec$RN$CK, NOTIFIER);
+                                                |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14545|48): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[5] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, posedge D, thold_posedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14540|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[2] ).
+     $hold (posedge CK &&& RN == 1'b1, posedge SE, thold_posedge$SE$CK,  NOTIFIER);
+                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14542|69): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[2] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, posedge SI, thold_posedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14544|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[2] ).
+     $recovery(posedge RN, posedge CK, trec$RN$CK, NOTIFIER);
+                                                |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14545|48): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[2] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, posedge D, thold_posedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14540|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[1] ).
+     $hold (posedge CK &&& RN == 1'b1, posedge SE, thold_posedge$SE$CK,  NOTIFIER);
+                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14542|69): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[1] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, posedge SI, thold_posedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14544|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[1] ).
+     $recovery(posedge RN, posedge CK, trec$RN$CK, NOTIFIER);
+                                                |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14545|48): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[1] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, posedge D, thold_posedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14540|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[0] ).
+     $hold (posedge CK &&& RN == 1'b1, posedge SE, thold_posedge$SE$CK,  NOTIFIER);
+                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14542|69): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[0] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, posedge SI, thold_posedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14544|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[0] ).
+     $recovery(posedge RN, posedge CK, trec$RN$CK, NOTIFIER);
+                                                |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14545|48): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[0] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_0 == 1'b1, posedge D, thold_posedge$D$CK,  NOTIFIER);
+                                                                                   |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14540|83): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[3] ).
+     $hold (posedge CK &&& RN == 1'b1, posedge SE, thold_posedge$SE$CK,  NOTIFIER);
+                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14542|69): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[3] ).
+     $hold (posedge CK &&& RN_EQ_1_AN_SE_EQ_1 == 1'b1, posedge SI, thold_posedge$SI$CK,  NOTIFIER);
+                                                                                     |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14544|85): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[3] ).
+     $recovery(posedge RN, posedge CK, trec$RN$CK, NOTIFIER);
+                                                |
+xmelab: *W,CUNGL1 (/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v,14545|48): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (test_scripts_FULLSCAN_count8_atpg.count8_inst.\counter_u_d_reg[3] ).
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		slow.SDFFRHQX4:v <0x3bf2d90a>
+			streams:   0, words:     0
+		slow.SDFFRHQX2:v <0x6c297b66>
+			streams:   0, words:     0
+		slow.SDFFRHQX1:v <0x2281f41b>
+			streams:   0, words:     0
+		slow.SDFFRHQX4:v <0x29817748>
+			streams:   0, words:     0
+		worklib.test_scripts_FULLSCAN_count8_atpg:v <0x13b56ea2>
+			streams:  21, words: 115506
+		worklib.count8:v <0x247f21e9>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                80      29
+		UDPs:                   22       2
+		Primitives:            170       4
+		Registers:              94      90
+		Scalar wires:           69       -
+		Initial blocks:          1       1
+		Cont. assignments:      10       4
+		Pseudo assignments:      1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.test_scripts_FULLSCAN_count8_atpg:v
+xmelab: Memory Usage - Final: 61.8M, Peak: 61.8M, Peak virtual: 141.8M
+xmelab: CPU Usage - 0.0s system + 0.1s user = 0.1s total (0.1s, 78.9% cpu)
+Loading snapshot worklib.test_scripts_FULLSCAN_count8_atpg:v .................... Done
+xcelium> source /home/install/XCELIUM2209/tools/xcelium/files/xmsimrc
+xcelium> run
+
+INFO (TVE-200): Simulating vector file: ./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.scan.ex1.ts1.verilog 
+
+INFO (TVE-189): Design:  count8   Test Mode:  FULLSCAN   InExperiment:  count8_atpg 
+
+INFO (TVE-202): Simulating Test: 0  Odometer: 1.1.1.1.1.1  Relative Cycle: 1  Time: 0.00 ps  Tests Passed 0 of 0, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 1  Odometer: 1.1.1.2.1.1  Relative Cycle: 2  Time: 80000.00 ps  Relative Scan: 1  Tests Passed 1 of 1, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 1  Odometer: 1.1.1.2.1.2  Relative Cycle: 4  Time: 240000.00 ps  Relative Scan: 2  Tests Passed 1 of 1, Failed 0. 
+
+INFO (TVE-201): Simulation complete on vector file: ./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.scan.ex1.ts1.verilog 
+
+INFO (TVE-210): Results for vector file: ./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.scan.ex1.ts1.verilog 
+                      Number of Cycles:           6 
+                      Number of Tests:            1 
+                        - Passed Tests:           1 
+                        - Failed Tests:           0 
+                      Number of Compares:         8 
+                        - Good Compares:          8 
+                        - Miscompares:            0 
+                      Time:                       480000.00 ps 
+
+
+INFO (TVE-200): Simulating vector file: ./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.logic.ex1.ts2.verilog 
+
+INFO (TVE-189): Design:  count8   Test Mode:  FULLSCAN   InExperiment:  count8_atpg 
+
+INFO (TVE-202): Simulating Test: 0  Odometer: 1.2.1.1.1.1  Relative Cycle: 1  Time: 480000.00 ps  Tests Passed 0 of 0, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 2  Odometer: 1.2.1.2.1.1  Relative Cycle: 2  Time: 560000.00 ps  Relative Scan: 1  Tests Passed 1 of 1, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 2  Odometer: 1.2.1.2.1.2  Relative Cycle: 4  Time: 720000.00 ps  Tests Passed 1 of 1, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 2  Odometer: 1.2.1.2.1.3  Relative Cycle: 4  Time: 720000.00 ps  Tests Passed 1 of 1, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 2  Odometer: 1.2.1.2.1.4  Relative Cycle: 5  Time: 800000.00 ps  Relative Scan: 2  Overlap Tests 2 and 3.  Tests Passed 1 of 1, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 3  Odometer: 1.2.1.3.1.1  Relative Cycle: 5  Time: 800000.00 ps  Tests Passed 2 of 2, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 3  Odometer: 1.2.1.3.1.2  Relative Cycle: 7  Time: 960000.00 ps  Tests Passed 2 of 2, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 3  Odometer: 1.2.1.3.1.3  Relative Cycle: 7  Time: 960000.00 ps  Tests Passed 2 of 2, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 3  Odometer: 1.2.1.3.1.4  Relative Cycle: 7  Time: 960000.00 ps  Tests Passed 2 of 2, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 3  Odometer: 1.2.1.3.1.5  Relative Cycle: 8  Time: 1040000.00 ps  Relative Scan: 3  Overlap Tests 3 and 4.  Tests Passed 2 of 2, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 4  Odometer: 1.2.1.3.2.1  Relative Cycle: 8  Time: 1040000.00 ps  Tests Passed 3 of 3, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 4  Odometer: 1.2.1.3.2.2  Relative Cycle: 10  Time: 1200000.00 ps  Tests Passed 3 of 3, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 4  Odometer: 1.2.1.3.2.3  Relative Cycle: 10  Time: 1200000.00 ps  Tests Passed 3 of 3, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 4  Odometer: 1.2.1.3.2.4  Relative Cycle: 10  Time: 1200000.00 ps  Tests Passed 3 of 3, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 4  Odometer: 1.2.1.3.2.5  Relative Cycle: 11  Time: 1280000.00 ps  Relative Scan: 4  Overlap Tests 4 and 5.  Tests Passed 3 of 3, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 5  Odometer: 1.2.1.3.3.1  Relative Cycle: 11  Time: 1280000.00 ps  Tests Passed 4 of 4, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 5  Odometer: 1.2.1.3.3.2  Relative Cycle: 13  Time: 1440000.00 ps  Tests Passed 4 of 4, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 5  Odometer: 1.2.1.3.3.3  Relative Cycle: 13  Time: 1440000.00 ps  Tests Passed 4 of 4, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 5  Odometer: 1.2.1.3.3.4  Relative Cycle: 13  Time: 1440000.00 ps  Tests Passed 4 of 4, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 5  Odometer: 1.2.1.3.3.5  Relative Cycle: 14  Time: 1520000.00 ps  Relative Scan: 5  Overlap Tests 5 and 6.  Tests Passed 4 of 4, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 6  Odometer: 1.2.1.3.4.1  Relative Cycle: 14  Time: 1520000.00 ps  Tests Passed 5 of 5, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 6  Odometer: 1.2.1.3.4.2  Relative Cycle: 16  Time: 1680000.00 ps  Tests Passed 5 of 5, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 6  Odometer: 1.2.1.3.4.3  Relative Cycle: 16  Time: 1680000.00 ps  Tests Passed 5 of 5, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 6  Odometer: 1.2.1.3.4.4  Relative Cycle: 16  Time: 1680000.00 ps  Tests Passed 5 of 5, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 6  Odometer: 1.2.1.3.4.5  Relative Cycle: 17  Time: 1760000.00 ps  Relative Scan: 6  Overlap Tests 6 and 7.  Tests Passed 5 of 5, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 7  Odometer: 1.2.1.3.5.1  Relative Cycle: 17  Time: 1760000.00 ps  Tests Passed 6 of 6, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 7  Odometer: 1.2.1.3.5.2  Relative Cycle: 19  Time: 1920000.00 ps  Tests Passed 6 of 6, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 7  Odometer: 1.2.1.3.5.3  Relative Cycle: 19  Time: 1920000.00 ps  Tests Passed 6 of 6, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 7  Odometer: 1.2.1.3.5.4  Relative Cycle: 19  Time: 1920000.00 ps  Tests Passed 6 of 6, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 7  Odometer: 1.2.1.3.5.5  Relative Cycle: 20  Time: 2000000.00 ps  Relative Scan: 7  Overlap Tests 7 and 8.  Tests Passed 6 of 6, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 8  Odometer: 1.2.1.3.6.1  Relative Cycle: 20  Time: 2000000.00 ps  Tests Passed 7 of 7, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 8  Odometer: 1.2.1.3.6.2  Relative Cycle: 22  Time: 2160000.00 ps  Tests Passed 7 of 7, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 8  Odometer: 1.2.1.3.6.3  Relative Cycle: 22  Time: 2160000.00 ps  Tests Passed 7 of 7, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 8  Odometer: 1.2.1.3.6.4  Relative Cycle: 22  Time: 2160000.00 ps  Tests Passed 7 of 7, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 8  Odometer: 1.2.1.3.6.5  Relative Cycle: 23  Time: 2240000.00 ps  Relative Scan: 8  Overlap Tests 8 and 9.  Tests Passed 7 of 7, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 9  Odometer: 1.2.1.3.7.1  Relative Cycle: 23  Time: 2240000.00 ps  Tests Passed 8 of 8, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 9  Odometer: 1.2.1.3.7.2  Relative Cycle: 25  Time: 2400000.00 ps  Tests Passed 8 of 8, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 9  Odometer: 1.2.1.3.7.3  Relative Cycle: 25  Time: 2400000.00 ps  Tests Passed 8 of 8, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 9  Odometer: 1.2.1.3.7.4  Relative Cycle: 25  Time: 2400000.00 ps  Tests Passed 8 of 8, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 9  Odometer: 1.2.1.3.7.5  Relative Cycle: 26  Time: 2480000.00 ps  Relative Scan: 9  Overlap Tests 9 and 10.  Tests Passed 8 of 8, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 10  Odometer: 1.2.1.3.8.1  Relative Cycle: 26  Time: 2480000.00 ps  Tests Passed 9 of 9, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 10  Odometer: 1.2.1.3.8.2  Relative Cycle: 28  Time: 2640000.00 ps  Tests Passed 9 of 9, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 10  Odometer: 1.2.1.3.8.3  Relative Cycle: 28  Time: 2640000.00 ps  Tests Passed 9 of 9, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 10  Odometer: 1.2.1.3.8.4  Relative Cycle: 28  Time: 2640000.00 ps  Tests Passed 9 of 9, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 10  Odometer: 1.2.1.3.8.5  Relative Cycle: 29  Time: 2720000.00 ps  Relative Scan: 10  Overlap Tests 10 and 11.  Tests Passed 9 of 9, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 11  Odometer: 1.2.1.3.9.1  Relative Cycle: 29  Time: 2720000.00 ps  Tests Passed 10 of 10, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 11  Odometer: 1.2.1.3.9.2  Relative Cycle: 31  Time: 2880000.00 ps  Tests Passed 10 of 10, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 11  Odometer: 1.2.1.3.9.3  Relative Cycle: 31  Time: 2880000.00 ps  Tests Passed 10 of 10, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 11  Odometer: 1.2.1.3.9.4  Relative Cycle: 31  Time: 2880000.00 ps  Tests Passed 10 of 10, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 11  Odometer: 1.2.1.3.9.5  Relative Cycle: 32  Time: 2960000.00 ps  Relative Scan: 11  Overlap Tests 11 and 12.  Tests Passed 10 of 10, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 12  Odometer: 1.2.1.3.10.1  Relative Cycle: 32  Time: 2960000.00 ps  Tests Passed 11 of 11, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 12  Odometer: 1.2.1.3.10.2  Relative Cycle: 34  Time: 3120000.00 ps  Tests Passed 11 of 11, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 12  Odometer: 1.2.1.3.10.3  Relative Cycle: 34  Time: 3120000.00 ps  Tests Passed 11 of 11, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 12  Odometer: 1.2.1.3.10.4  Relative Cycle: 34  Time: 3120000.00 ps  Tests Passed 11 of 11, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 12  Odometer: 1.2.1.3.10.5  Relative Cycle: 35  Time: 3200000.00 ps  Relative Scan: 12  Overlap Tests 12 and 13.  Tests Passed 11 of 11, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 13  Odometer: 1.2.1.3.11.1  Relative Cycle: 35  Time: 3200000.00 ps  Tests Passed 12 of 12, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 13  Odometer: 1.2.1.3.11.2  Relative Cycle: 37  Time: 3360000.00 ps  Tests Passed 12 of 12, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 13  Odometer: 1.2.1.3.11.3  Relative Cycle: 37  Time: 3360000.00 ps  Tests Passed 12 of 12, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 13  Odometer: 1.2.1.3.11.4  Relative Cycle: 37  Time: 3360000.00 ps  Tests Passed 12 of 12, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 13  Odometer: 1.2.1.3.11.5  Relative Cycle: 38  Time: 3440000.00 ps  Relative Scan: 13  Overlap Tests 13 and 14.  Tests Passed 12 of 12, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 14  Odometer: 1.2.1.3.12.1  Relative Cycle: 38  Time: 3440000.00 ps  Tests Passed 13 of 13, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 14  Odometer: 1.2.1.3.12.2  Relative Cycle: 40  Time: 3600000.00 ps  Tests Passed 13 of 13, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 14  Odometer: 1.2.1.3.12.3  Relative Cycle: 40  Time: 3600000.00 ps  Tests Passed 13 of 13, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 14  Odometer: 1.2.1.3.12.4  Relative Cycle: 40  Time: 3600000.00 ps  Tests Passed 13 of 13, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 14  Odometer: 1.2.1.3.12.5  Relative Cycle: 41  Time: 3680000.00 ps  Relative Scan: 14  Overlap Tests 14 and 15.  Tests Passed 13 of 13, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 15  Odometer: 1.2.1.3.13.1  Relative Cycle: 41  Time: 3680000.00 ps  Tests Passed 14 of 14, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 15  Odometer: 1.2.1.3.13.2  Relative Cycle: 43  Time: 3840000.00 ps  Tests Passed 14 of 14, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 15  Odometer: 1.2.1.3.13.3  Relative Cycle: 43  Time: 3840000.00 ps  Tests Passed 14 of 14, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 15  Odometer: 1.2.1.3.13.4  Relative Cycle: 43  Time: 3840000.00 ps  Tests Passed 14 of 14, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 15  Odometer: 1.2.1.3.13.5  Relative Cycle: 44  Time: 3920000.00 ps  Relative Scan: 15  Overlap Tests 15 and 16.  Tests Passed 14 of 14, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 16  Odometer: 1.2.1.3.14.1  Relative Cycle: 44  Time: 3920000.00 ps  Tests Passed 15 of 15, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 16  Odometer: 1.2.1.3.14.2  Relative Cycle: 46  Time: 4080000.00 ps  Tests Passed 15 of 15, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 16  Odometer: 1.2.1.3.14.3  Relative Cycle: 46  Time: 4080000.00 ps  Tests Passed 15 of 15, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 16  Odometer: 1.2.1.3.14.4  Relative Cycle: 46  Time: 4080000.00 ps  Tests Passed 15 of 15, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 16  Odometer: 1.2.1.3.14.5  Relative Cycle: 47  Time: 4160000.00 ps  Relative Scan: 16  Overlap Tests 16 and 17.  Tests Passed 15 of 15, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 17  Odometer: 1.2.1.3.15.1  Relative Cycle: 47  Time: 4160000.00 ps  Tests Passed 16 of 16, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 17  Odometer: 1.2.1.3.15.2  Relative Cycle: 49  Time: 4320000.00 ps  Tests Passed 16 of 16, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 17  Odometer: 1.2.1.3.15.3  Relative Cycle: 49  Time: 4320000.00 ps  Tests Passed 16 of 16, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 17  Odometer: 1.2.1.3.15.4  Relative Cycle: 49  Time: 4320000.00 ps  Tests Passed 16 of 16, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 17  Odometer: 1.2.1.3.15.5  Relative Cycle: 50  Time: 4400000.00 ps  Relative Scan: 17  Overlap Tests 17 and 18.  Tests Passed 16 of 16, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 18  Odometer: 1.2.1.4.1.1  Relative Cycle: 50  Time: 4400000.00 ps  Tests Passed 17 of 17, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 18  Odometer: 1.2.1.4.1.2  Relative Cycle: 52  Time: 4560000.00 ps  Tests Passed 17 of 17, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 18  Odometer: 1.2.1.4.1.3  Relative Cycle: 52  Time: 4560000.00 ps  Tests Passed 17 of 17, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 18  Odometer: 1.2.1.4.1.4  Relative Cycle: 52  Time: 4560000.00 ps  Tests Passed 17 of 17, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 18  Odometer: 1.2.1.4.1.5  Relative Cycle: 53  Time: 4640000.00 ps  Relative Scan: 18  Overlap Tests 18 and 19.  Tests Passed 17 of 17, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 19  Odometer: 1.2.1.4.2.1  Relative Cycle: 53  Time: 4640000.00 ps  Tests Passed 18 of 18, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 19  Odometer: 1.2.1.4.2.2  Relative Cycle: 55  Time: 4800000.00 ps  Tests Passed 18 of 18, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 19  Odometer: 1.2.1.4.2.3  Relative Cycle: 55  Time: 4800000.00 ps  Tests Passed 18 of 18, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 19  Odometer: 1.2.1.4.2.4  Relative Cycle: 55  Time: 4800000.00 ps  Tests Passed 18 of 18, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 19  Odometer: 1.2.1.4.2.5  Relative Cycle: 56  Time: 4880000.00 ps  Relative Scan: 19  Overlap Tests 19 and 20.  Tests Passed 18 of 18, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 20  Odometer: 1.2.1.4.3.1  Relative Cycle: 56  Time: 4880000.00 ps  Tests Passed 19 of 19, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 20  Odometer: 1.2.1.4.3.2  Relative Cycle: 58  Time: 5040000.00 ps  Tests Passed 19 of 19, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 20  Odometer: 1.2.1.4.3.3  Relative Cycle: 58  Time: 5040000.00 ps  Tests Passed 19 of 19, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 20  Odometer: 1.2.1.4.3.4  Relative Cycle: 58  Time: 5040000.00 ps  Tests Passed 19 of 19, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 20  Odometer: 1.2.1.4.3.5  Relative Cycle: 59  Time: 5120000.00 ps  Relative Scan: 20  Overlap Tests 20 and 21.  Tests Passed 19 of 19, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 21  Odometer: 1.2.1.4.4.1  Relative Cycle: 59  Time: 5120000.00 ps  Tests Passed 20 of 20, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 21  Odometer: 1.2.1.4.4.2  Relative Cycle: 61  Time: 5280000.00 ps  Tests Passed 20 of 20, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 21  Odometer: 1.2.1.4.4.3  Relative Cycle: 61  Time: 5280000.00 ps  Tests Passed 20 of 20, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 21  Odometer: 1.2.1.4.4.4  Relative Cycle: 61  Time: 5280000.00 ps  Tests Passed 20 of 20, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 21  Odometer: 1.2.1.4.4.5  Relative Cycle: 62  Time: 5360000.00 ps  Relative Scan: 21  Overlap Tests 21 and 22.  Tests Passed 20 of 20, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 22  Odometer: 1.2.1.4.5.1  Relative Cycle: 62  Time: 5360000.00 ps  Tests Passed 21 of 21, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 22  Odometer: 1.2.1.4.5.2  Relative Cycle: 64  Time: 5520000.00 ps  Tests Passed 21 of 21, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 22  Odometer: 1.2.1.4.5.3  Relative Cycle: 64  Time: 5520000.00 ps  Tests Passed 21 of 21, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 22  Odometer: 1.2.1.4.5.4  Relative Cycle: 64  Time: 5520000.00 ps  Tests Passed 21 of 21, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 22  Odometer: 1.2.1.4.5.5  Relative Cycle: 65  Time: 5600000.00 ps  Relative Scan: 22  Overlap Tests 22 and 23.  Tests Passed 21 of 21, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 23  Odometer: 1.2.1.4.6.1  Relative Cycle: 65  Time: 5600000.00 ps  Tests Passed 22 of 22, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 23  Odometer: 1.2.1.4.6.2  Relative Cycle: 67  Time: 5760000.00 ps  Tests Passed 22 of 22, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 23  Odometer: 1.2.1.4.6.3  Relative Cycle: 67  Time: 5760000.00 ps  Tests Passed 22 of 22, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 23  Odometer: 1.2.1.4.6.4  Relative Cycle: 67  Time: 5760000.00 ps  Tests Passed 22 of 22, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 23  Odometer: 1.2.1.4.6.5  Relative Cycle: 68  Time: 5840000.00 ps  Relative Scan: 23  Overlap Tests 23 and 24.  Tests Passed 22 of 22, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 24  Odometer: 1.2.1.4.7.1  Relative Cycle: 68  Time: 5840000.00 ps  Tests Passed 23 of 23, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 24  Odometer: 1.2.1.4.7.2  Relative Cycle: 70  Time: 6000000.00 ps  Tests Passed 23 of 23, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 24  Odometer: 1.2.1.4.7.3  Relative Cycle: 70  Time: 6000000.00 ps  Tests Passed 23 of 23, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 24  Odometer: 1.2.1.4.7.4  Relative Cycle: 70  Time: 6000000.00 ps  Tests Passed 23 of 23, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 24  Odometer: 1.2.1.4.7.5  Relative Cycle: 71  Time: 6080000.00 ps  Relative Scan: 24  Overlap Tests 24 and 25.  Tests Passed 23 of 23, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 25  Odometer: 1.2.1.4.8.1  Relative Cycle: 71  Time: 6080000.00 ps  Tests Passed 24 of 24, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 25  Odometer: 1.2.1.4.8.2  Relative Cycle: 73  Time: 6240000.00 ps  Tests Passed 24 of 24, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 25  Odometer: 1.2.1.4.8.3  Relative Cycle: 73  Time: 6240000.00 ps  Tests Passed 24 of 24, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 25  Odometer: 1.2.1.4.8.4  Relative Cycle: 73  Time: 6240000.00 ps  Tests Passed 24 of 24, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 25  Odometer: 1.2.1.4.8.5  Relative Cycle: 74  Time: 6320000.00 ps  Relative Scan: 25  Overlap Tests 25 and 26.  Tests Passed 24 of 24, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 26  Odometer: 1.2.1.4.9.1  Relative Cycle: 74  Time: 6320000.00 ps  Tests Passed 25 of 25, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 26  Odometer: 1.2.1.4.9.2  Relative Cycle: 76  Time: 6480000.00 ps  Tests Passed 25 of 25, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 26  Odometer: 1.2.1.4.9.3  Relative Cycle: 76  Time: 6480000.00 ps  Tests Passed 25 of 25, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 26  Odometer: 1.2.1.4.9.4  Relative Cycle: 76  Time: 6480000.00 ps  Tests Passed 25 of 25, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 26  Odometer: 1.2.1.4.9.5  Relative Cycle: 77  Time: 6560000.00 ps  Relative Scan: 26  Overlap Tests 26 and 27.  Tests Passed 25 of 25, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 27  Odometer: 1.2.1.4.10.1  Relative Cycle: 77  Time: 6560000.00 ps  Tests Passed 26 of 26, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 27  Odometer: 1.2.1.4.10.2  Relative Cycle: 79  Time: 6720000.00 ps  Tests Passed 26 of 26, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 27  Odometer: 1.2.1.4.10.3  Relative Cycle: 79  Time: 6720000.00 ps  Tests Passed 26 of 26, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 27  Odometer: 1.2.1.4.10.4  Relative Cycle: 79  Time: 6720000.00 ps  Tests Passed 26 of 26, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 27  Odometer: 1.2.1.4.10.5  Relative Cycle: 80  Time: 6800000.00 ps  Relative Scan: 27  Overlap Tests 27 and 28.  Tests Passed 26 of 26, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 28  Odometer: 1.2.1.4.11.1  Relative Cycle: 80  Time: 6800000.00 ps  Tests Passed 27 of 27, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 28  Odometer: 1.2.1.4.11.2  Relative Cycle: 82  Time: 6960000.00 ps  Tests Passed 27 of 27, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 28  Odometer: 1.2.1.4.11.3  Relative Cycle: 82  Time: 6960000.00 ps  Tests Passed 27 of 27, Failed 0. 
+
+INFO (TVE-202): Simulating Test: 28  Odometer: 1.2.1.4.11.4  Relative Cycle: 82  Time: 6960000.00 ps  Tests Passed 27 of 27, Failed 0. 
+
+INFO (TVE-211): Simulating Test: 28  Odometer: 1.2.1.4.11.5  Relative Cycle: 83  Time: 7040000.00 ps  Relative Scan: 28  Tests Passed 27 of 27, Failed 0. 
+
+INFO (TVE-201): Simulation complete on vector file: ./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.logic.ex1.ts2.verilog 
+
+INFO (TVE-210): Results for vector file: ./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.data.logic.ex1.ts2.verilog 
+                      Number of Cycles:           85 
+                      Number of Tests:            27 
+                        - Passed Tests:           27 
+                        - Failed Tests:           0 
+                      Number of Compares:         450 
+                        - Good Compares:          450 
+                        - Miscompares:            0 
+                      Time:                       7280000.00 ps 
+
+
+INFO (TVE-209): Cumulative Results: 
+                      Number of Files Simulated:  2 
+                      Total Number of Cycles:     91 
+                      Total Number of Tests:      28 
+                        - Total Passed Tests:     28 
+                        - Total Failed Tests:     0 
+                      Total Number of Compares:   458 
+                        - Total Good Compares:    458 
+                        - Total Miscompares:      0 
+
+Simulation complete via $finish(1) at time 7280 NS + 0
+./test_scripts/testresults/verilog/VER.FULLSCAN.count8_atpg.mainsim.v:228       $finish; 
+xcelium> exit
+xmsim: Memory Usage - Final: 64.8M, Peak: 64.8M, Peak virtual: 323.8M
+xmsim: CPU Usage - 0.0s system + 0.0s user = 0.0s total (0.0s, 90.0% cpu)
+TOOL:	xrun(64)	22.09-s003: Exiting on Jun 25, 2026 at 14:37:22 IST  (total: 00:00:00)

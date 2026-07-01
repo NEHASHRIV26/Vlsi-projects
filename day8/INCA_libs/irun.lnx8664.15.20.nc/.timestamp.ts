@@ -1,0 +1,10 @@
+1780985008 /home/vlsi19/day8/alu1_netlist_1.v
+1780983615 /home/vlsi19/day8/count8_tb.v
+1780993288 /home/vlsi19/day8/traffic.v
+1780986097 /home/vlsi19/day8/lfsr_tb.v
+1780986101 /home/vlsi19/day8/lfsr2_netlist_2.v
+1780994878 /home/vlsi19/day8/traffic_tb.v
+1711023687 /home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v
+1780985038 /home/vlsi19/day8/alu_tb.v
+1780995769 /home/vlsi19/day8/trafficc_netlist_1.v
+1780983568 /home/vlsi19/day8/count8_netlist_1ghz.v

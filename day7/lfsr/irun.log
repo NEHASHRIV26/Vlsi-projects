@@ -1,0 +1,10 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Jun 09, 2026 at 13:44:45 IST
+irun
+	lfsr2_netlist_2.v
+	lfsr_tb.v
+	/home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v
+	-access +rwc
+	-gui
+irun: *E,FILEMIS: Cannot find the provided file lfsr_tb.v.
+TOOL:	irun(64)	15.20-s086: Exiting on Jun 09, 2026 at 13:44:45 IST  (total: 00:00:00)

@@ -1,0 +1,262 @@
+hal(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+hal: Options:   -cdslib /home/vlsi19/day2/cds.lib -logfile hal.log /home/vlsi19/day2/mux_tb.v.
+hal: Workspace: /home/vlsi19/day2.
+hal: Date: Tue Jun 02 15:27:52 IST 2026.
+
+hal: Running on design source files...halhal: Snapshot:  worklib.mux2to1_tb:v.
+
+  ==========================================================================
+Compiling design 
+
+
+
+  ==========================================================================
+Performing lint checks 
+
+halcheck(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+visadev(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+module mux2to1_tb;
+|
+halcheck: *W,DIFFMN (./mux_tb.v,1|0): Module name 'mux2to1_tb' differs from file name 'mux_tb.v'.
+module mux2to1_tb;
+|
+halcheck: *W,NEEDIO (./mux_tb.v,1|0): Top-level module 'mux2to1_tb' has no inputs/outputs/inouts.
+begin
+|
+halcheck: *W,NOBLKN (./mux_tb.v,14|0): Each block should be labeled with a meaningful name.
+    $monitor("a=%b b=%b sel=%b -> y=%b", a, b, sel, y);
+|
+halcheck: *W,BADSYS (./mux_tb.v,15|0): System task $monitor in module 'mux2to1_tb' is ignored.
+    a = 0; b = 0; sel = 0; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,16|0): Expression '0' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 0; b = 0; sel = 0; #10;
+|
+halcheck: *W,INTTOB (./mux_tb.v,16|0): Assigning a 0 or 1 (32 bits) to a single-bit variable in module/design-unit mux2to1_tb.
+    a = 0; b = 0; sel = 0; #10;
+|
+halcheck: *W,TRUNCZ (./mux_tb.v,16|0): Truncation in constant conversion without a loss of bits in module/design-unit mux2to1_tb.
+    a = 0; b = 0; sel = 0; #10;
+|
+halcheck: *W,SEPLIN (./mux_tb.v,16|0): Use a separate line for each HDL statement.
+    a = 0; b = 0; sel = 0; #10;
+|
+halcheck: *W,EMPSTM (./mux_tb.v,16|0): Module 'mux2to1_tb' contains an empty statement.
+    a = 0; b = 0; sel = 1; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,17|0): Expression '0' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 0; b = 0; sel = 1; #10;
+|
+halcheck: *W,INTTOB (./mux_tb.v,17|0): Assigning a 0 or 1 (32 bits) to a single-bit variable in module/design-unit mux2to1_tb.
+    a = 0; b = 0; sel = 1; #10;
+|
+halcheck: *W,TRUNCZ (./mux_tb.v,17|0): Truncation in constant conversion without a loss of bits in module/design-unit mux2to1_tb.
+    a = 0; b = 0; sel = 1; #10;
+|
+halcheck: *W,SEPLIN (./mux_tb.v,17|0): Use a separate line for each HDL statement.
+    a = 0; b = 0; sel = 1; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,17|0): Expression '1' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 0; b = 0; sel = 1; #10;
+|
+halcheck: *W,EMPSTM (./mux_tb.v,17|0): Module 'mux2to1_tb' contains an empty statement.
+    a = 0; b = 1; sel = 0; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,18|0): Expression '0' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 0; b = 1; sel = 0; #10;
+|
+halcheck: *W,INTTOB (./mux_tb.v,18|0): Assigning a 0 or 1 (32 bits) to a single-bit variable in module/design-unit mux2to1_tb.
+    a = 0; b = 1; sel = 0; #10;
+|
+halcheck: *W,TRUNCZ (./mux_tb.v,18|0): Truncation in constant conversion without a loss of bits in module/design-unit mux2to1_tb.
+    a = 0; b = 1; sel = 0; #10;
+|
+halcheck: *W,SEPLIN (./mux_tb.v,18|0): Use a separate line for each HDL statement.
+    a = 0; b = 1; sel = 0; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,18|0): Expression '1' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 0; b = 1; sel = 0; #10;
+|
+halcheck: *W,EMPSTM (./mux_tb.v,18|0): Module 'mux2to1_tb' contains an empty statement.
+    a = 0; b = 1; sel = 1; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,19|0): Expression '0' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 0; b = 1; sel = 1; #10;
+|
+halcheck: *W,INTTOB (./mux_tb.v,19|0): Assigning a 0 or 1 (32 bits) to a single-bit variable in module/design-unit mux2to1_tb.
+    a = 0; b = 1; sel = 1; #10;
+|
+halcheck: *W,TRUNCZ (./mux_tb.v,19|0): Truncation in constant conversion without a loss of bits in module/design-unit mux2to1_tb.
+    a = 0; b = 1; sel = 1; #10;
+|
+halcheck: *W,SEPLIN (./mux_tb.v,19|0): Use a separate line for each HDL statement.
+    a = 0; b = 1; sel = 1; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,19|0): Expression '1' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 0; b = 1; sel = 1; #10;
+|
+halcheck: *W,EMPSTM (./mux_tb.v,19|0): Module 'mux2to1_tb' contains an empty statement.
+    a = 1; b = 0; sel = 0; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,20|0): Expression '1' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 1; b = 0; sel = 0; #10;
+|
+halcheck: *W,INTTOB (./mux_tb.v,20|0): Assigning a 0 or 1 (32 bits) to a single-bit variable in module/design-unit mux2to1_tb.
+    a = 1; b = 0; sel = 0; #10;
+|
+halcheck: *W,TRUNCZ (./mux_tb.v,20|0): Truncation in constant conversion without a loss of bits in module/design-unit mux2to1_tb.
+    a = 1; b = 0; sel = 0; #10;
+|
+halcheck: *W,SEPLIN (./mux_tb.v,20|0): Use a separate line for each HDL statement.
+    a = 1; b = 0; sel = 0; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,20|0): Expression '0' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 1; b = 0; sel = 0; #10;
+|
+halcheck: *W,EMPSTM (./mux_tb.v,20|0): Module 'mux2to1_tb' contains an empty statement.
+    a = 1; b = 0; sel = 1; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,21|0): Expression '1' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 1; b = 0; sel = 1; #10;
+|
+halcheck: *W,INTTOB (./mux_tb.v,21|0): Assigning a 0 or 1 (32 bits) to a single-bit variable in module/design-unit mux2to1_tb.
+    a = 1; b = 0; sel = 1; #10;
+|
+halcheck: *W,TRUNCZ (./mux_tb.v,21|0): Truncation in constant conversion without a loss of bits in module/design-unit mux2to1_tb.
+    a = 1; b = 0; sel = 1; #10;
+|
+halcheck: *W,SEPLIN (./mux_tb.v,21|0): Use a separate line for each HDL statement.
+    a = 1; b = 0; sel = 1; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,21|0): Expression '0' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 1; b = 0; sel = 1; #10;
+|
+halcheck: *W,EMPSTM (./mux_tb.v,21|0): Module 'mux2to1_tb' contains an empty statement.
+    a = 1; b = 1; sel = 0; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,22|0): Expression '1' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 1; b = 1; sel = 0; #10;
+|
+halcheck: *W,INTTOB (./mux_tb.v,22|0): Assigning a 0 or 1 (32 bits) to a single-bit variable in module/design-unit mux2to1_tb.
+    a = 1; b = 1; sel = 0; #10;
+|
+halcheck: *W,TRUNCZ (./mux_tb.v,22|0): Truncation in constant conversion without a loss of bits in module/design-unit mux2to1_tb.
+    a = 1; b = 1; sel = 0; #10;
+|
+halcheck: *W,SEPLIN (./mux_tb.v,22|0): Use a separate line for each HDL statement.
+    a = 1; b = 1; sel = 0; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,22|0): Expression '0' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 1; b = 1; sel = 0; #10;
+|
+halcheck: *W,EMPSTM (./mux_tb.v,22|0): Module 'mux2to1_tb' contains an empty statement.
+    a = 1; b = 1; sel = 1; #10;
+|
+halcheck: *W,IMPDTC (./mux_tb.v,23|0): Expression '1' implicitly converted to type 'unsigned' from type 'signed' in module/design-unit mux2to1_tb.
+    a = 1; b = 1; sel = 1; #10;
+|
+halcheck: *W,INTTOB (./mux_tb.v,23|0): Assigning a 0 or 1 (32 bits) to a single-bit variable in module/design-unit mux2to1_tb.
+    a = 1; b = 1; sel = 1; #10;
+|
+halcheck: *W,TRUNCZ (./mux_tb.v,23|0): Truncation in constant conversion without a loss of bits in module/design-unit mux2to1_tb.
+    a = 1; b = 1; sel = 1; #10;
+|
+halcheck: *W,SEPLIN (./mux_tb.v,23|0): Use a separate line for each HDL statement.
+    a = 1; b = 1; sel = 1; #10;
+|
+halcheck: *W,EMPSTM (./mux_tb.v,23|0): Module 'mux2to1_tb' contains an empty statement.
+    $finish;
+|
+halcheck: *W,BADSYS (./mux_tb.v,25|0): System task $finish in module 'mux2to1_tb' is ignored.
+mux2to1 uut (
+|
+halcheck: *N,IDLENG (./mux_tb.v,6|0): Identifier name 'uut' is not of appropriate length (4 to 16 characters).
+module mux2to1(
+|
+halcheck: *W,DIFFMN (./mux.v,1|0): Module name 'mux2to1' differs from file name 'mux.v'.
+module mux2to1(
+|
+halcheck: *N,PRTCNT (./mux.v,1|0): Module/Entity 'mux2to1' contains '4' ports.
+halcheck: (./mux.v,1): Number of Input ports: 3.
+halcheck: (./mux.v,1): Number of Output ports: 1.
+begin
+|
+halcheck: *W,NOBLKN (./mux.v,9|0): Each block should be labeled with a meaningful name.
+    if(sel == 0)
+|
+halcheck: *W,NBGEND (./mux.v,10|0): Missing begin/end statement in the 'if' block.
+    if(sel == 0)
+|
+halcheck: *W,ULCMPE (./mux.v,10|0): Unequal length operands in equality operator encountered (padding produces incorrect result) in module/design-unit uut. LHS operand is 1 bits, RHS operand is 32 bits.
+    if(sel == 0)
+|
+halcheck: *N,ALOWID (./mux.v,10|0): Signal/variable name 'sel' does not follow the active-low naming convention : should end with '_n'.
+halcheck: Total errors   = 0.
+halcheck: Total warnings = 55.
+
+  ==========================================================================
+Performing synthesizability checks 
+
+cfe64: 15.20.s086..-(): (c) Copyright 1995 - 2020 Cadence Design Systems, Inc.
+cfe64 Build : Mon Dec  7 22:53:08 IST 2020 ldvopt223
+halsynth: Loading design snapshot....
+halsynth: Traversing design hierarchy....
+initial
+|
+halsynth: *W,INIUSP (./mux_tb.v,13|0): Module mux2to1_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+halsynth: Total errors   = 0.
+halsynth: Total warnings = 1.
+
+  ==========================================================================
+Performing structural checks 
+
+halstruct(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+visadev(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+mux2to1 uut (
+|
+halstruct: *E,UNCONI (./mux_tb.v,6|0): Input port 'a' of entity/module 'mux2to1' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'mux2to1_tb.uut'.
+halstruct: (./mux_tb.v,6): 'a' mapped to actual expression 'a' which is undriven.
+mux2to1 uut (
+|
+halstruct: *E,UNCONI (./mux_tb.v,6|0): Input port 'b' of entity/module 'mux2to1' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'mux2to1_tb.uut'.
+halstruct: (./mux_tb.v,6): 'b' mapped to actual expression 'b' which is undriven.
+mux2to1 uut (
+|
+halstruct: *E,UNCONI (./mux_tb.v,6|0): Input port 'sel' of entity/module 'mux2to1' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'mux2to1_tb.uut'.
+halstruct: (./mux_tb.v,6): 'sel' mapped to actual expression 'sel' which is undriven.
+mux2to1 uut (
+|
+halstruct: *W,UNCONO (./mux_tb.v,6|0): Port 'y' (which is being used as an output) of entity/module 'mux2to1' is being driven inside the design, but not connected (either partially or completely) in its instance 'mux2to1_tb.uut'.
+        y = b;
+|
+halstruct: *W,SYNPRT (./mux.v,13|0): Output port 'y' is assigned asynchronously.
+module mux2to1_tb;
+|
+halstruct: *N,NUMDFF (./mux_tb.v,1|0): Number of single-bit D flip-flops present in the hierarchy is 0.
+halstruct: Design facts generated in 'hal.design_facts'.
+halstruct: Total errors   = 3.
+halstruct: Total warnings = 2.
+
+  ==========================================================================
+
+Analysis summary :
+
+ Errors   : (3)
+  UNCONI (3)     
+
+ Warnings : (58)
+  BADSYS (2)      DIFFMN (2)      EMPSTM (8)      IMPDTC (14)    
+  INIUSP (1)      INTTOB (8)      NBGEND (1)      NEEDIO (1)     
+  NOBLKN (2)      SEPLIN (8)      SYNPRT (1)      TRUNCZ (8)     
+  ULCMPE (1)      UNCONO (1)     
+
+ Notes    : (4)
+  ALOWID (1)      IDLENG (1)      NUMDFF (1)      PRTCNT (1)     
+
+Analysis complete.
+
+ ==========================================================================
+
+To analyze results, run following command :
+    ncbrowse -64bit -cdslib ./INCA_libs/irun.nc/cds.lib -hdlvar ./INCA_libs/irun.nc/hdl.var -sortby severity -sortby category -sortby tag hal.log
+

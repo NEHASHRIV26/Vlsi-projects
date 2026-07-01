@@ -1,0 +1,181 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Jun 06, 2026 at 11:56:57 IST
+irun
+	mome.v
+	mome_tb.v
+	-access +rwc
+	-gui
+	-coverage all
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		mome_tb
+
+	Extracting FSMs for coverage:
+		worklib.mome
+			FSM extracted for state register state
+		worklib.mome_tb
+	Total FSMs extracted = 1
+	Building instance overlay tables: ....................
+ncelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are not extracted for any FSM in default mode.
+ Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+ncelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.mome:v <0x498d97fe>
+			streams:  13, words:  9240
+		worklib.mome_tb:v <0x4e4581e6>
+			streams:   5, words:  4267
+integer i;
+        |
+ncelab: *W,COVUTA (./mome_tb.v,4|8): Toggle coverage is not supported for SystemVerilog integer, real, string, dynamic array, sparse memory, and array of enum. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           6       6
+		Scalar wires:        4       -
+		Always blocks:       1       1
+		Initial blocks:      2       2
+		Pseudo assignments:  3       3
+	Writing initial simulation snapshot: worklib.mome_tb:v
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/install/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> coverage -analyze
+ncsim: *E,CVGIMC: The IMC window cannot be opened before simulation starts.
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm mome_tb.clk mome_tb.din mome_tb.dout mome_tb.i mome_tb.rst
+Created probe 1
+ncsim> run
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+PASS :Sequence 1100 is detected 
+
+Simulation complete via $finish(1) at time 1190 NS + 0
+./mome_tb.v:21 #200; $finish;
+ncsim> coverage -analyze
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  mome_tb(mome_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_31fcf1b2_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_31fcf1b2_00000000.ucd
+
+Launching IMC...
+
+ncsim> 
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  mome_tb(mome_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_31fcf1b2_00000000.ucm (reused)
+  data               :  ./cov_work/scope/test/icc_31fcf1b2_00000000.ucd
+TOOL:	irun(64)	15.20-s086: Exiting on Jun 06, 2026 at 12:39:05 IST  (total: 00:42:08)

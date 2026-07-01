@@ -1,0 +1,48 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Jun 01, 2026 at 16:02:57 IST
+irun
+	ha.v
+	-access +rwc
+	-gui
+file: ha.v
+	module worklib.ha:v
+		errors: 0, warnings: 0
+	module worklib.ha_tb:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		ha_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.ha:v <0x255068a3>
+			streams:   1, words:   272
+		worklib.ha_tb:v <0x3067c105>
+			streams:   5, words:  1557
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           2       2
+		Scalar wires:        4       -
+		Always blocks:       2       2
+		Initial blocks:      1       1
+		Cont. assignments:   1       1
+		Pseudo assignments:  2       2
+	Writing initial simulation snapshot: worklib.ha_tb:v
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/install/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm ha_tb.a ha_tb.b ha_tb.c ha_tb.s
+Created probe 1
+ncsim> run
+Simulation complete via $finish(1) at time 50 NS + 0
+./ha.v:19 #50 $finish;
+ncsim> ...Regained control from SimVision
+-------------------------------------
+TOOL:	irun(64)	15.20-s086: Exiting on Jun 01, 2026 at 16:28:51 IST  (total: 00:25:54)

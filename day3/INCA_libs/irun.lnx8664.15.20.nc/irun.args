@@ -1,0 +1,9 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+alu.v
+alu_tb.v
+-access
++rwc
+-gui

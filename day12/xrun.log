@@ -1,0 +1,9 @@
+xrun(64): 22.09-s003: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	22.09-s003: Started on Jun 15, 2026 at 11:55:50 IST
+xrun
+	memory_tb.sv
+	-access +rwc
+	-gui
+	-coverage all
+xrun: *E,FILEMIS: Cannot find the provided file memory_tb.sv.
+TOOL:	xrun(64)	22.09-s003: Exiting on Jun 15, 2026 at 11:55:51 IST  (total: 00:00:01)

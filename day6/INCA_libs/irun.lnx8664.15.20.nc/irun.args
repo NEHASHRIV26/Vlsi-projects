@@ -1,0 +1,9 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+count8.v
+count8_tb.v
+-access
++rwc
+-gui

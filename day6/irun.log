@@ -1,0 +1,649 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Jun 09, 2026 at 11:21:19 IST
+irun
+	count8.v
+	count8_tb.v
+	-access +rwc
+	-gui
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		count8_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.count8_tb:v <0x4b1aa065>
+			streams:   6, words:  5197
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           4       4
+		Scalar wires:        3       -
+		Vectored wires:      1       -
+		Always blocks:       3       3
+		Initial blocks:      1       1
+		Cont. assignments:   0       1
+		Pseudo assignments:  3       3
+	Writing initial simulation snapshot: worklib.count8_tb:v
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/install/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm count8_tb.clk count8_tb.counter count8_tb.rst count8_tb.u_d
+Created probe 1
+ncsim> run
+Time=0 Up Counting Count=  0
+Time=15 Up Counting Count=  1
+Time=20 Up Counting Count=  0
+Time=35 Up Counting Count=  1
+Time=45 Up Counting Count=  2
+Time=55 Up Counting Count=  3
+Time=65 Up Counting Count=  4
+Time=75 Up Counting Count=  5
+Time=85 Up Counting Count=  6
+Time=95 Up Counting Count=  7
+Time=105 Up Counting Count=  8
+Time=115 Up Counting Count=  9
+Time=125 Up Counting Count= 10
+Time=135 Up Counting Count= 11
+Time=145 Up Counting Count= 12
+Time=155 Up Counting Count= 13
+Time=165 Up Counting Count= 14
+Time=175 Up Counting Count= 15
+Time=185 Up Counting Count= 16
+Time=195 Up Counting Count= 17
+Time=205 Up Counting Count= 18
+Time=215 Up Counting Count= 19
+Time=225 Up Counting Count= 20
+Time=235 Up Counting Count= 21
+Time=245 Up Counting Count= 22
+Time=255 Up Counting Count= 23
+Time=265 Up Counting Count= 24
+Time=275 Up Counting Count= 25
+Time=285 Up Counting Count= 26
+Time=295 Up Counting Count= 27
+Time=305 Up Counting Count= 28
+Time=315 Up Counting Count= 29
+Time=325 Up Counting Count= 30
+Time=335 Up Counting Count= 31
+Time=345 Up Counting Count= 32
+Time=355 Up Counting Count= 33
+Time=365 Up Counting Count= 34
+Time=375 Up Counting Count= 35
+Time=385 Up Counting Count= 36
+Time=395 Up Counting Count= 37
+Time=405 Up Counting Count= 38
+Time=415 Up Counting Count= 39
+Time=425 Up Counting Count= 40
+Time=435 Up Counting Count= 41
+Time=445 Up Counting Count= 42
+Time=455 Up Counting Count= 43
+Time=465 Up Counting Count= 44
+Time=475 Up Counting Count= 45
+Time=485 Up Counting Count= 46
+Time=495 Up Counting Count= 47
+Time=505 Up Counting Count= 48
+Time=515 Up Counting Count= 49
+Time=525 Up Counting Count= 50
+Time=535 Up Counting Count= 51
+Time=545 Up Counting Count= 52
+Time=555 Up Counting Count= 53
+Time=565 Up Counting Count= 54
+Time=575 Up Counting Count= 55
+Time=585 Up Counting Count= 56
+Time=595 Up Counting Count= 57
+Time=605 Up Counting Count= 58
+Time=615 Up Counting Count= 59
+Time=625 Up Counting Count= 60
+Time=635 Up Counting Count= 61
+Time=645 Up Counting Count= 62
+Time=655 Up Counting Count= 63
+Time=665 Up Counting Count= 64
+Time=675 Up Counting Count= 65
+Time=685 Up Counting Count= 66
+Time=695 Up Counting Count= 67
+Time=705 Up Counting Count= 68
+Time=715 Up Counting Count= 69
+Time=725 Up Counting Count= 70
+Time=735 Up Counting Count= 71
+Time=745 Up Counting Count= 72
+Time=755 Up Counting Count= 73
+Time=765 Up Counting Count= 74
+Time=775 Up Counting Count= 75
+Time=785 Up Counting Count= 76
+Time=795 Up Counting Count= 77
+Time=805 Up Counting Count= 78
+Time=815 Up Counting Count= 79
+Time=825 Up Counting Count= 80
+Time=835 Up Counting Count= 81
+Time=845 Up Counting Count= 82
+Time=855 Up Counting Count= 83
+Time=865 Up Counting Count= 84
+Time=875 Up Counting Count= 85
+Time=885 Up Counting Count= 86
+Time=895 Up Counting Count= 87
+Time=905 Up Counting Count= 88
+Time=915 Up Counting Count= 89
+Time=925 Up Counting Count= 90
+Time=935 Up Counting Count= 91
+Time=945 Up Counting Count= 92
+Time=955 Up Counting Count= 93
+Time=965 Up Counting Count= 94
+Time=975 Up Counting Count= 95
+Time=985 Up Counting Count= 96
+Time=995 Up Counting Count= 97
+Time=1005 Up Counting Count= 98
+Time=1015 Up Counting Count= 99
+Time=1025 Up Counting Count=100
+Time=1035 Up Counting Count=101
+Time=1045 Up Counting Count=102
+Time=1055 Up Counting Count=103
+Time=1065 Up Counting Count=104
+Time=1075 Up Counting Count=105
+Time=1085 Up Counting Count=106
+Time=1095 Up Counting Count=107
+Time=1105 Up Counting Count=108
+Time=1115 Up Counting Count=109
+Time=1125 Up Counting Count=110
+Time=1135 Up Counting Count=111
+Time=1145 Up Counting Count=112
+Time=1155 Up Counting Count=113
+Time=1165 Up Counting Count=114
+Time=1175 Up Counting Count=115
+Time=1185 Up Counting Count=116
+Time=1195 Up Counting Count=117
+Time=1205 Up Counting Count=118
+Time=1215 Up Counting Count=119
+Time=1225 Up Counting Count=120
+Time=1235 Up Counting Count=121
+Time=1245 Up Counting Count=122
+Time=1255 Up Counting Count=123
+Time=1265 Up Counting Count=124
+Time=1275 Up Counting Count=125
+Time=1285 Up Counting Count=126
+Time=1295 Up Counting Count=127
+Time=1305 Up Counting Count=128
+Time=1315 Up Counting Count=129
+Time=1325 Up Counting Count=130
+Time=1335 Up Counting Count=131
+Time=1345 Up Counting Count=132
+Time=1355 Up Counting Count=133
+Time=1365 Up Counting Count=134
+Time=1375 Up Counting Count=135
+Time=1385 Up Counting Count=136
+Time=1395 Up Counting Count=137
+Time=1405 Up Counting Count=138
+Time=1415 Up Counting Count=139
+Time=1425 Up Counting Count=140
+Time=1435 Up Counting Count=141
+Time=1445 Up Counting Count=142
+Time=1455 Up Counting Count=143
+Time=1465 Up Counting Count=144
+Time=1475 Up Counting Count=145
+Time=1485 Up Counting Count=146
+Time=1495 Up Counting Count=147
+Time=1505 Up Counting Count=148
+Time=1515 Up Counting Count=149
+Time=1525 Up Counting Count=150
+Time=1535 Up Counting Count=151
+Time=1545 Up Counting Count=152
+Time=1555 Up Counting Count=153
+Time=1565 Up Counting Count=154
+Time=1575 Up Counting Count=155
+Time=1585 Up Counting Count=156
+Time=1595 Up Counting Count=157
+Time=1605 Up Counting Count=158
+Time=1615 Up Counting Count=159
+Time=1625 Up Counting Count=160
+Time=1635 Up Counting Count=161
+Time=1645 Up Counting Count=162
+Time=1655 Up Counting Count=163
+Time=1665 Up Counting Count=164
+Time=1675 Up Counting Count=165
+Time=1685 Up Counting Count=166
+Time=1695 Up Counting Count=167
+Time=1705 Up Counting Count=168
+Time=1715 Up Counting Count=169
+Time=1725 Up Counting Count=170
+Time=1735 Up Counting Count=171
+Time=1745 Up Counting Count=172
+Time=1755 Up Counting Count=173
+Time=1765 Up Counting Count=174
+Time=1775 Up Counting Count=175
+Time=1785 Up Counting Count=176
+Time=1795 Up Counting Count=177
+Time=1805 Up Counting Count=178
+Time=1815 Up Counting Count=179
+Time=1825 Up Counting Count=180
+Time=1835 Up Counting Count=181
+Time=1845 Up Counting Count=182
+Time=1855 Up Counting Count=183
+Time=1865 Up Counting Count=184
+Time=1875 Up Counting Count=185
+Time=1885 Up Counting Count=186
+Time=1895 Up Counting Count=187
+Time=1905 Up Counting Count=188
+Time=1915 Up Counting Count=189
+Time=1925 Up Counting Count=190
+Time=1935 Up Counting Count=191
+Time=1945 Up Counting Count=192
+Time=1955 Up Counting Count=193
+Time=1965 Up Counting Count=194
+Time=1975 Up Counting Count=195
+Time=1985 Up Counting Count=196
+Time=1995 Up Counting Count=197
+Time=2005 Up Counting Count=198
+Time=2015 Up Counting Count=199
+Time=2025 Up Counting Count=200
+Time=2035 Down Counting Count=199
+Time=2045 Down Counting Count=198
+Time=2055 Down Counting Count=197
+Time=2065 Down Counting Count=196
+Time=2075 Down Counting Count=195
+Time=2085 Down Counting Count=194
+Time=2095 Down Counting Count=193
+Time=2105 Down Counting Count=192
+Time=2115 Down Counting Count=191
+Time=2125 Down Counting Count=190
+Time=2135 Down Counting Count=189
+Time=2145 Down Counting Count=188
+Time=2155 Down Counting Count=187
+Time=2165 Down Counting Count=186
+Time=2175 Down Counting Count=185
+Time=2185 Down Counting Count=184
+Time=2195 Down Counting Count=183
+Time=2205 Down Counting Count=182
+Time=2215 Down Counting Count=181
+Time=2225 Down Counting Count=180
+Time=2235 Down Counting Count=179
+Time=2245 Down Counting Count=178
+Time=2255 Down Counting Count=177
+Time=2265 Down Counting Count=176
+Time=2275 Down Counting Count=175
+Time=2285 Down Counting Count=174
+Time=2295 Down Counting Count=173
+Time=2305 Down Counting Count=172
+Time=2315 Down Counting Count=171
+Time=2325 Down Counting Count=170
+Time=2335 Down Counting Count=169
+Time=2345 Down Counting Count=168
+Time=2355 Down Counting Count=167
+Time=2365 Down Counting Count=166
+Time=2375 Down Counting Count=165
+Time=2385 Down Counting Count=164
+Time=2395 Down Counting Count=163
+Time=2405 Down Counting Count=162
+Time=2415 Down Counting Count=161
+Time=2425 Down Counting Count=160
+Time=2435 Down Counting Count=159
+Time=2445 Down Counting Count=158
+Time=2455 Down Counting Count=157
+Time=2465 Down Counting Count=156
+Time=2475 Down Counting Count=155
+Time=2485 Down Counting Count=154
+Time=2495 Down Counting Count=153
+Time=2505 Down Counting Count=152
+Time=2515 Down Counting Count=151
+Time=2525 Down Counting Count=150
+Time=2535 Down Counting Count=149
+Time=2545 Down Counting Count=148
+Time=2555 Down Counting Count=147
+Time=2565 Down Counting Count=146
+Time=2575 Down Counting Count=145
+Time=2585 Down Counting Count=144
+Time=2595 Down Counting Count=143
+Time=2605 Down Counting Count=142
+Time=2615 Down Counting Count=141
+Time=2625 Down Counting Count=140
+Time=2635 Down Counting Count=139
+Time=2645 Down Counting Count=138
+Time=2655 Down Counting Count=137
+Time=2665 Down Counting Count=136
+Time=2675 Down Counting Count=135
+Time=2685 Down Counting Count=134
+Time=2695 Down Counting Count=133
+Time=2705 Down Counting Count=132
+Time=2715 Down Counting Count=131
+Time=2725 Down Counting Count=130
+Time=2735 Down Counting Count=129
+Time=2745 Down Counting Count=128
+Time=2755 Down Counting Count=127
+Time=2765 Down Counting Count=126
+Time=2775 Down Counting Count=125
+Time=2785 Down Counting Count=124
+Time=2795 Down Counting Count=123
+Time=2805 Down Counting Count=122
+Time=2815 Down Counting Count=121
+Time=2825 Down Counting Count=120
+Time=2835 Down Counting Count=119
+Time=2845 Down Counting Count=118
+Time=2855 Down Counting Count=117
+Time=2865 Down Counting Count=116
+Time=2875 Down Counting Count=115
+Time=2885 Down Counting Count=114
+Time=2895 Down Counting Count=113
+Time=2905 Down Counting Count=112
+Time=2915 Down Counting Count=111
+Time=2925 Down Counting Count=110
+Time=2935 Down Counting Count=109
+Time=2945 Down Counting Count=108
+Time=2955 Down Counting Count=107
+Time=2965 Down Counting Count=106
+Time=2975 Down Counting Count=105
+Time=2985 Down Counting Count=104
+Time=2995 Down Counting Count=103
+Time=3005 Down Counting Count=102
+Time=3015 Down Counting Count=101
+Time=3025 Down Counting Count=100
+Time=3035 Down Counting Count= 99
+Time=3045 Down Counting Count= 98
+Time=3055 Down Counting Count= 97
+Time=3065 Down Counting Count= 96
+Time=3075 Down Counting Count= 95
+Time=3085 Down Counting Count= 94
+Time=3095 Down Counting Count= 93
+Time=3105 Down Counting Count= 92
+Time=3115 Down Counting Count= 91
+Time=3125 Down Counting Count= 90
+Time=3135 Down Counting Count= 89
+Time=3145 Down Counting Count= 88
+Time=3155 Down Counting Count= 87
+Time=3165 Down Counting Count= 86
+Time=3175 Down Counting Count= 85
+Time=3185 Down Counting Count= 84
+Time=3195 Down Counting Count= 83
+Time=3205 Down Counting Count= 82
+Time=3215 Down Counting Count= 81
+Time=3225 Down Counting Count= 80
+Time=3235 Down Counting Count= 79
+Time=3245 Down Counting Count= 78
+Time=3255 Down Counting Count= 77
+Time=3265 Down Counting Count= 76
+Time=3275 Down Counting Count= 75
+Time=3285 Down Counting Count= 74
+Time=3295 Down Counting Count= 73
+Time=3305 Down Counting Count= 72
+Time=3315 Down Counting Count= 71
+Time=3325 Down Counting Count= 70
+Time=3335 Down Counting Count= 69
+Time=3345 Down Counting Count= 68
+Time=3355 Down Counting Count= 67
+Time=3365 Down Counting Count= 66
+Time=3375 Down Counting Count= 65
+Time=3385 Down Counting Count= 64
+Time=3395 Down Counting Count= 63
+Time=3405 Down Counting Count= 62
+Time=3415 Down Counting Count= 61
+Time=3425 Down Counting Count= 60
+Time=3435 Down Counting Count= 59
+Time=3445 Down Counting Count= 58
+Time=3455 Down Counting Count= 57
+Time=3465 Down Counting Count= 56
+Time=3475 Down Counting Count= 55
+Time=3485 Down Counting Count= 54
+Time=3495 Down Counting Count= 53
+Time=3505 Down Counting Count= 52
+Time=3515 Down Counting Count= 51
+Time=3525 Down Counting Count= 50
+Time=3535 Down Counting Count= 49
+Time=3545 Down Counting Count= 48
+Time=3555 Down Counting Count= 47
+Time=3565 Down Counting Count= 46
+Time=3575 Down Counting Count= 45
+Time=3585 Down Counting Count= 44
+Time=3595 Down Counting Count= 43
+Time=3605 Down Counting Count= 42
+Time=3615 Down Counting Count= 41
+Time=3625 Down Counting Count= 40
+Time=3635 Down Counting Count= 39
+Time=3645 Down Counting Count= 38
+Time=3655 Down Counting Count= 37
+Time=3665 Down Counting Count= 36
+Time=3675 Down Counting Count= 35
+Time=3685 Down Counting Count= 34
+Time=3695 Down Counting Count= 33
+Time=3705 Down Counting Count= 32
+Time=3715 Down Counting Count= 31
+Time=3725 Down Counting Count= 30
+Time=3735 Down Counting Count= 29
+Time=3745 Down Counting Count= 28
+Time=3755 Down Counting Count= 27
+Time=3765 Down Counting Count= 26
+Time=3775 Down Counting Count= 25
+Time=3785 Down Counting Count= 24
+Time=3795 Down Counting Count= 23
+Time=3805 Down Counting Count= 22
+Time=3815 Down Counting Count= 21
+Time=3825 Down Counting Count= 20
+Time=3835 Down Counting Count= 19
+Time=3845 Down Counting Count= 18
+Time=3855 Down Counting Count= 17
+Time=3865 Down Counting Count= 16
+Time=3875 Down Counting Count= 15
+Time=3885 Down Counting Count= 14
+Time=3895 Down Counting Count= 13
+Time=3905 Down Counting Count= 12
+Time=3915 Down Counting Count= 11
+Time=3925 Down Counting Count= 10
+Time=3935 Down Counting Count=  9
+Time=3945 Down Counting Count=  8
+Time=3955 Down Counting Count=  7
+Time=3965 Down Counting Count=  6
+Time=3975 Down Counting Count=  5
+Time=3985 Down Counting Count=  4
+Time=3995 Down Counting Count=  3
+Time=4005 Down Counting Count=  2
+Time=4015 Down Counting Count=  1
+Time=4025 Down Counting Count=  0
+Time=4035 Up Counting Count=  1
+Time=4045 Up Counting Count=  2
+Time=4055 Up Counting Count=  3
+Time=4065 Up Counting Count=  4
+Time=4075 Up Counting Count=  5
+Time=4085 Up Counting Count=  6
+Time=4095 Up Counting Count=  7
+Time=4105 Up Counting Count=  8
+Time=4115 Up Counting Count=  9
+Time=4125 Up Counting Count= 10
+Time=4135 Up Counting Count= 11
+Time=4145 Up Counting Count= 12
+Time=4155 Up Counting Count= 13
+Time=4165 Up Counting Count= 14
+Time=4175 Up Counting Count= 15
+Time=4185 Up Counting Count= 16
+Time=4195 Up Counting Count= 17
+Time=4205 Up Counting Count= 18
+Time=4215 Up Counting Count= 19
+Time=4225 Up Counting Count= 20
+Time=4235 Up Counting Count= 21
+Time=4245 Up Counting Count= 22
+Time=4255 Up Counting Count= 23
+Time=4265 Up Counting Count= 24
+Time=4275 Up Counting Count= 25
+Time=4285 Up Counting Count= 26
+Time=4295 Up Counting Count= 27
+Time=4305 Up Counting Count= 28
+Time=4315 Up Counting Count= 29
+Time=4325 Up Counting Count= 30
+Time=4335 Up Counting Count= 31
+Time=4345 Up Counting Count= 32
+Time=4355 Up Counting Count= 33
+Time=4365 Up Counting Count= 34
+Time=4375 Up Counting Count= 35
+Time=4385 Up Counting Count= 36
+Time=4395 Up Counting Count= 37
+Time=4405 Up Counting Count= 38
+Time=4415 Up Counting Count= 39
+Time=4425 Up Counting Count= 40
+Time=4435 Up Counting Count= 41
+Time=4445 Up Counting Count= 42
+Time=4455 Up Counting Count= 43
+Time=4465 Up Counting Count= 44
+Time=4475 Up Counting Count= 45
+Time=4485 Up Counting Count= 46
+Time=4495 Up Counting Count= 47
+Time=4505 Up Counting Count= 48
+Time=4515 Up Counting Count= 49
+Time=4525 Up Counting Count= 50
+Time=4535 Up Counting Count= 51
+Time=4545 Up Counting Count= 52
+Time=4555 Up Counting Count= 53
+Time=4565 Up Counting Count= 54
+Time=4575 Up Counting Count= 55
+Time=4585 Up Counting Count= 56
+Time=4595 Up Counting Count= 57
+Time=4605 Up Counting Count= 58
+Time=4615 Up Counting Count= 59
+Time=4625 Up Counting Count= 60
+Time=4635 Up Counting Count= 61
+Time=4645 Up Counting Count= 62
+Time=4655 Up Counting Count= 63
+Time=4665 Up Counting Count= 64
+Time=4675 Up Counting Count= 65
+Time=4685 Up Counting Count= 66
+Time=4695 Up Counting Count= 67
+Time=4705 Up Counting Count= 68
+Time=4715 Up Counting Count= 69
+Time=4725 Up Counting Count= 70
+Time=4735 Up Counting Count= 71
+Time=4745 Up Counting Count= 72
+Time=4755 Up Counting Count= 73
+Time=4765 Up Counting Count= 74
+Time=4775 Up Counting Count= 75
+Time=4785 Up Counting Count= 76
+Time=4795 Up Counting Count= 77
+Time=4805 Up Counting Count= 78
+Time=4815 Up Counting Count= 79
+Time=4825 Up Counting Count= 80
+Time=4835 Up Counting Count= 81
+Time=4845 Up Counting Count= 82
+Time=4855 Up Counting Count= 83
+Time=4865 Up Counting Count= 84
+Time=4875 Up Counting Count= 85
+Time=4885 Up Counting Count= 86
+Time=4895 Up Counting Count= 87
+Time=4905 Up Counting Count= 88
+Time=4915 Up Counting Count= 89
+Time=4925 Up Counting Count= 90
+Time=4935 Up Counting Count= 91
+Time=4945 Up Counting Count= 92
+Time=4955 Up Counting Count= 93
+Time=4965 Up Counting Count= 94
+Time=4975 Up Counting Count= 95
+Time=4985 Up Counting Count= 96
+Time=4995 Up Counting Count= 97
+Time=5005 Up Counting Count= 98
+Time=5015 Up Counting Count= 99
+Time=5025 Up Counting Count=100
+Time=5035 Up Counting Count=101
+Time=5045 Up Counting Count=102
+Time=5055 Up Counting Count=103
+Time=5065 Up Counting Count=104
+Time=5075 Up Counting Count=105
+Time=5085 Up Counting Count=106
+Time=5095 Up Counting Count=107
+Time=5105 Up Counting Count=108
+Time=5115 Up Counting Count=109
+Time=5125 Up Counting Count=110
+Time=5135 Up Counting Count=111
+Time=5145 Up Counting Count=112
+Time=5155 Up Counting Count=113
+Time=5165 Up Counting Count=114
+Time=5175 Up Counting Count=115
+Time=5185 Up Counting Count=116
+Time=5195 Up Counting Count=117
+Time=5205 Up Counting Count=118
+Time=5215 Up Counting Count=119
+Time=5225 Up Counting Count=120
+Time=5235 Up Counting Count=121
+Time=5245 Up Counting Count=122
+Time=5255 Up Counting Count=123
+Time=5265 Up Counting Count=124
+Time=5275 Up Counting Count=125
+Time=5285 Up Counting Count=126
+Time=5295 Up Counting Count=127
+Time=5305 Up Counting Count=128
+Time=5315 Up Counting Count=129
+Time=5325 Up Counting Count=130
+Time=5335 Up Counting Count=131
+Time=5345 Up Counting Count=132
+Time=5355 Up Counting Count=133
+Time=5365 Up Counting Count=134
+Time=5375 Up Counting Count=135
+Time=5385 Up Counting Count=136
+Time=5395 Up Counting Count=137
+Time=5405 Up Counting Count=138
+Time=5415 Up Counting Count=139
+Time=5425 Up Counting Count=140
+Time=5435 Up Counting Count=141
+Time=5445 Up Counting Count=142
+Time=5455 Up Counting Count=143
+Time=5465 Up Counting Count=144
+Time=5475 Up Counting Count=145
+Time=5485 Up Counting Count=146
+Time=5495 Up Counting Count=147
+Time=5505 Up Counting Count=148
+Time=5515 Up Counting Count=149
+Time=5525 Up Counting Count=150
+Time=5535 Up Counting Count=151
+Time=5545 Up Counting Count=152
+Time=5555 Up Counting Count=153
+Time=5565 Up Counting Count=154
+Time=5575 Up Counting Count=155
+Time=5585 Up Counting Count=156
+Time=5595 Up Counting Count=157
+Time=5605 Up Counting Count=158
+Time=5615 Up Counting Count=159
+Time=5625 Up Counting Count=160
+Time=5635 Up Counting Count=161
+Time=5645 Up Counting Count=162
+Time=5655 Up Counting Count=163
+Time=5665 Up Counting Count=164
+Time=5675 Up Counting Count=165
+Time=5685 Up Counting Count=166
+Time=5695 Up Counting Count=167
+Time=5705 Up Counting Count=168
+Time=5715 Up Counting Count=169
+Time=5725 Up Counting Count=170
+Time=5735 Up Counting Count=171
+Time=5745 Up Counting Count=172
+Time=5755 Up Counting Count=173
+Time=5765 Up Counting Count=174
+Time=5775 Up Counting Count=175
+Time=5785 Up Counting Count=176
+Time=5795 Up Counting Count=177
+Time=5805 Up Counting Count=178
+Time=5815 Up Counting Count=179
+Time=5825 Up Counting Count=180
+Time=5835 Up Counting Count=181
+Time=5845 Up Counting Count=182
+Time=5855 Up Counting Count=183
+Time=5865 Up Counting Count=184
+Time=5875 Up Counting Count=185
+Time=5885 Up Counting Count=186
+Time=5895 Up Counting Count=187
+Time=5905 Up Counting Count=188
+Time=5915 Up Counting Count=189
+Time=5925 Up Counting Count=190
+Time=5935 Up Counting Count=191
+Time=5945 Up Counting Count=192
+Time=5955 Up Counting Count=193
+Time=5965 Up Counting Count=194
+Time=5975 Up Counting Count=195
+Time=5985 Up Counting Count=196
+Time=5995 Up Counting Count=197
+Time=6005 Up Counting Count=198
+Time=6015 Up Counting Count=199
+Time=6025 Up Counting Count=200
+Time=6035 Down Counting Count=199
+Time=6045 Down Counting Count=198
+Time=6055 Down Counting Count=197
+Time=6065 Down Counting Count=196
+Time=6075 Down Counting Count=195
+Simulation complete via $finish(1) at time 6080 NS + 0
+./count8_tb.v:20     #50 $finish;
+ncsim> TOOL:	irun(64)	15.20-s086: Exiting on Jun 09, 2026 at 11:28:57 IST  (total: 00:07:38)

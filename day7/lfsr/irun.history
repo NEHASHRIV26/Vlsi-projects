@@ -1,0 +1,1 @@
+s1(09Jun2026:13:44:45):  irun lfsr2_netlist_2.v lfsr_tb.v /home/install/FOUNDRY/digital/90nm/dig/vlog/slow.v -access +rwc -gui 

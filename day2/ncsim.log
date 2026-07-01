@@ -1,0 +1,24 @@
+ncsim(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm mux2to1_tb.a mux2to1_tb.b mux2to1_tb.sel mux2to1_tb.y
+Created probe 1
+ncsim> run
+a=0 b=0 sel=0 -> y=0
+a=0 b=0 sel=1 -> y=0
+a=0 b=1 sel=0 -> y=0
+a=0 b=1 sel=1 -> y=1
+a=1 b=0 sel=0 -> y=1
+a=1 b=0 sel=1 -> y=0
+a=1 b=1 sel=0 -> y=1
+a=1 b=1 sel=1 -> y=1
+Simulation complete via $finish(1) at time 80 NS + 0
+./mux_tb.v:25     $finish;
+ncsim> ^C
+ncsim> exit
+ncsim: Memory Usage - 38.6M program + 271.4M data = 310.0M total (313.6M Peak)
+ncsim: CPU Usage - 5.7s system + 2.1s user = 7.7s total (976.2s, 0.8% cpu)

@@ -1,0 +1,2 @@
+MacroModel pin state_reg[2]/CK  17.90ps 17.90ps 17.90ps 17.90ps 0pf worst_case
+MacroModel pin state_reg[1]/CK  18.10ps 18.10ps 18.10ps 18.10ps 0pf worst_case

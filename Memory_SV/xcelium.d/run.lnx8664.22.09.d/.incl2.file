@@ -1,0 +1,16 @@
+memory.v
+/home/vlsi19/Memory_SV/memory.v
+globals1.sv
+/home/vlsi19/Memory_SV/globals1.sv
+mem_gen.sv
+/home/vlsi19/Memory_SV/mem_gen.sv
+mem_if.sv
+/home/vlsi19/Memory_SV/mem_if.sv
+mem_drv.sv
+/home/vlsi19/Memory_SV/mem_drv.sv
+mem_mon.sv
+/home/vlsi19/Memory_SV/mem_mon.sv
+mem_sb.sv
+/home/vlsi19/Memory_SV/mem_sb.sv
+mem_pgtest.sv
+/home/vlsi19/Memory_SV/mem_pgtest.sv

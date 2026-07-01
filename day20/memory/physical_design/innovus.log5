@@ -1,0 +1,1143 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.15-s110_1, built Fri Sep 23 13:08:12 PDT 2022
+Options:	
+Date:		Thu Jun 18 15:39:32 2026
+Host:		cadence (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (8cores*16cpus*Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz 16384KB)
+OS:		Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+License:
+		[15:39:32.095673] Configured Lic search path (21.01-s002): 5280@cadence
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+<CMD> getVersion
+<CMD> getVersion
+[INFO] Loading PVS 22.20 fill procedures
+<CMD> win
+<CMD> encMessage warning 0
+Suppress "**WARN ..." messages.
+<CMD> encMessage debug 0
+<CMD> is_common_ui_mode
+<CMD> restoreDesign /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat memory
+#% Begin load design ... (date=06/18 15:40:49, mem=689.8M)
+Set Default Input Pin Transition as 0.1 ps.
+Loading design 'memory' saved by 'Innovus' '21.15-s110_1' on 'Thu Jun 18 14:44:05 2026'.
+% Begin Load MMMC data ... (date=06/18 15:40:50, mem=697.3M)
+% End Load MMMC data ... (date=06/18 15:40:50, total cpu=0:00:00.0, real=0:00:00.0, peak res=698.6M, current mem=698.6M)
+rc_corner
+
+Loading LEF file /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/libs/lef/gsclib090_translated.lef ...
+**WARN: (IMPLF-105):	The layer 'Oxide' specified in SAMENET spacing
+rule is neither a routing layer nor a cut layer. The rule is ignored.
+**WARN: (IMPLF-105):	The layer 'Poly' specified in SAMENET spacing
+rule is neither a routing layer nor a cut layer. The rule is ignored.
+Set DBUPerIGU to M2 pitch 580.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/viewDefinition.tcl
+Reading slow timing library '/home/install/FOUNDRY/digital/90nm/dig/lib/slow.lib' ...
+Read 479 cells in library 'slow' 
+Reading fast timing library '/home/install/FOUNDRY/digital/90nm/dig/lib/fast.lib' ...
+Read 479 cells in library 'fast' 
+*** End library_loading (cpu=0.02min, real=0.02min, mem=30.0M, fe_cpu=0.68min, fe_real=1.32min, fe_mem=1065.5M) ***
+% Begin Load netlist data ... (date=06/18 15:40:51, mem=727.5M)
+*** Begin netlist parsing (mem=1065.5M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR3XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR3XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR2XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR2XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XNOR2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XNOR2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 479 new cells from 2 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/memory.v.bin'
+
+*** Memory Usage v#1 (Current mem = 1072.508M, initial mem = 483.863M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1072.5M) ***
+% End Load netlist data ... (date=06/18 15:40:51, total cpu=0:00:00.1, real=0:00:00.0, peak res=742.6M, current mem=742.6M)
+Top level cell is memory.
+Hooked 958 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell memory ...
+*** Netlist is unique.
+** info: there are 967 modules.
+** info: there are 726 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 1120.922M, initial mem = 483.863M) ***
+*info: set bottom ioPad orient R0
+**WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Horizontal Layer M1 offset = 290 (derived)
+Vertical Layer M2 offset = 290 (derived)
+Start create_tracks
+Generated pitch 0.29 in Metal8 is different from 0.87 defined in technology file in unpreferred direction.
+Loading preference file /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/gui.pref.tcl ...
+**WARN: (IMPOPT-3602):	The specified path group name reg2reg is not defined.
+Type 'man IMPOPT-3602' for more detail.
+Effort level <high> specified for reg2reg path_group
+addRing command will ignore shorts while creating rings.
+addRing command will disallow rings to go over rows.
+addRing command will consider rows while creating rings.
+The ring targets are set to core/block ring wires.
+addStripe will allow jog to connect padcore ring and block ring.
+
+Stripes will not extend to closest target.
+When breaking rings, the power planner will consider the existence of blocks.
+addStripe will break automatically at non-default domains when generating global stripes over the core area or default domain.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+Stripes will not be created over regions without power planning wires.
+Offset for stripe breaking is set to 0.
+Stripes will stop at the boundary of the specified area.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Change floorplan default-technical-site to 'gsclib090site'.
+*Info: initialize multi-corner CTS.
+Total number of combinational cells: 317
+Total number of sequential cells: 152
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/memory.fp.gz (mem = 1371.3M).
+% Begin Load floorplan data ... (date=06/18 15:40:52, mem=1041.4M)
+*info: reset 781 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 272020 267380)
+**WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Horizontal Layer M1 offset = 290 (derived)
+Vertical Layer M2 offset = 290 (derived)
+Start create_tracks
+Generated pitch 0.29 in Metal8 is different from 0.87 defined in technology file in unpreferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/memory.fp.spr.gz (Created by Innovus v21.15-s110_1 on Thu Jun 18 14:44:04 2026, version: 1)
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1042.8M, current mem=1042.8M)
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+% End Load floorplan data ... (date=06/18 15:40:53, total cpu=0:00:00.1, real=0:00:01.0, peak res=1044.7M, current mem=1044.7M)
+Reading congestion map file /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/memory.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=06/18 15:40:53, mem=1045.3M)
+Un-suppress "**WARN ..." messages.
+% End Load SymbolTable ... (date=06/18 15:40:53, total cpu=0:00:00.0, real=0:00:00.0, peak res=1046.3M, current mem=1046.3M)
+Loading place ...
+% Begin Load placement data ... (date=06/18 15:40:53, mem=1046.3M)
+Reading placement file - /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/memory.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v21.15-s110_1 on Thu Jun 18 14:44:04 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Checked 2 GNC rules.
+*** applyConnectGlobalNets disabled.
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1371.3M) ***
+Total net length = 1.158e+04 (5.542e+03 6.039e+03) (ext = 1.707e+03)
+% End Load placement data ... (date=06/18 15:40:53, total cpu=0:00:00.0, real=0:00:00.0, peak res=1047.3M, current mem=1047.3M)
+Reading PG file /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/memory.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on       Thu Jun 18 14:44:04 2026)
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1367.3M) ***
+% Begin Load routing data ... (date=06/18 15:40:53, mem=1047.6M)
+Reading routing file - /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/memory.route.gz.
+Reading Innovus routing data (Created by Innovus v21.15-s110_1 on Thu Jun 18 14:44:04 2026 Format: 20.1) ...
+*** Total 781 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1369.3M) ***
+% End Load routing data ... (date=06/18 15:40:53, total cpu=0:00:00.0, real=0:00:00.0, peak res=1050.0M, current mem=1049.1M)
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/memory.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1372.3M) ***
+Set Default Input Pin Transition as 0.1 ps.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-6202):	In addition to the technology file, the capacitance table file is specified for all the RC corners. If the technology file  is already specified for all the RC corners, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command to enable the technology file to be used for preRoute and postRoute (effort level medium/high/signoff) extraction engines.
+Type 'man IMPEXT-6202' for more detail.
+Reading Capacitance Table File /home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/libs/mmmc/gpdk090.lef.extended.CapTbl ...
+Cap table was created using Encounter 05.20-s112_1.
+Process name: gpdk090_9l.
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: worst_case
+    RC-Corner Name        : rc_corner
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : '/home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/libs/mmmc/gpdk090.lef.extended.CapTbl'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '/home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/libs/mmmc/rc_corner/gpdk090_9l.tch'
+ 
+ Analysis View: best_corner
+    RC-Corner Name        : rc_corner
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : '/home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/libs/mmmc/gpdk090.lef.extended.CapTbl'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '/home/vlsi19/day16/memory/physical_design/memory_placement.enc.dat/libs/mmmc/rc_corner/gpdk090_9l.tch'
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Start generating vias ..
+#Skip building auto via since it is not turned on.
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Via generation completed.
+% Begin Load power constraints ... (date=06/18 15:40:54, mem=1070.5M)
+% End Load power constraints ... (date=06/18 15:40:54, total cpu=0:00:00.0, real=0:00:00.0, peak res=1070.7M, current mem=1070.7M)
+max_delay min_delay
+% Begin load AAE data ... (date=06/18 15:40:54, mem=1099.6M)
+AAE DB initialization (MEM=1438.35 CPU=0:00:00.0 REAL=0:00:00.0) 
+% End load AAE data ... (date=06/18 15:40:55, total cpu=0:00:00.7, real=0:00:01.0, peak res=1107.9M, current mem=1107.9M)
+Total number of combinational cells: 317
+Total number of sequential cells: 152
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 BUFX6 BUFX8 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 INVX1 INVX2 INVX12 INVX16 INVX20 INVXL INVX3 INVX4 INVX6 INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X1 DLY2X4 DLY3X1 DLY3X4 DLY4X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+#% End load design ... (date=06/18 15:40:55, total cpu=0:00:05.2, real=0:00:06.0, peak res=1130.2M, current mem=1108.3M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPLF-105            2  The layer '%s' specified in SAMENET spac...
+WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+WARNING   IMPEXT-6202          1  In addition to the technology file, the ...
+WARNING   IMPVL-159          958  Pin '%s' of cell '%s' is defined in LEF ...
+WARNING   IMPOPT-3602          1  The specified path group name %s is not ...
+*** Message Summary: 967 warning(s), 0 error(s)
+
+<CMD> setDrawView fplan
+<CMD> encMessage warning 1
+<CMD> encMessage debug 0
+<CMD> setDrawView place
+<CMD> setDrawView place
+<CMD> setDrawView place
+<CMD> ui_view_box
+<CMD> ui_view_box
+<CMD> dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType inst
+<CMD> dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType regular
+<CMD> dbquery -area {-82.529 -6.6845 218.5385 140.3745} -objType special
+<CMD> zoomBox -666.51550 -228.89600 633.49850 406.10700
+<CMD> zoomBox 63.39350 63.66100 85.75300 74.58250
+<CMD> fit
+<CMD> fit
+<CMD> fit
+<CMD> fit
+<CMD> fit
+<CMD> fit
+<CMD> fit
+<CMD> fit
+<CMD> fit
+<CMD> fit
+<CMD> zoomBox -82.52900 -6.68450 218.53850 140.37450
+<CMD> zoomBox 31.47000 61.48700 113.50850 101.55950
+<CMD> zoomBox -110.18500 -23.22250 244.01600 149.79000
+<CMD> zoomBox -22.56950 30.73300 162.32550 121.04650
+<CMD> saveDesign memory_routed.enc
+#% Begin save design ... (date=06/18 15:47:36, mem=1477.4M)
+% Begin Save ccopt configuration ... (date=06/18 15:47:36, mem=1477.4M)
+% End Save ccopt configuration ... (date=06/18 15:47:36, total cpu=0:00:00.0, real=0:00:01.0, peak res=1489.1M, current mem=1489.1M)
+% Begin Save netlist data ... (date=06/18 15:47:37, mem=1513.4M)
+Writing Binary DB to memory_routed.enc.dat/memory.v.bin in single-threaded mode...
+% End Save netlist data ... (date=06/18 15:47:37, total cpu=0:00:00.0, real=0:00:00.0, peak res=1514.6M, current mem=1514.6M)
+Saving symbol-table file ...
+Saving congestion map file memory_routed.enc.dat/memory.route.congmap.gz ...
+% Begin Save AAE data ... (date=06/18 15:47:37, mem=1517.0M)
+Saving AAE Data ...
+% End Save AAE data ... (date=06/18 15:47:37, total cpu=0:00:00.0, real=0:00:00.0, peak res=1518.4M, current mem=1518.4M)
+Saving preference file memory_routed.enc.dat/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=06/18 15:47:37, mem=1533.9M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=06/18 15:47:38, total cpu=0:00:00.0, real=0:00:00.0, peak res=1541.6M, current mem=1541.6M)
+Saving PG file memory_routed.enc.dat/memory.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on Thu Jun 18 15:47:38 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=2249.2M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=06/18 15:47:38, mem=1541.6M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=06/18 15:47:38, total cpu=0:00:00.0, real=0:00:00.0, peak res=1543.4M, current mem=1543.4M)
+% Begin Save routing data ... (date=06/18 15:47:38, mem=1543.4M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:01.0 mem=2249.2M) ***
+% End Save routing data ... (date=06/18 15:47:39, total cpu=0:00:00.0, real=0:00:01.0, peak res=1544.0M, current mem=1544.0M)
+Saving property file memory_routed.enc.dat/memory.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=2252.2M) ***
+% Begin Save power constraints data ... (date=06/18 15:47:39, mem=1553.3M)
+% End Save power constraints data ... (date=06/18 15:47:39, total cpu=0:00:00.0, real=0:00:00.0, peak res=1553.3M, current mem=1553.3M)
+rc_corner
+rc_corner
+rc_corner
+Generated self-contained design memory_routed.enc.dat
+#% End save design ... (date=06/18 15:47:39, total cpu=0:00:01.0, real=0:00:03.0, peak res=1556.5M, current mem=1556.5M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> saveDesign memory_routed.enc
+#% Begin save design ... (date=06/18 15:47:39, mem=1556.5M)
+% Begin Save ccopt configuration ... (date=06/18 15:47:39, mem=1556.5M)
+% End Save ccopt configuration ... (date=06/18 15:47:39, total cpu=0:00:00.0, real=0:00:00.0, peak res=1556.5M, current mem=1556.5M)
+% Begin Save netlist data ... (date=06/18 15:47:39, mem=1556.5M)
+Writing Binary DB to memory_routed.enc.dat.tmp/memory.v.bin in single-threaded mode...
+% End Save netlist data ... (date=06/18 15:47:39, total cpu=0:00:00.0, real=0:00:00.0, peak res=1556.9M, current mem=1556.9M)
+Saving symbol-table file ...
+Saving congestion map file memory_routed.enc.dat.tmp/memory.route.congmap.gz ...
+% Begin Save AAE data ... (date=06/18 15:47:40, mem=1556.9M)
+Saving AAE Data ...
+% End Save AAE data ... (date=06/18 15:47:40, total cpu=0:00:00.0, real=0:00:00.0, peak res=1556.9M, current mem=1556.9M)
+Saving preference file memory_routed.enc.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=06/18 15:47:40, mem=1557.0M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=06/18 15:47:41, total cpu=0:00:00.0, real=0:00:01.0, peak res=1557.0M, current mem=1557.0M)
+Saving PG file memory_routed.enc.dat.tmp/memory.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on Thu Jun 18 15:47:41 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=2293.1M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=06/18 15:47:41, mem=1557.0M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=06/18 15:47:41, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.0M, current mem=1557.0M)
+% Begin Save routing data ... (date=06/18 15:47:41, mem=1557.0M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=2293.1M) ***
+% End Save routing data ... (date=06/18 15:47:41, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.2M, current mem=1557.2M)
+Saving property file memory_routed.enc.dat.tmp/memory.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=2296.1M) ***
+% Begin Save power constraints data ... (date=06/18 15:47:41, mem=1557.2M)
+% End Save power constraints data ... (date=06/18 15:47:41, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.2M, current mem=1557.2M)
+rc_corner
+rc_corner
+rc_corner
+Generated self-contained design memory_routed.enc.dat.tmp
+#% End save design ... (date=06/18 15:47:42, total cpu=0:00:00.8, real=0:00:03.0, peak res=1557.7M, current mem=1557.7M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> saveDesign memory_routed.enc
+#% Begin save design ... (date=06/18 15:47:42, mem=1557.7M)
+% Begin Save ccopt configuration ... (date=06/18 15:47:42, mem=1557.7M)
+% End Save ccopt configuration ... (date=06/18 15:47:42, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.7M, current mem=1557.7M)
+% Begin Save netlist data ... (date=06/18 15:47:42, mem=1557.7M)
+Writing Binary DB to memory_routed.enc.dat.tmp/memory.v.bin in single-threaded mode...
+% End Save netlist data ... (date=06/18 15:47:42, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.8M, current mem=1557.8M)
+Saving symbol-table file ...
+Saving congestion map file memory_routed.enc.dat.tmp/memory.route.congmap.gz ...
+% Begin Save AAE data ... (date=06/18 15:47:42, mem=1557.8M)
+Saving AAE Data ...
+% End Save AAE data ... (date=06/18 15:47:42, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.8M, current mem=1557.8M)
+Saving preference file memory_routed.enc.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=06/18 15:47:43, mem=1557.8M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=06/18 15:47:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.8M, current mem=1557.8M)
+Saving PG file memory_routed.enc.dat.tmp/memory.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on Thu Jun 18 15:47:43 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=2306.8M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=06/18 15:47:43, mem=1557.8M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=06/18 15:47:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.8M, current mem=1557.8M)
+% Begin Save routing data ... (date=06/18 15:47:43, mem=1557.8M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=2306.8M) ***
+% End Save routing data ... (date=06/18 15:47:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.8M, current mem=1557.8M)
+Saving property file memory_routed.enc.dat.tmp/memory.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=2309.8M) ***
+% Begin Save power constraints data ... (date=06/18 15:47:43, mem=1557.8M)
+% End Save power constraints data ... (date=06/18 15:47:44, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.8M, current mem=1557.8M)
+rc_corner
+rc_corner
+rc_corner
+Generated self-contained design memory_routed.enc.dat.tmp
+#% End save design ... (date=06/18 15:47:44, total cpu=0:00:00.8, real=0:00:02.0, peak res=1557.8M, current mem=1557.8M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> saveDesign memory_routed.enc
+#% Begin save design ... (date=06/18 15:47:44, mem=1557.8M)
+% Begin Save ccopt configuration ... (date=06/18 15:47:44, mem=1557.8M)
+% End Save ccopt configuration ... (date=06/18 15:47:44, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.8M, current mem=1557.8M)
+% Begin Save netlist data ... (date=06/18 15:47:44, mem=1557.8M)
+Writing Binary DB to memory_routed.enc.dat.tmp/memory.v.bin in single-threaded mode...
+% End Save netlist data ... (date=06/18 15:47:44, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving symbol-table file ...
+Saving congestion map file memory_routed.enc.dat.tmp/memory.route.congmap.gz ...
+% Begin Save AAE data ... (date=06/18 15:47:45, mem=1557.9M)
+Saving AAE Data ...
+% End Save AAE data ... (date=06/18 15:47:45, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving preference file memory_routed.enc.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=06/18 15:47:45, mem=1557.9M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=06/18 15:47:45, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving PG file memory_routed.enc.dat.tmp/memory.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on Thu Jun 18 15:47:45 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:01.0 mem=2306.3M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=06/18 15:47:46, mem=1557.9M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=06/18 15:47:46, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+% Begin Save routing data ... (date=06/18 15:47:46, mem=1557.9M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=2306.3M) ***
+% End Save routing data ... (date=06/18 15:47:46, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving property file memory_routed.enc.dat.tmp/memory.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=2309.3M) ***
+% Begin Save power constraints data ... (date=06/18 15:47:46, mem=1557.9M)
+% End Save power constraints data ... (date=06/18 15:47:46, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+rc_corner
+rc_corner
+rc_corner
+Generated self-contained design memory_routed.enc.dat.tmp
+#% End save design ... (date=06/18 15:47:46, total cpu=0:00:00.8, real=0:00:02.0, peak res=1557.9M, current mem=1557.9M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> saveDesign memory_routed.enc
+#% Begin save design ... (date=06/18 15:47:46, mem=1557.9M)
+% Begin Save ccopt configuration ... (date=06/18 15:47:46, mem=1557.9M)
+% End Save ccopt configuration ... (date=06/18 15:47:46, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+% Begin Save netlist data ... (date=06/18 15:47:46, mem=1557.9M)
+Writing Binary DB to memory_routed.enc.dat.tmp/memory.v.bin in single-threaded mode...
+% End Save netlist data ... (date=06/18 15:47:46, total cpu=0:00:00.0, real=0:00:01.0, peak res=1557.9M, current mem=1557.9M)
+Saving symbol-table file ...
+Saving congestion map file memory_routed.enc.dat.tmp/memory.route.congmap.gz ...
+% Begin Save AAE data ... (date=06/18 15:47:47, mem=1557.9M)
+Saving AAE Data ...
+% End Save AAE data ... (date=06/18 15:47:47, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving preference file memory_routed.enc.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=06/18 15:47:47, mem=1557.9M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=06/18 15:47:47, total cpu=0:00:00.0, real=0:00:01.0, peak res=1557.9M, current mem=1557.9M)
+Saving PG file memory_routed.enc.dat.tmp/memory.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on Thu Jun 18 15:47:48 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=2306.8M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=06/18 15:47:48, mem=1557.9M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=06/18 15:47:48, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+% Begin Save routing data ... (date=06/18 15:47:48, mem=1557.9M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=2306.8M) ***
+% End Save routing data ... (date=06/18 15:47:48, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving property file memory_routed.enc.dat.tmp/memory.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=2309.8M) ***
+% Begin Save power constraints data ... (date=06/18 15:47:48, mem=1557.9M)
+% End Save power constraints data ... (date=06/18 15:47:48, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+rc_corner
+rc_corner
+rc_corner
+Generated self-contained design memory_routed.enc.dat.tmp
+#% End save design ... (date=06/18 15:47:49, total cpu=0:00:00.8, real=0:00:03.0, peak res=1557.9M, current mem=1557.9M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> saveDesign memory_routed.enc
+#% Begin save design ... (date=06/18 15:47:49, mem=1557.9M)
+% Begin Save ccopt configuration ... (date=06/18 15:47:49, mem=1557.9M)
+% End Save ccopt configuration ... (date=06/18 15:47:49, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+% Begin Save netlist data ... (date=06/18 15:47:49, mem=1557.9M)
+Writing Binary DB to memory_routed.enc.dat.tmp/memory.v.bin in single-threaded mode...
+% End Save netlist data ... (date=06/18 15:47:49, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving symbol-table file ...
+Saving congestion map file memory_routed.enc.dat.tmp/memory.route.congmap.gz ...
+% Begin Save AAE data ... (date=06/18 15:47:49, mem=1557.9M)
+Saving AAE Data ...
+% End Save AAE data ... (date=06/18 15:47:49, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving preference file memory_routed.enc.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=06/18 15:47:49, mem=1557.9M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=06/18 15:47:50, total cpu=0:00:00.0, real=0:00:01.0, peak res=1557.9M, current mem=1557.9M)
+Saving PG file memory_routed.enc.dat.tmp/memory.pg.gz, version#2, (Created by Innovus v21.15-s110_1 on Thu Jun 18 15:47:50 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=2306.4M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=06/18 15:47:50, mem=1557.9M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=06/18 15:47:50, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+% Begin Save routing data ... (date=06/18 15:47:50, mem=1557.9M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=2306.4M) ***
+% End Save routing data ... (date=06/18 15:47:50, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+Saving property file memory_routed.enc.dat.tmp/memory.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=2309.4M) ***
+% Begin Save power constraints data ... (date=06/18 15:47:50, mem=1557.9M)
+% End Save power constraints data ... (date=06/18 15:47:50, total cpu=0:00:00.0, real=0:00:00.0, peak res=1557.9M, current mem=1557.9M)
+rc_corner
+rc_corner
+rc_corner
+Generated self-contained design memory_routed.enc.dat.tmp
+#% End save design ... (date=06/18 15:47:51, total cpu=0:00:00.7, real=0:00:02.0, peak res=1557.9M, current mem=1557.9M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> streamOut memory.gds -libName DesignLib -units 2000 -mode ALL
+Parse flat map file...
+Writing GDSII file ...
+	****** db unit per micron = 2000 ******
+	****** output gds2 file unit per micron = 2000 ******
+	****** unit scaling factor = 1 ******
+Output for instance
+Output for bump
+Output for physical terminals
+Output for logical terminals
+Output for regular nets
+Output for special nets and metal fills
+Output for via structure generation total number 18
+Statistics for GDS generated (version 3)
+----------------------------------------
+Stream Out Layer Mapping Information:
+GDS Layer Number          GDS Layer Name
+----------------------------------------
+    191                             COMP
+    192                          DIEAREA
+    181                           Metal9
+    179                           Metal9
+    178                           Metal9
+    177                           Metal9
+    176                           Metal9
+    175                             Via8
+    174                             Via8
+    170                             Via8
+    160                           Metal8
+    158                           Metal8
+    157                           Metal8
+    156                           Metal8
+    155                           Metal8
+    154                             Via7
+    153                             Via7
+    149                             Via7
+    139                           Metal7
+    137                           Metal7
+    136                           Metal7
+    135                           Metal7
+    134                           Metal7
+    133                             Via6
+    132                             Via6
+    131                             Via6
+    130                             Via6
+    129                             Via6
+    128                             Via6
+    127                             Via6
+    122                           Metal6
+    121                           Metal6
+    120                           Metal6
+    119                           Metal6
+    118                           Metal6
+    53                            Metal3
+    52                            Metal3
+    185                           Metal9
+    48                              Via2
+    29                            Metal2
+    180                           Metal9
+    47                              Via2
+    182                           Metal9
+    44                              Via2
+    43                              Via2
+    172                             Via8
+    38                            Metal2
+    95                            Metal5
+    36                            Metal2
+    93                            Metal5
+    112                             Via5
+    55                            Metal3
+    113                           Metal6
+    32                            Metal2
+    54                            Metal3
+    31                            Metal2
+    107                             Via5
+    30                            Metal2
+    49                              Via2
+    106                             Via5
+    33                            Metal2
+    109                             Via5
+    10                            Metal1
+    86                              Via4
+    50                            Metal3
+    69                              Via3
+    143                           Metal7
+    6                               Cont
+    169                             Via8
+    35                            Metal2
+    8                             Metal1
+    164                           Metal8
+    27                              Via1
+    141                           Metal7
+    3                               Cont
+    51                            Metal3
+    70                              Via3
+    7                               Cont
+    64                              Via3
+    173                             Via8
+    34                            Metal2
+    92                            Metal5
+    111                             Via5
+    11                            Metal1
+    142                           Metal7
+    4                               Cont
+    9                             Metal1
+    28                              Via1
+    85                              Via4
+    138                           Metal7
+    5                               Cont
+    12                            Metal1
+    88                              Via4
+    183                           Metal9
+    45                              Via2
+    22                              Via1
+    152                             Via7
+    13                            Metal1
+    71                            Metal4
+    90                              Via4
+    184                           Metal9
+    46                              Via2
+    161                           Metal8
+    23                              Via1
+    171                             Via8
+    37                            Metal2
+    94                            Metal5
+    148                             Via7
+    14                            Metal1
+    15                            Metal1
+    72                            Metal4
+    91                              Via4
+    150                             Via7
+    16                            Metal1
+    73                            Metal4
+    159                           Metal8
+    26                              Via1
+    151                             Via7
+    17                            Metal1
+    74                            Metal4
+    1                               Cont
+    162                           Metal8
+    24                              Via1
+    140                           Metal7
+    2                               Cont
+    163                           Metal8
+    25                              Via1
+    56                            Metal3
+    57                            Metal3
+    114                           Metal6
+    58                            Metal3
+    115                           Metal6
+    59                            Metal3
+    116                           Metal6
+    65                              Via3
+    66                              Via3
+    67                              Via3
+    68                              Via3
+    75                            Metal4
+    76                            Metal4
+    77                            Metal4
+    78                            Metal4
+    79                            Metal4
+    80                            Metal4
+    87                              Via4
+    89                              Via4
+    96                            Metal5
+    97                            Metal5
+    98                            Metal5
+    99                            Metal5
+    100                           Metal5
+    101                           Metal5
+    108                             Via5
+    110                             Via5
+    117                           Metal6
+    189                           Metal9
+    188                           Metal9
+    187                           Metal9
+    186                           Metal9
+    168                           Metal8
+    167                           Metal8
+    166                           Metal8
+    165                           Metal8
+    147                           Metal7
+    146                           Metal7
+    145                           Metal7
+    144                           Metal7
+    63                            Metal3
+    62                            Metal3
+    39                            Metal2
+    105                           Metal5
+    103                           Metal5
+    123                           Metal6
+    42                            Metal2
+    41                            Metal2
+    40                            Metal2
+    20                            Metal1
+    60                            Metal3
+    18                            Metal1
+    61                            Metal3
+    102                           Metal5
+    21                            Metal1
+    19                            Metal1
+    81                            Metal4
+    104                           Metal5
+    82                            Metal4
+    83                            Metal4
+    84                            Metal4
+    124                           Metal6
+    125                           Metal6
+    126                           Metal6
+
+
+Stream Out Information Processed for GDS version 3:
+Units: 2000 DBU
+
+Object                             Count
+----------------------------------------
+Instances                            816
+
+Ports/Pins                            85
+    metal layer Metal2                33
+    metal layer Metal3                42
+    metal layer Metal4                 1
+    metal layer Metal5                 7
+    metal layer Metal7                 2
+
+Nets                                5615
+    metal layer Metal2              2817
+    metal layer Metal3              2739
+    metal layer Metal4                53
+    metal layer Metal5                 4
+    metal layer Metal7                 2
+
+    Via Instances                   7791
+
+Special Nets                         226
+    metal layer Metal1               138
+    metal layer Metal8                44
+    metal layer Metal9                44
+
+    Via Instances                   1612
+
+Metal Fills                            0
+
+    Via Instances                      0
+
+Metal FillOPCs                         0
+
+    Via Instances                      0
+
+Metal FillDRCs                         0
+
+    Via Instances                      0
+
+Text                                 866
+    metal layer Metal2               644
+    metal layer Metal3               209
+    metal layer Metal4                 2
+    metal layer Metal5                 7
+    metal layer Metal7                 2
+    metal layer Metal9                 2
+
+
+Blockages                              0
+
+
+Custom Text                            0
+
+
+Custom Box                             0
+
+Trim Metal                             0
+
+######Streamout is finished!
+<CMD> streamOut memory.gds -libName DesignLib -units 2000 -mode ALL
+Parse flat map file...
+Writing GDSII file ...
+	****** db unit per micron = 2000 ******
+	****** output gds2 file unit per micron = 2000 ******
+	****** unit scaling factor = 1 ******
+Output for instance
+Output for bump
+Output for physical terminals
+Output for logical terminals
+Output for regular nets
+Output for special nets and metal fills
+Output for via structure generation total number 18
+Statistics for GDS generated (version 3)
+----------------------------------------
+Stream Out Layer Mapping Information:
+GDS Layer Number          GDS Layer Name
+----------------------------------------
+    191                             COMP
+    192                          DIEAREA
+    181                           Metal9
+    179                           Metal9
+    178                           Metal9
+    177                           Metal9
+    176                           Metal9
+    175                             Via8
+    174                             Via8
+    170                             Via8
+    160                           Metal8
+    158                           Metal8
+    157                           Metal8
+    156                           Metal8
+    155                           Metal8
+    154                             Via7
+    153                             Via7
+    149                             Via7
+    139                           Metal7
+    137                           Metal7
+    136                           Metal7
+    135                           Metal7
+    134                           Metal7
+    133                             Via6
+    132                             Via6
+    131                             Via6
+    130                             Via6
+    129                             Via6
+    128                             Via6
+    127                             Via6
+    122                           Metal6
+    121                           Metal6
+    120                           Metal6
+    119                           Metal6
+    118                           Metal6
+    53                            Metal3
+    52                            Metal3
+    185                           Metal9
+    48                              Via2
+    29                            Metal2
+    180                           Metal9
+    47                              Via2
+    182                           Metal9
+    44                              Via2
+    43                              Via2
+    172                             Via8
+    38                            Metal2
+    95                            Metal5
+    36                            Metal2
+    93                            Metal5
+    112                             Via5
+    55                            Metal3
+    113                           Metal6
+    32                            Metal2
+    54                            Metal3
+    31                            Metal2
+    107                             Via5
+    30                            Metal2
+    49                              Via2
+    106                             Via5
+    33                            Metal2
+    109                             Via5
+    10                            Metal1
+    86                              Via4
+    50                            Metal3
+    69                              Via3
+    143                           Metal7
+    6                               Cont
+    169                             Via8
+    35                            Metal2
+    8                             Metal1
+    164                           Metal8
+    27                              Via1
+    141                           Metal7
+    3                               Cont
+    51                            Metal3
+    70                              Via3
+    7                               Cont
+    64                              Via3
+    173                             Via8
+    34                            Metal2
+    92                            Metal5
+    111                             Via5
+    11                            Metal1
+    142                           Metal7
+    4                               Cont
+    9                             Metal1
+    28                              Via1
+    85                              Via4
+    138                           Metal7
+    5                               Cont
+    12                            Metal1
+    88                              Via4
+    183                           Metal9
+    45                              Via2
+    22                              Via1
+    152                             Via7
+    13                            Metal1
+    71                            Metal4
+    90                              Via4
+    184                           Metal9
+    46                              Via2
+    161                           Metal8
+    23                              Via1
+    171                             Via8
+    37                            Metal2
+    94                            Metal5
+    148                             Via7
+    14                            Metal1
+    15                            Metal1
+    72                            Metal4
+    91                              Via4
+    150                             Via7
+    16                            Metal1
+    73                            Metal4
+    159                           Metal8
+    26                              Via1
+    151                             Via7
+    17                            Metal1
+    74                            Metal4
+    1                               Cont
+    162                           Metal8
+    24                              Via1
+    140                           Metal7
+    2                               Cont
+    163                           Metal8
+    25                              Via1
+    56                            Metal3
+    57                            Metal3
+    114                           Metal6
+    58                            Metal3
+    115                           Metal6
+    59                            Metal3
+    116                           Metal6
+    65                              Via3
+    66                              Via3
+    67                              Via3
+    68                              Via3
+    75                            Metal4
+    76                            Metal4
+    77                            Metal4
+    78                            Metal4
+    79                            Metal4
+    80                            Metal4
+    87                              Via4
+    89                              Via4
+    96                            Metal5
+    97                            Metal5
+    98                            Metal5
+    99                            Metal5
+    100                           Metal5
+    101                           Metal5
+    108                             Via5
+    110                             Via5
+    117                           Metal6
+    189                           Metal9
+    188                           Metal9
+    187                           Metal9
+    186                           Metal9
+    168                           Metal8
+    167                           Metal8
+    166                           Metal8
+    165                           Metal8
+    147                           Metal7
+    146                           Metal7
+    145                           Metal7
+    144                           Metal7
+    63                            Metal3
+    62                            Metal3
+    39                            Metal2
+    105                           Metal5
+    103                           Metal5
+    123                           Metal6
+    42                            Metal2
+    41                            Metal2
+    40                            Metal2
+    20                            Metal1
+    60                            Metal3
+    18                            Metal1
+    61                            Metal3
+    102                           Metal5
+    21                            Metal1
+    19                            Metal1
+    81                            Metal4
+    104                           Metal5
+    82                            Metal4
+    83                            Metal4
+    84                            Metal4
+    124                           Metal6
+    125                           Metal6
+    126                           Metal6
+
+
+Stream Out Information Processed for GDS version 3:
+Units: 2000 DBU
+
+Object                             Count
+----------------------------------------
+Instances                            816
+
+Ports/Pins                            85
+    metal layer Metal2                33
+    metal layer Metal3                42
+    metal layer Metal4                 1
+    metal layer Metal5                 7
+    metal layer Metal7                 2
+
+Nets                                5615
+    metal layer Metal2              2817
+    metal layer Metal3              2739
+    metal layer Metal4                53
+    metal layer Metal5                 4
+    metal layer Metal7                 2
+
+    Via Instances                   7791
+
+Special Nets                         226
+    metal layer Metal1               138
+    metal layer Metal8                44
+    metal layer Metal9                44
+
+    Via Instances                   1612
+
+Metal Fills                            0
+
+    Via Instances                      0
+
+Metal FillOPCs                         0
+
+    Via Instances                      0
+
+Metal FillDRCs                         0
+
+    Via Instances                      0
+
+Text                                 866
+    metal layer Metal2               644
+    metal layer Metal3               209
+    metal layer Metal4                 2
+    metal layer Metal5                 7
+    metal layer Metal7                 2
+    metal layer Metal9                 2
+
+
+Blockages                              0
+
+
+Custom Text                            0
+
+
+Custom Box                             0
+
+Trim Metal                             0
+
+######Streamout is finished!
+
+--------------------------------------------------------------------------------
+Exiting Innovus on Thu Jun 18 15:49:58 2026
+  Total CPU time:     0:02:17
+  Total real time:    0:10:28
+  Peak memory (main): 1568.50MB
+
+
+*** Memory Usage v#1 (Current mem = 2314.105M, initial mem = 483.863M) ***
+*** Message Summary: 967 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:02:04, real=0:10:26, mem=2314.1M) ---

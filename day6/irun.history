@@ -1,0 +1,12 @@
+s1(06Jun2026:09:57:04):  irun count8.v count8_tb.v -access +rwc -gui 
+s2(06Jun2026:09:58:42):  irun count8.v count8_tb.v -access +rwc -gui 
+s3(06Jun2026:09:58:53):  irun count8.v count8_tb.v -access +rwc -gui 
+s4(06Jun2026:10:00:10):  irun count8.v count8_tb.v -access +rwc -gui 
+s5(06Jun2026:10:00:45):  irun count8.v count8_tb.v -access +rwc -gui 
+s6(06Jun2026:11:59:51):  irun count8.v count8_tb.v -access +rwc -gui -coverage all 
+s7(06Jun2026:13:27:40):  irun count8.v count8_tb.v -access +rwc -gui -coverage all 
+s8(06Jun2026:13:30:29):  irun count8.v count8_tb.v -access +rwc -gui -coverage all 
+s9(06Jun2026:13:42:42):  irun count8.v count8_tb.v -access +rwc -gui -coverage all 
+s10(09Jun2026:11:18:25):  irun count8.v -access +rwc -gui 
+s11(09Jun2026:11:21:08):  irun count8.v count_tb.v -access +rwc -gui 
+s12(09Jun2026:11:21:19):  irun count8.v count8_tb.v -access +rwc -gui 

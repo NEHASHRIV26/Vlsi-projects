@@ -1,0 +1,11 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+mome.v
+mome_tb.v
+-access
++rwc
+-gui
+-coverage
+all

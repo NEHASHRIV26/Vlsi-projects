@@ -1,0 +1,41 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Jun 09, 2026 at 13:42:06 IST
+irun
+	moore.v
+	moore_tb.v
+	-access +rwc
+	-gui
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		moore_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.moore:v <0x4da86188>
+			streams:   3, words:  2363
+		worklib.moore_tb:v <0x4c8ad8c2>
+			streams:   5, words:  3399
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           6       6
+		Scalar wires:        4       -
+		Always blocks:       1       1
+		Initial blocks:      2       2
+		Pseudo assignments:  3       3
+	Writing initial simulation snapshot: worklib.moore_tb:v
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/install/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm moore_tb.clk moore_tb.din moore_tb.dout moore_tb.i moore_tb.rst
+Created probe 1
+ncsim> run
+Simulation complete via $finish(1) at time 1060 NS + 0
+./moore_tb.v:21 #20; $finish;
+ncsim> TOOL:	irun(64)	15.20-s086: Exiting on Jun 09, 2026 at 13:44:01 IST  (total: 00:01:55)

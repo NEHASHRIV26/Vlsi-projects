@@ -1,0 +1,43 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Feb 16, 2026 at 15:00:08 IST
+irun
+	../../new.sv
+file: ../../new.sv
+    base_class b_object = new(); 
+                        |
+ncvlog: *W,VARIST (../../new.sv,14|24): Local static variable with initializer requires 'static' keyword.
+	module worklib.main:sv
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x627d8165
+		main
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.\$unit_0x627d8165 :compilation_unit <0x0d951dfc>
+			streams:   0, words:     0
+		worklib.\$unit_0x627d8165 :compilation_unit <0x33a541e0>
+			streams:   8, words:  3071
+		worklib.main:sv <0x1d7a40d1>
+			streams:   2, words:  1069
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                   Instances  Unique
+		Modules:                   1       1
+		Registers:                 6       7
+		Initial blocks:            2       2
+		Compilation units:         1       1
+		SV Class declarations:     1       1
+		SV Class specializations:  1       1
+	Writing initial simulation snapshot: worklib.main:sv
+Loading snapshot worklib.main:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+ncsim> source /home/install/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> run
+value_loc=        123
+ncsim: *W,RNQUIE: Simulation is complete.
+ncsim> exit
+TOOL:	irun(64)	15.20-s086: Exiting on Feb 16, 2026 at 15:00:08 IST  (total: 00:00:00)

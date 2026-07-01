@@ -1,0 +1,20 @@
+halsynth: Loading design snapshot....
+halsynth: Traversing design hierarchy....
+halsynth: *M,_SCOPE: sr_tb
+halsynth: *W,INIUSP (./sr_tb.v,5|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+halsynth: *E,AWNDEL (./sr_tb.v,7|0): Always block with no event trigger at the start in module sr_tb.
+halsynth: *W,INIUSP (./sr_tb.v,8|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+halsynth: *W,INIUSP (./sr_tb.v,16|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+halsynth: *W,COMBLP: In module sr_tb, combinational loop detected for node clk.
+halsynth: (./sr_tb.v,7|0): Source HDL information for the error/warning mentioned above.
+@:clk 
+halsynth: *W,IGNDLY (./sr_tb.v,7|0): Lumped delay in module 'sr_tb' is ignored.
+~:CLKOUT
+~:CLKSRD
+~:COMBLP
+~:INPOUT
+~:MUDREG
+~:MULWIR
+~:UNDRIV
+halsynth: Total errors   = 1.
+halsynth: Total warnings = 5.

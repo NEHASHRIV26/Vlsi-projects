@@ -1,0 +1,86 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Jun 06, 2026 at 11:22:29 IST
+irun
+	fa.v
+	fa_tb.v
+	-access +rwc
+	-gui
+	-coverage all
+file: fa_tb.v
+	module worklib.fa_tb:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		fa_tb
+
+	Extracting FSMs for coverage:
+		worklib.fa
+		worklib.fa_tb
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Generating native compiled code:
+		worklib.fa:v <0x47ce0c95>
+			streams:   1, words:  5131
+		worklib.fa_tb:v <0x71a5f6ae>
+			streams:   5, words: 13064
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           5       5
+		Scalar wires:        5       -
+		Always blocks:       1       1
+		Initial blocks:      1       1
+		Pseudo assignments:  3       3
+	Writing initial simulation snapshot: worklib.fa_tb:v
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/install/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm fa_tb.a fa_tb.b fa_tb.c fa_tb.carry fa_tb.sum
+Created probe 1
+ncsim> run
+a b c | sum carry
+0 0 0 | 0    0
+0 0 1 | 1    0
+0 1 0 | 1    0
+0 1 1 | 0    1
+1 0 0 | 1    0
+1 0 1 | 0    1
+1 1 0 | 0    1
+1 1 1 | 1    1
+Simulation complete via $finish(1) at time 80 NS + 0
+./fa_tb.v:28     $finish;
+ncsim> coverage -analyze
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  fa_tb(fa_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_62500c0c_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_62500c0c_00000000.ucd
+
+Launching IMC...
+
+ncsim> 
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  fa_tb(fa_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_62500c0c_00000000.ucm (reused)
+  data               :  ./cov_work/scope/test/icc_62500c0c_00000000.ucd
+...Regained control from SimVision
+-------------------------------------
+TOOL:	irun(64)	15.20-s086: Exiting on Jun 06, 2026 at 12:39:05 IST  (total: 01:16:36)

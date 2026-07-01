@@ -1,0 +1,208 @@
+hal(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+hal: Options:   -cdslib /home/vlsi19/day3/cds.lib -logfile hal.log /home/vlsi19/day3/sr_tb.v.
+hal: Workspace: /home/vlsi19/day3.
+hal: Date: Wed Jun 03 16:07:03 IST 2026.
+
+hal: Running on design source files.....
+hal: Snapshot:  worklib.sr_tb:v.
+
+  ==========================================================================
+Compiling design 
+
+
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+     |
+ncelab: *W,CUVWSI (./sr_tb.v,4|5): 1 input port was not connected:
+ncelab: (./sr.v,1): rst
+
+	Top level design units:
+		sr_tb
+
+  ==========================================================================
+Performing lint checks 
+
+halcheck(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+visadev(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+module sr_tb;
+|
+halcheck: *W,NEEDIO (./sr_tb.v,1|0): Top-level module 'sr_tb' has no inputs/outputs/inouts.
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+|
+halcheck: *W,UNCONN (./sr_tb.v,4|0): Input port 'rst' defined in design-unit 'sr' is not connected in its instance 'sri'.
+clk=1'b1;
+|
+halcheck: *W,REVROP (./sr_tb.v,6|0): Register 'clk' is being read/assigned outside the process in which it was assigned using a blocking assignment.
+halcheck: (./sr_tb.v,7): Assigned using blocking assignment in this process.
+always #10 clk=~clk;
+|
+halcheck: *W,EVTRIG (./sr_tb.v,7|0): Always block with no event trigger at the start of the block in module 'sr_tb'.
+always #10 clk=~clk;
+|
+halcheck: *W,NBGEND (./sr_tb.v,7|0): Missing begin/end statement in the 'always' block.
+always #10 clk=~clk;
+|
+halcheck: *W,SEPLIN (./sr_tb.v,7|0): Use a separate line for each HDL statement.
+always #10 clk=~clk;
+|
+halcheck: *W,RDBFAS (./sr_tb.v,7|0): Register 'clk', assigned using blocking assignment, is being read before getting assigned.
+initial begin
+|
+halcheck: *W,NOBLKN (./sr_tb.v,8|0): Each block should be labeled with a meaningful name.
+#10 rst=1'b01;s=1'b01;r=1'b0;
+|
+halcheck: *W,SEPLIN (./sr_tb.v,9|0): Use a separate line for each HDL statement.
+#10 rst=1'b01;s=1'b00;r=1'b0;
+|
+halcheck: *W,SEPLIN (./sr_tb.v,10|0): Use a separate line for each HDL statement.
+#10 rst=1'b00;s=1'b01;r=1'b1;
+|
+halcheck: *W,SEPLIN (./sr_tb.v,11|0): Use a separate line for each HDL statement.
+#10 rst=1'b00;s=1'b01;r=1'b0;
+|
+halcheck: *W,SEPLIN (./sr_tb.v,12|0): Use a separate line for each HDL statement.
+#10 rst=1'b01;s=1'b00;r=1'b0;
+|
+halcheck: *W,SEPLIN (./sr_tb.v,13|0): Use a separate line for each HDL statement.
+#10 rst=1'b01;s=1'b01;r=1'b0;
+|
+halcheck: *W,SEPLIN (./sr_tb.v,14|0): Use a separate line for each HDL statement.
+#100 $finish;
+|
+halcheck: *W,BADSYS (./sr_tb.v,17|0): System task $finish in module 'sr_tb' is ignored.
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+|
+halcheck: *N,IDLENG (./sr_tb.v,4|0): Identifier name 'sri' is not of appropriate length (4 to 16 characters).
+module sr(input clk,rst,s,r, output reg q);
+|
+halcheck: *N,IDLENG (./sr.v,1|0): Identifier name 'sr' is not of appropriate length (4 to 16 characters).
+module sr(input clk,rst,s,r, output reg q);
+|
+halcheck: *N,PRTCNT (./sr.v,1|0): Module/Entity 'sr' contains '5' ports.
+halcheck: (./sr.v,1): Number of Input ports: 4.
+halcheck: (./sr.v,1): Number of Output ports: 1.
+module sr(input clk,rst,s,r, output reg q);
+|
+halcheck: *N,DECLIN (./sr.v,1|0): Use a separate line for each HDL declaration.
+begin
+|
+halcheck: *W,NOBLKN (./sr.v,3|0): Each block should be labeled with a meaningful name.
+if(rst)
+|
+halcheck: *W,NBGEND (./sr.v,4|0): Missing begin/end statement in the 'if' block.
+2'b11:  q<=1'bx;  
+|
+halcheck: *W,SYNTXZ (./sr.v,11|0): Synthesizing 'x'/'z' values in module 'sr'.
+wire q;
+|
+halcheck: *W,URDWIR (./sr_tb.v,3|0): Wire 'q' defined in module 'sr_tb' does not drive any object, but is assigned at least once.
+reg clk,rst,s,r;
+|
+halcheck: *W,URDREG (./sr_tb.v,2|0): Local register variable 'rst' is not read, but is assigned at least once in module 'sr_tb'.
+halcheck: Total errors   = 0.
+halcheck: Total warnings = 20.
+
+  ==========================================================================
+Performing synthesizability checks 
+
+cfe64: 15.20.s086..-(): (c) Copyright 1995 - 2020 Cadence Design Systems, Inc.
+cfe64 Build : Mon Dec  7 22:53:08 IST 2020 ldvopt223
+halsynth: Loading design snapshot....
+halsynth: Traversing design hierarchy....
+initial
+|
+halsynth: *W,INIUSP (./sr_tb.v,5|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+always #10 clk=~clk;
+|
+halsynth: *E,AWNDEL (./sr_tb.v,7|0): Always block with no event trigger at the start in module sr_tb.
+initial begin
+|
+halsynth: *W,INIUSP (./sr_tb.v,8|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+initial
+|
+halsynth: *W,INIUSP (./sr_tb.v,16|0): Module sr_tb has an initial block or a variable declaration assignment, which is ignored by synthesis tools.
+halsynth: *W,COMBLP: In module sr_tb, combinational loop detected for node clk.
+always #10 clk=~clk;
+|
+halsynth: (./sr_tb.v,7|0): Source HDL information for the error/warning mentioned above.
+always #10 clk=~clk;
+|
+halsynth: *W,IGNDLY (./sr_tb.v,7|0): Lumped delay in module 'sr_tb' is ignored.
+halsynth: Total errors   = 1.
+halsynth: Total warnings = 5.
+
+  ==========================================================================
+Performing structural checks 
+
+halstruct(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+visadev(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+reg clk,rst,s,r;
+|
+halstruct: *E,CMBPAU (./sr_tb.v,2|0): Combinational loop detected through 'clk' in module/design-unit 'sr_tb'.
+halstruct: (./sr_tb.v,7): sr_tb.clk.
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+|
+halstruct: *E,UNCONI (./sr_tb.v,4|0): Input port 'rst' of entity/module 'sr' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'sr_tb.sri'.
+halstruct: (./sr_tb.v,4): 'rst' is unmapped.
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+|
+halstruct: *E,UNCONI (./sr_tb.v,4|0): Input port 's' of entity/module 'sr' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'sr_tb.sri'.
+halstruct: (./sr_tb.v,4): 's' mapped to actual expression 's' which is undriven.
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+|
+halstruct: *E,UNCONI (./sr_tb.v,4|0): Input port 'r' of entity/module 'sr' is being used inside architecture/module, but not connected (either partially or completely) in its instance 'sr_tb.sri'.
+halstruct: (./sr_tb.v,4): 'r' mapped to actual expression 'r' which is undriven.
+sr sri(.s(s), .r(r), .q(q), .clk(clk));
+|
+halstruct: *W,UNCONO (./sr_tb.v,4|0): Port 'q' (which is being used as an output) of entity/module 'sr' is being driven inside the design, but not connected (either partially or completely) in its instance 'sr_tb.sri'.
+2'b11:  q<=1'bx;  
+|
+halstruct: *W,FFWASR (./sr.v,11|0): Flip-flop 'q' does not have any asynchronous set or reset.
+reg clk,rst,s,r;
+|
+halstruct: *N,CLKINF (./sr_tb.v,2|0): Signal 'sr_tb.clk' was inferred as clock.
+halstruct: (./sr_tb.v,2): Clock source is signal 'sr_tb.clk'.
+halstruct: (./sr.v,11): Drives the flip-flop 'sr_tb.sri.q'.
+2'b11:  q<=1'bx;  
+|
+halstruct: *W,CLKNPI (./sr.v,11|0): Flip-flop 'sr_tb.sri.q' has clock 'clk' which is not derived from primary input.
+halstruct: (./sr_tb.v,7): Derived from local variable 'clk'.
+2'b11:  q<=1'bx;  
+|
+halstruct: *W,NEGCLK (./sr.v,11|0): Clock signal 'sr_tb.clk' of flip-flop 'sr_tb.sri.q' is derived from an inverter.
+module sr_tb;
+|
+halstruct: *W,ATLGLC (./sr_tb.v,1|0): Glue logic inferred in top-level module/design-unit 'sr_tb'.
+halstruct: (./sr_tb.v,7): HDL-statement inferred as glue logic.
+module sr_tb;
+|
+halstruct: *N,NUMDFF (./sr_tb.v,1|0): Number of single-bit D flip-flops present in the hierarchy is 1.
+halstruct: Design facts generated in 'hal.design_facts'.
+halstruct: Total errors   = 4.
+halstruct: Total warnings = 5.
+
+  ==========================================================================
+
+Analysis summary :
+
+ Errors   : (5)
+  AWNDEL (1)      CMBPAU (1)      UNCONI (3)     
+
+ Warnings : (31)
+  ATLGLC (1)      BADSYS (1)      CLKNPI (1)      COMBLP (1)     
+  CUVWSI (1)      EVTRIG (1)      FFWASR (1)      IGNDLY (1)     
+  INIUSP (3)      NBGEND (2)      NEEDIO (1)      NEGCLK (1)     
+  NOBLKN (2)      RDBFAS (1)      REVROP (1)      SEPLIN (7)     
+  SYNTXZ (1)      UNCONN (1)      UNCONO (1)      URDREG (1)     
+  URDWIR (1)     
+
+ Notes    : (6)
+  CLKINF (1)      DECLIN (1)      IDLENG (2)      NUMDFF (1)     
+  PRTCNT (1)     
+
+Analysis complete.
+
+ ==========================================================================
+
+To analyze results, run following command :
+    ncbrowse -64bit -cdslib ./INCA_libs/irun.nc/cds.lib -hdlvar ./INCA_libs/irun.nc/hdl.var -sortby severity -sortby category -sortby tag hal.log
+

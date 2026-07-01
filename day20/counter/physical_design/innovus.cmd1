@@ -1,0 +1,177 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Fri Jun 19 10:13:26 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.15-s110_1 (64bit) 09/23/2022 13:08 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.15-s110_1 NR220912-2004/21_15-UB (database version 18.20.592) {superthreading v2.17}
+#@(#)CDS: AAE 21.15-s039 (64bit) 09/23/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.15-s038_1 () Sep 20 2022 11:42:13 ( )
+#@(#)CDS: SYNTECH 21.15-s012_1 () Sep  5 2022 10:25:51 ( )
+#@(#)CDS: CPE v21.15-s076
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s867 (64bit) Sun Jun 26 22:12:54 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getVersion
+getVersion
+getVersion
+win
+encMessage warning 0
+encMessage debug 0
+is_common_ui_mode
+restoreDesign /home/vlsi19/day17/counter/physical_design/count8_placement.enc.dat count8
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+timeDesign -preCTS -pathReports -drvReports -slackReports -numPaths 50 -prefix count8_preCTS -outDir timingReports
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -preCTS
+create_ccopt_clock_tree_spec
+ctd_win -side none -id ctd_window
+selectObject IO_Pin clk
+zoomSelected
+deselectObject IO_Pin clk
+zoomBox -1.41700 19.06700 0.59250 20.04850
+zoomBox -4.74000 17.88400 1.52800 20.94550
+zoomBox -15.10650 14.20350 4.44600 23.75400
+zoomBox -55.84450 -0.25750 15.91300 34.79300
+zoomBox -148.32100 -33.08300 41.94400 59.85350
+fit
+setNanoRouteMode -quiet -routeWithTimingDriven 1
+setNanoRouteMode -quiet -routeWithSiDriven 1
+setNanoRouteMode -quiet -routeTopRoutingLayer 9
+setNanoRouteMode -quiet -routeBottomRoutingLayer 1
+setNanoRouteMode -quiet -drouteEndIteration 1
+setNanoRouteMode -quiet -routeWithTimingDriven true
+setNanoRouteMode -quiet -routeWithSiDriven true
+routeDesign -globalDetail
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+selectPhyPin 17.4750 39.1550 17.6150 39.7300 2 {counter[3]}
+deselectAll
+selectPhyPin 17.4750 39.1550 17.6150 39.7300 2 {counter[3]}
+deselectAll
+selectPhyPin 17.4750 39.1550 17.6150 39.7300 2 {counter[3]}
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+deselectAll
+zoomBox -32.06200 -9.24050 73.19850 42.17500
+zoomBox -8.83450 10.70350 46.11200 37.54250
+zoomBox 3.32850 22.20200 32.01150 36.21250
+zoomBox 9.67800 28.20450 24.65100 35.51800
+zoomBox 12.99250 31.33800 20.80850 35.15600
+zoomBox 3.32400 22.19850 32.01400 36.21250
+zoomBox -40.76000 -19.44850 83.11150 41.05750
+zoomBox -274.57350 -238.71900 354.62100 68.61650
+zoomBox -113.24850 -82.34600 165.92950 54.02100
+zoomBox -62.90650 -34.21750 108.54500 49.52950
+zoomBox -24.52500 2.39500 64.97500 46.11200
+zoomBox -4.48850 21.50700 42.23100 44.32750
+zoomBox 5.97000 31.48350 30.35900 43.39650
+zoomBox 11.42950 36.69200 24.16150 42.91100
+zoomBox 14.27950 39.41050 20.92700 42.65750
+zoomBox 15.48100 40.55650 19.56350 42.55050
+zoomBox 12.39400 39.53300 23.21800 44.82000
+zoomBox 11.48500 39.49000 24.21950 45.71050
+panPage 0 -1
+zoomBox 9.14550 37.16300 26.77250 45.77300
+panPage 0 -1
+zoomBox 10.47250 34.88900 25.45550 42.20750
+zoomBox 13.36000 35.60800 22.56250 40.10300
+panPage 0 1
+zoomBox 15.39250 38.38400 20.19750 40.73100
+zoomBox 16.24950 38.98550 19.20050 40.42700
+zoomBox 16.77500 39.35500 18.58800 40.24050
+zoomBox 17.09850 39.58200 18.21200 40.12600
+panPage 1 0
+panPage 1 0
+panPage 1 0
+panPage 1 0
+panPage 1 0
+panPage 1 0
+fit
+panPage 1 0
+zoomBox 17.64050 7.67900 72.58800 34.51850
+zoomBox 29.12000 15.03150 57.80400 29.04250
+zoomBox 33.95700 18.13000 51.57350 26.73500
+zoomBox 37.63750 20.48700 46.83350 24.97900
+zoomBox 39.18750 21.48000 44.83600 24.23900
+panPage 0 -1
+zoomBox 39.55750 21.01350 44.35950 23.35900
+panPage 0 -1
+zoomBox 39.87200 20.61700 43.95400 22.61100
+panPage 0 -1
+panPage 0 -1
+zoomBox 36.08750 16.24600 48.82550 22.46800
+zoomBox 35.10500 15.61650 50.09100 22.93650
+panPage 0 -1
+panPage 0 -1
+zoomBox 36.68400 12.55550 47.51200 17.84450
+zoomBox 37.30100 13.07550 46.50450 17.57100
+zoomBox 36.65750 12.43900 47.48500 17.72800
+zoomBox 32.61800 8.98300 53.36200 19.11550
+zoomBox 35.84200 12.56450 48.58200 18.78750
+zoomBox 38.29450 15.28950 44.94600 18.53850
+zoomBox 39.32750 16.43800 43.41300 18.43350
+panPage 0 -1
+panPage 0 -1
+panPage 0 -1
+zoomBox 36.60900 10.63350 47.44300 15.92550
+panPage 0 -1
+panPage 0 -1
+zoomBox 27.35950 -6.18050 61.15350 10.32650
+panPage 0 -1
+panPage 0 -1
+zoomBox 4.87600 -47.27000 94.48250 -3.50100
+zoomBox -17.80500 -72.46600 128.10500 -1.19500
+fit
+zoomBox -12.85850 7.98100 33.84600 30.79400
+zoomBox -8.04150 12.18050 20.64150 26.19100
+zoomBox -5.08350 14.75950 12.53200 23.36400
+zoomBox -3.77650 15.89900 8.95050 22.11550
+zoomBox -2.83250 16.72200 6.36300 21.21350
+zoomBox -2.46400 17.04300 5.35250 20.86100
+selectObject IO_Pin clk
+gui_select -rect {0.61500 19.56300 -0.02550 19.59200}
+deselectAll
+zoomBox -1.61600 17.60300 4.03150 20.36150
+selectObject IO_Pin clk
+deselectAll
+selectObject IO_Pin clk
+zoomBox -2.96150 16.46900 6.23500 20.96100
+zoomBox -4.30100 15.34050 8.42900 21.55850
+zoomBox -8.72000 11.61600 15.66800 23.52850
+zoomBox -12.27050 8.62350 21.48550 25.11200
+zoomBox -8.72050 11.61550 15.66850 23.52850
+zoomBox -7.33400 12.78400 13.39650 22.91000
+zoomBox -5.15350 14.62150 9.82400 21.93750
+zoomBox -7.30000 12.78350 13.43050 22.90950
+zoomBox -10.27100 10.24000 18.42250 24.25550
+deselectAll
+fit
+setLayerPreference node_layer -isVisible 1
+gui_select -rect {17.34750 39.71800 17.74700 39.11850}
+gui_select -rect {17.74700 39.11850 17.88000 38.18550}
+streamOut counter.gds -libName DesignLib -units 2000 -mode ALL
+gui_select -rect {16.68100 40.11750 19.94550 38.78500}
+gui_select -rect {-2.57200 28.59250 11.81800 7.74000}
+deselectAll
+gui_select -rect {16.48100 40.98350 26.20800 -2.85250}
+deselectAll
+deselectAll
+gui_select -rect {-1.17300 39.91750 50.59100 -2.18650}
+deselectAll
+win off

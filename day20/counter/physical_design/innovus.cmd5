@@ -1,0 +1,101 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Wed Jun 24 16:02:21 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.15-s110_1 (64bit) 09/23/2022 13:08 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.15-s110_1 NR220912-2004/21_15-UB (database version 18.20.592) {superthreading v2.17}
+#@(#)CDS: AAE 21.15-s039 (64bit) 09/23/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.15-s038_1 () Sep 20 2022 11:42:13 ( )
+#@(#)CDS: SYNTECH 21.15-s012_1 () Sep  5 2022 10:25:51 ( )
+#@(#)CDS: CPE v21.15-s076
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s867 (64bit) Sun Jun 26 22:12:54 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getVersion
+getVersion
+getVersion
+win
+encMessage warning 0
+encMessage debug 0
+is_common_ui_mode
+restoreDesign /home/vlsi19/day20/counter/physical_design/count8_routed.enc.dat count8
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+setDrawView place
+getAnalysisMode -checkType -quiet
+get_time_unit
+report_timing -machine_readable -max_paths 10000 -max_slack 0.75 -path_exceptions all -early > top.mtarpt
+load_timing_debug_report -name default_report top.mtarpt -max_path_num 10000 -updateCategory 0
+ecoAddRepeater -cell BUFX2 -net n_21 -name FE_ECOC0_n_21
+ecoAddRepeater -cell BUFX2 -net n_21 -name FE_ECOC1_n_21
+ecoAddRepeater -cell BUFX2 -net n_21 -name FE_ECOC2_n_21
+ecoAddRepeater -cell BUFX2 -net n_21 -name FE_ECOC3_n_21
+ecoAddRepeater -cell BUFX2 -net n_21 -name FE_ECOC4_n_21
+ecoAddRepeater -cell BUFX2 -net n_70 -name FE_ECOC5_n_70
+ecoAddRepeater -cell BUFX2 -net n_70 -name FE_ECOC6_n_70
+ecoAddRepeater -cell BUFX2 -net n_70 -name FE_ECOC7_n_70
+ecoAddRepeater -cell BUFX2 -net n_70 -name FE_ECOC8_n_70
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC9_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC10_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC11_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC12_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC13_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC14_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC15_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC16_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC17_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC18_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC19_n_12
+ecoAddRepeater -cell BUFX2 -net n_12 -name FE_ECOC20_n_12
+ecoAddRepeater -cell BUFX2 -net n_14 -name FE_ECOC21_n_14
+ecoAddRepeater -cell BUFX2 -net n_14 -name FE_ECOC22_n_14
+ecoAddRepeater -cell BUFX2 -net n_14 -name FE_ECOC23_n_14
+ecoAddRepeater -cell BUFX2 -net n_49 -name FE_ECOC24_n_49
+ecoAddRepeater -cell BUFX2 -net n_49 -name FE_ECOC25_n_49
+ecoAddRepeater -cell BUFX2 -net n_49 -name FE_ECOC26_n_49
+ecoAddRepeater -cell BUFX2 -net n_49 -name FE_ECOC27_n_49
+ecoAddRepeater -cell BUFX2 -net n_27 -name FE_ECOC28_n_27
+ecoAddRepeater -cell BUFX2 -net n_27 -name FE_ECOC29_n_27
+ecoAddRepeater -cell BUFX2 -net n_27 -name FE_ECOC30_n_27
+ecoAddRepeater -cell BUFX2 -net n_16 -name FE_ECOC31_n_16
+ecoAddRepeater -cell BUFX2 -net n_16 -name FE_ECOC32_n_16
+ecoAddRepeater -cell BUFX2 -net n_16 -name FE_ECOC33_n_16
+ecoAddRepeater -cell BUFX2 -net FE_RN_1_0 -name FE_ECOC34_FE_RN_1_0
+ecoAddRepeater -cell BUFX2 -net FE_RN_1_0 -name FE_ECOC35_FE_RN_1_0
+ecoAddRepeater -cell BUFX2 -net FE_RN_1_0 -name FE_ECOC36_FE_RN_1_0
+ecoAddRepeater -cell BUFX2 -net FE_RN_1_0 -name FE_ECOC37_FE_RN_1_0
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC38_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC39_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC40_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC41_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC42_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC43_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC44_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC45_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC46_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC47_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC48_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC49_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC50_n_71
+ecoAddRepeater -cell BUFX2 -net n_71 -name FE_ECOC51_n_71
+ecoAddRepeater -cell BUFX2 -net n_22 -name FE_ECOC52_n_22
+ecoAddRepeater -cell BUFX2 -net n_22 -name FE_ECOC53_n_22
+ecoAddRepeater -cell BUFX2 -net n_22 -name FE_ECOC54_n_22
+ecoAddRepeater -cell BUFX2 -net n_22 -name FE_ECOC55_n_22
+ecoAddRepeater -cell BUFX2 -net n_22 -name FE_ECOC56_n_22
+ecoAddRepeater -cell BUFX2 -net n_22 -name FE_ECOC57_n_22
+ecoAddRepeater -cell BUFX2 -net n_48 -name FE_ECOC58_n_48
+ecoAddRepeater -cell BUFX2 -net n_48 -name FE_ECOC59_n_48
+ecoAddRepeater -cell BUFX2 -net n_48 -name FE_ECOC60_n_48
+ecoAddRepeater -cell BUFX2 -net n_48 -name FE_ECOC61_n_48
+ecoAddRepeater -cell BUFX2 -net n_48 -name FE_ECOC62_n_48
+ecoAddRepeater -cell BUFX2 -net n_44 -name FE_ECOC63_n_44
+ecoAddRepeater -cell BUFX2 -net n_44 -name FE_ECOC64_n_44
+ecoAddRepeater -cell BUFX2 -net n_44 -name FE_ECOC65_n_44
+saveDesign count8_hold_optimize.enc
+win off
