@@ -1,0 +1,38 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: TIELO
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:51:35 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    TIELO
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT TIELO VDD VSS Y
+*.PININFO VDD:I VSS:I Y:O
+Mmp0 net25 net25 VDD VDD g45p1svt m=1 l=45n w=390n
+Mmn0 Y net25 VSS VSS g45n1svt m=1 l=45n w=260n
+.ENDS
+

@@ -1,0 +1,58 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: ACHCONX2
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:37:26 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    ACHCONX2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT ACHCONX2 A B CI CON VDD VSS
+*.PININFO A:I B:I CI:I VDD:I VSS:I CON:O
+Mmn6 n15 A VSS VSS g45n1svt m=1 l=45n w=390n
+Mmn10 net0370 CI VSS VSS g45n1svt m=1 l=45n w=390n
+Mmn11 n13 B VSS VSS g45n1svt m=1 l=45n w=390n
+Mmn7 n12 B VSS VSS g45n1svt m=1 l=45n w=390n
+Mmn8 net0370 n10 CON VSS g45n1svt m=1 l=45n w=390n
+Mmn3 n9 n13 n15 VSS g45n1svt m=1 l=45n w=390n
+Mmn1 n10 n13 n11 VSS g45n1svt m=1 l=45n w=310n
+Mmn4 n11 B n9 VSS g45n1svt m=1 l=45n w=310n
+Mmn5 n11 n15 VSS VSS g45n1svt m=1 l=45n w=310n
+Mmn2 n15 B n10 VSS g45n1svt m=1 l=45n w=390n
+Mmn9 n12 n9 CON VSS g45n1svt m=1 l=45n w=390n
+Mmp6 n15 A VDD VDD g45p1svt m=1 l=45n w=770n
+Mmp10 net0370 CI VDD VDD g45p1svt m=1 l=45n w=770n
+Mmp8 net0370 n9 CON VDD g45p1svt m=1 l=45n w=770n
+Mmp7 n12 B VDD VDD g45p1svt m=1 l=45n w=770n
+Mmp5 n11 n15 VDD VDD g45p1svt m=1 l=45n w=520n
+Mmp1 n10 B n11 VDD g45p1svt m=1 l=45n w=520n
+Mmp2 n15 n13 n10 VDD g45p1svt m=1 l=45n w=770n
+Mmp11 n13 B VDD VDD g45p1svt m=1 l=45n w=770n
+Mmp4 n11 n13 n9 VDD g45p1svt m=1 l=45n w=520n
+Mmp3 n9 B n15 VDD g45p1svt m=1 l=45n w=770n
+Mmp9 n12 n10 CON VDD g45p1svt m=1 l=45n w=770n
+.ENDS
+

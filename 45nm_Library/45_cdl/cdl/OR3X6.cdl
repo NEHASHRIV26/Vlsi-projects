@@ -1,0 +1,44 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: OR3X6
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:48:24 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    OR3X6
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT OR3X6 A B C VDD VSS Y
+*.PININFO A:I B:I C:I VDD:I VSS:I Y:O
+Mmn3 Y n0 VSS VSS g45n1svt m=1 l=45n w=1.55u
+Mmn0 n0 A VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn1 n0 B VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn2 n0 C VSS VSS g45n1svt m=1 l=45n w=520n
+Mmp3 Y n0 VDD VDD g45p1svt m=1 l=45n w=2.35u
+Mmp1 n2 B n1 VDD g45p1svt m=1 l=45n w=780n
+Mmp2 n0 C n2 VDD g45p1svt m=1 l=45n w=780n
+Mmp0 n1 A VDD VDD g45p1svt m=1 l=45n w=780n
+.ENDS
+

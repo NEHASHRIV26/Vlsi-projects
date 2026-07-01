@@ -1,0 +1,38 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: ANTENNA
+* View Name:     schematic
+* Netlisted on:  May 18 09:44:48 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    ANTENNA
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT ANTENNA A
+*.PININFO A:I
+DD1 A VDD g45pd1svt 188.8f 1.82u m=1
+DD0 VSS A g45nd1svt 155.1f 1.6u m=1
+.ENDS
+

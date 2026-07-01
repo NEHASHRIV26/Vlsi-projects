@@ -1,0 +1,77 @@
+irun(64): 15.20-s086: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s086: Started on Jul 01, 2026 at 13:10:10 IST
+irun
+	fifo.v
+	fifo_tb.v
+	-access +rwc
+	-gui
+	-coverage all
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		async_fifo_tb
+
+	Extracting FSMs for coverage:
+		worklib.async_fifo
+		worklib.async_fifo_tb
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+ncelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+reg [DSIZE-1 : 0] mem [0: DEPTH -1];
+                    |
+ncelab: *W,COVMDD (./fifo.v,112|20): Toggle coverage for bit, logic, reg, wire, and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage on for these types specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              18      18
+		Scalar wires:           10       -
+		Vectored wires:          8       -
+		Always blocks:           9       9
+		Initial blocks:          4       4
+		Cont. assignments:       9       9
+		Pseudo assignments:      7       7
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.async_fifo_tb:v
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/install/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm async_fifo_tb.rclk async_fifo_tb.rdata async_fifo_tb.rempty async_fifo_tb.rreq async_fifo_tb.rrst_n async_fifo_tb.wclk async_fifo_tb.wdata async_fifo_tb.wfull async_fifo_tb.wreq async_fifo_tb.wrst_n
+Created probe 1
+ncsim> run
+ncsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+Simulation complete via $finish(1) at time 1 NS + 0
+./fifo_tb.v:82      $finish;
+ncsim> coverage -analyze
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  async_fifo_tb(async_fifo_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_27a27cee_00000000.ucm (reused)
+  data               :  ./cov_work/scope/test/icc_27a27cee_00000000.ucd
+
+Launching IMC...
+
+ncsim> ^C
+ncsim> exit
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  async_fifo_tb(async_fifo_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_27a27cee_00000000.ucm (reused)
+  data               :  ./cov_work/scope/test/icc_27a27cee_00000000.ucd
+TOOL:	irun(64)	15.20-s086: Exiting on Jul 01, 2026 at 13:11:29 IST  (total: 00:01:19)

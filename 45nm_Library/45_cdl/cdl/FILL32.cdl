@@ -1,0 +1,36 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: FILL32
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:42:43 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    FILL32
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT FILL32 VDD VSS
+*.PININFO VDD:I VSS:I
+.ENDS
+

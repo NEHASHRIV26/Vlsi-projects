@@ -1,0 +1,41 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: HSWNX1
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:43:00 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL ExtVDD:P
++        VDD:P
++        VSS:G
++        ExtVSS:G
+
+*.PIN ExtVDD
+*+    VDD
+*+    VSS
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    HSWNX1
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT HSWNX1 ExtVDD PSOn PSOn_out VDD VSS
+*.PININFO ExtVDD:I PSOn:I VDD:I VSS:I PSOn_out:O
+MPM6 PSOn_out n0 ExtVDD ExtVDD g45p1svt m=2 l=45n w=900n
+MPM1 n0 PSOn ExtVDD ExtVDD g45p1svt m=2 l=45n w=450n
+MNM4 PSOn_out n0 VSS VSS g45n1svt m=2 l=45n w=600n
+MNM0 VSS PSOn n0 VSS g45n1svt m=2 l=45n w=300n
+MPM0 VDD n0 ExtVDD ExtVDD g45p1hvt m=20 l=45n w=1.8u
+.ENDS
+

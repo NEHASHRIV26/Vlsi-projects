@@ -1,0 +1,58 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: XOR3XL
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:52:46 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    XOR3XL
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT XOR3XL A B C VDD VSS Y
+*.PININFO A:I B:I C:I VDD:I VSS:I Y:O
+Mmn3 n56 n60 n50 VSS g45n1svt m=1 l=45n w=190n
+Mmn10 n62 A VSS VSS g45n1svt m=1 l=45n w=190n
+Mmn4 n44 C n50 VSS g45n1svt m=1 l=45n w=190n
+Mmn8 n60 C VSS VSS g45n1svt m=1 l=45n w=190n
+Mmn9 n61 B VSS VSS g45n1svt m=1 l=45n w=190n
+Mmn6 n56 B n11 VSS g45n1svt m=1 l=45n w=190n
+Mmn1 n62 B n44 VSS g45n1svt m=1 l=45n w=190n
+Mmn2 n11 n61 n44 VSS g45n1svt m=1 l=45n w=190n
+Mmn0 n11 n62 VSS VSS g45n1svt m=1 l=45n w=190n
+Mmn5 n62 n61 n56 VSS g45n1svt m=1 l=45n w=190n
+Mmn7 Y n50 VSS VSS g45n1svt m=1 l=45n w=190n
+Mmp10 n62 A VDD VDD g45p1svt m=1 l=45n w=310n
+Mmp1 n44 n61 n62 VDD g45p1svt m=1 l=45n w=310n
+Mmp7 Y n50 VDD VDD g45p1svt m=1 l=45n w=205n
+Mmp2 n44 B n11 VDD g45p1svt m=1 l=45n w=310n
+Mmp9 n61 B VDD VDD g45p1svt m=1 l=45n w=310n
+Mmp3 n50 C n56 VDD g45p1svt m=1 l=45n w=310n
+Mmp8 n60 C VDD VDD g45p1svt m=1 l=45n w=310n
+Mmp4 n50 n60 n44 VDD g45p1svt m=1 l=45n w=310n
+Mmp0 n11 n62 VDD VDD g45p1svt m=1 l=45n w=310n
+Mmp6 n11 n61 n56 VDD g45p1svt m=1 l=45n w=310n
+Mmp5 n56 B n62 VDD g45p1svt m=1 l=45n w=310n
+.ENDS
+

@@ -1,0 +1,70 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: EDFFX4
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:42:35 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    EDFFX4
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT EDFFX4 CK D E Q QN VDD VSS
+*.PININFO CK:I D:I E:I VDD:I VSS:I Q:O QN:O
+Mmn3 Db E n0 VSS g45n1svt m=1 l=45n w=145n
+Mmn2 n0 D VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn57 QN qint VSS VSS g45n1svt m=1 l=45n w=1.04u
+Mmn55 Q qbint VSS VSS g45n1svt m=1 l=45n w=1.04u
+Mmn51 n30 Ckb net415 VSS g45n1svt m=1 l=45n w=145n
+Mmn50 net415 qbint VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn35 net411 mout VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn36 n20 CKbb net411 VSS g45n1svt m=1 l=45n w=145n
+Mmn20 Ckb CK VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn45 qbint n30 VSS VSS g45n1svt m=1 l=45n w=410n
+Mmn56 qint qbint VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn0 Eb E VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn30 mout n20 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn21 CKbb Ckb VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn40 mout CKbb n30 VSS g45n1svt m=1 l=45n w=145n
+Mmn1 qbint Eb Db VSS g45n1svt m=1 l=45n w=145n
+Mmn25 Db Ckb n20 VSS g45n1svt m=1 l=45n w=145n
+Mmp3 Db Eb n1 VDD g45p1svt m=1 l=45n w=215n
+Mmp2 n1 D VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp51 n30 CKbb net362 VDD g45p1svt m=1 l=45n w=215n
+Mmp50 net362 qbint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp57 QN qint VDD VDD g45p1svt m=1 l=45n w=1.56u
+Mmp55 Q qbint VDD VDD g45p1svt m=1 l=45n w=1.56u
+Mmp35 net342 mout VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp36 n20 Ckb net342 VDD g45p1svt m=1 l=45n w=215n
+Mmp20 Ckb CK VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp45 qbint n30 VDD VDD g45p1svt m=1 l=45n w=620n
+Mmp56 qint qbint VDD VDD g45p1svt m=1 l=45n w=390n
+Mmp21 CKbb Ckb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp40 n30 Ckb mout VDD g45p1svt m=1 l=45n w=215n
+Mmp30 mout n20 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp25 n20 CKbb Db VDD g45p1svt m=1 l=45n w=215n
+Mmp0 Eb E VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp1 qbint E Db VDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

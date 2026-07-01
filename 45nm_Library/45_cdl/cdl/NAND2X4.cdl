@@ -1,0 +1,40 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: NAND2X4
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:45:10 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    NAND2X4
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT NAND2X4 A B VDD VSS Y
+*.PININFO A:I B:I VDD:I VSS:I Y:O
+Mmn1 Y B n0 VSS g45n1svt m=1 l=45n w=1.04u
+Mmn0 n0 A VSS VSS g45n1svt m=1 l=45n w=1.04u
+Mmp1 Y B VDD VDD g45p1svt m=1 l=45n w=1.56u
+Mmp0 Y A VDD VDD g45p1svt m=1 l=45n w=1.56u
+.ENDS
+

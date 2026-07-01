@@ -1,0 +1,62 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: MX4X2
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:44:32 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    MX4X2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT MX4X2 A B C D S0 S1 VDD VSS Y
+*.PININFO A:I B:I C:I D:I S0:I S1:I VDD:I VSS:I Y:O
+Mmn9 n1 S0 n9 VSS g45n1svt m=1 l=45n w=145n
+Mmn6 n7 C VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn7 n1 S0b n7 VSS g45n1svt m=1 l=45n w=145n
+Mmn4 n5 B VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn5 n0 S0 n5 VSS g45n1svt m=1 l=45n w=145n
+Mmn3 n0 S0b n3 VSS g45n1svt m=1 l=45n w=145n
+Mmn2 n3 A VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn12 Y n2 VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn1 S1b S1 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn11 n2 S1 n1 VSS g45n1svt m=1 l=45n w=145n
+Mmn8 n9 D VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn10 n2 S1b n0 VSS g45n1svt m=1 l=45n w=145n
+Mmn0 S0b S0 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp9 n1 S0b n10 VDD g45p1svt m=1 l=45n w=215n
+Mmp8 n10 D VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp7 n1 S0 n8 VDD g45p1svt m=1 l=45n w=215n
+Mmp6 n8 C VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp5 n0 S0b n6 VDD g45p1svt m=1 l=45n w=215n
+Mmp4 n6 B VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp3 n0 S0 n4 VDD g45p1svt m=1 l=45n w=215n
+Mmp2 n4 A VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp12 Y n2 VDD VDD g45p1svt m=1 l=45n w=780n
+Mmp0 S0b S0 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp10 n2 S1 n0 VDD g45p1svt m=1 l=45n w=215n
+Mmp11 n1 S1b n2 VDD g45p1svt m=1 l=45n w=215n
+Mmp1 S1b S1 VDD VDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

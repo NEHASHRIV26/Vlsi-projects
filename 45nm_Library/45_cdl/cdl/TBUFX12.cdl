@@ -1,0 +1,48 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: TBUFX12
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:51:19 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    TBUFX12
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT TBUFX12 A OE VDD VSS Y
+*.PININFO A:I OE:I VDD:I VSS:I Y:O
+Mmn5 Y non VSS VSS g45n1svt m=1 l=45n w=3.12u
+Mmn3 net144 A VSS VSS g45n1svt m=1 l=45n w=770n
+Mmn0 OEb OE VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn4 pon OE net144 VSS g45n1svt m=1 l=45n w=770n
+Mmn2 non OEb VSS VSS g45n1svt m=1 l=45n w=770n
+Mmn1 non A VSS VSS g45n1svt m=1 l=45n w=770n
+Mmp2 non OEb net127 VDD g45p1svt m=1 l=45n w=1.17u
+Mmp1 net127 A VDD VDD g45p1svt m=1 l=45n w=1.17u
+Mmp5 Y pon VDD VDD g45p1svt m=1 l=45n w=4.68u
+Mmp3 pon A VDD VDD g45p1svt m=1 l=45n w=1.17u
+Mmp4 pon OE VDD VDD g45p1svt m=1 l=45n w=1.17u
+Mmp0 OEb OE VDD VDD g45p1svt m=1 l=45n w=390n
+.ENDS
+

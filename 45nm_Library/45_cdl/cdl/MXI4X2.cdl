@@ -1,0 +1,66 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: MXI4X2
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:44:55 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    MXI4X2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT MXI4X2 A B C D S0 S1 VDD VSS Y
+*.PININFO A:I B:I C:I D:I S0:I S1:I VDD:I VSS:I Y:O
+Mmn8 net377 D VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn9 n1 S0 net377 VSS g45n1svt m=1 l=45n w=145n
+Mmn6 net369 C VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn7 n1 S0b net369 VSS g45n1svt m=1 l=45n w=145n
+Mmn4 net361 B VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn5 n0 S0 net361 VSS g45n1svt m=1 l=45n w=145n
+Mmn3 n0 S0b net349 VSS g45n1svt m=1 l=45n w=145n
+Mmn2 net349 A VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn12 net345 n1 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn13 n2 S1 net345 VSS g45n1svt m=1 l=45n w=145n
+Mmn11 n2 S1b net329 VSS g45n1svt m=1 l=45n w=145n
+Mmn1 S1b S1 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn10 net329 n0 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn14 Y n2 VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn0 S0b S0 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp9 n1 S0b net320 VDD g45p1svt m=1 l=45n w=215n
+Mmp8 net320 D VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp7 n1 S0 net312 VDD g45p1svt m=1 l=45n w=215n
+Mmp6 net312 C VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp5 n0 S0b net304 VDD g45p1svt m=1 l=45n w=215n
+Mmp4 net304 B VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp3 n0 S0 net296 VDD g45p1svt m=1 l=45n w=215n
+Mmp2 net296 A VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp12 net284 n1 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp13 n2 S1b net284 VDD g45p1svt m=1 l=45n w=215n
+Mmp11 n2 S1 net280 VDD g45p1svt m=1 l=45n w=215n
+Mmp10 net280 n0 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp0 S0b S0 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp14 Y n2 VDD VDD g45p1svt m=1 l=45n w=780n
+Mmp1 S1b S1 VDD VDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

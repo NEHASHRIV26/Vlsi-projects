@@ -1,0 +1,5 @@
+
+1. use CIW->export CDL to export individual schematic CDL netlist.
+2. Combine them into one CDL using  scripts: "gsclib045_cdl_cat.csh".
+3. sed -e 's@\(SUBCKT.*\)@\1 VDD VSS@' gsclib045_allCells.cdl > gsclib045_allCells_pgpins.cdl
+4. delete 2 .GLOBAL lines. globally replace VDD ! and VSS! to VDD VSS.

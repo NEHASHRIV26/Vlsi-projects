@@ -1,0 +1,44 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: HOLDX1
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:42:54 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    HOLDX1
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT HOLDX1 VDD VSS Y
+*.PININFO VDD:I VSS:I Y:B
+Mmn1 Y n0 n1 VSS g45n1svt m=1 l=45n w=145n
+Mmn0 n0 Y VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn2 n1 n0 n2 VSS g45n1svt m=1 l=45n w=145n
+Mmn3 n2 n0 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp2 p1 n0 p2 VDD g45p1svt m=1 l=45n w=215n
+Mmp1 Y n0 p1 VDD g45p1svt m=1 l=45n w=215n
+Mmp3 p2 n0 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp0 n0 Y VDD VDD g45p1svt m=1 l=45n w=390n
+.ENDS
+

@@ -1,0 +1,42 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: ISOHX1_OFF
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:43:23 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    ISOHX1_OFF
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT ISOHX1_OFF A ExtVDD ISO VDD VSS Y
+*.PININFO A:I ExtVDD:I ISO:I VDD:I VSS:I Y:O
+Mmn2 Y n0 VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn0 n0 A VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn1 n0 ISO VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp1 n0 ISO n1 ExtVDD g45p1svt m=1 l=45n w=215n
+Mmp2 Y n0 ExtVDD ExtVDD g45p1svt m=1 l=45n w=390n
+Mmp0 n1 A ExtVDD ExtVDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

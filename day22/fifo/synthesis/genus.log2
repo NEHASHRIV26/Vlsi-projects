@@ -1,0 +1,126 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[11:21:08.095593] Configured Lic search path (21.01-s002): 5280@cadence
+
+Version: 21.14-s082_1, built Thu Jun 23 02:02:08 PDT 2022
+Options: -files run.tcl 
+Date:    Wed Jul 01 11:21:08 2026
+Host:    cadence (x86_64 w/Linux 4.18.0-425.3.1.el8.x86_64) (8cores*16cpus*1physical cpu*Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz 16384KB) (32312612KB)
+PID:     826624
+OS:      Red Hat Enterprise Linux release 8.7 (Ootpa)
+
+
+[11:21:08.362026] Periodic Lic check successful
+[11:21:08.362035] Feature usage summary:
+[11:21:08.362035] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...Using chipware dir from user defined $CW_DIR environment variable set to /home/install/GENUS211/tools.lnx86/lib/chipware
+Using chipware simulation model dir from user defined $CW_DIR_SIM environment variable set to /home/install/GENUS211/tools.lnx86/lib/chipware/sim
+
+Finished loading tool scripts (9 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source run.tcl
+#@ Begin verbose source ./run.tcl
+@file(run.tcl) 1: read_libs /home/vlsi19/45nm_Library/lib/slow_vdd1v0_basicCells.lib
+
+Threads Configured:3
+
+  Message Summary for Library slow_vdd1v0_basicCells.lib:
+  *******************************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  *******************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.900000, 125.000000) in library 'slow_vdd1v0_basicCells.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA' must have an output pin.
+@file(run.tcl) 2: read_hdl fifo.v
+    input   wreq, wclk, wrst_n,
+                |
+Warning : Implicit net declaration not allowed with `default_nettype none. [VLOGPT-43]
+        : Assuming a wire net type for declaration 'wreq' in file 'fifo.v' on line 11, column 17.
+        : When `default_nettype is none, each input and inout port declaration requires a corresponding net type.
+    input   wreq, wclk, wrst_n,
+                      |
+Warning : Implicit net declaration not allowed with `default_nettype none. [VLOGPT-43]
+        : Assuming a wire net type for declaration 'wclk' in file 'fifo.v' on line 11, column 23.
+    input   wreq, wclk, wrst_n,
+                              |
+Warning : Implicit net declaration not allowed with `default_nettype none. [VLOGPT-43]
+        : Assuming a wire net type for declaration 'wrst_n' in file 'fifo.v' on line 11, column 31.
+    input   rreq, rclk, rrst_n,
+                |
+Warning : Implicit net declaration not allowed with `default_nettype none. [VLOGPT-43]
+        : Assuming a wire net type for declaration 'rreq' in file 'fifo.v' on line 12, column 17.
+    input   rreq, rclk, rrst_n,
+                      |
+Warning : Implicit net declaration not allowed with `default_nettype none. [VLOGPT-43]
+        : Assuming a wire net type for declaration 'rclk' in file 'fifo.v' on line 12, column 23.
+    input   rreq, rclk, rrst_n,
+                              |
+Warning : Implicit net declaration not allowed with `default_nettype none. [VLOGPT-43]
+        : Assuming a wire net type for declaration 'rrst_n' in file 'fifo.v' on line 12, column 31.
+    input   [DSIZE-1:0] wdata,
+                             |
+Warning : Implicit net declaration not allowed with `default_nettype none. [VLOGPT-43]
+        : Assuming a wire net type for declaration 'wdata' in file 'fifo.v' on line 13, column 30.
+    output  [DSIZE-1:0] rdata,
+                             |
+Warning : Implicit net declaration not allowed with `default_nettype none. [VLOGPT-43]
+        : Assuming a wire net type for declaration 'rdata' in file 'fifo.v' on line 14, column 30.
+@file(run.tcl) 3: elaborate
+  Library has 324 usable logic and 128 usable sequential lib-cells.
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'async_fifo' from file 'fifo.v'.
+Warning : Using default parameter value for module elaboration. [CDFG-818]
+        : Elaborating block 'async_fifo' with default parameters value.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'async_fifo'.
+Checking for analog nets...
+Check completed for analog nets.
+Checking for source RTL...
+Check completed for source RTL.
+Running Unified Mux Engine Tricks...
+Completed Unified Mux Engine Tricks
+
+Stage: post_elab
+--------------------------------------------------------
+| Trick             | Accepts | Rejects | Runtime (ms) | 
+--------------------------------------------------------
+| ume_constant_bmux |       0 |       0 |         0.00 | 
+--------------------------------------------------------
+Starting clip mux common data inputs [v1.0] (stage: post_elab, startdef: async_fifo, recur: true)
+Completed clip mux common data inputs (accepts: 0, rejects: 0, runtime: 0.000s)
+Starting clip the non-user hierarchies [v2.0] (stage: post_elab, startdef: async_fifo, recur: true)
+Completed clip the non-user hierarchies (accepts: 0, rejects: 0, runtime: 0.000s)
+
+Stage: post_elab
+---------------------------------------------------------
+| Transform          | Accepts | Rejects | Runtime (ms) | 
+---------------------------------------------------------
+| hlo_clip_mux_input |       0 |       0 |         0.00 | 
+| hlo_clip           |       0 |       0 |         0.00 | 
+---------------------------------------------------------
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   elaborate
+@file(run.tcl) 4: read_sdc constraints.sdc
+Error: Unable to open constraints.sdc
+#@ End verbose source ./run.tcl
+Failed on read_sdc
+Encountered problems processing file: run.tcl
+WARNING: This version of the tool is 1468 days old.

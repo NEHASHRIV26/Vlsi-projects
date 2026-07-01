@@ -1,0 +1,40 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: BUFX12
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:39:46 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    BUFX12
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT BUFX12 A VDD VSS Y
+*.PININFO A:I VDD:I VSS:I Y:O
+Mmn1 VSS n0 Y VSS g45n1svt m=1 l=45n w=3.1u
+Mmn0 VSS A n0 VSS g45n1svt m=1 l=45n w=780n
+Mmp1 Y n0 VDD VDD g45p1svt m=1 l=45n w=4.7u
+Mmp0 n0 A VDD VDD g45p1svt m=1 l=45n w=1.17u
+.ENDS
+

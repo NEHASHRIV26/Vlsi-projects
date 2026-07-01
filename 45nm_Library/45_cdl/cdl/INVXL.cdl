@@ -1,0 +1,38 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: INVXL
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:43:18 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    INVXL
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT INVXL A VDD VSS Y
+*.PININFO A:I VDD:I VSS:I Y:O
+Mmp0 Y A VDD VDD g45p1svt m=1 l=45n w=215n
+Mmn0 Y A VSS VSS g45n1svt m=1 l=45n w=145n
+.ENDS
+

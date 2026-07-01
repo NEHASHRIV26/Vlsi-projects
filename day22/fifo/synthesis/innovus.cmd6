@@ -1,0 +1,66 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Wed Jul  1 14:37:52 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.15-s110_1 (64bit) 09/23/2022 13:08 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.15-s110_1 NR220912-2004/21_15-UB (database version 18.20.592) {superthreading v2.17}
+#@(#)CDS: AAE 21.15-s039 (64bit) 09/23/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.15-s038_1 () Sep 20 2022 11:42:13 ( )
+#@(#)CDS: SYNTECH 21.15-s012_1 () Sep  5 2022 10:25:51 ( )
+#@(#)CDS: CPE v21.15-s076
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s867 (64bit) Sun Jun 26 22:12:54 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getVersion
+getVersion
+getVersion
+win
+encMessage warning 0
+encMessage debug 0
+is_common_ui_mode
+restoreDesign /home/vlsi19/day22/fifo/synthesis/FIFO_Placement.enc.dat async_fifo
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+setDrawView place
+create_ccopt_clock_tree_spec
+ctd_win -side none -id ctd_window
+ctd_win -side none -id ctd_window
+selectInst {mem_reg[0][1]}
+zoomSelected
+deselectInst {mem_reg[0][1]}
+selectObject IO_Pin wclk
+zoomSelected
+deselectObject IO_Pin wclk
+ctd_win -side none -id ctd_window -unit_delay
+selectObject Net wclk
+zoomSelected
+ctd_win -side none -id ctd_window -unit_delay
+fit
+setNanoRouteMode -quiet -routeWithTimingDriven 1
+setNanoRouteMode -quiet -routeWithSiDriven 1
+setNanoRouteMode -quiet -routeTopRoutingLayer 11
+setNanoRouteMode -quiet -routeBottomRoutingLayer 1
+setNanoRouteMode -quiet -drouteEndIteration 1
+setNanoRouteMode -quiet -routeWithTimingDriven true
+setNanoRouteMode -quiet -routeWithSiDriven true
+routeDesign -globalDetail
+saveDesign fifo_routed.enc
+streamOut fifo.gds -libName DesignLib -units 2000 -mode ALL
+reset_parasitics
+extractRC
+rcOut -spef async_fifo.spef -rc_corner rc_corner
+all_hold_analysis_views 
+all_setup_analysis_views 
+write_sdf  -ideal_clock_network async_fifo.sdf
+zoomBox -528.06050 -173.44850 1729.22050 929.14000
+fit
+deselectAll
+zoomBox -2027.39500 -972.72750 2296.84800 1139.48650
+zoomBox -717.65300 -173.95350 1539.62900 928.63550
+zoomBox -503.10200 -43.10550 1415.58800 894.09550
+fit

@@ -1,0 +1,84 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: RDFFSRX1
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:49:04 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    RDFFSRX1
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT RDFFSRX1 CK D ExtVDD Q QN RN RT SN VDD VSS
+*.PININFO CK:I D:I ExtVDD:I RN:I RT:I SN:I VDD:I VSS:I Q:O QN:O
+*.POWERSENSITIVITY VSS VDD
+*.GROUNDSENSITIVITY VDD VSS
+MNM3 net0121 qbint VSS VSS g45n1svt m=1 l=45n w=145n
+MNM2 n35g RT net0121 VSS g45n1svt m=1 l=45n w=145n
+MNM1 qbint n35g VSS VSS g45n1svt m=1 l=45n w=145n
+MNM0 n35g RTb n35 VSS g45n1svt m=1 l=45n w=145n
+Mmn26 n20 CKb n21 VSS g45n1svt m=1 l=45n w=145n
+Mmn25 n21 D VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn57 QN qint VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn55 Q qbint VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn35 n30 mout VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn36 n20 CKbb n30 VSS g45n1svt m=1 l=45n w=145n
+Mmn22 RNb RN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn20 CKb CK VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn45 RTb RT VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn56 qint qbint VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn52 n40 qbint n42 VSS g45n1svt m=1 l=45n w=145n
+Mmn51 n40 RNb n42 VSS g45n1svt m=1 l=45n w=145n
+Mmn50 n42 SN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn53 n35 CKb n40 VSS g45n1svt m=1 l=45n w=145n
+Mmn21 CKbb CKb VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn32 mout n20 net426 VSS g45n1svt m=1 l=45n w=145n
+Mmn31 mout RNb net426 VSS g45n1svt m=1 l=45n w=145n
+Mmn40 n35 CKbb mout VSS g45n1svt m=1 l=45n w=145n
+Mmn30 net426 SN VSS VSS g45n1svt m=1 l=45n w=145n
+MPM3 n35g RTb net205 ExtVDD g45p1svt m=1 l=45n w=215n
+MPM2 net205 qbint ExtVDD ExtVDD g45p1svt m=1 l=45n w=215n
+MPM1 qbint n35g ExtVDD ExtVDD g45p1svt m=1 l=45n w=215n
+MPM0 n35g RT n35 ExtVDD g45p1svt m=1 l=45n w=215n
+Mmp26 n20 CKbb n22 VDD g45p1svt m=1 l=45n w=215n
+Mmp25 n22 D VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp52 n41 qbint n43 VDD g45p1svt m=1 l=45n w=215n
+Mmp51 n43 RNb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp57 QN qint VDD VDD g45p1svt m=1 l=45n w=390n
+Mmp55 Q qbint VDD VDD g45p1svt m=1 l=45n w=390n
+Mmp36 n20 CKb n31 VDD g45p1svt m=1 l=45n w=215n
+Mmp35 n31 mout VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp32 mout n20 net402 VDD g45p1svt m=1 l=45n w=215n
+Mmp31 net402 RNb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp22 RNb RN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp20 CKb CK VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp53 n35 CKbb n41 VDD g45p1svt m=1 l=45n w=215n
+Mmp50 n41 SN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp45 RTb RT ExtVDD ExtVDD g45p1svt m=1 l=45n w=215n
+Mmp56 qint qbint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp21 CKbb CKb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp30 mout SN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp40 n35 CKb mout VDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

@@ -1,0 +1,40 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: PBUFX2
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:48:39 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        ExtVDD:P
++        VDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    ExtVDD
+*+    VDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    PBUFX2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT PBUFX2 A ExtVDD VDD VSS Y
+*.PININFO A:I ExtVDD:I VDD:I VSS:I Y:O
+Mmn1 Y n0 VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn0 n0 A VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp1 Y n0 ExtVDD ExtVDD g45p1svt m=1 l=45n w=780n
+Mmp0 n0 A ExtVDD ExtVDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

@@ -1,0 +1,46 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: LSLH_ISONH_X1_TO_ON
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:44:01 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    LSLH_ISONH_X1_TO_ON
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT LSLH_ISONH_X1_TO_ON A ExtVDD ISOn VDD VSS Y
+*.PININFO A:I ExtVDD:I ISOn:I VDD:I VSS:I Y:O
+Mmn0 Y Ybint GatedVSS VSS g45n1svt m=1 l=45n w=260n
+MNM3 GatedVSS ISOn VSS VSS g45n1svt m=1 l=45n w=1.04u
+MNM2 GatedVSS A Ab VSS g45n1svt m=1 l=45n w=145n
+MNM0 Ybint A GatedVSS VSS g45n1svt m=1 l=45n w=780n
+MNM1 Yint Ab GatedVSS VSS g45n1svt m=1 l=45n w=780n
+MPM0 Ybint Yint VDD VDD g45p1svt m=1 l=45n w=215n
+MPM4 Y ISOn VDD VDD g45p1svt m=1 l=45n w=390n
+MPM1 Yint Ybint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp0 Y Ybint VDD VDD g45p1svt m=1 l=45n w=390n
+MPM2 Ab A ExtVDD ExtVDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

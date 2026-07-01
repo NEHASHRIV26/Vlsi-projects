@@ -1,0 +1,42 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: NOR2BXL
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:46:01 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    NOR2BXL
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT NOR2BXL AN B VDD VSS Y
+*.PININFO AN:I B:I VDD:I VSS:I Y:O
+Mmn1 Y net76 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn2 Y B VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn0 net76 AN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp2 Y B net59 VDD g45p1svt m=1 l=45n w=215n
+Mmp1 net59 net76 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp0 net76 AN VDD VDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

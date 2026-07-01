@@ -1,0 +1,64 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: TLATNSRX2
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:51:51 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    TLATNSRX2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT TLATNSRX2 D GN Q QN RN SN VDD VSS
+*.PININFO D:I GN:I RN:I SN:I VDD:I VSS:I Q:O QN:O
+Mmn5 net366 D VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn6 n5 GNb net366 VSS g45n1svt m=1 l=45n w=145n
+Mmn17 n5 GNbb net354 VSS g45n1svt m=1 l=45n w=145n
+Mmn16 net354 qint net350 VSS g45n1svt m=1 l=45n w=145n
+Mmn15 net350 RN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn11 qint n5 net342 VSS g45n1svt m=1 l=45n w=205n
+Mmn10 net342 SN VSS VSS g45n1svt m=1 l=45n w=205n
+Mmn21 Q qbint VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn0 GNbp GN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn2 GNbb GNbp net326 VSS g45n1svt m=1 l=45n w=145n
+Mmn1 net326 RN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn3 GNb GNbb VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn20 qbint qint VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn22 QN qint VSS VSS g45n1svt m=1 l=45n w=520n
+Mmp6 n5 GNbb net313 VDD g45p1svt m=1 l=45n w=215n
+Mmp5 net313 D VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp10 qint SN VDD VDD g45p1svt m=1 l=45n w=310n
+Mmp22 QN qint VDD VDD g45p1svt m=1 l=45n w=780n
+Mmp21 Q qbint VDD VDD g45p1svt m=1 l=45n w=780n
+Mmp0 GNbp GN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp3 GNb GNbb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp17 n5 GNb net270 VDD g45p1svt m=1 l=45n w=215n
+Mmp2 GNbb GNbp VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp16 net270 qint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp15 net270 RN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp20 qbint qint VDD VDD g45p1svt m=1 l=45n w=780n
+Mmp1 GNbb RN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp11 qint n5 VDD VDD g45p1svt m=1 l=45n w=310n
+.ENDS
+

@@ -1,0 +1,44 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: AND3X2
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:38:03 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    AND3X2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT AND3X2 A B C VDD VSS Y
+*.PININFO A:I B:I C:I VDD:I VSS:I Y:O
+Mmn3 Y net95 VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn1 net111 B net103 VSS g45n1svt m=1 l=45n w=145n
+Mmn0 net103 A VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn2 net95 C net111 VSS g45n1svt m=1 l=45n w=145n
+Mmp1 net95 B VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp2 net95 C VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp0 net95 A VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp3 Y net95 VDD VDD g45p1svt m=1 l=45n w=780n
+.ENDS
+

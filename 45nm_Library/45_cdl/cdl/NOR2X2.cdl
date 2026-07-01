@@ -1,0 +1,48 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: NOR2X2
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:46:04 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    NOR2X2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT NOR2X2 A B VDD VSS Y
+*.PININFO A:I B:I VDD:I VSS:I Y:O
+*.POWERSENSITIVITY Y VDD
+*.GROUNDSENSITIVITY Y VSS
+*.POWERSENSITIVITY A VDD
+*.GROUNDSENSITIVITY A VSS
+*.POWERSENSITIVITY B VDD
+*.GROUNDSENSITIVITY B VSS
+*.GROUNDSENSITIVITY VDD VSS
+*.POWERSENSITIVITY VSS VDD
+Mmn1 Y B VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn0 Y A VSS VSS g45n1svt m=1 l=45n w=520n
+Mmp1 Y B net41 VDD g45p1svt m=1 l=45n w=780n
+Mmp0 net41 A VDD VDD g45p1svt m=1 l=45n w=780n
+.ENDS
+

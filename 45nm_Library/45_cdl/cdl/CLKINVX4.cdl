@@ -1,0 +1,38 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: CLKINVX4
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:40:32 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    CLKINVX4
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT CLKINVX4 A VDD VSS Y
+*.PININFO A:I VDD:I VSS:I Y:O
+Mmp0 Y A VDD VDD g45p1svt m=1 l=45n w=1.56u
+Mmn0 Y A VSS VSS g45n1svt m=1 l=45n w=1.04u
+.ENDS
+

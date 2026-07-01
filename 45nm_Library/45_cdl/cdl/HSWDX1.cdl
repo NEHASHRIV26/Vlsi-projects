@@ -1,0 +1,50 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: HSWDX1
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:42:59 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL ExtVDD:P
++        VSS:G
++        VDD:P
++        ExtVSS:G
+
+*.PIN ExtVDD
+*+    VSS
+*+    VDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    HSWDX1
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT HSWDX1 ExtVDD PSO1 PSO1_out PSO2 PSO2_out VDD VSS
+*.PININFO ExtVDD:I PSO1:I PSO2:I VDD:I VSS:I PSO1_out:O PSO2_out:O
+MPM5 PSO2_out pso2n ExtVDD ExtVDD g45p1svt m=1 l=45n w=390n
+MPM2 n2 pso2n ExtVDD ExtVDD g45p1svt m=1 l=45n w=450n
+MPM8 pso1n PSO1 ExtVDD ExtVDD g45p1svt m=1 l=45n w=390n
+MPM7 pso2n PSO2 ExtVDD ExtVDD g45p1svt m=1 l=45n w=390n
+MPM1 n1 pso1n ExtVDD ExtVDD g45p1svt m=1 l=45n w=1.8u
+MPM6 PSO1_out pso1n ExtVDD ExtVDD g45p1svt m=1 l=45n w=390n
+MNM5 pso1n PSO1 VSS VSS g45n1svt m=1 l=45n w=260n
+MNM3 PSO2_out pso2n VSS VSS g45n1svt m=1 l=45n w=260n
+MNM1 n2 pso2n VSS VSS g45n1svt m=1 l=45n w=300n
+MNM2 pso2n PSO2 VSS VSS g45n1svt m=1 l=45n w=260n
+MNM0 n1 pso1n VSS VSS g45n1svt m=1 l=45n w=1.2u
+MNM4 PSO1_out pso1n VSS VSS g45n1svt m=1 l=45n w=260n
+MPM3 VDD n2 ExtVDD ExtVDD g45p1hvt m=1 l=45n w=450n
+MPM0 VDD n1 ExtVDD ExtVDD g45p1hvt m=12 l=45n w=1.8u
+.ENDS
+

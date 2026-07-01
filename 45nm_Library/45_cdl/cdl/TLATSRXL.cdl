@@ -1,0 +1,62 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: TLATSRXL
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:52:20 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    TLATSRXL
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT TLATSRXL D G Q QN RN SN VDD VSS
+*.PININFO D:I G:I RN:I SN:I VDD:I VSS:I Q:O QN:O
+Mmn5 net191 D VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn6 n5 Gbb net191 VSS g45n1svt m=1 l=45n w=145n
+Mmn10 net183 SN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn11 Qint n5 net183 VSS g45n1svt m=1 l=45n w=145n
+Mmn17 n5 Gb net171 VSS g45n1svt m=1 l=45n w=145n
+Mmn16 net171 Qint net167 VSS g45n1svt m=1 l=45n w=145n
+Mmn15 net167 RN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn1 Gb G net159 VSS g45n1svt m=1 l=45n w=145n
+Mmn0 net159 RN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn22 QN Qint VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn21 Q Qbint VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn2 Gbb Gb VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn20 Qbint Qint VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp6 n5 Gb net142 VDD g45p1svt m=1 l=45n w=215n
+Mmp5 net142 D VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp10 Qint SN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp1 Gb G VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp22 QN Qint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp21 Q Qbint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp2 Gbb Gb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp17 n5 Gbb net103 VDD g45p1svt m=1 l=45n w=215n
+Mmp16 net103 Qint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp15 net103 RN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp0 Gb RN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp20 Qbint Qint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp11 Qint n5 VDD VDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

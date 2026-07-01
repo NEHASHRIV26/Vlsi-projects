@@ -1,0 +1,46 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: NAND4BX2
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:45:40 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    NAND4BX2
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT NAND4BX2 AN B C D VDD VSS Y
+*.PININFO AN:I B:I C:I D:I VDD:I VSS:I Y:O
+Mmn4 Y D net130 VSS g45n1svt m=1 l=45n w=520n
+Mmn2 net126 B net122 VSS g45n1svt m=1 l=45n w=520n
+Mmn1 net122 net118 VSS VSS g45n1svt m=1 l=45n w=520n
+Mmn0 net118 AN VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn3 net130 C net126 VSS g45n1svt m=1 l=45n w=520n
+Mmp4 Y D VDD VDD g45p1svt m=1 l=45n w=780n
+Mmp1 Y net118 VDD VDD g45p1svt m=1 l=45n w=780n
+Mmp2 Y B VDD VDD g45p1svt m=1 l=45n w=780n
+Mmp0 net118 AN VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp3 Y C VDD VDD g45p1svt m=1 l=45n w=780n
+.ENDS
+

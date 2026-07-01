@@ -1,0 +1,54 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: ADDHXL
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:37:51 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    ADDHXL
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT ADDHXL A B CO S VDD VSS
+*.PININFO A:I B:I VDD:I VSS:I CO:O S:O
+Mmn8 CO COb VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn7 COb B n4 VSS g45n1svt m=1 l=45n w=145n
+Mmn6 n4 A VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn5 S Sb VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn3 Sb B n2 VSS g45n1svt m=1 l=45n w=145n
+Mmn2 n2 n0 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn1 n1 B VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn4 Sb n1 n0 VSS g45n1svt m=1 l=45n w=145n
+Mmn0 n0 A VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp8 CO COb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp5 S Sb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp2 n3 n0 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp3 Sb n1 n3 VDD g45p1svt m=1 l=45n w=215n
+Mmp4 Sb B n0 VDD g45p1svt m=1 l=45n w=215n
+Mmp1 n1 B VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp7 COb B VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp0 n0 A VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp6 COb A VDD VDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

@@ -1,0 +1,11 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+fifo.v
+fifo_tb.v
+-access
++rwc
+-gui
+-coverage
+all

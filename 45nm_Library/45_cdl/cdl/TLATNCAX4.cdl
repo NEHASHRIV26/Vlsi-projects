@@ -1,0 +1,56 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: TLATNCAX4
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:51:44 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    TLATNCAX4
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT TLATNCAX4 CK E ECK VDD VSS
+*.PININFO CK:I E:I VDD:I VSS:I ECK:O
+Mmn5 net254 E VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn6 n0 CKb net254 VSS g45n1svt m=1 l=45n w=145n
+Mmn22 ECK ECKb VSS VSS g45n1svt m=1 l=45n w=1.04u
+Mmn21 ECKb CKbb net238 VSS g45n1svt m=1 l=45n w=260n
+Mmn20 net238 Eint VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn16 n0 CKbb net230 VSS g45n1svt m=1 l=45n w=145n
+Mmn15 net230 Eint VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn0 CKb CK VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn10 Eint n0 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn1 CKbb CKb VSS VSS g45n1svt m=1 l=45n w=145n
+Mmp6 n0 CKbb net217 VDD g45p1svt m=1 l=45n w=215n
+Mmp5 net217 E VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp22 ECK ECKb VDD VDD g45p1svt m=1 l=45n w=1.56u
+Mmp16 n0 CKb net205 VDD g45p1svt m=1 l=45n w=215n
+Mmp15 net205 Eint VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp0 CKb CK VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp1 CKbb CKb VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp20 ECKb Eint VDD VDD g45p1svt m=1 l=45n w=390n
+Mmp21 ECKb CKbb VDD VDD g45p1svt m=1 l=45n w=390n
+Mmp10 Eint n0 VDD VDD g45p1svt m=1 l=45n w=215n
+.ENDS
+

@@ -1,0 +1,48 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: CLKMX2X8
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:40:45 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VDD:P
++        VSS:G
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VDD
+*+    VSS
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    CLKMX2X8
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT CLKMX2X8 A B S0 VDD VSS Y
+*.PININFO A:I B:I S0:I VDD:I VSS:I Y:O
+Mmn3 net140 B VSS VSS g45n1svt m=1 l=45n w=205n
+Mmn0 S0b S0 VSS VSS g45n1svt m=1 l=45n w=145n
+Mmn2 n0 S0b net148 VSS g45n1svt m=1 l=45n w=205n
+Mmn1 net148 A VSS VSS g45n1svt m=1 l=45n w=205n
+Mmn5 Y n0 VSS VSS g45n1svt m=1 l=45n w=2.065u
+Mmn4 n0 S0 net140 VSS g45n1svt m=1 l=45n w=205n
+Mmp4 n0 S0b net115 VDD g45p1svt m=1 l=45n w=310n
+Mmp3 net115 B VDD VDD g45p1svt m=1 l=45n w=310n
+Mmp5 Y n0 VDD VDD g45p1svt m=1 l=45n w=3.115u
+Mmp2 n0 S0 net123 VDD g45p1svt m=1 l=45n w=310n
+Mmp0 S0b S0 VDD VDD g45p1svt m=1 l=45n w=215n
+Mmp1 net123 A VDD VDD g45p1svt m=1 l=45n w=310n
+.ENDS
+

@@ -1,0 +1,44 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: NOR4X4
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:46:45 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    NOR4X4
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT NOR4X4 A B C D VDD VSS Y
+*.PININFO A:I B:I C:I D:I VDD:I VSS:I Y:O
+Mmn2 Y C VSS VSS g45n1svt m=1 l=45n w=1.04u
+Mmn3 Y D VSS VSS g45n1svt m=1 l=45n w=1.04u
+Mmn0 Y A VSS VSS g45n1svt m=1 l=45n w=1.04u
+Mmn1 Y B VSS VSS g45n1svt m=1 l=45n w=1.04u
+Mmp1 n1 B n0 VDD g45p1svt m=1 l=45n w=1.56u
+Mmp3 Y D n2 VDD g45p1svt m=1 l=45n w=1.56u
+Mmp2 n2 C n1 VDD g45p1svt m=1 l=45n w=1.56u
+Mmp0 n0 A VDD VDD g45p1svt m=1 l=45n w=1.56u
+.ENDS
+

@@ -1,0 +1,46 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  gsclib045
+* Top Cell Name: AOI221X1
+* View Name:     schematic
+* Netlisted on:  Jun  4 07:38:46 2012
+************************************************************************
+
+*.BIPOLAR
+*.RESI = 2000 
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+*.GLOBAL VSS:G
++        VDD:P
++        ExtVDD:P
++        ExtVSS:G
+
+*.PIN VSS
+*+    VDD
+*+    ExtVDD
+*+    ExtVSS
+
+************************************************************************
+* Library Name: gsclib045
+* Cell Name:    AOI221X1
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT AOI221X1 A0 A1 B0 B1 C0 VDD VSS Y
+*.PININFO A0:I A1:I B0:I B1:I C0:I VDD:I VSS:I Y:O
+Mmn2 net120 B0 VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn3 Y B1 net120 VSS g45n1svt m=1 l=45n w=260n
+Mmn4 Y C0 VSS VSS g45n1svt m=1 l=45n w=260n
+Mmn1 Y A1 net128 VSS g45n1svt m=1 l=45n w=260n
+Mmn0 net128 A0 VSS VSS g45n1svt m=1 l=45n w=260n
+Mmp3 net108 B1 net111 VDD g45p1svt m=1 l=45n w=390n
+Mmp2 net108 B0 net111 VDD g45p1svt m=1 l=45n w=390n
+Mmp0 net111 A0 VDD VDD g45p1svt m=1 l=45n w=390n
+Mmp1 net111 A1 VDD VDD g45p1svt m=1 l=45n w=390n
+Mmp4 Y C0 net108 VDD g45p1svt m=1 l=45n w=390n
+.ENDS
+
